@@ -19,42 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global/global}
-    \entry{almalinux}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c158e3ead98c5929e4228914a1e6e615}{%
-           family={AlmaLinux},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{fullhash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{fullhashraw}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{bibnamehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authorbibnamehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authornamehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authorfullhash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authorfullhashraw}{c158e3ead98c5929e4228914a1e6e615}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Instalador AlmaLinux}
-      \field{title}{Repositorio AlmaLinux}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
-      \endverb
-      \verb{url}
-      \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
-      \endverb
-    \endentry
-    \entry{pagtei}{online}{}{}
+    \entry{pagep}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
            family={IPBeja},
@@ -75,18 +40,18 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Página TEI}
-      \field{title}{Disciplina: Tópicos de Engenharia Informatica | IPBeja}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
+      \field{note}{Página EP}
+      \field{title}{Disciplina: Estágio ou Projeto | IPBeja}
+      \field{urlday}{16}
+      \field{urlmonth}{6}
       \field{urlyear}{2025}
       \field{year}{2025}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://cms.ipbeja.pt/course/view.php?id=2775
+      \verb https://cms.ipbeja.pt/course/view.php?id=238
       \endverb
       \verb{url}
-      \verb https://cms.ipbeja.pt/course/view.php?id=2775
+      \verb https://cms.ipbeja.pt/course/view.php?id=238
       \endverb
     \endentry
     \entry{putty}{online}{}{}
@@ -112,7 +77,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador Putty}
       \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -126,42 +91,7 @@
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
-    \entry{almalinux}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c158e3ead98c5929e4228914a1e6e615}{%
-           family={AlmaLinux},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{fullhash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{fullhashraw}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{bibnamehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authorbibnamehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authornamehash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authorfullhash}{c158e3ead98c5929e4228914a1e6e615}
-      \strng{authorfullhashraw}{c158e3ead98c5929e4228914a1e6e615}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Instalador AlmaLinux}
-      \field{title}{Repositorio AlmaLinux}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
-      \endverb
-      \verb{url}
-      \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
-      \endverb
-    \endentry
-    \entry{pagtei}{online}{}{}
+    \entry{pagep}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
            family={IPBeja},
@@ -182,18 +112,18 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Página TEI}
-      \field{title}{Disciplina: Tópicos de Engenharia Informatica | IPBeja}
-      \field{urlday}{19}
-      \field{urlmonth}{5}
+      \field{note}{Página EP}
+      \field{title}{Disciplina: Estágio ou Projeto | IPBeja}
+      \field{urlday}{16}
+      \field{urlmonth}{6}
       \field{urlyear}{2025}
       \field{year}{2025}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://cms.ipbeja.pt/course/view.php?id=2775
+      \verb https://cms.ipbeja.pt/course/view.php?id=238
       \endverb
       \verb{url}
-      \verb https://cms.ipbeja.pt/course/view.php?id=2775
+      \verb https://cms.ipbeja.pt/course/view.php?id=238
       \endverb
     \endentry
     \entry{putty}{online}{}{}
@@ -219,7 +149,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador Putty}
       \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  16 JUN 2025 11:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  16 JUN 2025 15:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -879,76 +879,27 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'portuguese'.
- (Relatorio.aux
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `fig:nfswarning' multiply defined.
-
-
-LaTeX Warning: Label `con' multiply defined.
-
-)
+ (Relatorio.aux)
 \openout1 = `Relatorio.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
 Package biblatex Info: Trying to load language 'portuguese' -> 'portuguese-apa'...
 Package biblatex Info: ... file 'portuguese-apa.lbx' found.
  (C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\portuguese-apa.lbx
@@ -971,8 +922,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Relatorio.bbl' found.
  (Relatorio.bbl)
-Package biblatex Info: Reference section=0 on input line 129.
-Package biblatex Info: Reference segment=0 on input line 129.
+Package biblatex Info: Reference section=0 on input line 127.
+Package biblatex Info: Reference segment=0 on input line 127.
  (C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count494
@@ -1003,7 +954,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package translations Info: no dictionary file `translations-basic-dictionary-portuges.trsl' found. on input line 129.
+Package translations Info: no dictionary file `translations-basic-dictionary-portuges.trsl' found. on input line 127.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1039,20 +990,20 @@ Package translations Info: no dictionary file `translations-basic-dictionary-por
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 129.
+Package hyperref Info: Link coloring OFF on input line 127.
 (Relatorio.out) (Relatorio.out)
 \@outlinefile=\write5
 \openout5 = `Relatorio.out'.
 
-<Recursos/Logos/LOGO_IPB.png, id=61, 646.415pt x 499.8675pt>
+<Recursos/Logos/LOGO_IPB.png, id=41, 646.415pt x 499.8675pt>
 File: Recursos/Logos/LOGO_IPB.png Graphic file (type png)
 <use Recursos/Logos/LOGO_IPB.png>
-Package pdftex.def Info: Recursos/Logos/LOGO_IPB.png  used on input line 135.
+Package pdftex.def Info: Recursos/Logos/LOGO_IPB.png  used on input line 133.
 (pdftex.def)             Requested size: 170.71652pt x 132.01424pt.
-<Recursos/Logos/IPBejaESTIG.jpg, id=62, 501.875pt x 301.125pt>
+<Recursos/Logos/IPBejaESTIG.jpg, id=42, 501.875pt x 301.125pt>
 File: Recursos/Logos/IPBejaESTIG.jpg Graphic file (type jpg)
 <use Recursos/Logos/IPBejaESTIG.jpg>
-Package pdftex.def Info: Recursos/Logos/IPBejaESTIG.jpg  used on input line 135.
+Package pdftex.def Info: Recursos/Logos/IPBejaESTIG.jpg  used on input line 133.
 (pdftex.def)             Requested size: 170.71652pt x 102.43167pt.
 
 
@@ -1064,37 +1015,22 @@ Package pdftex.def Info: Recursos/Logos/IPBejaESTIG.jpg  used on input line 135.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135 \firsttitlepage
-                      [2]
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.137 \secondtitlepage
+l.135 \secondtitlepage
                        [1]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.155 \newpage
+l.150 \newpage
                [1]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.172 \newpage
-               [2] (Relatorio.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
- (C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
- (C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+l.168 \newpage
+               [2] (Relatorio.toc)
 \tf@toc=\write6
 \openout6 = `Relatorio.toc'.
 
@@ -1104,7 +1040,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.175 \newpage
+l.171 \newpage
                [3] (Relatorio.lof)
 \tf@lof=\write7
 \openout7 = `Relatorio.lof'.
@@ -1115,272 +1051,56 @@ l.175 \newpage
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 \newpage
+l.175 \newpage
                [4]
 
 [1]
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 212--215
 
- []
-
-<Recursos/UserMach.png, id=159, 405.31425pt x 320.397pt>
-File: Recursos/UserMach.png Graphic file (type png)
-<use Recursos/UserMach.png>
-Package pdftex.def Info: Recursos/UserMach.png  used on input line 218.
-(pdftex.def)             Requested size: 334.60422pt x 264.497pt.
-
-
-[3 <./Recursos/UserMach.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
-
- []
-
-
+[3]
 
 [4]
-Overfull \hbox (24.06192pt too wide) in paragraph at lines 252--255
-\T1/cmr/m/n/10 se-guida, para a con-fi-gu-ra-ção do DNS, fo-ram fei-tas as se-guin-tes al-te-ra-ções no fi-cheiro \T1/cmr/bx/n/10 /etc/named.conf
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
-
- []
-
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 263.
-(C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \hbox (15.0pt too wide) in paragraph at lines 261--286
-[]$[]$ 
- []
-
-
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
-
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 291--308
-[]$[]$ 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 309--325
-[]$[]$ 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 326--342
-[]$[]$ 
- []
-
-
 
 [6]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 343--360
-[]$[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 343--360
-
- []
-
-
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 362--364
 
- []
+[8]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 222.
+ (C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 222.
+ (C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 
-<Recursos/DNS.png, id=187, 422.17725pt x 322.806pt>
-File: Recursos/DNS.png Graphic file (type png)
-<use Recursos/DNS.png>
-Package pdftex.def Info: Recursos/DNS.png  used on input line 367.
-(pdftex.def)             Requested size: 334.60422pt x 255.85622pt.
-
-
-[8 <./Recursos/DNS.png>]
-Overfull \hbox (5.20213pt too wide) in paragraph at lines 377--379
-[]\T1/cmr/m/n/10 Primeiramente é ne-ces-sá-ria a cri-a-ção de três uti-li-za-do-res \T1/cmr/bx/n/10 trinta.org\T1/cmr/m/n/10 , \T1/cmr/bx/n/10 3em-frente.eu \T1/cmr/m/n/10 e \T1/cmr/bx/n/10 the.com
- []
-
-
-Overfull \hbox (15.23428pt too wide) in paragraph at lines 377--379
-\T1/cmr/m/n/10 com a palavra-passe \T1/cmr/bx/n/10 1234\T1/cmr/m/n/10 . É em se-guida, é ne-ces-sá-rio criar o fi-cheiro \T1/cmr/bx/n/10 /etc/httpd/conf/httpd.conf
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 377--379
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 377--379
-
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 380--396
-[]$[]$ 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 397--413
-[]$[]$ 
- []
-
-
-
-[9]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 414--430
-[]$[]$ 
- []
-
-
-
-[10]
-<Recursos/VH.png, id=201, 256.5585pt x 92.14426pt>
-File: Recursos/VH.png Graphic file (type png)
-<use Recursos/VH.png>
-Package pdftex.def Info: Recursos/VH.png  used on input line 442.
-(pdftex.def)             Requested size: 334.60422pt x 120.1868pt.
-
-
-[11 <./Recursos/VH.png>]
-
-[12]
-<Recursos/Login.png, id=214, 466.74374pt x 439.04025pt>
-File: Recursos/Login.png Graphic file (type png)
-<use Recursos/Login.png>
-Package pdftex.def Info: Recursos/Login.png  used on input line 491.
-(pdftex.def)             Requested size: 334.60422pt x 314.75551pt.
-
-Overfull \hbox (69.3201pt too wide) in paragraph at lines 486--495
-[]\T1/cmr/m/n/10 Agora é pos-si-vel con-fi-gu-rar a WAF atra-vés do brow-ser, ace-dendo ao en-de-reço \T1/cmr/bx/n/10 https://192.168.1.100/setup\T1/cmr/m/n/10 .
- []
-
-
-
-[13 <./Recursos/Login.png>]
-<Recursos/WAF1.png, id=220, 300.52275pt x 129.48375pt>
-File: Recursos/WAF1.png Graphic file (type png)
-<use Recursos/WAF1.png>
-Package pdftex.def Info: Recursos/WAF1.png  used on input line 508.
-(pdftex.def)             Requested size: 334.60422pt x 144.17714pt.
-<Recursos/WAF2.png, id=221, 278.84175pt x 76.48575pt>
-File: Recursos/WAF2.png Graphic file (type png)
-<use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 516.
-(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
-
-
-[14 <./Recursos/WAF1.png> <./Recursos/WAF2.png>]
-<Recursos/WAF3.png, id=228, 275.8305pt x 81.906pt>
-File: Recursos/WAF3.png Graphic file (type png)
-<use Recursos/WAF3.png>
-Package pdftex.def Info: Recursos/WAF3.png  used on input line 526.
-(pdftex.def)             Requested size: 334.60422pt x 99.36401pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 531--532
-
- []
-
-<Recursos/WAF4.png, id=229, 274.626pt x 79.497pt>
-File: Recursos/WAF4.png Graphic file (type png)
-<use Recursos/WAF4.png>
-Package pdftex.def Info: Recursos/WAF4.png  used on input line 535.
-(pdftex.def)             Requested size: 334.60422pt x 96.85881pt.
-<Recursos/WAF5.png, id=230, 278.84175pt x 121.6545pt>
-File: Recursos/WAF5.png Graphic file (type png)
-<use Recursos/WAF5.png>
-Package pdftex.def Info: Recursos/WAF5.png  used on input line 542.
-(pdftex.def)             Requested size: 334.60422pt x 145.99765pt.
-
-
-[15 <./Recursos/WAF3.png> <./Recursos/WAF4.png> <./Recursos/WAF5.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 550--552
-
- []
-
-<Recursos/Kali1.png, id=239, 216.20775pt x 59.62276pt>
-File: Recursos/Kali1.png Graphic file (type png)
-<use Recursos/Kali1.png>
-Package pdftex.def Info: Recursos/Kali1.png  used on input line 556.
-(pdftex.def)             Requested size: 334.60422pt x 92.28056pt.
-<Recursos/Kali2.png, id=240, 569.12625pt x 409.53pt>
-File: Recursos/Kali2.png Graphic file (type png)
-<use Recursos/Kali2.png>
-Package pdftex.def Info: Recursos/Kali2.png  used on input line 564.
-(pdftex.def)             Requested size: 334.60422pt x 240.78325pt.
-
-
-[16 <./Recursos/Kali1.png> <./Recursos/Kali2.png>]
-<Recursos/Kali3.png, id=248, 589.60275pt x 277.035pt>
-File: Recursos/Kali3.png Graphic file (type png)
-<use Recursos/Kali3.png>
-Package pdftex.def Info: Recursos/Kali3.png  used on input line 573.
-(pdftex.def)             Requested size: 334.60422pt x 157.21832pt.
-File: Recursos/Kali2.png Graphic file (type png)
-<use Recursos/Kali2.png>
-Package pdftex.def Info: Recursos/Kali2.png  used on input line 581.
-(pdftex.def)             Requested size: 334.60422pt x 240.78325pt.
-
-
-[17 <./Recursos/Kali3.png>]
-<Recursos/Kali4.png, id=254, 760.0395pt x 184.2885pt>
-File: Recursos/Kali4.png Graphic file (type png)
-<use Recursos/Kali4.png>
-Package pdftex.def Info: Recursos/Kali4.png  used on input line 591.
-(pdftex.def)             Requested size: 334.60422pt x 81.13217pt.
-<Recursos/Kali5.png, id=255, 767.86874pt x 175.25475pt>
-File: Recursos/Kali5.png Graphic file (type png)
-<use Recursos/Kali5.png>
-Package pdftex.def Info: Recursos/Kali5.png  used on input line 599.
-(pdftex.def)             Requested size: 334.60422pt x 76.3689pt.
-<Recursos/Kali6.png, id=256, 770.88pt x 184.2885pt>
-File: Recursos/Kali6.png Graphic file (type png)
-<use Recursos/Kali6.png>
-Package pdftex.def Info: Recursos/Kali6.png  used on input line 607.
-(pdftex.def)             Requested size: 334.60422pt x 79.9905pt.
-
-
-[18 <./Recursos/Kali4.png> <./Recursos/Kali5.png> <./Recursos/Kali6.png>]
-
-[19]
-
-[20] (Relatorio.aux)
+[9] (Relatorio.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-10-09>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `Relatorio.out' has not changed.
-(rerunfilecheck)             Checksum: 19729FD62C76E420B595AE8778F5D7DA;1667.
+(rerunfilecheck)             Checksum: 49E260F734B792F3820304B68EC223B2;1092.
 Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 \openout1 = `Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36923 strings out of 473897
- 741992 string characters out of 5726462
- 1602544 words of memory out of 5000000
- 59223 multiletter control sequences out of 15000+600000
- 568747 words of font info for 57 fonts, out of 8000000 for 9000
+ 36711 strings out of 473897
+ 736988 string characters out of 5726462
+ 1595128 words of memory out of 5000000
+ 59051 multiletter control sequences out of 15000+600000
+ 568412 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,7n,107p,753b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (27 pages, 545805 bytes).
+ 99i,6n,107p,753b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
+Output written on Relatorio.pdf (15 pages, 206465 bytes).
 PDF statistics:
- 756 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 210 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 
