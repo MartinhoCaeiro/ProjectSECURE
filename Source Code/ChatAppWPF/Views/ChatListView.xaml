@@ -1,0 +1,53 @@
+<Window x:Class="ChatAppWPF.Views.ChatListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Conversas"
+        Height="600"
+        Width="400"
+        Background="{DynamicResource BackgroundBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Cabeçalho -->
+            <RowDefinition Height="*"/>
+            <!-- Lista de chats -->
+            <RowDefinition Height="Auto"/>
+            <!-- Botão novo chat -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <DockPanel Grid.Row="0"
+                   Margin="10"
+                   LastChildFill="False">
+            <TextBlock Text="Conversas"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="{DynamicResource ForegroundBrush}"
+                       VerticalAlignment="Center"
+                       DockPanel.Dock="Left"/>
+            <Button Content="⚙"
+                    Width="32"
+                    Height="32"
+                    Margin="5,0,0,0"
+                    Click="OpenSettings"
+                    DockPanel.Dock="Right"/>
+        </DockPanel>
+
+        <!-- Lista de chats -->
+        <ListBox Grid.Row="1"
+                 ItemsSource="{Binding Chats}"
+                 SelectedItem="{Binding SelectedChat}"
+                 Margin="10"
+                 Foreground="{DynamicResource ForegroundBrush}"
+                 MouseDoubleClick="Chat_DoubleClick"/>
+
+
+        <!-- Botão novo chat -->
+        <Button Grid.Row="2"
+                Content="➕ Nova Conversa"
+                Command="{Binding NewChatCommand}"
+                HorizontalAlignment="Center"
+                Margin="10"
+                Width="200"/>
+    </Grid>
+</Window>
