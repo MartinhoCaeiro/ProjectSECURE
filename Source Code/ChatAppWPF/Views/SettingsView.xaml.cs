@@ -8,6 +8,12 @@ namespace ChatAppWPF.Views
         public SettingsView()
         {
             InitializeComponent();
+
+            // Obter o tema atual da aplicação
+            string currentTheme = ((App)Application.Current).CurrentTheme;
+
+            // Atualizar seleção da ComboBox conforme o tema
+            ThemeComboBox.SelectedIndex = currentTheme == "Dark" ? 1 : 0;
         }
 
         private void ThemeChanged(object sender, SelectionChangedEventArgs e)

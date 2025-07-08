@@ -1,7 +1,13 @@
 <Window x:Class="ChatAppWPF.Views.ChatView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Chat" Height="600" Width="400"
+        Title="Chat"
+        Height="600"
+        Width="400"
+        WindowStyle="SingleBorderWindow"
+        SizeToContent="Manual"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
     <Grid>
         <Grid.RowDefinitions>
@@ -18,19 +24,34 @@
                  Foreground="{DynamicResource ForegroundBrush}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border Background="#33000000"
-                            CornerRadius="8"
-                            Padding="8"
-                            Margin="5">
-                        <TextBlock Text="{Binding Content}"
-                                   TextWrapping="Wrap"/>
-                    </Border>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="{Binding IsSentByUser, Converter={StaticResource BoolToAlignmentConverter}}"
+                                Margin="4">
+                        <Border Background="{Binding IsSentByUser, Converter={StaticResource BoolToBubbleColorConverter}}"
+                                CornerRadius="12"
+                                Padding="10"
+                                MaxWidth="240">
+                            <TextBlock Text="{Binding Content}"
+                                       TextWrapping="Wrap"
+                                       Foreground="{DynamicResource ForegroundBrush}"/>
+                        </Border>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding"
+                            Value="0"/>
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
         </ListBox>
 
         <!-- Caixa de mensagem -->
-        <DockPanel Grid.Row="1" Margin="10">
+        <DockPanel Grid.Row="1"
+                   Margin="10">
             <TextBox Width="260"
                      Height="36"
                      VerticalAlignment="Center"

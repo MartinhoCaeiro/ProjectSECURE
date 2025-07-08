@@ -4,6 +4,8 @@
         Title="Login"
         Height="400"
         Width="350"
+        WindowStyle="SingleBorderWindow"
+        SizeToContent="Manual"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
