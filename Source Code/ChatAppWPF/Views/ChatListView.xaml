@@ -4,6 +4,10 @@
         Title="Conversas"
         Height="600"
         Width="400"
+        WindowStyle="SingleBorderWindow"
+        SizeToContent="Manual"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
     <Grid>
         <Grid.RowDefinitions>
@@ -26,9 +30,8 @@
                        VerticalAlignment="Center"
                        DockPanel.Dock="Left"/>
             <Button Content="⚙"
-                    Width="32"
+                    Width="36"
                     Height="32"
-                    Margin="5,0,0,0"
                     Click="OpenSettings"
                     DockPanel.Dock="Right"/>
         </DockPanel>
@@ -37,10 +40,34 @@
         <ListBox Grid.Row="1"
                  ItemsSource="{Binding Chats}"
                  SelectedItem="{Binding SelectedChat}"
-                 Margin="10"
-                 Foreground="{DynamicResource ForegroundBrush}"
-                 MouseDoubleClick="Chat_DoubleClick"/>
+                 MouseDoubleClick="Chat_DoubleClick"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="#22FFFFFF"
+                            CornerRadius="6"
+                            Padding="12,8"
+                            Margin="0,4">
+                        <!-- Remove margem lateral -->
+                        <TextBlock Text="{Binding Name}"
+                                   FontSize="16"
+                                   Foreground="{DynamicResource ForegroundBrush}"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
 
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch"/>
+                    <Setter Property="Padding"
+                            Value="0"/>
+                    <!-- Remove padding do item -->
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
 
         <!-- Botão novo chat -->
         <Button Grid.Row="2"

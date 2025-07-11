@@ -26,3 +26,6 @@ C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-
 C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-windows\Views\SettingsView.g.cs
 C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-windows\Views\ChatListView.baml
 C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-windows\Views\ChatView.baml
+C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-windows\ChatAppWPF_MarkupCompile.lref
+C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\obj\Debug\net9.0-windows\App.baml

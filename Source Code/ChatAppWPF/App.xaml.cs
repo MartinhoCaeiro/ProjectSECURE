@@ -9,6 +9,7 @@ namespace ChatAppWPF
     public partial class App : Application
     {
         private const string ConfigFile = "userconfig.json";
+        public string CurrentTheme { get; private set; } = "Light";
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -33,6 +34,7 @@ namespace ChatAppWPF
             };
 
             Resources.MergedDictionaries.Add(dict);
+            CurrentTheme = theme;
             SaveThemePreference(theme);
         }
 

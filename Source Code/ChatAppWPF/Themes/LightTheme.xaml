@@ -119,7 +119,50 @@
                         Value="{StaticResource ControlBorderBrush}"/>
                 <Setter Property="BorderThickness"
                         Value="1"/>
+                <Setter Property="Padding"
+                        Value="4"/>
+                <Setter Property="Template">
+                        <Setter.Value>
+                                <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                                <ToggleButton
+                                                        Name="ToggleButton"
+                                                        Background="{TemplateBinding Background}"
+                                                        Foreground="{TemplateBinding Foreground}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                        ClickMode="Press"
+                                                        Focusable="False">
+                                                        <ContentPresenter
+                                                                Content="{TemplateBinding SelectionBoxItem}"
+                                                                VerticalAlignment="Center"
+                                                                HorizontalAlignment="Left"
+                                                                Margin="4,2"/>
+                                                </ToggleButton>
+
+                                                <Popup
+                                                        Name="Popup"
+                                                        Placement="Bottom"
+                                                        IsOpen="{TemplateBinding IsDropDownOpen}"
+                                                        AllowsTransparency="True"
+                                                        Focusable="False"
+                                                        PopupAnimation="Slide">
+                                                        <Grid
+                                                                Background="{TemplateBinding Background}"
+                                                                MinWidth="{TemplateBinding ActualWidth}"
+                                                                MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                                <ScrollViewer Margin="4">
+                                                                        <StackPanel IsItemsHost="True"/>
+                                                                </ScrollViewer>
+                                                        </Grid>
+                                                </Popup>
+                                        </Grid>
+                                </ControlTemplate>
+                        </Setter.Value>
+                </Setter>
         </Style>
+
 
         <!-- ComboBoxItem -->
         <Style TargetType="ComboBoxItem">
