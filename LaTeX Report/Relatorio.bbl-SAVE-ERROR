@@ -54,41 +54,6 @@
       \verb https://cms.ipbeja.pt/course/view.php?id=238
       \endverb
     \endentry
-    \entry{putty}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=51b7b34f68a797ac13a120b4a8028753}{%
-           family={Putty},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{fullhash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{fullhashraw}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{bibnamehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authorbibnamehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authornamehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authorfullhash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authorfullhashraw}{51b7b34f68a797ac13a120b4a8028753}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Instalador Putty}
-      \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{29}
-      \field{urlmonth}{5}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-      \endverb
-      \verb{url}
-      \verb https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-      \endverb
-    \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
     \entry{pagep}{online}{}{}
@@ -124,41 +89,6 @@
       \endverb
       \verb{url}
       \verb https://cms.ipbeja.pt/course/view.php?id=238
-      \endverb
-    \endentry
-    \entry{putty}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=51b7b34f68a797ac13a120b4a8028753}{%
-           family={Putty},
-           familyi={P\bibinitperiod}}}%
-      }
-      \strng{namehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{fullhash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{fullhashraw}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{bibnamehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authorbibnamehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authornamehash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authorfullhash}{51b7b34f68a797ac13a120b4a8028753}
-      \strng{authorfullhashraw}{51b7b34f68a797ac13a120b4a8028753}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Instalador Putty}
-      \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{29}
-      \field{urlmonth}{5}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-      \endverb
-      \verb{url}
-      \verb https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
       \endverb
     \endentry
   \enddatalist
