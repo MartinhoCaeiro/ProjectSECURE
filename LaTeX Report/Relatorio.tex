@@ -63,7 +63,7 @@
         \large\textbf{Licenciatura em Engenharia Informática} \\
         \large\textbf{Projeto Final de Curso} \\
         
-        \vspace{2cm}
+        \vspace{1cm}
         
         % Título do projeto
         {\Huge \textbf{Desenvolvimento de um sistema de comunicações seguras }} \\
@@ -138,7 +138,7 @@
 % Abstract
 \section*{\LARGE\textbf{\textit{Resumo}}}
 
-Neste relatório será abordado o processo de criação de uma solução de comunicações seguras, 
+Neste relatório será abordado o processo de criação de uma solução de comunicações seguras,
 que permita a troca de mensagens de texto entre os seus utilizadores.
 Este relatório foi realizado no âmbito da Unidade Curricular de
 Estágio ou Projeto (\cite{pagep}).
@@ -152,9 +152,9 @@ Estágio ou Projeto (\cite{pagep}).
 
 \section*{\LARGE\textbf{\textit{Abstract}}}
 
-In this report, we will address the creation process of a secure communication 
+In this report, we will address the creation process of a secure communication
 solution that allows text message exchange between its users.
-This report was carried out within the scope of the 
+This report was carried out within the scope of the
 Curricular Unit of Internship or Project (\cite{pagep}).
 
 
@@ -185,19 +185,19 @@ O sistema deve ser capaz de garantir a confidencialidade, integridade e autentic
 \section{Analise de Requisitos}\label{analise}
 Para a realização deste projeto, foram necessários os seguintes requisitos:
 \begin{itemize}
-    \item \textbf{Requisitos Funcionais:}
-    \begin{itemize}
-        \item O sistema deve permitir a criação de contas de utilizador.
-        \item O sistema deve permitir a autenticação de utilizadores.
-        \item O sistema deve permitir o envio e receção de mensagens entre utilizadores.
-        \item O sistema deve garantir a confidencialidade, integridade e autenticidade das mensagens trocadas.
-    \end{itemize}
-    \item \textbf{Requisitos Não Funcionais:}
-    \begin{itemize}
-        \item O sistema deve ser seguro e resistente a ataques.
-        \item O sistema deve ser fácil de usar e intuitivo.
-        \item O sistema deve ser escalável e capaz de suportar um grande número de utilizadores.
-    \end{itemize}
+	\item \textbf{Requisitos Funcionais:}
+	      \begin{itemize}
+		      \item O sistema deve permitir a criação de contas de utilizador.
+		      \item O sistema deve permitir a autenticação de utilizadores.
+		      \item O sistema deve permitir o envio e receção de mensagens entre utilizadores.
+		      \item O sistema deve garantir a confidencialidade, integridade e autenticidade das mensagens trocadas.
+	      \end{itemize}
+	\item \textbf{Requisitos Não Funcionais:}
+	      \begin{itemize}
+		      \item O sistema deve ser seguro e resistente a ataques.
+		      \item O sistema deve ser fácil de usar e intuitivo.
+		      \item O sistema deve ser escalável e capaz de suportar um grande número de utilizadores.
+	      \end{itemize}
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -205,61 +205,78 @@ Para a realização deste projeto, foram necessários os seguintes requisitos:
 \section{Tecnologias Utilizadas}\label{tecnologias}
 Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 \begin{itemize}
-    \item \textbf{Linguagens de Programação:} Python, JavaScript
-    \item \textbf{Frameworks:} Flask, React
-    \item \textbf{Banco de Dados:} SQLite
-    \item \textbf{Criptografia:} PyCryptodome, hashlib
-    \item \textbf{Ferramentas de Desenvolvimento:} Git, Visual Studio Code, Android Studio
-    \item  \textbf{Serviços de Hospedagem:} AlmaOS 8.10, GitHub
+	\item \textbf{Linguagens de Programação:} C#, Kotlin
+	\item \textbf{Frameworks:} .NET, WireGuard
+	\item \textbf{Banco de Dados:} SQLite
+	\item \textbf{Criptografia:} Rijndael (Vencedor AES), Serpent (Segundo lugar AES)
+	\item \textbf{Ferramentas de Desenvolvimento:} Git, Visual Studio Code, Android Studio
+	\item  \textbf{Serviços de Hospedagem:} AlmaOS 8.10, GitHub
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Arquitetura do Sistema}\label{arquitetura}
-O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores que estiverem registado na VPN poderão comunicar entre si. 
+O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores que estiverem registado na VPN poderão comunicar entre si.
 Dentro da aplicação, os utilizadores podem saber quem está associado a um endereço IP da VPN, e assim enviar mensagens para esse utilizador.
 Ao enviar uma mensagem, a aplicação irá contatar o servidor da VPN, para obter o caminho até ao destinatário, e assim enviar a mensagem.
-Essa mensagem será encriptada antes de ser enviada, para garantir a confidencialidade e integridade da mensagem. Existe a variação 
-da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que os métodos de encriptação utilizados são o AES 
+Essa mensagem será encriptada antes de ser enviada, para garantir a confidencialidade e integridade da mensagem. Existe a variação
+da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que os métodos de encriptação utilizados são o AES
 e o Sepernt.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Modulos do Sistema}\label{modulos}
 
+\subsection{Interface para Computador}
+A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente.
+A aplicação será desenvolvida utilizando o framework .NET, que é um framework de desenvolvimento de aplicações desktop, web e mobile.
+Esta interface é composta por 3 ecrãs principais:
+\begin{itemize}
+    \item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação, utilizando as suas credenciais.
+    \item \textbf{Ecrã de Lista de Chats:} onde o utilizador pode ver a lista de chats existentes, bem como criar novos chats.
+    \item \textbf{Ecrã de Chat:} onde o utilizador pode enviar e receber mensagens de outros utilizadores, bem como ver quem está online.
+\end{itemize}
+
+\subsection{Interface para Android}
+A interface para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma rápida e eficiente.
+
 \subsection{Módulo da VPN}
 A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10, e será responsável por gerir as ligações dos utilizadores à VPN,
 bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que é um serviço de VPN de código aberto,
-leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo 
-do utilizador, para que este possa estabelecer uma ligação à VPN. \\TODO Tentar fazer com que seja feito da maneira mais automatizada possível. 
+leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
+do utilizador, para que este possa estabelecer uma ligação à VPN. \\TODO Tentar fazer com que seja feito da maneira mais automatizada possível.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Desenvolvimento}\label{desenvolvimento}
+\subsection{Interface para Computador}
+Para o desenvolvimento da interface para computador, foi utilizado o Visual Studio Code, que é um ambiente de desenvolvimento integrado (IDE) da Microsoft.
 
+\subsection{Interface para Android}
+Para o desenvolvimento da interface para Android, foi utilizado o Android Studio, que é um ambiente de desenvolvimento integrado (IDE) oficial para o sistema operativo Android.
 
 \subsection{AlmaOS - Serviço de VPN}
-Para configurar corretamente o serviço de VPN, é necessário instalar o WireGuard no servidor AlmaOS 8.10, 
+Para configurar corretamente o serviço de VPN, é necessário instalar o WireGuard no servidor AlmaOS 8.10,
 para isso ser feito, foi necessário seguir os seguintes passos:
 \begin{enumerate}
-    \item Adicionar o repositório EPEL - sudo dnf install epel-release
-    \item Adicionar o repositório ELREPO - sudo dnf install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
-    \item Ativar o CodeReady Builder - sudo /usr/bin/crb enable
-    \item Atualizar os metadados - sudo dnf makecache
-    \item sudo dnf --enablerepo=elrepo install kmod-wireguard -y
-    \item Instalar o WireGuardTools - sudo dnf install wireguard-tools -y
+	\item Adicionar o repositório EPEL - sudo dnf install epel-release
+	\item Adicionar o repositório ELREPO - sudo dnf install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+	\item Ativar o CodeReady Builder - sudo /usr/bin/crb enable
+	\item Atualizar os metadados - sudo dnf makecache
+	\item sudo dnf --enablerepo=elrepo install kmod-wireguard -y
+	\item Instalar o WireGuardTools - sudo dnf install wireguard-tools -y
 \end{enumerate}
 Para verificar se o WireGuard está instalado corretamente, pode-se utilizar o comando \textbf{"sudo modprobe wireguard"},
 se este não devolver nenhum output, significa que o WireGuard está instalado corretamente.
 
-Agora, para configurar o WireGuard, é necessário criar as chaves de criptografia, para isso é necessário 
+Agora, para configurar o WireGuard, é necessário criar as chaves de criptografia, para isso é necessário
 ir para a pasta \textbf{/etc/wireguard} e executar o seguintes comando:
 \begin{verbatim}
     wg genkey | tee server_private.key | wg pubkey > server_public.key
     chmod 600 server_private.key
 \end{verbatim}
 Isto irá gerar duas chaves, uma privada e uma pública, que serão utilizadas para autenticar os utilizadores na VPN.
-\newpage 
-Após isso, é necessário criar o ficheiro de configuração do WireGuard, onde estará definida a configuração da VPN em si, 
+\newpage
+Após isso, é necessário criar o ficheiro de configuração do WireGuard, onde estará definida a configuração da VPN em si,
 como o endereço IP da VPN, a porta de escuta, as chaves de criptografia, entre outros.
 Para isso, é necessário criar o ficheiro \textbf{wg0.conf} na pasta \textbf{/etc/wireguard}, e adicionar o seguinte conteúdo:
 \begin{verbatim}
@@ -271,7 +288,7 @@ Para isso, é necessário criar o ficheiro \textbf{wg0.conf} na pasta \textbf{/e
 \end{verbatim}
 
 Para garantir o bom funcionamento da VPN, é necessário ativar o encaminhamento de endereços IP, para assim permitir o tráfego de rede.
-Para isso, é necessário fazer o seguinte comando: 
+Para isso, é necessário fazer o seguinte comando:
 \begin{verbatim}
     # Para permitir o tráfego de rede 
     echo "net.ipv4.ip_forward = 1" | sudo tee -a /etc/sysctl.conf
