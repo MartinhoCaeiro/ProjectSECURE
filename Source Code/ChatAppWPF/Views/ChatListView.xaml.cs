@@ -1,36 +1,41 @@
-using System.Windows;
 using ChatAppWPF.Models;
 using ChatAppWPF.ViewModels;
+using System.Windows;
+using System.Windows.Input;
 
 namespace ChatAppWPF.Views
 {
     public partial class ChatListView : Window
     {
-        public ChatListView()
+        private readonly ChatListViewModel viewModel;
+
+        public ChatListView(User user)
         {
             InitializeComponent();
-            this.DataContext = new ChatListViewModel(); // <-- Adiciona esta linha
-        }
-
-        private void NewChat_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Criar novo chat - ainda não implementado.");
+            viewModel = new ChatListViewModel(user);
+            DataContext = viewModel;
         }
 
         private void OpenSettings(object sender, RoutedEventArgs e)
         {
-            var settingsView = new SettingsView();
-            settingsView.ShowDialog();
+            var settingsWindow = new SettingsView();
+            settingsWindow.ShowDialog();
         }
 
-        private void Chat_DoubleClick(object sender, RoutedEventArgs e)
+        private void Chat_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var chat = (sender as System.Windows.Controls.ListBox)?.SelectedItem as Chat;
-            if (chat != null)
+            if (viewModel.SelectedChat != null)
             {
-                var chatWindow = new ChatView(chat);
-                chatWindow.Show();
+                var chatView = new ChatView(viewModel.CurrentUser, viewModel.SelectedChat);
+                chatView.Show();
             }
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var loginView = new LoginView();
+            loginView.Show();
+            this.Close();
         }
     }
 }

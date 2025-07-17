@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ChatAppWPF\App.xaml
-6294111143
+7-710074249
 
-151221606964
-2001466749558
-Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Views\ChatListView.xaml;Views\ChatView.xaml;Views\LoginView.xaml;Views\SettingsView.xaml;
+211456033582
+204485268736
+Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Views\ChatListView.xaml;Views\ChatView.xaml;Views\LoginView.xaml;Views\NewChatView.xaml;Views\SettingsView.xaml;
 
 False
 

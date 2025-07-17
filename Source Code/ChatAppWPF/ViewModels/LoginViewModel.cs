@@ -1,55 +1,91 @@
+using ChatAppWPF.Data;
+using ChatAppWPF.Models;
+using ChatAppWPF.Helpers;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System;
-
 
 namespace ChatAppWPF.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
         private string username = string.Empty;
+        private string password = string.Empty;
+        private string errorMessage = string.Empty;
+
         public string Username
         {
             get => username;
-            set { username = value; OnPropertyChanged(nameof(Username)); }
+            set { username = value; OnPropertyChanged(); }
         }
 
-        private string password = string.Empty;
         public string Password
         {
             get => password;
-            set { password = value; OnPropertyChanged(nameof(Password)); }
+            set { password = value; OnPropertyChanged(); }
         }
 
+        public string ErrorMessage
+        {
+            get => errorMessage;
+            set { errorMessage = value; OnPropertyChanged(); }
+        }
+
+        public User? CurrentUser { get; private set; }
+
         public ICommand LoginCommand { get; }
+        public ICommand RegisterCommand { get; }
 
         public LoginViewModel()
         {
-            LoginCommand = new RelayCommand(ExecuteLogin, CanExecuteLogin);
+            LoginCommand = new RelayCommand(Login);
+            RegisterCommand = new RelayCommand(Register);
         }
 
-        public event EventHandler? LoginSucceeded;
-
-        private void ExecuteLogin()
+        private void Login(object parameter)
         {
-            if (Username == "user" && Password == "1234")
+            if (UserRepository.ValidateLogin(Username, Password) is User user)
             {
-                LoginSucceeded?.Invoke(this, EventArgs.Empty);
+                CurrentUser = user;
+                ErrorMessage = "";
+
+                if (parameter is Window window)
+                {
+                    var chatListView = new Views.ChatListView(user);
+                    chatListView.Show();
+
+                    window.Close();
+                }
             }
             else
             {
-                MessageBox.Show("Credenciais inválidas.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                ErrorMessage = "Usuário ou senha inválidos.";
             }
         }
 
-
-        private bool CanExecuteLogin()
+        private void Register(object parameter)
         {
-            return !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password);
+            try
+            {
+                var user = new User
+                {
+                    UserId = Guid.NewGuid().ToString(),
+                    Name = Username,
+                    Password = Password
+                };
+                UserRepository.CreateUser(user);
+                ErrorMessage = "Usuário criado com sucesso! Faça login.";
+            }
+            catch (System.Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        private void OnPropertyChanged([CallerMemberName] string? name = null) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
