@@ -85,7 +85,7 @@
         \end{figure}
         
         % Local e data
-        {\large Beja, março de 2025}
+        {\large Beja, julho de 2025}
     \end{titlepage}
 }
 
@@ -120,7 +120,7 @@
         \vfill
         
         % Local e data
-        {\large Beja, março de 2025}
+        {\large Beja, julho de 2025}
     \end{titlepage}
 }
 
@@ -205,7 +205,7 @@ Para a realização deste projeto, foram necessários os seguintes requisitos:
 \section{Tecnologias Utilizadas}\label{tecnologias}
 Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 \begin{itemize}
-	\item \textbf{Linguagens de Programação:} C#, Kotlin
+	\item \textbf{Linguagens de Programação:} C\#, Kotlin
 	\item \textbf{Frameworks:} .NET, WireGuard
 	\item \textbf{Banco de Dados:} SQLite
 	\item \textbf{Criptografia:} Rijndael (Vencedor AES), Serpent (Segundo lugar AES)
@@ -304,6 +304,11 @@ Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executa
 \begin{verbatim}
     sudo systemctl enable --now wg-quick@wg0
 \end{verbatim}
+
+
+Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação 
+proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos 
+do dispositivo que está a fazer o papel de servidor.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
