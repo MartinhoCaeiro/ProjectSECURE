@@ -14,6 +14,10 @@ namespace ChatAppWPF
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            Data.DatabaseService.InitializeDatabase();
+
+
             // Carrega o tema antes de abrir qualquer janela
             string theme = LoadThemePreference() ?? (IsSystemInDarkMode() ? "Dark" : "Light");
             ApplyTheme(theme);

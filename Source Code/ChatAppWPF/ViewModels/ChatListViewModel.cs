@@ -1,38 +1,56 @@
-using System.Collections.ObjectModel;
-using System.Windows.Input;
+using ChatAppWPF.Data;
 using ChatAppWPF.Models;
+using ChatAppWPF.Helpers;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace ChatAppWPF.ViewModels
 {
-    public class ChatListViewModel
+    public class ChatListViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Chat> Chats { get; set; }
-
-        private Chat selectedChat;
-        public Chat SelectedChat
-        {
-            get => selectedChat;
-            set => selectedChat = value;
-        }
+        public ObservableCollection<Chat> Chats { get; set; } = new();
+        public User CurrentUser => currentUser;
+        private readonly User currentUser;
 
         public ICommand NewChatCommand { get; }
 
-        public ChatListViewModel()
-        {
-            Chats = new ObservableCollection<Chat>
-            {
-                new Chat { Name = "João" },
-                new Chat { Name = "Maria" },
-                new Chat { Name = "Pedro" }
-            };
+        public Chat? SelectedChat { get; set; }
 
-            NewChatCommand = new RelayCommand(NewChat);
+        public ChatListViewModel(User user)
+        {
+            currentUser = user;
+            LoadChats();
+
+            NewChatCommand = new RelayCommand(_ => NewChat());
+        }
+
+        private void LoadChats()
+        {
+            Chats.Clear();
+            var chats = ChatRepository.GetChatsForUser(currentUser.UserId);
+            foreach (var chat in chats)
+                Chats.Add(chat);
         }
 
         private void NewChat()
         {
-            // Implementar a criação de novo chat ou mostrar mensagem
-            System.Windows.MessageBox.Show("Criar novo chat - ainda não implementado.");
+            var name = PromptForChatName();
+            if (string.IsNullOrWhiteSpace(name)) return;
+
+            var newChat = ChatRepository.CreateNewChat(name, currentUser.UserId);
+            if (newChat != null)
+                Chats.Add(newChat);
         }
+
+        private string PromptForChatName()
+        {
+            return Microsoft.VisualBasic.Interaction.InputBox("Nome do novo chat:", "Novo Chat", "Grupo");
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

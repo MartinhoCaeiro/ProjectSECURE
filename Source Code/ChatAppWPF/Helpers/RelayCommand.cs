@@ -1,22 +1,22 @@
 using System;
 using System.Windows.Input;
 
-namespace ChatAppWPF.ViewModels
+namespace ChatAppWPF.Helpers
 {
     public class RelayCommand : ICommand
     {
-        private readonly Action _execute;
-        private readonly Func<bool>? _canExecute;
+        private readonly Action<object?> execute;
+        private readonly Predicate<object?>? canExecute;
 
-        public RelayCommand(Action execute, Func<bool>? canExecute = null)
+        public RelayCommand(Action<object?> execute, Predicate<object?>? canExecute = null)
         {
-            _execute = execute;
-            _canExecute = canExecute;
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            this.canExecute = canExecute;
         }
 
-        public bool CanExecute(object? parameter) => _canExecute == null || _canExecute();
+        public bool CanExecute(object? parameter) => canExecute?.Invoke(parameter) ?? true;
 
-        public void Execute(object? parameter) => _execute();
+        public void Execute(object? parameter) => execute(parameter);
 
         public event EventHandler? CanExecuteChanged
         {

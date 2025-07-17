@@ -34,6 +34,14 @@
                     Height="32"
                     Click="OpenSettings"
                     DockPanel.Dock="Right"/>
+
+            <Button Content="Logout"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10"
+                    Click="Logout_Click"
+                    Width="75"/>
+
         </DockPanel>
 
         <!-- Lista de chats -->

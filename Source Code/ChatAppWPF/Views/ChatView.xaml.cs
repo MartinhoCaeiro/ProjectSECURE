@@ -6,10 +6,10 @@ namespace ChatAppWPF.Views
 {
     public partial class ChatView : Window
     {
-        public ChatView(Chat chat)
+        public ChatView(User user, Chat chat)
         {
             InitializeComponent();
-            DataContext = new ChatViewModel(chat);
+            DataContext = new ChatViewModel(user, chat);
         }
 
     }
