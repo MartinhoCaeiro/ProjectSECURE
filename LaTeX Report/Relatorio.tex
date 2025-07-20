@@ -207,10 +207,10 @@ Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 \begin{itemize}
 	\item \textbf{Linguagens de Programação:} C\#, Kotlin
 	\item \textbf{Frameworks:} .NET, WireGuard
-	\item \textbf{Banco de Dados:} SQLite
+	\item \textbf{Base de Dados:} SQLite
 	\item \textbf{Criptografia:} Rijndael (Vencedor AES), Serpent (Segundo lugar AES)
 	\item \textbf{Ferramentas de Desenvolvimento:} Git, Visual Studio Code, Android Studio
-	\item  \textbf{Serviços de Hospedagem:} AlmaOS 8.10, GitHub
+	\item  \textbf{Serviços de Hospedagem:} GitHub
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -231,9 +231,9 @@ A interface para computador será desenvolvida em C\#, cuja qual é uma linguage
 A aplicação será desenvolvida utilizando o framework .NET, que é um framework de desenvolvimento de aplicações desktop, web e mobile.
 Esta interface é composta por 3 ecrãs principais:
 \begin{itemize}
-    \item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação, utilizando as suas credenciais.
-    \item \textbf{Ecrã de Lista de Chats:} onde o utilizador pode ver a lista de chats existentes, bem como criar novos chats.
-    \item \textbf{Ecrã de Chat:} onde o utilizador pode enviar e receber mensagens de outros utilizadores, bem como ver quem está online.
+	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação, utilizando as suas credenciais.
+	\item \textbf{Ecrã de Lista de Chats:} onde o utilizador pode ver a lista de chats existentes, bem como criar novos chats.
+	\item \textbf{Ecrã de Chat:} onde o utilizador pode enviar e receber mensagens de outros utilizadores, bem como ver quem está online.
 \end{itemize}
 
 \subsection{Interface para Android}
@@ -245,11 +245,40 @@ bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que 
 leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
 do utilizador, para que este possa estabelecer uma ligação à VPN. \\TODO Tentar fazer com que seja feito da maneira mais automatizada possível.
 
+\subsection{Base de Dados}
+A base de dados será utilizada para armazenar as informações dos utilizadores, como as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
+
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Desenvolvimento}\label{desenvolvimento}
 \subsection{Interface para Computador}
 Para o desenvolvimento da interface para computador, foi utilizado o Visual Studio Code, que é um ambiente de desenvolvimento integrado (IDE) da Microsoft.
+
+\subsubsection{Ecrã de Login}
+O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação.
+Caso não tenha uma conta criada apenas tem que preencher o formulario e clicar no botão de criar conta.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{Recursos/LoginPC.png} % Substitua pelo caminho da imagem
+\end{figure}
+
+\newpage
+\subsubsection{Ecrã de Lista de Chats}
+O ecrã de lista de chats é composto por uma lista de chats existentes e um botão para criar novos chats.
+No seu canto superior direito, existe um botão para aceder às definições da aplicação, onde o utilizador pode configurar se quer a aplicação em modo escuro ou claro,
+e no seu canto inferior esquerdo existe um botão para terminar sessão caso deseja mudar de utilizador.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{Recursos/ListaPC.png} % Substitua pelo caminho da imagem
+\end{figure}
+
+\newpage
+\subsubsection{Ecrã de Chat}
+O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{Recursos/ChatPC.png} % Substitua pelo caminho da imagem
+\end{figure}
 
 \subsection{Interface para Android}
 Para o desenvolvimento da interface para Android, foi utilizado o Android Studio, que é um ambiente de desenvolvimento integrado (IDE) oficial para o sistema operativo Android.
@@ -306,9 +335,44 @@ Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executa
 \end{verbatim}
 
 
-Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação 
-proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos 
+Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação
+proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos
 do dispositivo que está a fazer o papel de servidor.
+
+\newpage
+\subsection{Base de Dados}
+A base de dados irá ter a seguinte estrutura:
+\begin{itemize}
+	\item \textbf{User:}
+	      \begin{itemize}
+		      \item UserID (chave primária)
+		      \item Username (string)
+		      \item Password (string)
+	      \end{itemize}
+
+	\item \textbf{Chat:}
+	      \begin{itemize}
+		      \item ChatID (chave primária)
+		      \item Name (string)
+		      \item AdminID (chave estrangeira, referência à tabela User)
+	      \end{itemize}
+
+	\item \textbf{Participant:}
+	      \begin{itemize}
+		      \item ParticipantID (chave primária)
+		      \item ChatID (chave estrangeira, referência à tabela Chat)
+		      \item UserID (chave estrangeira, referência à tabela User)
+	      \end{itemize}
+
+	\item \textbf{Message:}
+	      \begin{itemize}
+		      \item MessageID (chave primária)
+		      \item ParticipantID (chave estrangeira, referência à tabela Participant)
+		      \item Content (string)
+		      \item Date (data e hora da mensagem)
+		      \item SenderUserID (chave estrangeira, referência à tabela Participant)
+	      \end{itemize}
+\end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
