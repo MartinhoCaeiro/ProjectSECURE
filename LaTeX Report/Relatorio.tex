@@ -314,6 +314,9 @@ Para isso, é necessário criar o ficheiro \textbf{wg0.conf} na pasta \textbf{/e
     Address = 10.0.0.1/24
     ListenPort = 51820
     SaveConfig = true
+    [Peer]
+    PublicKey = <Chave Pública do Cliente>
+    AllowedIPs = 10.0.0.2/32
 \end{verbatim}
 
 Para garantir o bom funcionamento da VPN, é necessário ativar o encaminhamento de endereços IP, para assim permitir o tráfego de rede.
@@ -324,11 +327,15 @@ Para isso, é necessário fazer o seguinte comando:
     sudo sysctl -p
 
     # Para permitir o tráfego pela porta 51820
+    sudo firewall-cmd --add-masquerade --permanent
     sudo firewall-cmd --add-port=51820/udp --permanent
+    sudo iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j MASQUERADE
     sudo firewall-cmd --reload
 
 \end{verbatim}
-
+\newpage
+Para ser possível encaminhar o tráfego de rede, é necessário adicionar uma regra ao Router para que, todos os pacotes que cheguem à porta 51820 
+sejam encaminhados para o servidor WireGuard.
 Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executar o seguinte comando:
 \begin{verbatim}
     sudo systemctl enable --now wg-quick@wg0
@@ -339,7 +346,7 @@ Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira 
 proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos
 do dispositivo que está a fazer o papel de servidor.
 
-\newpage
+
 \subsection{Base de Dados}
 A base de dados irá ter a seguinte estrutura:
 \begin{itemize}
@@ -363,7 +370,7 @@ A base de dados irá ter a seguinte estrutura:
 		      \item ChatID (chave estrangeira, referência à tabela Chat)
 		      \item UserID (chave estrangeira, referência à tabela User)
 	      \end{itemize}
-
+        \newpage
 	\item \textbf{Message:}
 	      \begin{itemize}
 		      \item MessageID (chave primária)
