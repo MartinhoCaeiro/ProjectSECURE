@@ -14,7 +14,24 @@ namespace ChatAppWPF.Views
             InitializeComponent();
             viewModel = new ChatListViewModel(user);
             DataContext = viewModel;
+
+            viewModel.RequestNewChatWindow += ShowNewChatWindow;
         }
+
+        private void ShowNewChatWindow()
+        {
+            var newChatWindow = new NewChatView(viewModel.CurrentUser)
+            {
+                Owner = this // herda o estilo e os recursos do tema
+            };
+
+            if (newChatWindow.ShowDialog() == true)
+            {
+                // Recarrega a lista de chats após criar um novo
+                viewModel.GetType().GetMethod("LoadChats", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.Invoke(viewModel, null);
+            }
+        }
+
 
         private void OpenSettings(object sender, RoutedEventArgs e)
         {

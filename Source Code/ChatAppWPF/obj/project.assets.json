@@ -332,19 +332,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amant\\.nuget\\packages\\": {}
+    "C:\\Users\\Marti\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amant\\Documents\\ESTIG\\Projeto\\Projeto-Cripto\\Source Code\\ChatAppWPF\\ChatAppWPF.csproj",
+      "projectUniqueName": "C:\\Users\\Marti\\Documents\\Projeto-Cripto\\Source Code\\ChatAppWPF\\ChatAppWPF.csproj",
       "projectName": "ChatAppWPF",
-      "projectPath": "C:\\Users\\amant\\Documents\\ESTIG\\Projeto\\Projeto-Cripto\\Source Code\\ChatAppWPF\\ChatAppWPF.csproj",
-      "packagesPath": "C:\\Users\\amant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amant\\Documents\\ESTIG\\Projeto\\Projeto-Cripto\\Source Code\\ChatAppWPF\\obj\\",
+      "projectPath": "C:\\Users\\Marti\\Documents\\Projeto-Cripto\\Source Code\\ChatAppWPF\\ChatAppWPF.csproj",
+      "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marti\\Documents\\Projeto-Cripto\\Source Code\\ChatAppWPF\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\amant\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Marti\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0-windows"
@@ -368,7 +368,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0-windows7.0": {
@@ -398,7 +398,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\9.0.107/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

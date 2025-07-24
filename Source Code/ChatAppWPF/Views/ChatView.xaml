@@ -24,7 +24,7 @@
                  Foreground="{DynamicResource ForegroundBrush}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal"
+                    <StackPanel Orientation="Vertical"
                                 HorizontalAlignment="{Binding IsSentByUser, Converter={StaticResource BoolToAlignmentConverter}}"
                                 Margin="4">
                         <Border Background="{Binding IsSentByUser, Converter={StaticResource BoolToBubbleColorConverter}}"
@@ -35,8 +35,14 @@
                                        TextWrapping="Wrap"
                                        Foreground="{DynamicResource ForegroundBrush}"/>
                         </Border>
+                        <TextBlock Text="{Binding SenderName}"
+                                   FontSize="10"
+                                   Foreground="Gray"
+                                   Margin="6,2,0,0"
+                                   HorizontalAlignment="{Binding IsSentByUser, Converter={StaticResource BoolToAlignmentConverter}}"/>
                     </StackPanel>
                 </DataTemplate>
+
             </ListBox.ItemTemplate>
 
             <ListBox.ItemContainerStyle>

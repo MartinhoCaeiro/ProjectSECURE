@@ -79,5 +79,31 @@ namespace ChatAppWPF.Data
             }
             return users;
         }
+
+        public static User? GetUserById(string userId)
+        {
+            using var conn = new SqliteConnection(DatabaseService.GetConnectionString());
+            conn.Open();
+
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                SELECT UserId, Name, Password 
+                FROM Users 
+                WHERE UserId = $id";
+            cmd.Parameters.AddWithValue("$id", userId);
+
+            using var reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                return new User
+                {
+                    UserId = reader.GetString(0),
+                    Name = reader.GetString(1),
+                    Password = reader.GetString(2)
+                };
+            }
+            return null;
+        }
+
     }
 }

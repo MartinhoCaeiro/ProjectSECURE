@@ -1,6 +1,7 @@
 using ChatAppWPF.Data;
 using ChatAppWPF.Models;
 using ChatAppWPF.Helpers;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -18,12 +19,16 @@ namespace ChatAppWPF.ViewModels
 
         public Chat? SelectedChat { get; set; }
 
+        // NOVO: evento que a View pode escutar para abrir a janela
+        public event Action? RequestNewChatWindow;
+
         public ChatListViewModel(User user)
         {
             currentUser = user;
             LoadChats();
 
-            NewChatCommand = new RelayCommand(_ => NewChat());
+            // NOVO: aciona evento para pedir à View que abra a janela
+            NewChatCommand = new RelayCommand(_ => RequestNewChatWindow?.Invoke());
         }
 
         private void LoadChats()
@@ -34,19 +39,10 @@ namespace ChatAppWPF.ViewModels
                 Chats.Add(chat);
         }
 
-        private void NewChat()
+        // NOVO: método público para refrescar a lista depois de criar um chat
+        public void RefreshChats()
         {
-            var name = PromptForChatName();
-            if (string.IsNullOrWhiteSpace(name)) return;
-
-            var newChat = ChatRepository.CreateNewChat(name, currentUser.UserId);
-            if (newChat != null)
-                Chats.Add(newChat);
-        }
-
-        private string PromptForChatName()
-        {
-            return Microsoft.VisualBasic.Interaction.InputBox("Nome do novo chat:", "Novo Chat", "Grupo");
+            LoadChats();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace ChatAppWPF.ViewModels
 {
@@ -17,6 +18,7 @@ namespace ChatAppWPF.ViewModels
 
         private readonly User currentUser;
         private readonly Chat currentChat;
+        private readonly Dictionary<string, string> userNames = new();
 
         public ChatViewModel(User user, Chat chat)
         {
@@ -29,9 +31,19 @@ namespace ChatAppWPF.ViewModels
 
         }
 
+
+        private void LoadUserNames()
+        {
+            var users = UserRepository.GetAllUsers();
+            foreach (var u in users)
+                userNames[u.UserId] = u.Name ?? "Desconhecido";
+        }
+
         private void LoadMessages()
         {
             Messages.Clear();
+            LoadUserNames();
+
             var rawMessages = MessageRepository.LoadMessages(currentChat.ChatId);
 
             foreach (var msg in rawMessages)
@@ -39,10 +51,12 @@ namespace ChatAppWPF.ViewModels
                 Messages.Add(new MessageBubble
                 {
                     Content = msg.Content,
-                    IsSentByUser = msg.SenderUserId == currentUser.UserId
+                    IsSentByUser = msg.SenderUserId == currentUser.UserId,
+                    SenderName = userNames.TryGetValue(msg.SenderUserId ?? "", out var name) ? name : "Desconhecido"
                 });
             }
         }
+
 
         private void SendMessage()
         {
@@ -70,5 +84,7 @@ namespace ChatAppWPF.ViewModels
     {
         public string Content { get; set; }
         public bool IsSentByUser { get; set; }
+        public string SenderName { get; set; }
     }
+
 }

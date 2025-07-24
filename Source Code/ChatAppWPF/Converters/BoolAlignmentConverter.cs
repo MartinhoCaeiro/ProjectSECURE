@@ -9,7 +9,7 @@ namespace ChatAppWPF.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool isSentByUser && !isSentByUser)
+            if (value is bool isSentByUser && isSentByUser)
                 return HorizontalAlignment.Right;
             else
                 return HorizontalAlignment.Left;
