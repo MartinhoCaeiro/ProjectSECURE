@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <AssemblyName>ProjectSECURE</AssemblyName>
+    <RootNamespace>ProjectSECURE</RootNamespace>
+    <ApplicationIcon>Themes/appicon.ico</ApplicationIcon>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.7" />
+  </ItemGroup>
+
+</Project>

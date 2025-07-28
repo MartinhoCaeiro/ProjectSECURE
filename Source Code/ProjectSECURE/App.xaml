@@ -1,0 +1,11 @@
+<Application x:Class="ProjectSECURE.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProjectSECURE"
+             xmlns:conv="clr-namespace:ProjectSECURE.Converters">
+    <Application.Resources>
+        <!-- Aqui podem estar os teus recursos -->
+        <conv:BoolToAlignmentConverter x:Key="BoolToAlignmentConverter"/>
+        <conv:BoolToBubbleColorConverter x:Key="BoolToBubbleColorConverter"/>
+    </Application.Resources>
+</Application>
