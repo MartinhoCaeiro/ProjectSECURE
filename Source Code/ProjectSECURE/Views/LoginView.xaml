@@ -10,72 +10,82 @@
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
 
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid Margin="20">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-        <!-- Cabeçalho -->
-        <TextBlock Text="Bem-vindo!"
-                   FontSize="26"
-                   FontWeight="Bold"
-                   Foreground="{DynamicResource ForegroundBrush}"
-                   HorizontalAlignment="Center"
-                   Margin="0,0,0,20"/>
+                <Button x:Name="WireGuardStatusButton"
+                        Grid.Row="0"
+                        Content="WireGuard: Desconhecido"
+                        HorizontalAlignment="Center"
+                        Padding="6,3"
+                        Click="WireGuardStatusButton_Click"/>
 
-        <!-- Formulário -->
-        <StackPanel Grid.Row="1"
-                    VerticalAlignment="Center">
-            <TextBlock Text="Nome de Utilizador"
-                       Foreground="{DynamicResource ForegroundBrush}"
-                       Margin="0,0,0,4"/>
-            <TextBox x:Name="UsernameTextBox"
-                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                     Height="30"
-                     Padding="6"
-                     Margin="0,0,0,10"/>
 
-            <TextBlock Text="Senha"
-                       Foreground="{DynamicResource ForegroundBrush}"
-                       Margin="0,0,0,4"/>
-            <PasswordBox x:Name="PasswordBox"
-                         Height="30"
-                         Padding="6"
-                         Margin="0,0,0,10"
-                         PasswordChanged="PasswordBox_PasswordChanged"/>
+                <!-- Cabeçalho -->
+                <TextBlock Grid.Row="1"
+                           Text="Bem-vindo!"
+                           FontSize="26"
+                           FontWeight="Bold"
+                           Foreground="{DynamicResource ForegroundBrush}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
 
-            <Button Content="Entrar"
-                    Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                    Height="36"
-                    Margin="0,10,0,0"/>
+                <!-- Formulário -->
+                <StackPanel Grid.Row="2"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="Nome de Utilizador"
+                                   Foreground="{DynamicResource ForegroundBrush}"
+                                   Margin="0,0,0,4"/>
+                        <TextBox x:Name="UsernameTextBox"
+                                 Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                                 Height="30"
+                                 Padding="6"
+                                 Margin="0,0,0,10"/>
 
-            <Button Content="Criar Conta"
-                    Command="{Binding RegisterCommand}"
-                    Height="30"
-                    Foreground="{DynamicResource ForegroundBrush}"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Margin="0,6,0,0"/>
+                        <TextBlock Text="Senha"
+                                   Foreground="{DynamicResource ForegroundBrush}"
+                                   Margin="0,0,0,4"/>
+                        <PasswordBox x:Name="PasswordBox"
+                                     Height="30"
+                                     Padding="6"
+                                     Margin="0,0,0,10"
+                                     PasswordChanged="PasswordBox_PasswordChanged"/>
 
-            <TextBlock Text="{Binding ErrorMessage}"
-                       Foreground="Red"
-                       Margin="0,8,0,0"
-                       TextWrapping="Wrap"/>
+                        <Button Content="Entrar"
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                Height="36"
+                                Margin="0,10,0,0"/>
 
-        </StackPanel>
+                        <Button Content="Criar Conta"
+                                Command="{Binding RegisterCommand}"
+                                Height="30"
+                                Foreground="{DynamicResource ForegroundBrush}"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Margin="0,6,0,0"/>
 
-        <TextBlock Grid.Row="2"
-                   Text="ProjectSECURE© 2025 - M.Caeiro, P.Abade, R.Narciso"
-                   FontSize="8"
-                   FontWeight="Bold"
-                   Foreground="Gray"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Padding="5"
-                   Margin="0"/>
+                        <TextBlock Text="{Binding ErrorMessage}"
+                                   Foreground="Red"
+                                   Margin="0,8,0,0"
+                                   TextWrapping="Wrap"/>
 
-    </Grid>
+                </StackPanel>
+
+                <TextBlock Grid.Row="3"
+                           Text="ProjectSECURE© 2025 - M.Caeiro, P.Abade, R.Narciso"
+                           FontSize="8"
+                           FontWeight="Bold"
+                           Foreground="Gray"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Padding="5"
+                           Margin="0"/>
+
+        </Grid>
 </Window>

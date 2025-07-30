@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ProjectSECURE\App.xaml
-7-710074249
+8-1972887606
 
-211456033582
-204485268736
-Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Views\ChatListView.xaml;Views\ChatView.xaml;Views\LoginView.xaml;Views\NewChatView.xaml;Views\SettingsView.xaml;
+221315429897
+233-52042319
+Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Views\ChatListView.xaml;Views\ChatView.xaml;Views\LoginView.xaml;Views\NewChatView.xaml;Views\SettingsView.xaml;Views\WireGuardConfigView.xaml;
 
 False
 
