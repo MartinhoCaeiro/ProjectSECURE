@@ -344,7 +344,9 @@ Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executa
 
 Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação
 proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos
-do dispositivo que está a fazer o papel de servidor.
+do dispositivo que está a fazer o papel de servidor. Para isso, foi criado um \textit{script} que cria o ficheiro 
+de configuração do WireGuard para o cliente, sendo que este só deve adicionar o ficheiro de configuração na aplicação
+do WireGuard. O \textit{script} ainda automatiza a adição do cliente nas configurações do servidor.
 
 
 \subsection{Base de Dados}
