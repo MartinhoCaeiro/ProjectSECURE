@@ -231,9 +231,10 @@ A interface para computador será desenvolvida em C\#, cuja qual é uma linguage
 A aplicação será desenvolvida utilizando o framework .NET, que é um framework de desenvolvimento de aplicações desktop, web e mobile.
 Esta interface é composta por 3 ecrãs principais:
 \begin{itemize}
-	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação, utilizando as suas credenciais.
+	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação utilizando as suas credenciais, tambem é possivel ver o status da ligação WireGuard.
 	\item \textbf{Ecrã de Lista de Chats:} onde o utilizador pode ver a lista de chats existentes, bem como criar novos chats.
-	\item \textbf{Ecrã de Chat:} onde o utilizador pode enviar e receber mensagens de outros utilizadores, bem como ver quem está online.
+	\item \textbf{Ecrã de Chat:} onde o utilizador pode enviar e receber mensagens de outros utilizadores.
+	\item \textbf{Ecrã de Configuração WireGuard:} onde o utilizador pode criar um ficheiro para configuração do WireGuard.
 \end{itemize}
 
 \subsection{Interface para Android}
@@ -257,6 +258,7 @@ Para o desenvolvimento da interface para computador, foi utilizado o Visual Stud
 \subsubsection{Ecrã de Login}
 O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação.
 Caso não tenha uma conta criada apenas tem que preencher o formulario e clicar no botão de criar conta.
+Tambem é possivel ver o estado da ligação WireGuard, caso esteja ligado ou desligado.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/LoginPC.png} % Substitua pelo caminho da imagem
@@ -278,6 +280,14 @@ O ecrã de chat é composto por uma lista de mensagens trocadas entre os utiliza
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/ChatPC.png} % Substitua pelo caminho da imagem
+\end{figure}
+
+\newpage
+\subsubsection{Ecrã de Configuração WireGuard}
+O ecrã de configuração WireGuard é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para criar o ficheiro de configuração do WireGuard.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
 \end{figure}
 
 \subsection{Interface para Android}
