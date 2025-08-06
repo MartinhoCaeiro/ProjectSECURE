@@ -58,7 +58,7 @@ namespace ProjectSECURE.ViewModels
         }
 
 
-        private void SendMessage()
+        private async void SendMessage()
         {
             if (string.IsNullOrWhiteSpace(NewMessage))
                 return;
@@ -73,6 +73,9 @@ namespace ProjectSECURE.ViewModels
 
             NewMessage = string.Empty;
             OnPropertyChanged(nameof(NewMessage));
+
+            await Services.DbSyncService.UploadDatabaseAsync();
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

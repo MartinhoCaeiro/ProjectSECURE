@@ -14,7 +14,7 @@ namespace ProjectSECURE.Data
             string dataDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
             Directory.CreateDirectory(dataDir); // cria a pasta se não existir
 
-            dbPath = Path.Combine(dataDir, "chatapp.db");
+            dbPath = Path.Combine(dataDir, "ProjectSECURE.db");
             InitializeDatabase();
         }
 

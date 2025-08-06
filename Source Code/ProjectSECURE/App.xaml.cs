@@ -11,22 +11,48 @@ namespace ProjectSECURE
         private const string ConfigFile = "userconfig.json";
         public string CurrentTheme { get; private set; } = "Light";
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
+            // Inicializa a BD local primeiro (sempre)
             Data.DatabaseService.InitializeDatabase();
 
+            // Verifica se o adaptador WireGuard está ativo
+            bool vpnAtiva = Views.LoginView.IsWireGuardInterfaceUp();
+
+            if (vpnAtiva)
+            {
+                bool atualizado = await Services.DbSyncService.DownloadDatabaseAsync();
+
+                if (!atualizado)
+                {
+                    MessageBox.Show(
+                        "VPN ativa, mas não foi possível sincronizar com o servidor.\nA base de dados local será usada.",
+                        "Aviso",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "A VPN não está ativa. A base de dados local será usada.",
+                    "VPN Desligada",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
 
             // Carrega o tema antes de abrir qualquer janela
             string theme = LoadThemePreference() ?? (IsSystemInDarkMode() ? "Dark" : "Light");
             ApplyTheme(theme);
 
-            // Inicialmente abre a janela de login como a MainWindow da aplicação
+            // Abre a janela de login
             var login = new Views.LoginView();
             MainWindow = login;
             login.Show();
         }
+
 
         public void ApplyTheme(string theme)
         {

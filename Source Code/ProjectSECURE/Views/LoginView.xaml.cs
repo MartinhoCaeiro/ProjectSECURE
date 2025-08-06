@@ -26,7 +26,7 @@ namespace ProjectSECURE.Views
             WireGuardStatusButton.Content = active ? "O WireGuard está ativo" : "Por favor, inicie o WireGuard";
         }
 
-        private static bool IsWireGuardInterfaceUp()
+        public static bool IsWireGuardInterfaceUp()
         {
             return NetworkInterface.GetAllNetworkInterfaces()
                 .Any(ni =>
