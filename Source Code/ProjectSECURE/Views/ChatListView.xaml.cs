@@ -8,13 +8,14 @@ namespace ProjectSECURE.Views
     public partial class ChatListView : Window
     {
         private readonly ChatListViewModel viewModel;
+        private readonly bool isWireGuardActive;
 
-        public ChatListView(User user)
+        public ChatListView(User user, bool isWireGuardActive)
         {
             InitializeComponent();
-            viewModel = new ChatListViewModel(user);
+            this.isWireGuardActive = isWireGuardActive;
+            viewModel = new ChatListViewModel(user, isWireGuardActive);
             DataContext = viewModel;
-
             viewModel.RequestNewChatWindow += ShowNewChatWindow;
         }
 
@@ -43,14 +44,9 @@ namespace ProjectSECURE.Views
         {
             if (viewModel.SelectedChat != null)
             {
-                var chatView = new ChatView(viewModel.CurrentUser, viewModel.SelectedChat);
-
-                // Esconder esta janela
+                var chatView = new ChatView(viewModel.CurrentUser, viewModel.SelectedChat, isWireGuardActive);
                 this.Hide();
-
-                // Ao fechar o chatView, mostra novamente esta janela
                 chatView.Closed += (s, args) => this.Show();
-
                 chatView.Show();
             }
         }

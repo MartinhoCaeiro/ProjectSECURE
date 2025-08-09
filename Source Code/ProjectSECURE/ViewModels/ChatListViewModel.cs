@@ -22,12 +22,13 @@ namespace ProjectSECURE.ViewModels
         // NOVO: evento que a View pode escutar para abrir a janela
         public event Action? RequestNewChatWindow;
 
-        public ChatListViewModel(User user)
+        public bool IsWireGuardActive { get; }
+
+        public ChatListViewModel(User user, bool isWireGuardActive)
         {
             currentUser = user;
+            IsWireGuardActive = isWireGuardActive;
             LoadChats();
-
-            // NOVO: aciona evento para pedir à View que abra a janela
             NewChatCommand = new RelayCommand(_ => RequestNewChatWindow?.Invoke());
         }
 

@@ -9,6 +9,31 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
+    <Window.Resources>
+        <Style x:Key="CustomScrollBar"
+                TargetType="ScrollBar">
+            <Setter Property="Width"
+                    Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="{DynamicResource ControlBackgroundBrush}">
+                            <Track Name="PART_Track"
+                                   IsDirectionReversed="true"
+                                   Value="{TemplateBinding Value}"
+                                   Minimum="{TemplateBinding Minimum}"
+                                   Maximum="{TemplateBinding Maximum}"
+                                   ViewportSize="{TemplateBinding ViewportSize}">
+                                <Track.Thumb>
+                                    <Thumb Background="{DynamicResource ButtonBackgroundBrush}"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -31,7 +56,13 @@
                  Margin="10"
                  Background="Transparent"
                  BorderThickness="0"
-                 Foreground="{DynamicResource ForegroundBrush}">
+                 Foreground="{DynamicResource ForegroundBrush}"
+                 Name="MessagesListBox"
+                 Loaded="MessagesListBox_Loaded">
+            <ListBox.Resources>
+                <Style TargetType="ScrollBar"
+                       BasedOn="{StaticResource CustomScrollBar}"/>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical"
@@ -68,6 +99,19 @@
         <!-- Caixa de mensagem -->
         <DockPanel Grid.Row="2"
                    Margin="10">
+            <DockPanel.Style>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsWireGuardActive}"
+                                     Value="False">
+                            <Setter Property="Visibility"
+                                    Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DockPanel.Style>
             <TextBox Width="260"
                      Height="36"
                      VerticalAlignment="Center"

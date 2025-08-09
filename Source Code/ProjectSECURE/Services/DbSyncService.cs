@@ -10,8 +10,8 @@ namespace ProjectSECURE.Services
     {
         private static readonly string serverUrl = "http://10.0.0.1:8000";
         private static readonly string localDbPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "ProjectSECURE",
+            AppDomain.CurrentDomain.BaseDirectory,
+            "Data",
             "ProjectSECURE.db");
 
         private static readonly HttpClient httpClient = new HttpClient();
@@ -68,7 +68,7 @@ namespace ProjectSECURE.Services
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/octet-stream");
 
                 content.Add(fileContent, "file", "ProjectSECURE.db");
-
+                Console.WriteLine(content.Headers);
                 var response = await httpClient.PostAsync($"{serverUrl}/upload", content);
 
                 Console.WriteLine(response.IsSuccessStatusCode

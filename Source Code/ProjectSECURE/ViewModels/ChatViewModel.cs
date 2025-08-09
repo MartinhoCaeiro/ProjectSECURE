@@ -2,17 +2,21 @@ using ProjectSECURE.Data;
 using ProjectSECURE.Models;
 using ProjectSECURE.Helpers;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.Collections.Generic;
 
 namespace ProjectSECURE.ViewModels
 {
-    public class ChatViewModel : INotifyPropertyChanged
+    public class ChatViewModel : ViewModelBase
     {
+        private bool isWireGuardActive = true;
         public ObservableCollection<MessageBubble> Messages { get; set; } = new();
-        public string NewMessage { get; set; }
+        public string NewMessage { get; set; } = string.Empty;
+        public bool IsWireGuardActive
+        {
+            get => isWireGuardActive;
+            set { isWireGuardActive = value; OnPropertyChanged(); }
+        }
 
         public ICommand SendCommand { get; }
 
@@ -20,15 +24,13 @@ namespace ProjectSECURE.ViewModels
         private readonly Chat currentChat;
         private readonly Dictionary<string, string> userNames = new();
 
-        public ChatViewModel(User user, Chat chat)
+        public ChatViewModel(User user, Chat chat, bool isWireGuardActive)
         {
             currentUser = user;
             currentChat = chat;
-
+            IsWireGuardActive = isWireGuardActive;
             LoadMessages();
-
             SendCommand = new RelayCommand(_ => SendMessage());
-
         }
 
 
@@ -78,16 +80,14 @@ namespace ProjectSECURE.ViewModels
 
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string? name = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        // Inherited OnPropertyChanged and PropertyChanged from ViewModelBase
     }
 
     public class MessageBubble
     {
-        public string Content { get; set; }
+        public string? Content { get; set; }
         public bool IsSentByUser { get; set; }
-        public string SenderName { get; set; }
+        public string? SenderName { get; set; }
     }
 
 }

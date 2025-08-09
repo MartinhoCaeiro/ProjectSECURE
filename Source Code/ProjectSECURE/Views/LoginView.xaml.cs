@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Threading.Tasks;
 using System.Net.NetworkInformation;
-using System.Linq;   
+using System.Linq;
 
 namespace ProjectSECURE.Views
 {
@@ -24,6 +24,10 @@ namespace ProjectSECURE.Views
             WireGuardStatusButton.Content = "WireGuard: a verificar…";
             var active = await Task.Run(IsWireGuardInterfaceUp);
             WireGuardStatusButton.Content = active ? "O WireGuard está ativo" : "Por favor, inicie o WireGuard";
+            if (DataContext is ViewModels.LoginViewModel vm)
+            {
+                vm.IsWireGuardActive = active;
+            }
         }
 
         public static bool IsWireGuardInterfaceUp()
@@ -48,8 +52,8 @@ namespace ProjectSECURE.Views
             {
                 if (DataContext is LoginViewModel vm && vm.CurrentUser != null)
                 {
-                    // Abrir janela principal, passando o usuário logado
-                    var chatListView = new ChatListView(vm.CurrentUser);
+                    // Abrir janela principal, passando o usuário logado e status WireGuard
+                    var chatListView = new ChatListView(vm.CurrentUser, vm.IsWireGuardActive);
                     chatListView.Show();
                 }
             }

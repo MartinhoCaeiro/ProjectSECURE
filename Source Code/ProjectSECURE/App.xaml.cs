@@ -15,9 +15,6 @@ namespace ProjectSECURE
         {
             base.OnStartup(e);
 
-            // Inicializa a BD local primeiro (sempre)
-            Data.DatabaseService.InitializeDatabase();
-
             // Verifica se o adaptador WireGuard está ativo
             bool vpnAtiva = Views.LoginView.IsWireGuardInterfaceUp();
 
@@ -42,6 +39,9 @@ namespace ProjectSECURE
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
+
+            // Inicializa a BD local depois do download
+            Data.DatabaseService.InitializeDatabase();
 
             // Carrega o tema antes de abrir qualquer janela
             string theme = LoadThemePreference() ?? (IsSystemInDarkMode() ? "Dark" : "Light");

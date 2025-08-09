@@ -11,6 +11,7 @@ namespace ProjectSECURE.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
+        private bool isWireGuardActive;
         private string username = string.Empty;
         private string password = string.Empty;
         private string errorMessage = string.Empty;
@@ -19,6 +20,11 @@ namespace ProjectSECURE.ViewModels
         {
             get => username;
             set { username = value; OnPropertyChanged(); }
+        }
+        public bool IsWireGuardActive
+        {
+            get => isWireGuardActive;
+            set { isWireGuardActive = value; OnPropertyChanged(); }
         }
 
         public string Password
@@ -42,6 +48,7 @@ namespace ProjectSECURE.ViewModels
         {
             LoginCommand = new RelayCommand(Login);
             RegisterCommand = new RelayCommand(Register);
+            IsWireGuardActive = false;
         }
 
         private void Login(object parameter)
@@ -53,9 +60,8 @@ namespace ProjectSECURE.ViewModels
 
                 if (parameter is Window window)
                 {
-                    var chatListView = new Views.ChatListView(user);
+                    var chatListView = new Views.ChatListView(user, IsWireGuardActive);
                     chatListView.Show();
-
                     window.Close();
                 }
             }
