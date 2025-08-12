@@ -36,20 +36,24 @@ namespace ProjectSECURE.Data
                 CREATE TABLE IF NOT EXISTS Chats (
                     ChatId TEXT PRIMARY KEY NOT NULL,
                     Name TEXT NOT NULL,
-                    AdminId TEXT NOT NULL
+                    AdminId TEXT NOT NULL,
+                    FOREIGN KEY (AdminId) REFERENCES Users(UserId) ON DELETE CASCADE
                 );
 
                 CREATE TABLE IF NOT EXISTS Participants (
                     ParticipantId TEXT PRIMARY KEY NOT NULL,
                     ChatId TEXT NOT NULL,
-                    UserId TEXT NOT NULL
+                    UserId TEXT NOT NULL,
+                    FOREIGN KEY (ChatId) REFERENCES Chats(ChatId) ON DELETE CASCADE,
+                    FOREIGN KEY (UserId) REFERENCES Users(UserId) ON DELETE CASCADE
                 );
 
                 CREATE TABLE IF NOT EXISTS Messages (
                     MessageId TEXT PRIMARY KEY NOT NULL,
                     Content TEXT NOT NULL,
                     ParticipantId TEXT NOT NULL,
-                    Date TEXT NOT NULL
+                    Date TEXT NOT NULL,
+                    FOREIGN KEY (ParticipantId) REFERENCES Participants(ParticipantId) ON DELETE CASCADE
                 );
             ";
             command.ExecuteNonQuery();
