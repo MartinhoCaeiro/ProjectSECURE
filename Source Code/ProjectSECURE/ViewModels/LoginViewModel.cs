@@ -82,6 +82,8 @@ namespace ProjectSECURE.ViewModels
                     Password = Password
                 };
                 UserRepository.CreateUser(user);
+                // Upload database after user creation
+                _ = Services.DbSyncService.UploadDatabaseAsync();
                 ErrorMessage = "Usuário criado com sucesso! Faça login.";
             }
             catch (System.Exception ex)

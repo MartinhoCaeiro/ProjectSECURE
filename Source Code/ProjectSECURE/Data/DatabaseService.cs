@@ -28,25 +28,25 @@ namespace ProjectSECURE.Data
             var command = connection.CreateCommand();
             command.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Users (
-                    UserId TEXT PRIMARY KEY,
+                    UserId TEXT PRIMARY KEY NOT NULL,
                     Name TEXT NOT NULL,
                     Password TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS Chats (
-                    ChatId TEXT PRIMARY KEY,
+                    ChatId TEXT PRIMARY KEY NOT NULL,
                     Name TEXT NOT NULL,
                     AdminId TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS Participants (
-                    ParticipantId TEXT PRIMARY KEY,
+                    ParticipantId TEXT PRIMARY KEY NOT NULL,
                     ChatId TEXT NOT NULL,
                     UserId TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS Messages (
-                    MessageId TEXT PRIMARY KEY,
+                    MessageId TEXT PRIMARY KEY NOT NULL,
                     Content TEXT NOT NULL,
                     ParticipantId TEXT NOT NULL,
                     Date TEXT NOT NULL

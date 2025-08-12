@@ -48,6 +48,9 @@ namespace ProjectSECURE.Views
             // Criar o chat e participantes
             string chatId = ChatRepository.CreateChat(chatName, currentUser.UserId, selectedUsers);
 
+            // Upload database after chat creation
+            _ = ProjectSECURE.Services.DbSyncService.UploadDatabaseAsync();
+
             MessageBox.Show("Chat criado com sucesso!");
             this.DialogResult = true;
             this.Close();
