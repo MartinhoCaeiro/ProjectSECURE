@@ -27,33 +27,33 @@ namespace ProjectSECURE.Data
 
             var command = connection.CreateCommand();
             command.CommandText = @"
-                CREATE TABLE IF NOT EXISTS Users (
+                CREATE TABLE IF NOT EXISTS users (
                     UserId TEXT PRIMARY KEY NOT NULL,
                     Name TEXT NOT NULL,
                     Password TEXT NOT NULL
                 );
 
-                CREATE TABLE IF NOT EXISTS Chats (
+                CREATE TABLE IF NOT EXISTS chats (
                     ChatId TEXT PRIMARY KEY NOT NULL,
                     Name TEXT NOT NULL,
                     AdminId TEXT NOT NULL,
-                    FOREIGN KEY (AdminId) REFERENCES Users(UserId) ON DELETE CASCADE
+                    FOREIGN KEY (AdminId) REFERENCES users(UserId) ON DELETE CASCADE
                 );
 
-                CREATE TABLE IF NOT EXISTS Participants (
+                CREATE TABLE IF NOT EXISTS participants (
                     ParticipantId TEXT PRIMARY KEY NOT NULL,
                     ChatId TEXT NOT NULL,
                     UserId TEXT NOT NULL,
-                    FOREIGN KEY (ChatId) REFERENCES Chats(ChatId) ON DELETE CASCADE,
-                    FOREIGN KEY (UserId) REFERENCES Users(UserId) ON DELETE CASCADE
+                    FOREIGN KEY (ChatId) REFERENCES chats(ChatId) ON DELETE CASCADE,
+                    FOREIGN KEY (UserId) REFERENCES users(UserId) ON DELETE CASCADE
                 );
 
-                CREATE TABLE IF NOT EXISTS Messages (
+                CREATE TABLE IF NOT EXISTS messages (
                     MessageId TEXT PRIMARY KEY NOT NULL,
                     Content TEXT NOT NULL,
                     ParticipantId TEXT NOT NULL,
                     Date TEXT NOT NULL,
-                    FOREIGN KEY (ParticipantId) REFERENCES Participants(ParticipantId) ON DELETE CASCADE
+                    FOREIGN KEY (ParticipantId) REFERENCES participants(ParticipantId) ON DELETE CASCADE
                 );
             ";
             command.ExecuteNonQuery();
