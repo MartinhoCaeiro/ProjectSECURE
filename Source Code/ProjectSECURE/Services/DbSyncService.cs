@@ -26,11 +26,10 @@ namespace ProjectSECURE.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var dbBytes = await response.Content.ReadAsByteArrayAsync();
-
-                    Directory.CreateDirectory(Path.GetDirectoryName(localDbPath));
-                    await File.WriteAllBytesAsync(localDbPath, dbBytes);
-
-                    Console.WriteLine("Base de dados atualizada com sucesso.");
+                    string tempDbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
+                    Directory.CreateDirectory(Path.GetDirectoryName(tempDbPath));
+                    await File.WriteAllBytesAsync(tempDbPath, dbBytes);
+                    Console.WriteLine("Base de dados temporária baixada com sucesso.");
                     return true;
                 }
                 else
@@ -54,6 +53,16 @@ namespace ProjectSECURE.Services
                 {
                     Console.WriteLine("Base de dados local não encontrada.");
                     return false;
+                }
+
+                // Merge temp db into local db before uploading
+                try
+                {
+                    ProjectSECURE.Data.DatabaseMerger.MergeAllFromTempDb();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao mesclar base de dados temporária antes do upload: " + ex.Message);
                 }
 
                 // Força o fecho de qualquer possível ligação antes de copiar

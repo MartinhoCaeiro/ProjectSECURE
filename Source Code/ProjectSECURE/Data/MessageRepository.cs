@@ -7,6 +7,37 @@ namespace ProjectSECURE.Data
 {
     public static class MessageRepository
     {
+        /// <summary>
+        /// Merges a list of messages into the local database, avoiding duplicates by MessageId.
+        /// Returns the number of new messages inserted.
+        /// </summary>
+        public static int MergeMessages(List<Message> newMessages)
+        {
+            int insertedCount = 0;
+            using var conn = new SqliteConnection(DatabaseService.GetConnectionString());
+            conn.Open();
+
+            foreach (var msg in newMessages)
+            {
+                // Check if message already exists
+                var checkCmd = conn.CreateCommand();
+                checkCmd.CommandText = "SELECT COUNT(1) FROM Messages WHERE MessageId = $id";
+                checkCmd.Parameters.AddWithValue("$id", msg.MessageId);
+                var exists = Convert.ToInt32(checkCmd.ExecuteScalar()) > 0;
+                if (exists) continue;
+
+                // Insert new message
+                var insertCmd = conn.CreateCommand();
+                insertCmd.CommandText = @"INSERT INTO Messages (MessageId, Content, ParticipantId, Date) VALUES ($id, $content, $pid, $date)";
+                insertCmd.Parameters.AddWithValue("$id", msg.MessageId);
+                insertCmd.Parameters.AddWithValue("$content", msg.Content ?? "");
+                insertCmd.Parameters.AddWithValue("$pid", msg.ParticipantId ?? "");
+                insertCmd.Parameters.AddWithValue("$date", msg.Date.ToString("o"));
+                insertCmd.ExecuteNonQuery();
+                insertedCount++;
+            }
+            return insertedCount;
+        }
         public static List<Message> LoadMessages(string chatId)
         {
             var messages = new List<Message>();

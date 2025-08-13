@@ -8,6 +8,23 @@ namespace ProjectSECURE
 {
     public partial class App : Application
     {
+        protected override void OnExit(ExitEventArgs e)
+        {
+            // Merge all tables from temp DB into local DB on exit
+            try
+            {
+                ProjectSECURE.Data.DatabaseMerger.MergeAllFromTempDb();
+                // Optionally delete temp DB after merging
+                string tempDbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
+                if (System.IO.File.Exists(tempDbPath))
+                    System.IO.File.Delete(tempDbPath);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[App Exit] Database merge error: {ex.Message}");
+            }
+            base.OnExit(e);
+        }
         private System.Timers.Timer? dbSyncTimer;
         private const string ConfigFile = "userconfig.json";
         public string CurrentTheme { get; private set; } = "Light";
@@ -40,6 +57,41 @@ namespace ProjectSECURE
                         bool updated = await Services.DbSyncService.DownloadDatabaseAsync();
                         if (updated)
                         {
+                            // Merge new messages from temporary downloaded database
+                            try
+                            {
+                                string tempDbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
+                                var connStr = $"Data Source={tempDbPath}";
+                                var newMessages = new System.Collections.Generic.List<ProjectSECURE.Models.Message>();
+                                using (var conn = new Microsoft.Data.Sqlite.SqliteConnection(connStr))
+                                {
+                                    conn.Open();
+                                    var cmd = conn.CreateCommand();
+                                    cmd.CommandText = @"SELECT MessageId, Content, ParticipantId, Date FROM Messages";
+                                    using var reader = cmd.ExecuteReader();
+                                    while (reader.Read())
+                                    {
+                                        newMessages.Add(new ProjectSECURE.Models.Message
+                                        {
+                                            MessageId = reader.GetString(0),
+                                            Content = reader.GetString(1),
+                                            ParticipantId = reader.GetString(2),
+                                            Date = DateTime.Parse(reader.GetString(3))
+                                        });
+                                    }
+                                }
+                                ProjectSECURE.Data.MessageRepository.MergeMessages(newMessages);
+                                // Delete temp file after merging
+                                if (System.IO.File.Exists(tempDbPath))
+                                {
+                                    System.IO.File.Delete(tempDbPath);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine($"[DbSync] MergeMessages error: {ex.Message}");
+                            }
+
                             // Salva o tipo da janela atual
                             Type? currentWindowType = null;
                             object? user = null;
