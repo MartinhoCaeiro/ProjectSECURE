@@ -43,10 +43,12 @@ namespace ProjectSECURE.ViewModels
 
         private void LoadMessages()
         {
+            System.Diagnostics.Debug.WriteLine($"[ChatViewModel] LoadMessages called for chat {currentChat.ChatId}");
             Messages.Clear();
             LoadUserNames();
 
             var rawMessages = MessageRepository.LoadMessages(currentChat.ChatId);
+            System.Diagnostics.Debug.WriteLine($"[ChatViewModel] Loaded {rawMessages.Count} messages from DB");
 
             foreach (var msg in rawMessages)
             {
@@ -57,6 +59,7 @@ namespace ProjectSECURE.ViewModels
                     SenderName = userNames.TryGetValue(msg.SenderUserId ?? "", out var name) ? name : "Desconhecido"
                 });
             }
+            System.Diagnostics.Debug.WriteLine($"[ChatViewModel] Messages collection now has {Messages.Count} items");
         }
 
 

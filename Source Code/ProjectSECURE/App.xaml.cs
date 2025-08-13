@@ -8,6 +8,7 @@ namespace ProjectSECURE
 {
     public partial class App : Application
     {
+        private System.Timers.Timer? dbSyncTimer;
         private const string ConfigFile = "userconfig.json";
         public string CurrentTheme { get; private set; } = "Light";
 
@@ -30,6 +31,59 @@ namespace ProjectSECURE
                         MessageBoxButton.OK,
                         MessageBoxImage.Warning);
                 }
+                // Inicia o timer para sincronização periódica
+                dbSyncTimer = new System.Timers.Timer(20 * 1000); // 20 segundos
+                dbSyncTimer.Elapsed += async (s, args) =>
+                {
+                    if (Views.LoginView.IsWireGuardInterfaceUp())
+                    {
+                        bool updated = await Services.DbSyncService.DownloadDatabaseAsync();
+                        if (updated)
+                        {
+                            // Salva o tipo da janela atual
+                            Type? currentWindowType = null;
+                            object? user = null;
+                            object? chat = null;
+                            bool isWireGuardActive = false;
+                            Application.Current.Dispatcher.Invoke(() =>
+                            {
+                                var win = Application.Current.MainWindow;
+                                currentWindowType = win?.GetType();
+                                if (win != null)
+                                {
+                                    var dc = win.DataContext;
+                                    if (dc != null)
+                                    {
+                                        var userProp = dc.GetType().GetProperty("CurrentUser") ?? dc.GetType().GetProperty("User");
+                                        if (userProp != null) user = userProp.GetValue(dc);
+                                        var chatProp = dc.GetType().GetProperty("CurrentChat") ?? dc.GetType().GetProperty("Chat");
+                                        if (chatProp != null) chat = chatProp.GetValue(dc);
+                                        var wgProp = dc.GetType().GetProperty("IsWireGuardActive");
+                                        if (wgProp != null && wgProp.PropertyType == typeof(bool) && wgProp.GetValue(dc) != null) isWireGuardActive = (bool)wgProp.GetValue(dc);
+                                    }
+                                    if (win.GetType().Name == "NewChatView")
+                                    {
+                                        var field = win.GetType().GetField("currentUser", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                                        if (field != null) user = field.GetValue(win);
+                                    }
+                                }
+                                // If in ChatView, just reload messages
+                                if (currentWindowType == typeof(Views.ChatView) && win?.DataContext is ProjectSECURE.ViewModels.ChatViewModel chatVM)
+                                {
+                                    Application.Current.Dispatcher.Invoke(() =>
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("[DbSync] Reloading messages in ChatViewModel");
+                                        var reloadMethod = chatVM.GetType().GetMethod("LoadMessages", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                                        reloadMethod?.Invoke(chatVM, null);
+                                    });
+                                }
+                                // For other windows, do nothing (UI updates only when entering)
+                            });
+                        }
+                    }
+                };
+                dbSyncTimer.AutoReset = true;
+                dbSyncTimer.Start();
             }
             else
             {
