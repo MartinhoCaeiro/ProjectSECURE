@@ -146,7 +146,7 @@ Estágio ou Projeto (\cite{pagep}).
 
 \vspace{1cm}
 % Keywords
-\textbf{Keywords:} aplicações, cibersegurança, comunicações, criptografia
+\textbf{Keywords:} aplicações, cibersegurança, comunicações, criptografia, c\#, python, bash, almalinux, wireguard, sqlite, kotlin
 \newpage
 %--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -160,7 +160,7 @@ Curricular Unit of Internship or Project (\cite{pagep}).
 
 \vspace{1cm}
 % Keywords
-\textbf{Keywords:} applications, cybersecurity, communications, cryptography
+\textbf{Keywords:} applications, cybersecurity, communications, cryptography, c\#, python, bash, almalinux, wireguard, sqlite, kotlin
 \renewcommand{\contentsname}{Índice}       % Título do sumário
 \renewcommand{\listfigurename}{Índice de Figuras} % Título da lista de figuras
 
@@ -178,7 +178,10 @@ Curricular Unit of Internship or Project (\cite{pagep}).
 \section{Introdução}\label{intro}
 Para a realização do projeto é necessário desenvolver um sistema de comunicações seguras, que permita a troca de mensagens de texto entre os seus utilizadores.
 Para tal, é necessário implementar um sistema de autenticação de utilizadores, que permita a criação de contas de utilizador e a autenticação dos mesmos.
-O sistema deve ser capaz de garantir a confidencialidade, integridade e autenticidade das mensagens trocadas entre os utilizadores.
+O sistema deve ser capaz de garantir a confidencialidade, integridade e autenticidade das mensagens trocadas entre os utilizadores. As tecnologias a utilizadas
+no desenvolvimento deste projeto são: WireGuard (\cite{wireguard}), SQLite (\cite{sqlite}), C\# (\cite{csharp}), Kotlin (\cite{kotlin}), Python (\cite{python}), 
+Bash (\cite{bash}), AlmaOS (\cite{almaos}). Em relação a criptografia, serão utilizados os algoritmos Rijndael (vencedor do AES) e 
+Serpent (segundo lugar do AES), que são algoritmos de criptografia simétrica.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
@@ -228,7 +231,7 @@ e o Sepernt.
 
 \subsection{Interface para Computador}
 A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente.
-A aplicação será desenvolvida utilizando o framework .NET, que é um framework de desenvolvimento de aplicações desktop, web e mobile.
+A aplicação será desenvolvida utilizando o framework .NET.
 Esta interface é composta por 3 ecrãs principais:
 \begin{itemize}
 	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação utilizando as suas credenciais, tambem é possivel ver o status da ligação WireGuard.
@@ -241,13 +244,61 @@ Esta interface é composta por 3 ecrãs principais:
 A interface para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma rápida e eficiente.
 
 \subsection{Módulo da VPN}
-A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10, e será responsável por gerir as ligações dos utilizadores à VPN,
+A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{almaos}), e será responsável por gerir as ligações dos utilizadores à VPN,
 bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que é um serviço de VPN de código aberto,
 leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
 do utilizador, para que este possa estabelecer uma ligação à VPN. \\TODO Tentar fazer com que seja feito da maneira mais automatizada possível.
 
 \subsection{Base de Dados}
 A base de dados será utilizada para armazenar as informações dos utilizadores, como as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
+A base de dados irá ter a seguinte estrutura:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Recursos/ProjectSecure_DB.png}
+    \caption{Estrutura da Base de Dados}
+    \label{fig:db_structure}
+\end{figure}
+
+Sendo que a base de dados é composta por 4 tabelas, cada uma com as suas respetivas colunas, 
+sendo que as tabelas são:\\\\
+
+\begin{minipage}{\textwidth}
+    
+
+\begin{itemize}
+    
+	\item \textbf{User:}
+	      \begin{itemize}
+		      \item UserID (chave primária)
+		      \item Username (string)
+		      \item Password (string)
+	      \end{itemize}
+
+	\item \textbf{Chat:}
+	      \begin{itemize}
+		      \item ChatID (chave primária)
+		      \item Name (string)
+		      \item AdminID (chave estrangeira, referência à tabela User)
+	      \end{itemize}
+
+	\item \textbf{Participant:}
+	      \begin{itemize}
+		      \item ParticipantID (chave primária)
+		      \item ChatID (chave estrangeira, referência à tabela Chat)
+		      \item UserID (chave estrangeira, referência à tabela User)
+	      \end{itemize}
+        \newpage
+	\item \textbf{Message:}
+	      \begin{itemize}
+		      \item MessageID (chave primária)
+		      \item ParticipantID (chave estrangeira, referência à tabela Participant)
+		      \item Content (string)
+		      \item Date (data e hora da mensagem)
+		      \item SenderUserID (chave estrangeira, referência à tabela Participant)
+	      \end{itemize}
+\end{itemize}
+\end{minipage}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
@@ -262,6 +313,8 @@ Tambem é possivel ver o estado da ligação WireGuard, caso esteja ligado ou de
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/LoginPC.png} % Substitua pelo caminho da imagem
+    \label{fig:login_pc}
+    \caption{Ecrã de Login - Computador}
 \end{figure}
 
 \newpage
@@ -272,6 +325,8 @@ e no seu canto inferior esquerdo existe um botão para terminar sessão caso des
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/ListaPC.png} % Substitua pelo caminho da imagem
+    \label{fig:lista_pc}
+    \caption{Ecrã de Lista de Chats - Computador}
 \end{figure}
 
 \newpage
@@ -280,6 +335,8 @@ O ecrã de chat é composto por uma lista de mensagens trocadas entre os utiliza
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/ChatPC.png} % Substitua pelo caminho da imagem
+    \label{fig:chat_pc}
+    \caption{Ecrã de Chat - Computador}
 \end{figure}
 
 \newpage
@@ -288,6 +345,8 @@ O ecrã de configuração WireGuard é composto por um formulário onde o utiliz
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \label{fig:wireguard_pc}
+    \caption{Ecrã de Configuração WireGuard - Computador}
 \end{figure}
 
 \subsection{Interface para Android}
@@ -358,42 +417,40 @@ do dispositivo que está a fazer o papel de servidor. Para isso, foi criado um \
 de configuração do WireGuard para o cliente, sendo que este só deve adicionar o ficheiro de configuração na aplicação
 do WireGuard. O \textit{script} ainda automatiza a adição do cliente nas configurações do servidor.
 
-
-\subsection{Base de Dados}
-A base de dados irá ter a seguinte estrutura:
-\begin{itemize}
-	\item \textbf{User:}
-	      \begin{itemize}
-		      \item UserID (chave primária)
-		      \item Username (string)
-		      \item Password (string)
-	      \end{itemize}
-
-	\item \textbf{Chat:}
-	      \begin{itemize}
-		      \item ChatID (chave primária)
-		      \item Name (string)
-		      \item AdminID (chave estrangeira, referência à tabela User)
-	      \end{itemize}
-
-	\item \textbf{Participant:}
-	      \begin{itemize}
-		      \item ParticipantID (chave primária)
-		      \item ChatID (chave estrangeira, referência à tabela Chat)
-		      \item UserID (chave estrangeira, referência à tabela User)
-	      \end{itemize}
-        \newpage
-	\item \textbf{Message:}
-	      \begin{itemize}
-		      \item MessageID (chave primária)
-		      \item ParticipantID (chave estrangeira, referência à tabela Participant)
-		      \item Content (string)
-		      \item Date (data e hora da mensagem)
-		      \item SenderUserID (chave estrangeira, referência à tabela Participant)
-	      \end{itemize}
-\end{itemize}
+Para conseguir estabelecer a troca de ficheiros entre o servidor e o cliente, foi necessário implementar 
+um \textit{script} que gerencia as trocas de ficheiros da base de dados entre os clientes e o servidor.
+Esse script foi feito em Python, utiliza a biblioteca Flask para criar uma API REST que permite a comunicação entre o cliente e o servidor.
+Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comunicar com o servidor.
+\begin{verbatim}
+    sudo firewall-cmd --add-port=8000/tcp --permanent
+    sudo firewall-cmd --reload
+\end{verbatim}
 
 %---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Problemas Encontrados}\label{problemas}
+Durante o desenvolvimento do projeto, foram encontrados alguns problemas, que foram resolvidos da seguinte forma:
+\subsection{Problemas de Conexão}
+Logo no ínicio da implementação da VPN foi necessário achar uma solução para a configuração de encaminhamento de pacotes, pois o servidor Linux
+não possui um endereço IP público próprio. Para contornar este problema, foi necessário configurar o encaminhamento de pacotes no router, de forma
+a que todos os pacotes que chegassem à porta 51820 fossem encaminhados para o servidor Linux, e este resolveria a situação encaminhando o resto dos pacotes pela VPN.\\
+Outro problema encontrado foi a dificuldade em encontrar uma maneira para estabelecer a conexão pela primeira vez, ou seja, enviar o ficheiro de configuração 
+da VPN para o dispositivo do utilizador, de forma a que este pudesse estabelecer a conexão com o servidor. Para resolver este problema, 
+foi necessário criar um \textit{script} que gerasse o ficheiro de configuração do WireGuard, e que fosse possível enviar esse ficheiro para o dispositivo do utilizador (\#TODO).
+
+\subsection{Problemas na aplicação Windows/Android}
+Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, como por exemplo:
+\begin{itemize}
+	\item Problemas de compatibilidade entre tipos de base de dados (SQLite e Schemas)
+	\begin{itemize}
+        \item Incompatibilidade de nomes entre tabelas
+        \item Configurações por defeito diferentes entre as plataformas.
+    \end{itemize}
+	\item Sincronização de dados entre dispositivos.
+	\item Visualização incorreta das informações
+\end{itemize}
+
+%-------------------------------------------------------------------------------------------------
 \newpage
 \section{Testes}\label{testes}
 

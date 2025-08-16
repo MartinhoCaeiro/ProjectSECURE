@@ -19,6 +19,114 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{almaos}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cce8b7c6609b5d38a28c2b06c65302ad}{%
+           family={AlmaOS},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{fullhash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{fullhashraw}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{bibnamehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authorbibnamehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authornamehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authorfullhash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authorfullhashraw}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do AlmaOS}
+      \field{title}{AlmaOS: A Secure Operating System}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://almalinux.org
+      \endverb
+      \verb{url}
+      \verb https://almalinux.org
+      \endverb
+    \endentry
+    \entry{bash}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7024ff0860dec6ab1519a3f71c7d8779}{%
+           family={Bash},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{fullhash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{fullhashraw}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{bibnamehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authorbibnamehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authornamehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authorfullhash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authorfullhashraw}{7024ff0860dec6ab1519a3f71c7d8779}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Bash}
+      \field{title}{Bash: The GNU Project's Command-Line Interpreter}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gnu.org/software/bash/
+      \endverb
+      \verb{url}
+      \verb https://www.gnu.org/software/bash/
+      \endverb
+    \endentry
+    \entry{python}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9688a568902e4b07b60557b566bdd820}{%
+           family={Foundation},
+           familyi={F\bibinitperiod},
+           given={Python\bibnamedelima Software},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{fullhash}{9688a568902e4b07b60557b566bdd820}
+      \strng{fullhashraw}{9688a568902e4b07b60557b566bdd820}
+      \strng{bibnamehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authorbibnamehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authornamehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authorfullhash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authorfullhashraw}{9688a568902e4b07b60557b566bdd820}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Python}
+      \field{title}{Python: A Programming Language}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.python.org/
+      \endverb
+      \verb{url}
+      \verb https://www.python.org/
+      \endverb
+    \endentry
     \entry{pagep}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
@@ -54,8 +162,256 @@
       \verb https://cms.ipbeja.pt/course/view.php?id=238
       \endverb
     \endentry
+    \entry{kotlin}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b6a77f3f5bead76a495a90d63703e1f9}{%
+           family={JetBrains},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{fullhash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{fullhashraw}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{bibnamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorbibnamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authornamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorfullhash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorfullhashraw}{b6a77f3f5bead76a495a90d63703e1f9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Kotlin}
+      \field{title}{Kotlin: A Modern Programming Language}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://kotlinlang.org/
+      \endverb
+      \verb{url}
+      \verb https://kotlinlang.org/
+      \endverb
+    \endentry
+    \entry{csharp}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={Microsoft},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do C\#}
+      \field{title}{C\#: A Modern Programming Language for .NET}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/
+      \endverb
+      \verb{url}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/
+      \endverb
+    \endentry
+    \entry{sqlite}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=497757a9c5b2ec17ded656170b51c788}{%
+           family={SQLite},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{fullhash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{fullhashraw}{497757a9c5b2ec17ded656170b51c788}
+      \strng{bibnamehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authorbibnamehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authornamehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authorfullhash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authorfullhashraw}{497757a9c5b2ec17ded656170b51c788}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do SQLite}
+      \field{title}{SQLite: A Self-Contained, High-Performance, Embedded SQL Database Engine}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sqlite.org/
+      \endverb
+      \verb{url}
+      \verb https://www.sqlite.org/
+      \endverb
+    \endentry
+    \entry{wireguard}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=79a174975275c0a1a6ac005358b21769}{%
+           family={WireGuard},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{fullhash}{79a174975275c0a1a6ac005358b21769}
+      \strng{fullhashraw}{79a174975275c0a1a6ac005358b21769}
+      \strng{bibnamehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authorbibnamehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authornamehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authorfullhash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authorfullhashraw}{79a174975275c0a1a6ac005358b21769}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do WireGuard}
+      \field{title}{WireGuard: Next Generation Kernel Network Tunnel}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.wireguard.com/
+      \endverb
+      \verb{url}
+      \verb https://www.wireguard.com/
+      \endverb
+    \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
+    \entry{almaos}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cce8b7c6609b5d38a28c2b06c65302ad}{%
+           family={AlmaOS},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{fullhash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{fullhashraw}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{bibnamehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authorbibnamehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authornamehash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authorfullhash}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \strng{authorfullhashraw}{cce8b7c6609b5d38a28c2b06c65302ad}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do AlmaOS}
+      \field{title}{AlmaOS: A Secure Operating System}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://almalinux.org
+      \endverb
+      \verb{url}
+      \verb https://almalinux.org
+      \endverb
+    \endentry
+    \entry{bash}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7024ff0860dec6ab1519a3f71c7d8779}{%
+           family={Bash},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{fullhash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{fullhashraw}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{bibnamehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authorbibnamehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authornamehash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authorfullhash}{7024ff0860dec6ab1519a3f71c7d8779}
+      \strng{authorfullhashraw}{7024ff0860dec6ab1519a3f71c7d8779}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Bash}
+      \field{title}{Bash: The GNU Project's Command-Line Interpreter}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gnu.org/software/bash/
+      \endverb
+      \verb{url}
+      \verb https://www.gnu.org/software/bash/
+      \endverb
+    \endentry
+    \entry{python}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9688a568902e4b07b60557b566bdd820}{%
+           family={Foundation},
+           familyi={F\bibinitperiod},
+           given={Python\bibnamedelima Software},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{fullhash}{9688a568902e4b07b60557b566bdd820}
+      \strng{fullhashraw}{9688a568902e4b07b60557b566bdd820}
+      \strng{bibnamehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authorbibnamehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authornamehash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authorfullhash}{9688a568902e4b07b60557b566bdd820}
+      \strng{authorfullhashraw}{9688a568902e4b07b60557b566bdd820}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Python}
+      \field{title}{Python: A Programming Language}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.python.org/
+      \endverb
+      \verb{url}
+      \verb https://www.python.org/
+      \endverb
+    \endentry
     \entry{pagep}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
@@ -89,6 +445,146 @@
       \endverb
       \verb{url}
       \verb https://cms.ipbeja.pt/course/view.php?id=238
+      \endverb
+    \endentry
+    \entry{kotlin}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b6a77f3f5bead76a495a90d63703e1f9}{%
+           family={JetBrains},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{fullhash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{fullhashraw}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{bibnamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorbibnamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authornamehash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorfullhash}{b6a77f3f5bead76a495a90d63703e1f9}
+      \strng{authorfullhashraw}{b6a77f3f5bead76a495a90d63703e1f9}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Kotlin}
+      \field{title}{Kotlin: A Modern Programming Language}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://kotlinlang.org/
+      \endverb
+      \verb{url}
+      \verb https://kotlinlang.org/
+      \endverb
+    \endentry
+    \entry{csharp}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={Microsoft},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do C\#}
+      \field{title}{C\#: A Modern Programming Language for .NET}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/
+      \endverb
+      \verb{url}
+      \verb https://learn.microsoft.com/en-us/dotnet/csharp/
+      \endverb
+    \endentry
+    \entry{sqlite}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=497757a9c5b2ec17ded656170b51c788}{%
+           family={SQLite},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{fullhash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{fullhashraw}{497757a9c5b2ec17ded656170b51c788}
+      \strng{bibnamehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authorbibnamehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authornamehash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authorfullhash}{497757a9c5b2ec17ded656170b51c788}
+      \strng{authorfullhashraw}{497757a9c5b2ec17ded656170b51c788}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do SQLite}
+      \field{title}{SQLite: A Self-Contained, High-Performance, Embedded SQL Database Engine}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sqlite.org/
+      \endverb
+      \verb{url}
+      \verb https://www.sqlite.org/
+      \endverb
+    \endentry
+    \entry{wireguard}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=79a174975275c0a1a6ac005358b21769}{%
+           family={WireGuard},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{fullhash}{79a174975275c0a1a6ac005358b21769}
+      \strng{fullhashraw}{79a174975275c0a1a6ac005358b21769}
+      \strng{bibnamehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authorbibnamehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authornamehash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authorfullhash}{79a174975275c0a1a6ac005358b21769}
+      \strng{authorfullhashraw}{79a174975275c0a1a6ac005358b21769}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do WireGuard}
+      \field{title}{WireGuard: Next Generation Kernel Network Tunnel}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.wireguard.com/
+      \endverb
+      \verb{url}
+      \verb https://www.wireguard.com/
       \endverb
     \endentry
   \enddatalist
