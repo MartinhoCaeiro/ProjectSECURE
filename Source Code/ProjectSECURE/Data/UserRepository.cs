@@ -17,7 +17,8 @@ namespace ProjectSECURE.Data
             checkCmd.CommandText = "SELECT COUNT(*) FROM Users WHERE Name = $name";
             checkCmd.Parameters.AddWithValue("$name", user.Name);
 
-            long count = (long)checkCmd.ExecuteScalar();
+            var result = checkCmd.ExecuteScalar();
+            long count = (result != null && result != DBNull.Value) ? Convert.ToInt64(result) : 0;
             if (count > 0)
                 throw new Exception("Usuário já existe.");
 
@@ -30,6 +31,9 @@ namespace ProjectSECURE.Data
             insertCmd.Parameters.AddWithValue("$name", user.Name);
             insertCmd.Parameters.AddWithValue("$password", user.Password);
             insertCmd.ExecuteNonQuery();
+
+            // Upload database after creating user
+            _ = ProjectSECURE.Services.DbSyncService.UploadDatabaseAsync();
         }
 
         public static User? ValidateLogin(string username, string password)

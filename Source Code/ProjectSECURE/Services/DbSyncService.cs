@@ -26,10 +26,11 @@ namespace ProjectSECURE.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var dbBytes = await response.Content.ReadAsByteArrayAsync();
-                    string tempDbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
-                    Directory.CreateDirectory(Path.GetDirectoryName(tempDbPath));
-                    await File.WriteAllBytesAsync(tempDbPath, dbBytes);
-                    Console.WriteLine("Base de dados temporária baixada com sucesso.");
+                    var dir = Path.GetDirectoryName(localDbPath);
+                    if (!string.IsNullOrEmpty(dir))
+                        Directory.CreateDirectory(dir);
+                    await File.WriteAllBytesAsync(localDbPath, dbBytes);
+                    Console.WriteLine("Base de dados baixada com sucesso.");
                     return true;
                 }
                 else
@@ -55,25 +56,8 @@ namespace ProjectSECURE.Services
                     return false;
                 }
 
-                // Merge temp db into local db before uploading
-                try
-                {
-                    ProjectSECURE.Data.DatabaseMerger.MergeAllFromTempDb();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Erro ao mesclar base de dados temporária antes do upload: " + ex.Message);
-                }
-
-                // Força o fecho de qualquer possível ligação antes de copiar
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-
-                string tempFilePath = Path.GetTempFileName();
-                File.Copy(localDbPath, tempFilePath, true); // copia a BD com todos os dados persistidos
-
                 using var content = new MultipartFormDataContent();
-                var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(tempFilePath));
+                var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(localDbPath));
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/octet-stream");
 
                 content.Add(fileContent, "file", "ProjectSECURE.db");
@@ -83,8 +67,6 @@ namespace ProjectSECURE.Services
                 Console.WriteLine(response.IsSuccessStatusCode
                     ? "✅ Upload da base de dados feito com sucesso."
                     : $"❌ Erro no upload: {response.StatusCode}");
-
-                File.Delete(tempFilePath); // apaga cópia temporária
 
                 return response.IsSuccessStatusCode;
             }

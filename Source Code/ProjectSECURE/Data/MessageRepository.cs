@@ -8,10 +8,10 @@ namespace ProjectSECURE.Data
     public static class MessageRepository
     {
         /// <summary>
-        /// Merges a list of messages into the local database, avoiding duplicates by MessageId.
+        /// Adds a list of messages into the local database, avoiding duplicates by MessageId.
         /// Returns the number of new messages inserted.
         /// </summary>
-        public static int MergeMessages(List<Message> newMessages)
+        public static int AddMessages(List<Message> newMessages)
         {
             int insertedCount = 0;
             using var conn = new SqliteConnection(DatabaseService.GetConnectionString());

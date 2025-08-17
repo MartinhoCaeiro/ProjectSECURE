@@ -10,18 +10,16 @@ namespace ProjectSECURE
     {
         protected override void OnExit(ExitEventArgs e)
         {
-            // Merge all tables from temp DB into local DB on exit
+            // Clean up: Delete any leftover temp DB file on exit (no merge needed)
             try
             {
-                ProjectSECURE.Data.DatabaseMerger.MergeAllFromTempDb();
-                // Optionally delete temp DB after merging
                 string tempDbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
                 if (System.IO.File.Exists(tempDbPath))
                     System.IO.File.Delete(tempDbPath);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[App Exit] Database merge error: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"[App Exit] Temp DB delete error: {ex.Message}");
             }
             base.OnExit(e);
         }
@@ -57,79 +55,16 @@ namespace ProjectSECURE
                         bool updated = await Services.DbSyncService.DownloadDatabaseAsync();
                         if (updated)
                         {
-                            // Merge new messages from temporary downloaded database
-                            try
-                            {
-                                string tempDbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
-                                var connStr = $"Data Source={tempDbPath}";
-                                var newMessages = new System.Collections.Generic.List<ProjectSECURE.Models.Message>();
-                                using (var conn = new Microsoft.Data.Sqlite.SqliteConnection(connStr))
-                                {
-                                    conn.Open();
-                                    var cmd = conn.CreateCommand();
-                                    cmd.CommandText = @"SELECT MessageId, Content, ParticipantId, Date FROM Messages";
-                                    using var reader = cmd.ExecuteReader();
-                                    while (reader.Read())
-                                    {
-                                        newMessages.Add(new ProjectSECURE.Models.Message
-                                        {
-                                            MessageId = reader.GetString(0),
-                                            Content = reader.GetString(1),
-                                            ParticipantId = reader.GetString(2),
-                                            Date = DateTime.Parse(reader.GetString(3))
-                                        });
-                                    }
-                                }
-                                ProjectSECURE.Data.MessageRepository.MergeMessages(newMessages);
-                                // Delete temp file after merging
-                                if (System.IO.File.Exists(tempDbPath))
-                                {
-                                    System.IO.File.Delete(tempDbPath);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                System.Diagnostics.Debug.WriteLine($"[DbSync] MergeMessages error: {ex.Message}");
-                            }
-
-                            // Salva o tipo da janela atual
-                            Type? currentWindowType = null;
-                            object? user = null;
-                            object? chat = null;
-                            bool isWireGuardActive = false;
+                            // Reload messages if in ChatView
                             Application.Current.Dispatcher.Invoke(() =>
                             {
                                 var win = Application.Current.MainWindow;
-                                currentWindowType = win?.GetType();
-                                if (win != null)
+                                if (win?.GetType() == typeof(Views.ChatView) && win.DataContext is ProjectSECURE.ViewModels.ChatViewModel chatVM)
                                 {
-                                    var dc = win.DataContext;
-                                    if (dc != null)
-                                    {
-                                        var userProp = dc.GetType().GetProperty("CurrentUser") ?? dc.GetType().GetProperty("User");
-                                        if (userProp != null) user = userProp.GetValue(dc);
-                                        var chatProp = dc.GetType().GetProperty("CurrentChat") ?? dc.GetType().GetProperty("Chat");
-                                        if (chatProp != null) chat = chatProp.GetValue(dc);
-                                        var wgProp = dc.GetType().GetProperty("IsWireGuardActive");
-                                        if (wgProp != null && wgProp.PropertyType == typeof(bool) && wgProp.GetValue(dc) != null) isWireGuardActive = (bool)wgProp.GetValue(dc);
-                                    }
-                                    if (win.GetType().Name == "NewChatView")
-                                    {
-                                        var field = win.GetType().GetField("currentUser", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                                        if (field != null) user = field.GetValue(win);
-                                    }
+                                    System.Diagnostics.Debug.WriteLine("[DbSync] Reloading messages in ChatViewModel");
+                                    var reloadMethod = chatVM.GetType().GetMethod("LoadMessages", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                                    reloadMethod?.Invoke(chatVM, null);
                                 }
-                                // If in ChatView, just reload messages
-                                if (currentWindowType == typeof(Views.ChatView) && win?.DataContext is ProjectSECURE.ViewModels.ChatViewModel chatVM)
-                                {
-                                    Application.Current.Dispatcher.Invoke(() =>
-                                    {
-                                        System.Diagnostics.Debug.WriteLine("[DbSync] Reloading messages in ChatViewModel");
-                                        var reloadMethod = chatVM.GetType().GetMethod("LoadMessages", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                                        reloadMethod?.Invoke(chatVM, null);
-                                    });
-                                }
-                                // For other windows, do nothing (UI updates only when entering)
                             });
                         }
                     }
