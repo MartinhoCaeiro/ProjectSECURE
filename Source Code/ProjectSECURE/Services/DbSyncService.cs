@@ -11,7 +11,7 @@ namespace ProjectSECURE.Services
         private static readonly string serverUrl = "http://10.0.0.1:8000";
         private static readonly string localDbPath = Path.Combine(
             AppDomain.CurrentDomain.BaseDirectory,
-            "Data",
+            "Database",
             "ProjectSECURE.db");
 
         private static readonly HttpClient httpClient = new HttpClient();
@@ -56,8 +56,15 @@ namespace ProjectSECURE.Services
                     return false;
                 }
 
+                // Força o fecho de qualquer possível ligação antes de copiar
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+                string tempFilePath = Path.GetTempFileName();
+                File.Copy(localDbPath, tempFilePath, true); // copia a BD com todos os dados persistidos
+
                 using var content = new MultipartFormDataContent();
-                var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(localDbPath));
+                var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(tempFilePath));
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/octet-stream");
 
                 content.Add(fileContent, "file", "ProjectSECURE.db");
@@ -67,6 +74,8 @@ namespace ProjectSECURE.Services
                 Console.WriteLine(response.IsSuccessStatusCode
                     ? "✅ Upload da base de dados feito com sucesso."
                     : $"❌ Erro no upload: {response.StatusCode}");
+
+                File.Delete(tempFilePath); // apaga cópia temporária
 
                 return response.IsSuccessStatusCode;
             }

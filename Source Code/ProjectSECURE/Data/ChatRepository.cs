@@ -68,6 +68,8 @@ namespace ProjectSECURE.Data
 
             transaction.Commit();
 
+            // Upload database after creating chat
+            _ = ProjectSECURE.Services.DbSyncService.UploadDatabaseAsync();
             return newChat;
         }
 
