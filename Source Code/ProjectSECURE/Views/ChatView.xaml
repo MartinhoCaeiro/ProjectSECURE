@@ -11,7 +11,7 @@
         Background="{DynamicResource BackgroundBrush}">
     <Window.Resources>
         <Style x:Key="CustomScrollBar"
-                TargetType="ScrollBar">
+               TargetType="ScrollBar">
             <Setter Property="Width"
                     Value="8"/>
             <Setter Property="Template">
@@ -41,14 +41,24 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Botão Voltar -->
-        <Button Content="↩"
-                Width="30"
-                Height="30"
-                Margin="10"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Click="BackButton_Click"/>
+        <!-- Top bar with Back and Refresh buttons -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Back Button -->
+            <Button Content="↩"
+                    Width="30"
+                    Height="30"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Click="BackButton_Click"
+                    Grid.Column="0"/>
+            <!-- Spacer -->
+            <TextBlock Grid.Column="1"/>
+        </Grid>
 
         <!-- Lista de mensagens -->
         <ListBox Grid.Row="1"

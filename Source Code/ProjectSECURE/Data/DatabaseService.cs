@@ -11,7 +11,8 @@ namespace ProjectSECURE.Data
 
         static DatabaseService()
         {
-            string dataDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+            // Always use the current working directory for the database
+            string dataDir = Path.Combine(Directory.GetCurrentDirectory(), "Database");
             Directory.CreateDirectory(dataDir); // cria a pasta se não existir
 
             dbPath = Path.Combine(dataDir, "ProjectSECURE.db");

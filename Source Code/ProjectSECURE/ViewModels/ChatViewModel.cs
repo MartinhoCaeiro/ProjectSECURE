@@ -1,14 +1,18 @@
+using System;
 using ProjectSECURE.Data;
 using ProjectSECURE.Models;
 using ProjectSECURE.Helpers;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace ProjectSECURE.ViewModels
 {
     public class ChatViewModel : ViewModelBase
     {
+        private readonly DispatcherTimer refreshTimer;
         private bool isWireGuardActive = true;
         public ObservableCollection<MessageBubble> Messages { get; set; } = new();
         public string NewMessage { get; set; } = string.Empty;
@@ -19,6 +23,7 @@ namespace ProjectSECURE.ViewModels
         }
 
         public ICommand SendCommand { get; }
+        public ICommand RefreshCommand { get; }
 
         private readonly User currentUser;
         private readonly Chat currentChat;
@@ -26,11 +31,24 @@ namespace ProjectSECURE.ViewModels
 
         public ChatViewModel(User user, Chat chat, bool isWireGuardActive)
         {
+            // Start auto-refresh timer
+            refreshTimer = new DispatcherTimer();
+            refreshTimer.Interval = TimeSpan.FromSeconds(10);
+            refreshTimer.Tick += async (s, e) => await RefreshMessagesAsync();
+            refreshTimer.Start();
+
             currentUser = user;
             currentChat = chat;
             IsWireGuardActive = isWireGuardActive;
             LoadMessages();
             SendCommand = new RelayCommand(_ => SendMessage());
+            RefreshCommand = new RelayCommand(async _ => await RefreshMessagesAsync());
+        }
+
+        private async Task RefreshMessagesAsync()
+        {
+            await Services.DbSyncService.PeriodicDownloadAndReloadAsync();
+            LoadMessages();
         }
 
 
