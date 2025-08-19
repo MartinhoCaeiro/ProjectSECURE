@@ -182,3 +182,4 @@ D:\ESTIG\Projeto-Cripto\Projeto-Cripto\Source Code\ProjectSECURE\obj\Debug\net9.
 D:\ESTIG\Projeto-Cripto\Projeto-Cripto\Source Code\ProjectSECURE\obj\Debug\net9.0-windows\ProjectSECURE.pdb
 D:\ESTIG\Projeto-Cripto\Projeto-Cripto\Source Code\ProjectSECURE\obj\Debug\net9.0-windows\ProjectSECURE.genruntimeconfig.cache
 D:\ESTIG\Projeto-Cripto\Projeto-Cripto\Source Code\ProjectSECURE\obj\Debug\net9.0-windows\ref\ProjectSECURE.dll
+C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ProjectSECURE\bin\Debug\net9.0-windows\BouncyCastle.Cryptography.dll

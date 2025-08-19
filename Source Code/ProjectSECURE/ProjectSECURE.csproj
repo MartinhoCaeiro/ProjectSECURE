@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.6.2" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.7" />
     <None Update="appsettings.json">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>

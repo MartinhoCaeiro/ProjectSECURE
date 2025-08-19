@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net9.0-windows7.0": {
+      "BouncyCastle.Cryptography/2.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/BouncyCastle.Cryptography.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/BouncyCastle.Cryptography.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Data.Sqlite/9.0.7": {
         "type": "package",
         "dependencies": {
@@ -830,6 +843,26 @@
     }
   },
   "libraries": {
+    "BouncyCastle.Cryptography/2.6.2": {
+      "sha512": "7oWOcvnntmMKNzDLsdxAYqApt+AjpRpP2CShjMfIa3umZ42UQMvH0tl1qAliYPNYO6vTdcGMqnRrCPmsfzTI1w==",
+      "type": "package",
+      "path": "bouncycastle.cryptography/2.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "bouncycastle.cryptography.2.6.2.nupkg.sha512",
+        "bouncycastle.cryptography.nuspec",
+        "lib/net461/BouncyCastle.Cryptography.dll",
+        "lib/net461/BouncyCastle.Cryptography.xml",
+        "lib/net6.0/BouncyCastle.Cryptography.dll",
+        "lib/net6.0/BouncyCastle.Cryptography.xml",
+        "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
+        "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
+        "packageIcon.png"
+      ]
+    },
     "Microsoft.Data.Sqlite/9.0.7": {
       "sha512": "zPyE8rASXQALTOHI/flV1YzCErlnuDm9Wv7jxYhC1KkheWBMJRJ95Yl8ZqXPa/8R16DJ3IZn8KnOVcqs3bYBmA==",
       "type": "package",
@@ -1911,6 +1944,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
+      "BouncyCastle.Cryptography >= 2.6.2",
       "Microsoft.Data.Sqlite >= 9.0.7",
       "Microsoft.Extensions.Configuration.Json >= 9.0.7",
       "Microsoft.Extensions.Hosting >= 9.0.7",
@@ -1964,6 +1998,10 @@
       "net9.0-windows7.0": {
         "targetAlias": "net9.0-windows",
         "dependencies": {
+          "BouncyCastle.Cryptography": {
+            "target": "Package",
+            "version": "[2.6.2, )"
+          },
           "Microsoft.Data.Sqlite": {
             "target": "Package",
             "version": "[9.0.7, )"
