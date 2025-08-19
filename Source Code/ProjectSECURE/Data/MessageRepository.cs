@@ -91,8 +91,9 @@ namespace ProjectSECURE.Data
             insert.Parameters.AddWithValue("$id", Guid.NewGuid().ToString());
             insert.Parameters.AddWithValue("$content", content);
             insert.Parameters.AddWithValue("$pid", participantId);
-            insert.Parameters.AddWithValue("$date", DateTime.UtcNow.ToString("o"));
-
+            var bstZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+            var bstNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, bstZone);
+            insert.Parameters.AddWithValue("$date", bstNow.ToString("o"));
             insert.ExecuteNonQuery();
         }
     }
