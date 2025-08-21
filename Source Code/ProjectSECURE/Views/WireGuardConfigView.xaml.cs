@@ -7,19 +7,24 @@ using System.Windows;
 
 namespace ProjectSECURE.Views
 {
+    // Code-behind for the WireGuard configuration window
     public partial class WireGuardConfigView : Window
     {
+        // Model for WireGuard configuration
         private WireGuardConf _model = new();
 
+        // Constructor initializes the window and loads config
         public WireGuardConfigView()
         {
             InitializeComponent();
             LoadConfigSafe();
         }
 
+        // Expands environment variables in a file path
         private static string Expand(string path) =>
             Environment.ExpandEnvironmentVariables(path);
 
+        // Opens a file dialog to select a WireGuard config file
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
             var dlg = new OpenFileDialog
@@ -37,8 +42,10 @@ namespace ProjectSECURE.Views
             }
         }
 
+        // Reloads the configuration from the file
         private void ReloadButton_Click(object sender, RoutedEventArgs e) => LoadConfigSafe();
 
+        // Loads the WireGuard config file and updates UI fields
         private void LoadConfigSafe()
         {
             try
@@ -47,7 +54,8 @@ namespace ProjectSECURE.Views
 
                 if (!File.Exists(path))
                 {
-                    _model = new WireGuardConf(); // novo/limpo
+                    // If file doesn't exist, clear all fields
+                    _model = new WireGuardConf();
                     PrivateKeyBox.Password = "";
                     AddressTextBox.Text = "";
                     DnsTextBox.Text = "";
@@ -57,6 +65,7 @@ namespace ProjectSECURE.Views
                     return;
                 }
 
+                // Load config and update fields
                 _model = WireGuardConf.Load(path);
 
                 PrivateKeyBox.Password = _model.Interface.PrivateKey ?? "";
@@ -68,11 +77,12 @@ namespace ProjectSECURE.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Falha ao ler o .conf: {ex.Message}", "Erro",
+                MessageBox.Show($"Failed to read .conf: {ex.Message}", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
+        // Saves the WireGuard config to file after validating fields
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -80,11 +90,11 @@ namespace ProjectSECURE.Views
                 var path = Expand(ConfigPathTextBox.Text);
                 var dir = Path.GetDirectoryName(path);
                 if (string.IsNullOrWhiteSpace(dir))
-                    throw new InvalidOperationException("Caminho inválido para o ficheiro .conf.");
+                    throw new InvalidOperationException("Invalid path for .conf file.");
 
                 Directory.CreateDirectory(dir);
 
-                // Atualiza o modelo
+                // Update model from UI fields
                 _model.Interface.PrivateKey = PrivateKeyBox.Password.Trim();
                 _model.Interface.Address = AddressTextBox.Text.Trim();
                 _model.Interface.DNS = DnsTextBox.Text.Trim();
@@ -93,34 +103,35 @@ namespace ProjectSECURE.Views
                 _model.Peer.AllowedIPs = AllowedIpsTextBox.Text.Trim();
                 _model.Peer.Endpoint = EndpointTextBox.Text.Trim();
 
-                // Validações simples
+                // Simple validations
                 if (string.IsNullOrWhiteSpace(_model.Interface.PrivateKey))
-                    throw new InvalidOperationException("PrivateKey (Interface) é obrigatório.");
+                    throw new InvalidOperationException("PrivateKey (Interface) is required.");
                 if (string.IsNullOrWhiteSpace(_model.Interface.Address))
-                    throw new InvalidOperationException("Address (Interface) é obrigatório.");
+                    throw new InvalidOperationException("Address (Interface) is required.");
                 if (string.IsNullOrWhiteSpace(_model.Peer.PublicKey))
-                    throw new InvalidOperationException("PublicKey (Peer) é obrigatório.");
+                    throw new InvalidOperationException("PublicKey (Peer) is required.");
                 if (string.IsNullOrWhiteSpace(_model.Peer.AllowedIPs))
-                    throw new InvalidOperationException("AllowedIPs (Peer) é obrigatório.");
+                    throw new InvalidOperationException("AllowedIPs (Peer) is required.");
                 if (string.IsNullOrWhiteSpace(_model.Peer.Endpoint))
-                    throw new InvalidOperationException("Endpoint (Peer) é obrigatório.");
+                    throw new InvalidOperationException("Endpoint (Peer) is required.");
 
                 _model.Save(path);
 
-                MessageBox.Show("Configuração guardada.", "Sucesso",
+                MessageBox.Show("Configuration saved.", "Success",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Falha ao guardar o .conf: {ex.Message}", "Erro",
+                MessageBox.Show($"Failed to save .conf: {ex.Message}", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
+        // Closes the configuration window
         private void CancelButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 
-    // ---------------- WireGuardConf (modelo + parser) ----------------
+    // ---------------- WireGuardConf (model + parser) ----------------
 
     internal sealed class WireGuardConf
     {

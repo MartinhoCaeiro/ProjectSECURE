@@ -10,18 +10,25 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
+        <!-- Converter for VPN status color -->
         <Window.Resources>
                 <conv:BoolToColorConverter x:Key="BoolToColorConverter"/>
         </Window.Resources>
 
+        <!-- Layout: VPN status, header, login form, copyright -->
         <Grid Margin="20">
                 <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <!-- VPN status -->
                         <RowDefinition Height="Auto"/>
+                        <!-- Header -->
                         <RowDefinition Height="*"/>
+                        <!-- Login form -->
                         <RowDefinition Height="Auto"/>
+                        <!-- Copyright -->
                 </Grid.RowDefinitions>
 
+                <!-- Button shows VPN status and color -->
                 <Button x:Name="WireGuardStatusButton"
                         Grid.Row="0"
                         Content="WireGuard: Desconhecido"
@@ -31,7 +38,7 @@
                         Background="{Binding IsWireGuardActive, Converter={StaticResource BoolToColorConverter}}"/>
 
 
-                <!-- Cabeçalho -->
+                <!-- Header -->
                 <TextBlock Grid.Row="1"
                            Text="Bem-vindo!"
                            FontSize="26"
@@ -40,7 +47,7 @@
                            HorizontalAlignment="Center"
                            Margin="0,0,0,20"/>
 
-                <!-- Formulário -->
+                <!-- Login form: username, password, login/register buttons, error message -->
                 <StackPanel Grid.Row="2"
                             VerticalAlignment="Center">
                         <TextBlock Text="Nome de Utilizador"
@@ -82,6 +89,7 @@
 
                 </StackPanel>
 
+                <!-- Copyright -->
                 <TextBlock Grid.Row="3"
                            Text="ProjectSECURE© 2025 - M.Caeiro, P.Abade, R.Narciso"
                            FontSize="8"

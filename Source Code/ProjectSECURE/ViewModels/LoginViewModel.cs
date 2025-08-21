@@ -9,6 +9,7 @@ using System;
 
 namespace ProjectSECURE.ViewModels
 {
+    // ViewModel for the login screen
     public class LoginViewModel : INotifyPropertyChanged
     {
         private bool isWireGuardActive;
@@ -16,34 +17,42 @@ namespace ProjectSECURE.ViewModels
         private string password = string.Empty;
         private string errorMessage = string.Empty;
 
+        // Username entered by the user
         public string Username
         {
             get => username;
             set { username = value; OnPropertyChanged(); }
         }
+        // Indicates if WireGuard VPN is active
         public bool IsWireGuardActive
         {
             get => isWireGuardActive;
             set { isWireGuardActive = value; OnPropertyChanged(); }
         }
 
+        // Password entered by the user
         public string Password
         {
             get => password;
             set { password = value; OnPropertyChanged(); }
         }
 
+        // Error message to display in the UI
         public string ErrorMessage
         {
             get => errorMessage;
             set { errorMessage = value; OnPropertyChanged(); }
         }
 
+        // The currently logged-in user
         public User? CurrentUser { get; private set; }
 
+        // Command to perform login
         public ICommand LoginCommand { get; }
+        // Command to perform registration
         public ICommand RegisterCommand { get; }
 
+        // Constructor sets up commands and initial VPN status
         public LoginViewModel()
         {
             LoginCommand = new RelayCommand(Login);
@@ -51,13 +60,15 @@ namespace ProjectSECURE.ViewModels
             IsWireGuardActive = false;
         }
 
-        private void Login(object parameter)
+        // Attempt to log in with the provided credentials
+        private void Login(object? parameter)
         {
             if (UserRepository.ValidateLogin(Username, Password) is User user)
             {
                 CurrentUser = user;
                 ErrorMessage = "";
 
+                // If called from a window, open chat list and close login window
                 if (parameter is Window window)
                 {
                     var chatListView = new Views.ChatListView(user, IsWireGuardActive);
@@ -67,11 +78,12 @@ namespace ProjectSECURE.ViewModels
             }
             else
             {
-                ErrorMessage = "Usuário ou senha inválidos.";
+                ErrorMessage = "Invalid username or password.";
             }
         }
 
-        private void Register(object parameter)
+        // Register a new user with the provided credentials
+        private void Register(object? parameter)
         {
             try
             {
@@ -84,7 +96,7 @@ namespace ProjectSECURE.ViewModels
                 UserRepository.CreateUser(user);
                 // Upload database after user creation
                 _ = Services.DbSyncService.UploadDatabaseAsync();
-                ErrorMessage = "Usuário criado com sucesso! Faça login.";
+                ErrorMessage = "User created successfully! Please log in.";
             }
             catch (System.Exception ex)
             {
@@ -92,6 +104,7 @@ namespace ProjectSECURE.ViewModels
             }
         }
 
+        // Property change notification
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string? name = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

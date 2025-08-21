@@ -8,17 +8,19 @@ using System.Linq;
 
 namespace ProjectSECURE.Views
 {
+    // Code-behind for the login window
     public partial class LoginView : Window
     {
+        // Constructor sets up DataContext and event handlers
         public LoginView()
         {
             InitializeComponent();
             DataContext = new LoginViewModel();
             Loaded += async (_, __) => await UpdateWireGuardStatusAsync();
-
             this.Closed += LoginView_Closed;
         }
 
+        // Updates the WireGuard VPN status and updates the UI and ViewModel
         private async Task UpdateWireGuardStatusAsync()
         {
             WireGuardStatusButton.Content = "WireGuard: a verificar…";
@@ -30,6 +32,7 @@ namespace ProjectSECURE.Views
             }
         }
 
+        // Checks if the WireGuard network interface is up
         public static bool IsWireGuardInterfaceUp()
         {
             return NetworkInterface.GetAllNetworkInterfaces()
@@ -39,6 +42,7 @@ namespace ProjectSECURE.Views
                      ni.Description.Contains("WireGuard", System.StringComparison.OrdinalIgnoreCase)));
         }
 
+        // Opens the WireGuard configuration window and refreshes VPN status after closing
         private async void WireGuardStatusButton_Click(object sender, RoutedEventArgs e)
         {
             var win = new WireGuardConfigView { Owner = this };
@@ -46,19 +50,21 @@ namespace ProjectSECURE.Views
             await UpdateWireGuardStatusAsync();
         }
 
+        // Handles window close event; opens chat list if login was successful
         private void LoginView_Closed(object? sender, EventArgs e)
         {
             if (this.DialogResult == true)
             {
                 if (DataContext is LoginViewModel vm && vm.CurrentUser != null)
                 {
-                    // Abrir janela principal, passando o usuário logado e status WireGuard
+                    // Open main chat list window, passing logged-in user and VPN status
                     var chatListView = new ChatListView(vm.CurrentUser, vm.IsWireGuardActive);
                     chatListView.Show();
                 }
             }
         }
 
+        // Updates the ViewModel's password property when the password box changes
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (DataContext is LoginViewModel vm)

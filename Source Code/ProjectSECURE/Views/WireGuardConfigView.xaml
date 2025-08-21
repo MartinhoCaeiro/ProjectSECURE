@@ -9,21 +9,21 @@
         Background="{DynamicResource BackgroundBrush}"
         Foreground="{DynamicResource ForegroundBrush}">
 
-    <!-- Estilos para garantir que todos os textos/campos respeitam o tema -->
+    <!-- Styles to ensure all text/fields respect the theme -->
     <Window.Resources>
-        <!-- Texto padrão -->
+        <!-- Default text -->
         <Style TargetType="TextBlock">
             <Setter Property="Foreground"
                     Value="{DynamicResource ForegroundBrush}"/>
         </Style>
 
-        <!-- Labels (se usar) -->
+        <!-- Labels (if used) -->
         <Style TargetType="Label">
             <Setter Property="Foreground"
                     Value="{DynamicResource ForegroundBrush}"/>
         </Style>
 
-        <!-- GroupBox e cabeçalho -->
+        <!-- GroupBox and header -->
         <Style TargetType="GroupBox">
             <Setter Property="Foreground"
                     Value="{DynamicResource ForegroundBrush}"/>
@@ -56,21 +56,22 @@
         </Style>
     </Window.Resources>
 
+    <!-- Layout: config path, interface section, peer section, buttons -->
     <Grid Margin="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Caminho -->
+            <!-- Config path -->
             <RowDefinition Height="Auto"/>
-            <!-- Interface -->
+            <!-- Interface section -->
             <RowDefinition Height="Auto"/>
-            <!-- Peer -->
+            <!-- Peer section -->
             <RowDefinition Height="*"/>
-            <!-- Espaço -->
+            <!-- Spacer -->
             <RowDefinition Height="Auto"/>
-            <!-- Botões -->
+            <!-- Buttons -->
         </Grid.RowDefinitions>
 
-        <!-- Caminho do .conf -->
+        <!-- Path to WireGuard .conf file -->
         <DockPanel Grid.Row="0"
                    LastChildFill="True">
             <TextBlock Text="Ficheiro .conf:"
@@ -84,7 +85,7 @@
                     Click="BrowseButton_Click"/>
         </DockPanel>
 
-        <!-- Secção Interface -->
+        <!-- Interface section: private key, address, DNS -->
         <GroupBox Header="[Interface]"
                   Grid.Row="1"
                   Margin="0,12,0,0">
@@ -136,7 +137,7 @@
             </Grid>
         </GroupBox>
 
-        <!-- Secção Peer -->
+        <!-- Peer section: public key, allowed IPs, endpoint -->
         <GroupBox Header="[Peer]"
                   Grid.Row="2"
                   Margin="0,12,0,0">
@@ -188,7 +189,7 @@
             </Grid>
         </GroupBox>
 
-        <!-- Botões -->
+        <!-- Save and close buttons -->
         <StackPanel Grid.Row="4"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"

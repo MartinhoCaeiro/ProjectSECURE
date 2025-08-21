@@ -5,14 +5,16 @@ using System.Collections.Generic;
 
 namespace ProjectSECURE.Data
 {
+    // Repository for user-related database operations
     public static class UserRepository
     {
+        // Creates a new user in the database, throws if username already exists
         public static void CreateUser(User user)
         {
             using var conn = new SqliteConnection(DatabaseService.GetConnectionString());
             conn.Open();
 
-            // Verificar se já existe um usuário com o mesmo nome
+            // Check if a user with the same name already exists
             var checkCmd = conn.CreateCommand();
             checkCmd.CommandText = "SELECT COUNT(*) FROM Users WHERE Name = $name";
             checkCmd.Parameters.AddWithValue("$name", user.Name);
@@ -20,9 +22,9 @@ namespace ProjectSECURE.Data
             var result = checkCmd.ExecuteScalar();
             long count = (result != null && result != DBNull.Value) ? Convert.ToInt64(result) : 0;
             if (count > 0)
-                throw new Exception("Usuário já existe.");
+                throw new Exception("User already exists.");
 
-            // Inserir novo usuário
+            // Insert new user
             var insertCmd = conn.CreateCommand();
             insertCmd.CommandText = @"
                 INSERT INTO Users (UserId, Name, Password) 
@@ -36,6 +38,7 @@ namespace ProjectSECURE.Data
             _ = ProjectSECURE.Services.DbSyncService.UploadDatabaseAsync();
         }
 
+        // Validates login credentials and returns the user if found
         public static User? ValidateLogin(string username, string password)
         {
             using var conn = new SqliteConnection(DatabaseService.GetConnectionString());
@@ -62,6 +65,7 @@ namespace ProjectSECURE.Data
             return null;
         }
 
+        // Returns all users in the database
         public static List<User> GetAllUsers()
         {
             var users = new List<User>();
@@ -84,6 +88,7 @@ namespace ProjectSECURE.Data
             return users;
         }
 
+        // Returns a user by their userId
         public static User? GetUserById(string userId)
         {
             using var conn = new SqliteConnection(DatabaseService.GetConnectionString());

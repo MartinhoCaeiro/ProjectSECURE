@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:ProjectSECURE"
              xmlns:conv="clr-namespace:ProjectSECURE.Converters">
     <Application.Resources>
-        <!-- Aqui podem estar os teus recursos -->
         <conv:BoolToAlignmentConverter x:Key="BoolToAlignmentConverter"/>
         <conv:BoolToBubbleColorConverter x:Key="BoolToBubbleColorConverter"/>
     </Application.Resources>

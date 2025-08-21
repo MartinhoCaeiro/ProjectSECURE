@@ -5,11 +5,15 @@ using System.Windows.Input;
 
 namespace ProjectSECURE.Views
 {
+    // Code-behind for the chat list window
     public partial class ChatListView : Window
     {
+        // ViewModel for chat list
         private readonly ChatListViewModel viewModel;
+        // Indicates if WireGuard VPN is active
         private readonly bool isWireGuardActive;
 
+        // Constructor initializes ViewModel and sets up event handlers
         public ChatListView(User user, bool isWireGuardActive)
         {
             InitializeComponent();
@@ -19,27 +23,29 @@ namespace ProjectSECURE.Views
             viewModel.RequestNewChatWindow += ShowNewChatWindow;
         }
 
+        // Opens the NewChatView window when requested by ViewModel
         private void ShowNewChatWindow()
         {
             var newChatWindow = new NewChatView(viewModel.CurrentUser)
             {
-                Owner = this // herda o estilo e os recursos do tema
+                Owner = this // inherit theme and resources
             };
 
             if (newChatWindow.ShowDialog() == true)
             {
-                // Recarrega a lista de chats após criar um novo
+                // Reload chat list after creating a new chat
                 viewModel.GetType().GetMethod("LoadChats", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.Invoke(viewModel, null);
             }
         }
 
-
+        // Opens the settings window
         private void OpenSettings(object sender, RoutedEventArgs e)
         {
             var settingsWindow = new SettingsView();
             settingsWindow.ShowDialog();
         }
 
+        // Opens the selected chat in a new window on double-click
         private void Chat_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (viewModel.SelectedChat != null)
@@ -51,7 +57,7 @@ namespace ProjectSECURE.Views
             }
         }
 
-
+        // Logs out and returns to the login window
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             var loginView = new LoginView();
