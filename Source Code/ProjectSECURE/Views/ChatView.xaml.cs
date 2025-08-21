@@ -4,19 +4,23 @@ using ProjectSECURE.ViewModels;
 
 namespace ProjectSECURE.Views
 {
+    // Code-behind for the chat conversation window
     public partial class ChatView : Window
     {
+        // Constructor sets up the ViewModel for the chat
         public ChatView(User user, Chat chat, bool isWireGuardActive)
         {
             InitializeComponent();
             DataContext = new ChatViewModel(user, chat, isWireGuardActive);
         }
 
+        // Handles the Back button click to close the chat window and return to chat list
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); // Fecha o ChatView e retorna à janela anterior (ChatListView)
+            this.Close();
         }
 
+        // Scrolls the message list to the bottom when loaded or when new messages arrive
         private void MessagesListBox_Loaded(object sender, RoutedEventArgs e)
         {
             var listBox = sender as System.Windows.Controls.ListBox;

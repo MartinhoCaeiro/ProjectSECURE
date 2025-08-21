@@ -5,8 +5,10 @@ using System.Collections.Generic;
 
 namespace ProjectSECURE.Data
 {
+    // Repository for chat-related database operations
     public static class ChatRepository
     {
+        // Returns all chats for a given user
         public static List<Chat> GetChatsForUser(string userId)
         {
             var chats = new List<Chat>();
@@ -35,6 +37,7 @@ namespace ProjectSECURE.Data
             return chats;
         }
 
+        // Creates a new chat with the given name and admin, and adds the admin as a participant
         public static Chat? CreateNewChat(string chatName, string adminId)
         {
             var newChat = new Chat
@@ -49,7 +52,7 @@ namespace ProjectSECURE.Data
 
             using var transaction = conn.BeginTransaction();
 
-            // Inserir chat
+            // Insert chat
             var insertChat = conn.CreateCommand();
             insertChat.CommandText = @"INSERT INTO Chats (ChatId, Name, AdminId) VALUES ($chatId, $name, $adminId)";
             insertChat.Parameters.AddWithValue("$chatId", newChat.ChatId);
@@ -57,7 +60,7 @@ namespace ProjectSECURE.Data
             insertChat.Parameters.AddWithValue("$adminId", newChat.AdminId);
             insertChat.ExecuteNonQuery();
 
-            // Inserir participante (criador/admin)
+            // Insert admin as participant
             var insertParticipant = conn.CreateCommand();
             insertParticipant.CommandText = @"INSERT INTO Participants (ParticipantId, ChatId, UserId) 
                                               VALUES ($participantId, $chatId, $userId)";
@@ -73,6 +76,7 @@ namespace ProjectSECURE.Data
             return newChat;
         }
 
+        // Creates a new chat with multiple participants
         public static string CreateChat(string chatName, string adminId, List<User> participants)
         {
             using var conn = new SqliteConnection(DatabaseService.GetConnectionString());
@@ -82,7 +86,7 @@ namespace ProjectSECURE.Data
 
             var chatId = Guid.NewGuid().ToString();
 
-            // Criar chat
+            // Insert chat
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"INSERT INTO Chats (ChatId, Name, AdminId) VALUES ($chatId, $name, $adminId)";
             cmd.Parameters.AddWithValue("$chatId", chatId);
@@ -90,7 +94,7 @@ namespace ProjectSECURE.Data
             cmd.Parameters.AddWithValue("$adminId", adminId);
             cmd.ExecuteNonQuery();
 
-            // Participantes
+            // Insert each participant
             foreach (var user in participants)
             {
                 var cmdPart = conn.CreateCommand();

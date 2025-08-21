@@ -5,10 +5,13 @@ using System.Windows;
 
 namespace ProjectSECURE.Views
 {
+    // Code-behind for the new chat creation window
     public partial class NewChatView : Window
     {
+        // The current logged-in user
         private readonly User currentUser;
 
+        // Constructor sets up the user and loads the user list
         public NewChatView(User user)
         {
             InitializeComponent();
@@ -16,20 +19,22 @@ namespace ProjectSECURE.Views
             LoadUsers();
         }
 
+        // Loads all users into the participants list and selects the current user by default
         private void LoadUsers()
         {
             var allUsers = UserRepository.GetAllUsers();
             UsersListBox.ItemsSource = allUsers;
             UsersListBox.DisplayMemberPath = "Name";
-            UsersListBox.SelectedItems.Add(currentUser); // Selecionar o utilizador atual por defeito
+            UsersListBox.SelectedItems.Add(currentUser); // Select current user by default
         }
 
+        // Handles the create chat button click
         private void CreateChat_Click(object sender, RoutedEventArgs e)
         {
             var chatName = ChatNameTextBox.Text.Trim();
             if (string.IsNullOrEmpty(chatName))
             {
-                MessageBox.Show("Insira o nome do chat.");
+                MessageBox.Show("Por favor escolha um nome.");
                 return;
             }
 
@@ -45,7 +50,7 @@ namespace ProjectSECURE.Views
                 return;
             }
 
-            // Criar o chat e participantes
+            // Create the chat and add participants
             string chatId = ChatRepository.CreateChat(chatName, currentUser.UserId, selectedUsers);
 
             // Upload database after chat creation

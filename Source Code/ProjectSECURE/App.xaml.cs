@@ -8,60 +8,64 @@ namespace ProjectSECURE
 {
     public partial class App : Application
     {
+        // Timer for periodic database synchronization
+        private System.Timers.Timer? dbSyncTimer;
+        private const string ConfigFile = "userconfig.json";
+        public string CurrentTheme { get; private set; } = "Light";
+
+        // Clean up temporary database file on exit
         protected override void OnExit(ExitEventArgs e)
         {
-            // Clean up: Delete any leftover temp DB file on exit (no merge needed)
             try
             {
                 string tempDbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "ProjectSECURE_temp.db");
                 if (System.IO.File.Exists(tempDbPath))
                     System.IO.File.Delete(tempDbPath);
             }
-            catch (Exception ex)
+            catch
             {
-                System.Diagnostics.Debug.WriteLine($"[App Exit] Temp DB delete error: {ex.Message}");
+                // Ignore errors during cleanup
             }
             base.OnExit(e);
         }
-        private System.Timers.Timer? dbSyncTimer;
-        private const string ConfigFile = "userconfig.json";
-        public string CurrentTheme { get; private set; } = "Light";
 
+        // Application startup logic
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            // Verifica se o adaptador WireGuard está ativo
-            bool vpnAtiva = Views.LoginView.IsWireGuardInterfaceUp();
+            // Check if WireGuard VPN adapter is active
+            bool vpnActive = Views.LoginView.IsWireGuardInterfaceUp();
 
-            if (vpnAtiva)
+            if (vpnActive)
             {
-                bool atualizado = await Services.DbSyncService.DownloadDatabaseAsync();
+                // Try to download the latest database from the server
+                bool updated = await Services.DbSyncService.DownloadDatabaseAsync();
 
-                if (!atualizado)
+                if (!updated)
                 {
                     MessageBox.Show(
-                        "VPN ativa, mas não foi possível sincronizar com o servidor.\nA base de dados local será usada.",
-                        "Aviso",
+                        "VPN está ativa, mas não foi possível sincronizar com o servidor. A base de dados local será usada.",
+                        "Aviso!",
                         MessageBoxButton.OK,
                         MessageBoxImage.Warning);
                 }
-                // Inicia o timer para sincronização periódica
-                dbSyncTimer = new System.Timers.Timer(20 * 1000); // 20 segundos
+
+                // Start periodic database sync every 20 seconds
+                dbSyncTimer = new System.Timers.Timer(20 * 1000);
                 dbSyncTimer.Elapsed += async (s, args) =>
                 {
                     if (Views.LoginView.IsWireGuardInterfaceUp())
                     {
-                        bool updated = await Services.DbSyncService.DownloadDatabaseAsync();
-                        if (updated)
+                        bool dbUpdated = await Services.DbSyncService.DownloadDatabaseAsync();
+                        if (dbUpdated)
                         {
-                            // Reload messages if in ChatView
+                            // If ChatView is open, reload messages after sync
                             Application.Current.Dispatcher.Invoke(() =>
                             {
                                 var win = Application.Current.MainWindow;
                                 if (win?.GetType() == typeof(Views.ChatView) && win.DataContext is ProjectSECURE.ViewModels.ChatViewModel chatVM)
                                 {
-                                    System.Diagnostics.Debug.WriteLine("[DbSync] Reloading messages in ChatViewModel");
                                     var reloadMethod = chatVM.GetType().GetMethod("LoadMessages", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                                     reloadMethod?.Invoke(chatVM, null);
                                 }
@@ -75,26 +79,26 @@ namespace ProjectSECURE
             else
             {
                 MessageBox.Show(
-                    "A VPN não está ativa. A base de dados local será usada.",
-                    "VPN Desligada",
+                    "VPN não está ativa. A base de dados local será usada.",
+                    "Aviso!",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
 
-            // Inicializa a BD local depois do download
+            // Initialize local database after download
             Data.DatabaseService.InitializeDatabase();
 
-            // Carrega o tema antes de abrir qualquer janela
+            // Load theme before opening any window
             string theme = LoadThemePreference() ?? (IsSystemInDarkMode() ? "Dark" : "Light");
             ApplyTheme(theme);
 
-            // Abre a janela de login
+            // Show login window
             var login = new Views.LoginView();
             MainWindow = login;
             login.Show();
         }
 
-
+        // Apply the selected theme to the application
         public void ApplyTheme(string theme)
         {
             Resources.MergedDictionaries.Clear();
@@ -109,6 +113,7 @@ namespace ProjectSECURE
             SaveThemePreference(theme);
         }
 
+        // Load theme preference from config file
         private string? LoadThemePreference()
         {
             if (!File.Exists(ConfigFile))
@@ -126,6 +131,7 @@ namespace ProjectSECURE
             }
         }
 
+        // Save theme preference to config file
         private void SaveThemePreference(string theme)
         {
             var config = new UserConfig { UserThemePreference = theme };
@@ -133,6 +139,7 @@ namespace ProjectSECURE
             File.WriteAllText(ConfigFile, json);
         }
 
+        // Detect if Windows system is in dark mode
         private bool IsSystemInDarkMode()
         {
             try
@@ -146,6 +153,7 @@ namespace ProjectSECURE
             }
         }
 
+        // Model for user configuration file
         private class UserConfig
         {
             public string? UserThemePreference { get; set; }

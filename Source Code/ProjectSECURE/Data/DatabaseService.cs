@@ -5,22 +5,27 @@ using System.IO;
 
 namespace ProjectSECURE.Data
 {
+    // Service for database initialization and connection string management
     public static class DatabaseService
     {
+        // Path to the database file
         private static string dbPath;
 
+        // Static constructor sets up the database path and ensures the database is initialized
         static DatabaseService()
         {
             // Always use the current working directory for the database
             string dataDir = Path.Combine(Directory.GetCurrentDirectory(), "Database");
-            Directory.CreateDirectory(dataDir); // cria a pasta se não existir
+            Directory.CreateDirectory(dataDir); // create folder if it doesn't exist
 
             dbPath = Path.Combine(dataDir, "ProjectSECURE.db");
             InitializeDatabase();
         }
 
+        // Returns the connection string for SQLite
         public static string GetConnectionString() => $"Data Source={dbPath}";
 
+        // Initializes the database and creates tables if they do not exist
         public static void InitializeDatabase()
         {
             using var connection = new SqliteConnection(GetConnectionString());

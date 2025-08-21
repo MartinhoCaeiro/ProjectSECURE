@@ -4,21 +4,16 @@
 winexe
 C#
 .cs
-D:\ESTIG\Projeto-Cripto\Projeto-Cripto\Source Code\ProjectSECURE\obj\Debug\net9.0-windows\
+C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ProjectSECURE\obj\Debug\net9.0-windows\
 ProjectSECURE
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-D:\ESTIG\Projeto-Cripto\Projeto-Cripto\Source Code\ProjectSECURE\App.xaml
+C:\Users\Marti\Documents\Projeto-Cripto\Source Code\ProjectSECURE\App.xaml
 8-1972887606
 
-<<<<<<< HEAD
 25-1186795452
 234-1502983531
-=======
-24389996203
-233-258432593
->>>>>>> a5e83f927be6ba15e9a3283cc88ba9f339ea09c2
 Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Views\ChatListView.xaml;Views\ChatView.xaml;Views\LoginView.xaml;Views\NewChatView.xaml;Views\SettingsView.xaml;Views\WireGuardConfigView.xaml;
 
 False

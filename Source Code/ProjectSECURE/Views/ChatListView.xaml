@@ -9,17 +9,44 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
+    <!-- Custom scrollbar style for chat list -->
+    <Window.Resources>
+        <Style x:Key="CustomScrollBar"
+               TargetType="ScrollBar">
+            <Setter Property="Width"
+                    Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="{DynamicResource ControlBackgroundBrush}">
+                            <Track Name="PART_Track"
+                                   IsDirectionReversed="true"
+                                   Value="{TemplateBinding Value}"
+                                   Minimum="{TemplateBinding Minimum}"
+                                   Maximum="{TemplateBinding Maximum}"
+                                   ViewportSize="{TemplateBinding ViewportSize}">
+                                <Track.Thumb>
+                                    <Thumb Background="{DynamicResource ButtonBackgroundBrush}"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <!-- Layout: Header, chat list, new chat button -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Cabeçalho -->
+            <!-- Header -->
             <RowDefinition Height="*"/>
-            <!-- Lista de chats -->
+            <!-- Chat list -->
             <RowDefinition Height="Auto"/>
-            <!-- Botão novo chat -->
+            <!-- New chat button -->
         </Grid.RowDefinitions>
 
-        <!-- Header -->
+        <!-- Header section with title, settings, and logout buttons -->
         <DockPanel Grid.Row="0"
                    Margin="10"
                    LastChildFill="False">
@@ -46,7 +73,7 @@
 
         </DockPanel>
 
-        <!-- Lista de chats -->
+        <!-- List of chats for the current user with custom ScrollViewer -->
         <ListBox Grid.Row="1"
                  ItemsSource="{Binding Chats}"
                  SelectedItem="{Binding SelectedChat}"
@@ -54,37 +81,53 @@
                  Background="Transparent"
                  BorderThickness="0"
                  Margin="10">
+            <ListBox.Resources>
+                <Style TargetType="ScrollBar"
+                       BasedOn="{StaticResource CustomScrollBar}"/>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Background="#22FFFFFF"
                             CornerRadius="6"
                             Padding="12,8"
                             Margin="0,4">
-                        <!-- Remove margem lateral -->
+                        <!-- Remove lateral margin -->
                         <TextBlock Text="{Binding Name}"
                                    FontSize="16"
                                    Foreground="{DynamicResource ForegroundBrush}"/>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment"
                             Value="Stretch"/>
                     <Setter Property="Padding"
                             Value="0"/>
-                    <!-- Remove padding do item -->
+                    <!-- Remove item padding -->
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <!-- Botão novo chat -->
+        <!-- Button to create a new chat -->
         <Button Grid.Row="2"
                 Content="➕ Nova Conversa"
                 Command="{Binding NewChatCommand}"
                 HorizontalAlignment="Center"
                 Margin="10"
-                Width="200"/>
+                Width="200">
+            <Button.Style>
+                <Style TargetType="Button"
+                        BasedOn="{StaticResource {x:Type Button}}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsWireGuardActive}"
+                                Value="False">
+                            <Setter Property="Visibility"
+                                    Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

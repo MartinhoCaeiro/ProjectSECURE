@@ -3,27 +3,31 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using ProjectSECURE.Crypto; 
+using ProjectSECURE.Crypto;
 
 namespace ProjectSECURE.Services
 {
+    // Service for synchronizing the local database with the remote server
     public class DbSyncService
     {
+        // URL of the remote server
         private static readonly string serverUrl = "http://10.0.0.1:8000";
+        // Path to the local database file
         private static readonly string localDbPath = Path.Combine(
             Directory.GetCurrentDirectory(), "Database", "ProjectSECURE.db");
 
+        // Shared HTTP client for requests
         private static readonly HttpClient httpClient = new HttpClient();
 
-        // >>>> DEFINE a tua forma real de obter a master key
+        // Returns the master key used for encryption/decryption
         private static byte[] GetMasterKey()
         {
-            // Exemplo simples: passphrase em memória (troca isto por algo robusto!)
             string passphrase = Environment.GetEnvironmentVariable("PROJECTSECURE_PASSPHRASE")
                                 ?? "Spartacus";
             return DbCrypto.KeyFromPassphrase(passphrase);
         }
 
+        // Periodically downloads the database from the server and reloads it locally
         public static async Task<bool> PeriodicDownloadAndReloadAsync()
         {
             string tempDbPath = Path.Combine(Path.GetTempPath(), "ProjectSECURE_temp.db");
@@ -33,35 +37,38 @@ namespace ProjectSECURE.Services
                 var response = await httpClient.GetAsync(url);
                 if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Download falhou: {response.StatusCode}");
                     return false;
                 }
 
-                // RECEBES ENVELOPE -> DESENCRIPTAS -> gravar .db temporária
+                // Download encrypted database envelope and decrypt it
                 var envelope = await response.Content.ReadAsByteArrayAsync();
                 var plaintextDb = DbCrypto.Decrypt(envelope, GetMasterKey());
                 await File.WriteAllBytesAsync(tempDbPath, plaintextDb);
 
+                // Optionally close and reload database connection (commented out)
                 try { /* ProjectSECURE.Data.DatabaseService.CloseConnection(); */ }
-                catch (Exception ex) { Console.WriteLine("Erro ao fechar conexões: " + ex.Message); }
+                catch { }
 
+                // Replace local database with the new one
                 File.Copy(tempDbPath, localDbPath, true);
 
+                // Optionally reload database connection (commented out)
                 try { /* ProjectSECURE.Data.DatabaseService.Reload(); */ }
-                catch (Exception ex) { Console.WriteLine("Erro ao recarregar contexto: " + ex.Message); }
+                catch { }
 
+                // Clean up temporary file
                 File.Delete(tempDbPath);
-                Console.WriteLine("Base de dados atualizada e recarregada com sucesso.");
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("Erro ao atualizar base de dados: " + ex.Message);
+                // Clean up temp file if an error occurs
                 try { if (File.Exists(tempDbPath)) File.Delete(tempDbPath); } catch { }
                 return false;
             }
         }
 
+        // Downloads the database from the server and saves it locally
         public static async Task<bool> DownloadDatabaseAsync()
         {
             try
@@ -70,68 +77,65 @@ namespace ProjectSECURE.Services
                 var response = await httpClient.GetAsync(url);
                 if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Download falhou: {response.StatusCode}");
                     return false;
                 }
 
-                // Envelope -> plaintext DB
+                // Download and decrypt the database envelope
                 var envelope = await response.Content.ReadAsByteArrayAsync();
                 var plaintextDb = DbCrypto.Decrypt(envelope, GetMasterKey());
 
+                // Ensure local database directory exists
                 var dir = Path.GetDirectoryName(localDbPath);
                 if (!string.IsNullOrEmpty(dir)) Directory.CreateDirectory(dir);
                 await File.WriteAllBytesAsync(localDbPath, plaintextDb);
-                Console.WriteLine("Base de dados baixada e desencriptada com sucesso.");
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("Erro ao fazer download da base de dados: " + ex.Message);
                 return false;
             }
         }
 
+        // Uploads the local database to the server
         public static async Task<bool> UploadDatabaseAsync()
         {
             try
             {
                 if (!File.Exists(localDbPath))
                 {
-                    Console.WriteLine("Base de dados local não encontrada.");
                     return false;
                 }
 
-                // Força fechos, copia para temp e lê bytes
+                // Force close file handles and copy to a temp file
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
 
                 string tempFilePath = Path.GetTempFileName();
                 File.Copy(localDbPath, tempFilePath, true);
 
+                // Read database bytes from temp file
                 var dbBytes = await File.ReadAllBytesAsync(tempFilePath);
 
-                // <<< ENCRIPTA A DB ANTES DE ENVIAR >>>
+                // Encrypt the database before sending
                 var envelope = DbCrypto.Encrypt(dbBytes, GetMasterKey());
 
+                // Prepare HTTP content for upload
                 using var content = new MultipartFormDataContent();
                 var fileContent = new ByteArrayContent(envelope);
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/octet-stream");
 
-                // podes mudar o nome para .enc se quiseres
+                // Add encrypted file to the request
                 content.Add(fileContent, "file", "ProjectSECURE.db.enc");
 
+                // Send POST request to upload the database
                 var response = await httpClient.PostAsync($"{serverUrl}/upload", content);
 
-                Console.WriteLine(response.IsSuccessStatusCode
-                    ? "✅ Upload encriptado feito com sucesso."
-                    : $"❌ Erro no upload: {response.StatusCode}");
-
+                // Clean up temp file
                 File.Delete(tempFilePath);
                 return response.IsSuccessStatusCode;
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("💥 Erro ao fazer upload da base de dados: " + ex.Message);
                 return false;
             }
         }

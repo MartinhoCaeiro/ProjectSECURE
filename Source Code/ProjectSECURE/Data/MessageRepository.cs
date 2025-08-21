@@ -5,12 +5,11 @@ using System.Collections.Generic;
 
 namespace ProjectSECURE.Data
 {
+    // Repository for message-related database operations
     public static class MessageRepository
     {
-        /// <summary>
-        /// Adds a list of messages into the local database, avoiding duplicates by MessageId.
-        /// Returns the number of new messages inserted.
-        /// </summary>
+        // Adds a list of messages to the local database, avoiding duplicates by MessageId
+        // Returns the number of new messages inserted
         public static int AddMessages(List<Message> newMessages)
         {
             int insertedCount = 0;
@@ -38,6 +37,8 @@ namespace ProjectSECURE.Data
             }
             return insertedCount;
         }
+
+        // Loads all messages for a given chat, ordered by date
         public static List<Message> LoadMessages(string chatId)
         {
             var messages = new List<Message>();
@@ -71,12 +72,13 @@ namespace ProjectSECURE.Data
             return messages;
         }
 
+        // Sends a new message in a chat from a user
         public static void SendMessage(string chatId, string userId, string content)
         {
             using var conn = new SqliteConnection(DatabaseService.GetConnectionString());
             conn.Open();
 
-            // Buscar participantId
+            // Get participantId for the user in the chat
             var getCmd = conn.CreateCommand();
             getCmd.CommandText = @"SELECT ParticipantId FROM Participants WHERE ChatId = $chatId AND UserId = $userId";
             getCmd.Parameters.AddWithValue("$chatId", chatId);
@@ -85,6 +87,7 @@ namespace ProjectSECURE.Data
             var participantId = getCmd.ExecuteScalar()?.ToString();
             if (participantId == null) return;
 
+            // Insert the new message
             var insert = conn.CreateCommand();
             insert.CommandText = @"INSERT INTO Messages (MessageId, Content, ParticipantId, Date) 
                                    VALUES ($id, $content, $pid, $date)";

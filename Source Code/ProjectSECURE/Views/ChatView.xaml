@@ -9,6 +9,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrush}">
+    <!-- Custom scrollbar style for message list -->
     <Window.Resources>
         <Style x:Key="CustomScrollBar"
                TargetType="ScrollBar">
@@ -41,7 +42,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Top bar with Back and Refresh buttons -->
+        <!-- Top bar with Back button -->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -60,7 +61,7 @@
             <TextBlock Grid.Column="1"/>
         </Grid>
 
-        <!-- Lista de mensagens -->
+        <!-- List of chat messages -->
         <ListBox Grid.Row="1"
                  ItemsSource="{Binding Messages}"
                  Margin="10"
@@ -106,7 +107,7 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <!-- Caixa de mensagem -->
+        <!-- Message input box and send button (visible only if VPN is active) -->
         <DockPanel Grid.Row="2"
                    Margin="10">
             <DockPanel.Style>
