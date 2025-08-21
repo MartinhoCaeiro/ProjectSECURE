@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  18 AUG 2025 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  21 AUG 2025 20:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1063,69 +1063,90 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has be
                    \relax 
 l.175 \newpage
                [4]
+<Recursos/Cronograma.png, id=182, 1313.90875pt x 219.82124pt>
+File: Recursos/Cronograma.png Graphic file (type png)
+<use Recursos/Cronograma.png>
+Package pdftex.def Info: Recursos/Cronograma.png  used on input line 196.
+(pdftex.def)             Requested size: 334.60422pt x 55.98155pt.
 
-[1]
+
+[1 <./Recursos/Cronograma.png>]
 
 [2]
 
 [3]
+<Recursos/Encripta.png, id=209, 460.72125pt x 238.64156pt>
+File: Recursos/Encripta.png Graphic file (type png)
+<use Recursos/Encripta.png>
+Package pdftex.def Info: Recursos/Encripta.png  used on input line 251.
+(pdftex.def)             Requested size: 334.60422pt x 173.31474pt.
+<Recursos/Decripta.png, id=211, 440.39531pt x 226.59656pt>
+File: Recursos/Decripta.png Graphic file (type png)
+<use Recursos/Decripta.png>
+Package pdftex.def Info: Recursos/Decripta.png  used on input line 261.
+(pdftex.def)             Requested size: 334.60422pt x 172.17021pt.
 
-[4]
 
-[5]
-<Recursos/ProjectSecure_DB.png, id=205, 508.14844pt x 509.65407pt>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[4 <./Recursos/Encripta.png>]
+
+[5 <./Recursos/Decripta.png>]
+<Recursos/ProjectSecure_DB.png, id=224, 508.14844pt x 509.65407pt>
 File: Recursos/ProjectSecure_DB.png Graphic file (type png)
 <use Recursos/ProjectSecure_DB.png>
-Package pdftex.def Info: Recursos/ProjectSecure_DB.png  used on input line 258.
+Package pdftex.def Info: Recursos/ProjectSecure_DB.png  used on input line 295.
 (pdftex.def)             Requested size: 250.95476pt x 251.70018pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--265
+Underfull \hbox (badness 10000) in paragraph at lines 300--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--265
+Underfull \hbox (badness 10000) in paragraph at lines 300--302
 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 266--302
-[]$[]$ 
  []
 
 
 
 [6 <./Recursos/ProjectSecure_DB.png>]
+Overfull \hbox (15.0pt too wide) in paragraph at lines 303--339
+[]$[]$ 
+ []
+
+
 
 [7]
-<Recursos/LoginPC.png, id=217, 251.7405pt x 293.29575pt>
+<Recursos/LoginPC.png, id=235, 251.7405pt x 293.29575pt>
 File: Recursos/LoginPC.png Graphic file (type png)
 <use Recursos/LoginPC.png>
-Package pdftex.def Info: Recursos/LoginPC.png  used on input line 315.
+Package pdftex.def Info: Recursos/LoginPC.png  used on input line 352.
 (pdftex.def)             Requested size: 170.71652pt x 198.89694pt.
 
 
 [8 <./Recursos/LoginPC.png>]
-<Recursos/ListaPC.png, id=223, 287.8755pt x 442.0515pt>
+<Recursos/ListaPC.png, id=241, 287.8755pt x 442.0515pt>
 File: Recursos/ListaPC.png Graphic file (type png)
 <use Recursos/ListaPC.png>
-Package pdftex.def Info: Recursos/ListaPC.png  used on input line 327.
+Package pdftex.def Info: Recursos/ListaPC.png  used on input line 364.
 (pdftex.def)             Requested size: 170.71652pt x 262.15715pt.
 
 
 [9 <./Recursos/ListaPC.png>]
-<Recursos/ChatPC.png, id=229, 289.68225pt x 442.0515pt>
+<Recursos/ChatPC.png, id=247, 289.68225pt x 442.0515pt>
 File: Recursos/ChatPC.png Graphic file (type png)
 <use Recursos/ChatPC.png>
-Package pdftex.def Info: Recursos/ChatPC.png  used on input line 337.
+Package pdftex.def Info: Recursos/ChatPC.png  used on input line 374.
 (pdftex.def)             Requested size: 170.71652pt x 260.51808pt.
 
 
 [10 <./Recursos/ChatPC.png>]
-<Recursos/WireguardPC.png, id=235, 467.94826pt x 319.1925pt>
+<Recursos/WireguardPC.png, id=253, 467.94826pt x 319.1925pt>
 File: Recursos/WireguardPC.png Graphic file (type png)
 <use Recursos/WireguardPC.png>
-Package pdftex.def Info: Recursos/WireguardPC.png  used on input line 347.
+Package pdftex.def Info: Recursos/WireguardPC.png  used on input line 384.
 (pdftex.def)             Requested size: 170.71652pt x 116.44827pt.
 
 
@@ -1155,17 +1176,17 @@ Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37122 strings out of 468134
- 745364 string characters out of 5430740
- 1620209 words of memory out of 5000000
- 65167 multiletter control sequences out of 15000+600000
- 637503 words of font info for 61 fonts, out of 8000000 for 9000
+ 37153 strings out of 468134
+ 746145 string characters out of 5430740
+ 1620401 words of memory out of 5000000
+ 65194 multiletter control sequences out of 15000+600000
+ 638204 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,7n,105p,752b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (24 pages, 351222 bytes).
+ <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
+Output written on Relatorio.pdf (24 pages, 384491 bytes).
 PDF statistics:
- 770 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
- 232 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 800 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
+ 247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
