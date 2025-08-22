@@ -37,12 +37,23 @@ namespace ProjectSECURE.Crypto
             return pbkdf2.GetBytes(KeySizeBytes);
         }
 
-        // Picks the encryption algorithm based on the master key
+        // (Optional) Deterministic pick based on key (kept in case you want it)
         private static Alg PickAlg(byte[] masterKey)
         {
             using var sha = SHA256.Create();
             var h = sha.ComputeHash(masterKey);
             return (h[0] & 0x01) == 0 ? Alg.AesGcm : Alg.SerpentGcm;
+        }
+
+        // Computes a 1-byte mask from masterKey and salt (used to obfuscate ALG in the header)
+        private static byte ComputeAlgMask(byte[] masterKey, byte[] salt)
+        {
+            using var sha = SHA256.Create();
+            var data = new byte[masterKey.Length + salt.Length];
+            Buffer.BlockCopy(masterKey, 0, data, 0, masterKey.Length);
+            Buffer.BlockCopy(salt, 0, data, masterKey.Length, salt.Length);
+            var h = sha.ComputeHash(data);
+            return h[0]; // use first byte as mask
         }
 
         // Encrypts database bytes into an authenticated envelope
@@ -63,24 +74,28 @@ namespace ProjectSECURE.Crypto
             var nonce = RandomNumberGenerator.GetBytes(NonceSize);
             var key = DeriveKey(masterKey, salt, Iterations);
 
-            // Build header for AAD (additional authenticated data)
-            var header = BuildHeader(alg, Iterations, salt, nonce, aadOnly: true);
+            // Obfuscate ALG for header using mask(masterKey, salt)
+            byte mask = ComputeAlgMask(masterKey, salt);
+            byte algXor = (byte)alg;
+            algXor ^= mask;
+
+            // Build header for AAD (use the obfuscated ALG byte)
+            var headerAAD = BuildHeader(algXor, Iterations, salt, nonce, aadOnly: true);
 
             byte[] ciphertext, tag;
 
             if (alg == Alg.AesGcm)
             {
-                // Encrypt using AES-GCM (specify tag size)
+                // Encrypt using AES-GCM
                 ciphertext = new byte[plaintextDb.Length];
                 tag = new byte[TagSize];
                 using var aes = new AesGcm(key, TagSize);
-                aes.Encrypt(nonce, plaintextDb, ciphertext, tag, header);
+                aes.Encrypt(nonce, plaintextDb, ciphertext, tag, headerAAD);
             }
             else // Serpent GCM via BouncyCastle
             {
-                // Encrypt using Serpent-GCM
                 var gcm = new GcmBlockCipher(new SerpentEngine());
-                var parameters = new AeadParameters(new KeyParameter(key), TagSize * 8, nonce, header);
+                var parameters = new AeadParameters(new KeyParameter(key), TagSize * 8, nonce, headerAAD);
                 gcm.Init(true, parameters);
                 var outBuf = new byte[gcm.GetOutputSize(plaintextDb.Length)];
                 int len = gcm.ProcessBytes(plaintextDb, 0, plaintextDb.Length, outBuf, 0);
@@ -93,8 +108,8 @@ namespace ProjectSECURE.Crypto
                 Buffer.BlockCopy(outBuf, ctLen, tag, 0, TagSize);
             }
 
-            // Build final envelope: header + ciphertext + tag
-            var envelopeHeader = BuildHeader(alg, Iterations, salt, nonce, aadOnly: false);
+            // Build final envelope: header (with obfuscated ALG) + ciphertext + tag
+            var envelopeHeader = BuildHeader(algXor, Iterations, salt, nonce, aadOnly: false);
             var output = new byte[envelopeHeader.Length + ciphertext.Length + tag.Length];
             Buffer.BlockCopy(envelopeHeader, 0, output, 0, envelopeHeader.Length);
             Buffer.BlockCopy(ciphertext, 0, output, envelopeHeader.Length, ciphertext.Length);
@@ -120,8 +135,8 @@ namespace ProjectSECURE.Crypto
             // Read and validate version
             byte ver = envelope[offset++]; if (ver != Version) throw new CryptographicException($"Unsupported version: {ver}");
 
-            // Read algorithm
-            var alg = (Alg)envelope[offset++];
+            // Read obfuscated algorithm byte (ALG ^ mask)
+            byte algXor = envelope[offset++];
 
             // Read iteration count
             int iter = BinaryPrimitives.ReadInt32BigEndian(envelope.AsSpan(offset, 4)); offset += 4;
@@ -143,15 +158,21 @@ namespace ProjectSECURE.Crypto
             var tag = new byte[TagSize];
             Buffer.BlockCopy(envelope, offset, tag, 0, TagSize);
 
-            // Derive key and build header for AAD
-            var key = DeriveKey(masterKey, salt, iter);
-            var headerAAD = BuildHeader(alg, iter, salt, nonce, aadOnly: true);
+            // Reconstruct real ALG using mask(masterKey, salt)
+            byte mask = ComputeAlgMask(masterKey, salt);
+            byte realAlg = (byte)(algXor ^ mask);
+            var alg = (Alg)realAlg;
 
-            var plaintext = new byte[ciphertext.Length];
+            // Derive key and build header for AAD (MUST match exactly what was used on Encrypt)
+            var key = DeriveKey(masterKey, salt, iter);
+            var headerAAD = BuildHeader(algXor, iter, salt, nonce, aadOnly: true);
+
+            byte[] plaintext;
 
             if (alg == Alg.AesGcm)
             {
-                // Decrypt using AES-GCM (specify tag size)
+                // Decrypt using AES-GCM
+                plaintext = new byte[ciphertext.Length];
                 using var aes = new AesGcm(key, TagSize);
                 aes.Decrypt(nonce, ciphertext, tag, plaintext, headerAAD);
             }
@@ -168,28 +189,32 @@ namespace ProjectSECURE.Crypto
                 var outBuf = new byte[gcm.GetOutputSize(inBuf.Length)];
                 int len = gcm.ProcessBytes(inBuf, 0, inBuf.Length, outBuf, 0);
                 len += gcm.DoFinal(outBuf, len);
-                if (len != plaintext.Length) Array.Resize(ref outBuf, len);
-                plaintext = outBuf;
+                plaintext = outBuf.Length == ciphertext.Length ? outBuf : outBuf; // outBuf is the result
             }
 
             CryptographicOperations.ZeroMemory(key);
             return plaintext;
         }
 
-        // Builds the envelope header (for AAD and/or for writing in the envelope)
-        private static byte[] BuildHeader(Alg alg, int iter, byte[] salt, byte[] nonce, bool aadOnly)
+        /// <summary>
+        /// Builds the envelope header (used both as AAD and as the stored header).
+        /// NOTE: 'algField' is the single byte written to the header (here we pass the OBFUSCATED value).
+        /// Layout: MAGIC(4) | VERSION(1) | ALG_OBFUSCATED(1) | ITER(4) | SALT(16) | [NONCE(12) only when !aadOnly]
+        /// For AAD we still include the nonce bytes so AAD matches exactly on both sides.
+        /// </summary>
+        private static byte[] BuildHeader(byte algField, int iter, byte[] salt, byte[] nonce, bool aadOnly)
         {
             using var ms = new MemoryStream();
             using var bw = new BinaryWriter(ms, Encoding.ASCII, true);
             bw.Write(Encoding.ASCII.GetBytes(Magic));   // 4 bytes: magic
             bw.Write(Version);                          // 1 byte: version
-            bw.Write((byte)alg);                        // 1 byte: algorithm
+            bw.Write(algField);                         // 1 byte: obfuscated algorithm
             var iterBuf = new byte[4];
             BinaryPrimitives.WriteInt32BigEndian(iterBuf, iter);
             bw.Write(iterBuf);                          // 4 bytes: iteration count
             bw.Write(salt);                             // 16 bytes: salt
-            // Write nonce if not AAD only
-            if (!aadOnly) bw.Write(nonce); else bw.Write(nonce.AsSpan(0, NonceSize));
+            // Include nonce bytes both for stored header and for AAD to keep AAD constant
+            bw.Write(nonce.AsSpan(0, NonceSize));
             bw.Flush();
             return ms.ToArray();
         }

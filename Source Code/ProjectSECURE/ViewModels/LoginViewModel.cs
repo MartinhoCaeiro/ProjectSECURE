@@ -78,7 +78,7 @@ namespace ProjectSECURE.ViewModels
             }
             else
             {
-                ErrorMessage = "Invalid username or password.";
+                ErrorMessage = "Nome ou senha inválidos.";
             }
         }
 
@@ -96,7 +96,7 @@ namespace ProjectSECURE.ViewModels
                 UserRepository.CreateUser(user);
                 // Upload database after user creation
                 _ = Services.DbSyncService.UploadDatabaseAsync();
-                ErrorMessage = "User created successfully! Please log in.";
+                ErrorMessage = "Utilizador criado com sucesso! Por favor, faça login.";
             }
             catch (System.Exception ex)
             {
