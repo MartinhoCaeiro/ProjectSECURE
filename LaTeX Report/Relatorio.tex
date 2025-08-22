@@ -183,6 +183,23 @@ no desenvolvimento deste projeto são: WireGuard (\cite{wireguard}), SQLite (\ci
 Bash (\cite{bash}), AlmaOS (\cite{almaos}). Em relação a criptografia, serão utilizados os algoritmos Rijndael (vencedor do AES) e 
 Serpent (segundo lugar do AES), que são algoritmos de criptografia simétrica.
 
+Para este projeto, foi decidido utilizar uma variação da metodologia do \textit{SCRUM}, onde eram realizadas reuniões semanais ao ínicio, e depois 
+foi sendo feito para ocorrer mais tempo entre reuniões, de forma a que fosse possível ter mais tempo para o desenvolvimento das 
+tarefas. Os três membros da equipa foram divididos entre as três áreas do projeto, nomeadamente: desenvolvimento da aplicação Windows, 
+desenvolvimento da aplicação Android e por último, a configuração da infraestrutura da rede.
+
+O cronograma do projeto foi dividido em duas fases principais: Análise de Requisitos, Desenvolvimento, como é possível 
+ver na figura \ref{fig:project_schedule}. O relatório foi modificado a cada semana, acrescentando novas informações e 
+atualizações sobre o progresso do projeto.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/Cronograma.png}
+    \caption{Cronograma do Projeto}
+    \label{fig:project_schedule}
+\end{figure}
+
+Este projeto ficou guardado no repositório do GitHub da equipa, onde pode ser consultado por outros alunos e professores, a partir do seguinte 
+link:\\ \url{https://github.com/MartinhoCaeiro/Projeto-Cripto}.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Analise de Requisitos}\label{analise}
@@ -224,7 +241,27 @@ Dentro da aplicação, os utilizadores podem saber quem está associado a um end
 Ao enviar uma mensagem, a aplicação irá contatar o servidor da VPN, para obter o caminho até ao destinatário, e assim enviar a mensagem.
 Essa mensagem será encriptada antes de ser enviada, para garantir a confidencialidade e integridade da mensagem. Existe a variação
 da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que os métodos de encriptação utilizados são o AES
-e o Sepernt.
+e o Serpent.
+
+Sendo assim, a parte de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem 
+será encriptada consoante um número pseudo-aleatório gerado pela aplicação, sendo assim escolhido o algoritmo de encriptação a utilizar naquele momento, o AES256 ou Serpent.
+Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}".
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/Encripta.png}
+    \caption{Processo de Encriptação das Mensagens}
+    \label{fig:encryption_process}
+\end{figure}
+
+
+Para desencriptar, é necessário fazer o processo inverso. Desta forma, o número pseudo-aleatório está anexado à mensagem encriptada, 
+permitindo assim descobrir qual o algoritmo de encriptação utilizado. É possível ver este processo na figura \ref{fig:decryption_process}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/Decripta.png}
+    \caption{Processo de Decriptação das Mensagens}
+    \label{fig:decryption_process}
+\end{figure}
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Modulos do Sistema}\label{modulos}

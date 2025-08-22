@@ -1,13 +1,14 @@
 # Fdb version 4
-["biber Relatorio"] 1755444653.49957 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1755526300.24727 0
+["biber Relatorio"] 1755805784.27445 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1755806333.04046 0
   "Recursos/referencias.bib" 1755444642 1955 f56d8982bf2418f05ee44ffbdb386ba4 ""
-  "Relatorio.bcf" 1755526299 134566 6bf989dcd366e432df060089fbe8e332 "pdflatex"
+  "Relatorio.bcf" 1755806332 134566 6bf989dcd366e432df060089fbe8e332 "pdflatex"
   (generated)
   "Relatorio.bbl"
   "Relatorio.blg"
   (rewritten before read)
-["pdflatex"] 1755526298.04624 "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1755526300.24806 0
+["pdflatex"] 1755806330.77703 "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1755806333.04138 0
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1755355470 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+  "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1000.pk" 1755805792 34112 6c14e1f8c1a5ff14dc68f6f7e7ea2c61 ""
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1728.pk" 1755355481 71788 d4c096d6a38185e1b4671e1b82f71f05 ""
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1755355479 25420 d163c785d15296d240d7c1f364507285 ""
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1755355484 31952 d64e41a7304836d5ae469aa4d9858a4c ""
@@ -19,6 +20,7 @@
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1000.pk" 1755355476 20028 095fe3f66d394eb15fecccf8030aaf52 ""
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1755355477 11548 1adbfd28bd807ad0ebde0247ca2967bf ""
   "C:/Users/amant/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1755355398 13257295 4dd7fd2cee0125868bf59c77033f8e41 ""
+  "C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbi1000.tfm" 993061906 2900 ce550da2a8b866861d2ce2b29bee03eb ""
   "C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbi1728.tfm" 993061912 2896 9cb37f107d422e25c899cb210f19c053 ""
   "C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbx1000.tfm" 993061956 3200 328792ff19833a39406f06fa0555a6dc ""
   "C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbx1200.tfm" 993061958 3200 b8d69bc738e5ef3e08cefeef3109ff56 ""
@@ -206,20 +208,23 @@
   "C:/Users/amant/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/amant/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
   "Recursos/ChatPC.png" 1753043429 17909 d9e1dd6224d6d5f4ab4a33ae9d2485de ""
+  "Recursos/Cronograma.png" 1755792850 21775 2f788f08c2907f47f67f53ee5880db38 ""
+  "Recursos/Decripta.png" 1755805188 12837 dd5da32df9208da58b864f61d0c8405a ""
+  "Recursos/Encripta.png" 1755805166 12046 dd95178aa2ca3013442bad624679116a ""
   "Recursos/ListaPC.png" 1753043429 8513 fb5d48d198e892ec3d88db1c716d8245 ""
   "Recursos/LoginPC.png" 1755011099 21240 bceb403cc4a2cba1b4d702b1aed9683b ""
   "Recursos/Logos/IPBejaESTIG.jpg" 1753043429 24524 8256cc09fbb9140893a7ec292a0eb389 ""
   "Recursos/Logos/LOGO_IPB.png" 1753043429 70931 8e4fd2cd3676e6d3adc0f137d7334c9f ""
   "Recursos/ProjectSecure_DB.png" 1755444642 16807 b09138cdfab384978f43b58cb2366904 ""
   "Recursos/WireguardPC.png" 1755011099 35605 808a694291dee652d4ac3e5b3a17b1f6 ""
-  "Relatorio.aux" 1755526299 7279 6df75a187fe32de27d8fb3db533008c4 "pdflatex"
-  "Relatorio.bbl" 1755444655 23549 ae8b57b9afd13e81a73d8e65964dab43 "biber Relatorio"
-  "Relatorio.lof" 1755526299 588 f11efecb768176f82133a925651df160 "pdflatex"
-  "Relatorio.out" 1755526299 3557 608e62c0e4b77605df9445402d16113b "pdflatex"
-  "Relatorio.run.xml" 1755526299 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
-  "Relatorio.tex" 1755526297 22378 30f879255e1042aefe54cdd6b4fe5b7f ""
-  "Relatorio.toc" 1755526299 1934 1f6872b92c0b1e8ddf893a5cf9444aaf "pdflatex"
-  "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" 1755526297 22378 30f879255e1042aefe54cdd6b4fe5b7f ""
+  "Relatorio.aux" 1755806332 8030 0eab08c2b3b47b316b4a853309b12c2d "pdflatex"
+  "Relatorio.bbl" 1755805789 23549 ae8b57b9afd13e81a73d8e65964dab43 "biber Relatorio"
+  "Relatorio.lof" 1755806332 924 2c9fe27eb81cee07e0560e301fe8aa2e "pdflatex"
+  "Relatorio.out" 1755806332 3557 608e62c0e4b77605df9445402d16113b "pdflatex"
+  "Relatorio.run.xml" 1755806332 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
+  "Relatorio.tex" 1755806330 24773 7f8d9dbfb5a389b5657242be80ef7d5d ""
+  "Relatorio.toc" 1755806332 1934 9caf9e4d40f3a7dee8bf608a99d6f602 "pdflatex"
+  "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" 1755806330 24773 7f8d9dbfb5a389b5657242be80ef7d5d ""
   (generated)
   "Relatorio.aux"
   "Relatorio.bcf"
