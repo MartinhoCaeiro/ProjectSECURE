@@ -20,5 +20,7 @@
 \contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{15}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{15}{subsection.7.2}%
 \contentsline {section}{\numberline {8}Testes}{16}{section.8}%
-\contentsline {section}{\numberline {9}Conclusão}{17}{section.9}%
-\contentsline {section}{Bibliografia}{18}{section.9}%
+\contentsline {subsection}{\numberline {8.1}Servidor}{16}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Comunicações}{17}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Conclusão}{18}{section.9}%
+\contentsline {section}{Bibliografia}{19}{section.9}%

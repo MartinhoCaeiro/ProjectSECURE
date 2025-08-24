@@ -4,7 +4,8 @@
 \usepackage[backend=biber, style=apa, citestyle=apa, language=portuguese]{biblatex}
 \usepackage{csquotes}
 \addbibresource{Recursos/referencias.bib}
-
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -179,26 +180,26 @@ Curricular Unit of Internship or Project (\cite{pagep}).
 Para a realização do projeto é necessário desenvolver um sistema de comunicações seguras, que permita a troca de mensagens de texto entre os seus utilizadores.
 Para tal, é necessário implementar um sistema de autenticação de utilizadores, que permita a criação de contas de utilizador e a autenticação dos mesmos.
 O sistema deve ser capaz de garantir a confidencialidade, integridade e autenticidade das mensagens trocadas entre os utilizadores. As tecnologias a utilizadas
-no desenvolvimento deste projeto são: WireGuard (\cite{wireguard}), SQLite (\cite{sqlite}), C\# (\cite{csharp}), Kotlin (\cite{kotlin}), Python (\cite{python}), 
-Bash (\cite{bash}), AlmaOS (\cite{almaos}). Em relação a criptografia, serão utilizados os algoritmos Rijndael (vencedor do AES) e 
+no desenvolvimento deste projeto são: WireGuard (\cite{wireguard}), SQLite (\cite{sqlite}), C\# (\cite{csharp}), Kotlin (\cite{kotlin}), Python (\cite{python}),
+Bash (\cite{bash}), AlmaOS (\cite{almaos}). Em relação a criptografia, serão utilizados os algoritmos Rijndael (vencedor do AES) e
 Serpent (segundo lugar do AES), que são algoritmos de criptografia simétrica.
 
-Para este projeto, foi decidido utilizar uma variação da metodologia do \textit{SCRUM}, onde eram realizadas reuniões semanais ao ínicio, e depois 
-foi sendo feito para ocorrer mais tempo entre reuniões, de forma a que fosse possível ter mais tempo para o desenvolvimento das 
-tarefas. Os três membros da equipa foram divididos entre as três áreas do projeto, nomeadamente: desenvolvimento da aplicação Windows, 
+Para este projeto, foi decidido utilizar uma variação da metodologia do \textit{SCRUM}, onde eram realizadas reuniões semanais ao ínicio, e depois
+foi sendo feito para ocorrer mais tempo entre reuniões, de forma a que fosse possível ter mais tempo para o desenvolvimento das
+tarefas. Os três membros da equipa foram divididos entre as três áreas do projeto, nomeadamente: desenvolvimento da aplicação Windows,
 desenvolvimento da aplicação Android e por último, a configuração da infraestrutura da rede.
 
-O cronograma do projeto foi dividido em duas fases principais: Análise de Requisitos, Desenvolvimento, como é possível 
-ver na figura \ref{fig:project_schedule}. O relatório foi modificado a cada semana, acrescentando novas informações e 
+O cronograma do projeto foi dividido em duas fases principais: Análise de Requisitos, Desenvolvimento, como é possível
+ver na figura \ref{fig:project_schedule}. O relatório foi modificado a cada semana, acrescentando novas informações e
 atualizações sobre o progresso do projeto.
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Recursos/Cronograma.png}
-    \caption{Cronograma do Projeto}
-    \label{fig:project_schedule}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Cronograma.png}
+	\caption{Cronograma do Projeto}
+	\label{fig:project_schedule}
 \end{figure}
 
-Este projeto ficou guardado no repositório do GitHub da equipa, onde pode ser consultado por outros alunos e professores, a partir do seguinte 
+Este projeto ficou guardado no repositório do GitHub da equipa, onde pode ser consultado por outros alunos e professores, a partir do seguinte
 link:\\ \url{https://github.com/MartinhoCaeiro/Projeto-Cripto}.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
@@ -243,24 +244,24 @@ Essa mensagem será encriptada antes de ser enviada, para garantir a confidencia
 da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que os métodos de encriptação utilizados são o AES
 e o Serpent.
 
-Sendo assim, a parte de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem 
+Sendo assim, a parte de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem
 será encriptada consoante um número pseudo-aleatório gerado pela aplicação, sendo assim escolhido o algoritmo de encriptação a utilizar naquele momento, o AES256 ou Serpent.
 Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}".
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Recursos/Encripta.png}
-    \caption{Processo de Encriptação das Mensagens}
-    \label{fig:encryption_process}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Encripta.png}
+	\caption{Processo de Encriptação das Mensagens}
+	\label{fig:encryption_process}
 \end{figure}
 
 
-Para desencriptar, é necessário fazer o processo inverso. Desta forma, o número pseudo-aleatório está anexado à mensagem encriptada, 
+Para desencriptar, é necessário fazer o processo inverso. Desta forma, o número pseudo-aleatório está anexado à mensagem encriptada,
 permitindo assim descobrir qual o algoritmo de encriptação utilizado. É possível ver este processo na figura \ref{fig:decryption_process}.
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Recursos/Decripta.png}
-    \caption{Processo de Decriptação das Mensagens}
-    \label{fig:decryption_process}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Decripta.png}
+	\caption{Processo de Decriptação das Mensagens}
+	\label{fig:decryption_process}
 \end{figure}
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
@@ -269,7 +270,7 @@ permitindo assim descobrir qual o algoritmo de encriptação utilizado. É poss�
 \subsection{Interface para Computador}
 A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente.
 A aplicação será desenvolvida utilizando o framework .NET.
-Esta interface é composta por 3 ecrãs principais:
+Esta interface é composta por 4 ecrãs principais:
 \begin{itemize}
 	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação utilizando as suas credenciais, tambem é possivel ver o status da ligação WireGuard.
 	\item \textbf{Ecrã de Lista de Chats:} onde o utilizador pode ver a lista de chats existentes, bem como criar novos chats.
@@ -291,50 +292,50 @@ A base de dados será utilizada para armazenar as informações dos utilizadores
 A base de dados irá ter a seguinte estrutura:
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Recursos/ProjectSecure_DB.png}
-    \caption{Estrutura da Base de Dados}
-    \label{fig:db_structure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Recursos/ProjectSecure_DB.png}
+	\caption{Estrutura da Base de Dados}
+	\label{fig:db_structure}
 \end{figure}
 
-Sendo que a base de dados é composta por 4 tabelas, cada uma com as suas respetivas colunas, 
+Sendo que a base de dados é composta por 4 tabelas, cada uma com as suas respetivas colunas,
 sendo que as tabelas são:\\\\
 
 \begin{minipage}{\textwidth}
-    
 
-\begin{itemize}
-    
-	\item \textbf{User:}
-	      \begin{itemize}
-		      \item UserID (chave primária)
-		      \item Username (string)
-		      \item Password (string)
-	      \end{itemize}
 
-	\item \textbf{Chat:}
-	      \begin{itemize}
-		      \item ChatID (chave primária)
-		      \item Name (string)
-		      \item AdminID (chave estrangeira, referência à tabela User)
-	      \end{itemize}
+	\begin{itemize}
 
-	\item \textbf{Participant:}
-	      \begin{itemize}
-		      \item ParticipantID (chave primária)
-		      \item ChatID (chave estrangeira, referência à tabela Chat)
-		      \item UserID (chave estrangeira, referência à tabela User)
-	      \end{itemize}
-        \newpage
-	\item \textbf{Message:}
-	      \begin{itemize}
-		      \item MessageID (chave primária)
-		      \item ParticipantID (chave estrangeira, referência à tabela Participant)
-		      \item Content (string)
-		      \item Date (data e hora da mensagem)
-		      \item SenderUserID (chave estrangeira, referência à tabela Participant)
-	      \end{itemize}
-\end{itemize}
+		\item \textbf{User:}
+		      \begin{itemize}
+			      \item UserID (chave primária)
+			      \item Username (string)
+			      \item Password (string)
+		      \end{itemize}
+
+		\item \textbf{Chat:}
+		      \begin{itemize}
+			      \item ChatID (chave primária)
+			      \item Name (string)
+			      \item AdminID (chave estrangeira, referência à tabela User)
+		      \end{itemize}
+
+		\item \textbf{Participant:}
+		      \begin{itemize}
+			      \item ParticipantID (chave primária)
+			      \item ChatID (chave estrangeira, referência à tabela Chat)
+			      \item UserID (chave estrangeira, referência à tabela User)
+		      \end{itemize}
+		      \newpage
+		\item \textbf{Message:}
+		      \begin{itemize}
+			      \item MessageID (chave primária)
+			      \item ParticipantID (chave estrangeira, referência à tabela Participant)
+			      \item Content (string)
+			      \item Date (data e hora da mensagem)
+			      \item SenderUserID (chave estrangeira, referência à tabela Participant)
+		      \end{itemize}
+	\end{itemize}
 \end{minipage}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -345,35 +346,66 @@ Para o desenvolvimento da interface para computador, foi utilizado o Visual Stud
 
 \subsubsection{Ecrã de Login}
 O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação.
-Caso não tenha uma conta criada apenas tem que preencher o formulario e clicar no botão de criar conta.
-Tambem é possivel ver o estado da ligação WireGuard, caso esteja ligado ou desligado.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=6cm]{Recursos/LoginPC.png} % Substitua pelo caminho da imagem
-    \label{fig:login_pc}
+Caso não tenha uma conta criada apenas tem que preencher o formulario e clicar no botão de criar conta, esta ação só é possivel com o Wireguard ativado.
+Também é possivel ver o estado da ligação WireGuard, caso esteja ligado ou desligado.
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
+        \caption{WireGuard Ativado}
+        \label{fig:img1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/LoginPC2.png}
+        \caption{Wireguard Desativado}
+        \label{fig:img2}
+    \end{subfigure}
     \caption{Ecrã de Login - Computador}
+    \label{fig:duas_imagens}
 \end{figure}
 
 \newpage
 \subsubsection{Ecrã de Lista de Chats}
-O ecrã de lista de chats é composto por uma lista de chats existentes e um botão para criar novos chats.
+O ecrã de lista de chats é composto por uma lista de chats existentes e um botão para criar novos chats, este só pode ser criado com o WireGuard ativado.
 No seu canto superior direito, existe um botão para aceder às definições da aplicação, onde o utilizador pode configurar se quer a aplicação em modo escuro ou claro,
 e no seu canto inferior esquerdo existe um botão para terminar sessão caso deseja mudar de utilizador.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=6cm]{Recursos/ListaPC.png} % Substitua pelo caminho da imagem
-    \label{fig:lista_pc}
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/ListaPC1.png}
+        \caption{WireGuard Ativado}
+        \label{fig:img1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/ListaPC2.png}
+        \caption{Wireguard Desativado}
+        \label{fig:img2}
+    \end{subfigure}
     \caption{Ecrã de Lista de Chats - Computador}
+    \label{fig:duas_imagens}
 \end{figure}
 
 \newpage
 \subsubsection{Ecrã de Chat}
 O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=6cm]{Recursos/ChatPC.png} % Substitua pelo caminho da imagem
-    \label{fig:chat_pc}
+Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/ChatPC1.png}
+        \caption{WireGuard Ativado}
+        \label{fig:img1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/ChatPC2.png}
+        \caption{Wireguard Desativado}
+        \label{fig:img2}
+    \end{subfigure}
     \caption{Ecrã de Chat - Computador}
+    \label{fig:duas_imagens}
 \end{figure}
 
 \newpage
@@ -382,8 +414,8 @@ O ecrã de configuração WireGuard é composto por um formulário onde o utiliz
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
-    \label{fig:wireguard_pc}
-    \caption{Ecrã de Configuração WireGuard - Computador}
+	\label{fig:wireguard_pc}
+	\caption{Ecrã de Configuração WireGuard - Computador}
 \end{figure}
 
 \subsection{Interface para Android}
@@ -440,7 +472,7 @@ Para isso, é necessário fazer o seguinte comando:
 
 \end{verbatim}
 \newpage
-Para ser possível encaminhar o tráfego de rede, é necessário adicionar uma regra ao Router para que, todos os pacotes que cheguem à porta 51820 
+Para ser possível encaminhar o tráfego de rede, é necessário adicionar uma regra ao Router para que, todos os pacotes que cheguem à porta 51820
 sejam encaminhados para o servidor WireGuard.
 Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executar o seguinte comando:
 \begin{verbatim}
@@ -450,11 +482,11 @@ Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executa
 
 Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação
 proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos
-do dispositivo que está a fazer o papel de servidor. Para isso, foi criado um \textit{script} que cria o ficheiro 
+do dispositivo que está a fazer o papel de servidor. Para isso, foi criado um \textit{script} que cria o ficheiro
 de configuração do WireGuard para o cliente, sendo que este só deve adicionar o ficheiro de configuração na aplicação
 do WireGuard. O \textit{script} ainda automatiza a adição do cliente nas configurações do servidor.
 
-Para conseguir estabelecer a troca de ficheiros entre o servidor e o cliente, foi necessário implementar 
+Para conseguir estabelecer a troca de ficheiros entre o servidor e o cliente, foi necessário implementar
 um \textit{script} que gerencia as trocas de ficheiros da base de dados entre os clientes e o servidor.
 Esse script foi feito em Python, utiliza a biblioteca Flask para criar uma API REST que permite a comunicação entre o cliente e o servidor.
 Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comunicar com o servidor.
@@ -468,29 +500,77 @@ Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comu
 \section{Problemas Encontrados}\label{problemas}
 Durante o desenvolvimento do projeto, foram encontrados alguns problemas, que foram resolvidos da seguinte forma:
 \subsection{Problemas de Conexão}
-Logo no ínicio da implementação da VPN foi necessário achar uma solução para a configuração de encaminhamento de pacotes, pois o servidor Linux
+Logo no inicio da implementação da VPN foi necessário achar uma solução para a configuração de encaminhamento de pacotes, pois o servidor Linux
 não possui um endereço IP público próprio. Para contornar este problema, foi necessário configurar o encaminhamento de pacotes no router, de forma
 a que todos os pacotes que chegassem à porta 51820 fossem encaminhados para o servidor Linux, e este resolveria a situação encaminhando o resto dos pacotes pela VPN.\\
-Outro problema encontrado foi a dificuldade em encontrar uma maneira para estabelecer a conexão pela primeira vez, ou seja, enviar o ficheiro de configuração 
-da VPN para o dispositivo do utilizador, de forma a que este pudesse estabelecer a conexão com o servidor. Para resolver este problema, 
+Outro problema encontrado foi a dificuldade em encontrar uma maneira para estabelecer a conexão pela primeira vez, ou seja, enviar o ficheiro de configuração
+da VPN para o dispositivo do utilizador, de forma a que este pudesse estabelecer a conexão com o servidor. Para resolver este problema,
 foi necessário criar um \textit{script} que gerasse o ficheiro de configuração do WireGuard, e que fosse possível enviar esse ficheiro para o dispositivo do utilizador (\#TODO).
 
 \subsection{Problemas na aplicação Windows/Android}
 Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, como por exemplo:
 \begin{itemize}
 	\item Problemas de compatibilidade entre tipos de base de dados (SQLite e Schemas)
-	\begin{itemize}
-        \item Incompatibilidade de nomes entre tabelas
-        \item Configurações por defeito diferentes entre as plataformas.
-    \end{itemize}
+	      \begin{itemize}
+		      \item Incompatibilidade de nomes entre tabelas
+		      \item Configurações por defeito diferentes entre as plataformas.
+	      \end{itemize}
 	\item Sincronização de dados entre dispositivos.
 	\item Visualização incorreta das informações
 	\item Permissões do Android
+	\item Impossibilidade de modificar a base de dados enquanto a aplicação está a correr
 \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
 \newpage
 \section{Testes}\label{testes}
+Os testes realizados tem como base 2 metodos:
+\begin{itemize}
+	\item Verificação da base de dados através do servidor
+	\item Sniffing das comunicações com o uso do Wireshark
+\end{itemize}
+
+\subsection{Servidor}
+Os testes realizados no servidor foram focados na verificação da base de dados e na monitorização das comunicações.
+Para a verificação da base de dados, é feita a tentativa de ler o ficheiro enviado, e como é possivel verificar nas figuras abaixo,
+ao ler o ficheiro sem criptografia, é possível visualizar o seu conteúdo perfeitamente, ao ler o ficheiro com criptografia,
+não é possível visualizar o seu conteúdo pois o servidor guarda a base de dados sem desencriptar, isto leva a que o ficheiro nem seja reconhecido como uma base de dados.
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
+        \caption{Sem Criptografia}
+        \label{fig:img1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/LoginPC2.png}
+        \caption{Com Criptografia}
+        \label{fig:img2}
+    \end{subfigure}
+    \caption{Teste com Servidor}
+    \label{fig:duas_imagens}
+\end{figure}
+
+\subsection{Comunicações}
+Para a monitorização das comunicações, foi utilizado o Wireshark para fazer sniffing dos pacotes que estavam a ser enviados e recebidos pelo servidor.
+Como é possivel ver nas figuras abaixo, estes são os resultados:
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
+        \caption{Sem Criptografia}
+        \label{fig:img1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/LoginPC2.png}
+        \caption{Com Criptografia}
+        \label{fig:img2}
+    \end{subfigure}
+    \caption{Teste com Wireshark}
+    \label{fig:duas_imagens}
+\end{figure}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
