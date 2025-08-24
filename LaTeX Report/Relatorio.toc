@@ -5,22 +5,22 @@
 \contentsline {section}{\numberline {4}Arquitetura do Sistema}{4}{section.4}%
 \contentsline {section}{\numberline {5}Modulos do Sistema}{5}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Interface para Computador}{5}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Interface para Android}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Interface para Android}{6}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Módulo da VPN}{6}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Base de Dados}{6}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Desenvolvimento}{8}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Interface para Computador}{8}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Ecrã de Login}{8}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Ecrã de Lista de Chats}{9}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Ecrã de Chat}{10}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Ecrã de Configuração WireGuard}{11}{subsubsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.2}Interface para Android}{11}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}AlmaOS - Serviço de VPN}{11}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Problemas Encontrados}{15}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{15}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{15}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Testes}{16}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Servidor}{16}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Comunicações}{17}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Conclusão}{18}{section.9}%
-\contentsline {section}{Bibliografia}{19}{section.9}%
+\contentsline {subsection}{\numberline {5.4}Base de Dados}{7}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Desenvolvimento}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Interface para Computador}{9}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Ecrã de Login}{9}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Ecrã de Lista de Chats}{10}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Ecrã de Chat}{11}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Ecrã de Configuração WireGuard}{12}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Interface para Android}{12}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}AlmaOS - Serviço de VPN}{12}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Problemas Encontrados}{16}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{16}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{16}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Testes}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Servidor}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Comunicações}{18}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Conclusão}{19}{section.9}%
+\contentsline {section}{Bibliografia}{20}{section.9}%
