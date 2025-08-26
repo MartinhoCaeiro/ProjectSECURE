@@ -246,7 +246,8 @@ e o Serpent.
 
 Sendo assim, a parte de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem
 será encriptada consoante um número pseudo-aleatório gerado pela aplicação, sendo assim escolhido o algoritmo de encriptação a utilizar naquele momento, o AES256 ou Serpent.
-Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}".
+Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}". É importante destacar que o seletor 
+está ofuscado, de forma a dificultar a sua identificação, a partir de uma máscara criada através da chave (\textit{salt}) e do número pseudo-aleatório.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/Encripta.png}
@@ -254,6 +255,7 @@ Para encriptar, é necessário fornecer também uma chave de encriptação. Nest
 	\label{fig:encryption_process}
 \end{figure}
 
+\newpage
 
 Para desencriptar, é necessário fazer o processo inverso. Desta forma, o número pseudo-aleatório está anexado à mensagem encriptada,
 permitindo assim descobrir qual o algoritmo de encriptação utilizado. É possível ver este processo na figura \ref{fig:decryption_process}.
@@ -264,7 +266,7 @@ permitindo assim descobrir qual o algoritmo de encriptação utilizado. É poss�
 	\label{fig:decryption_process}
 \end{figure}
 %---------------------------------------------------------------------------------------------------------------------------
-\newpage
+
 \section{Modulos do Sistema}\label{modulos}
 
 \subsection{Interface para Computador}
@@ -286,17 +288,19 @@ A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{al
 bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que é um serviço de VPN de código aberto,
 leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
 do utilizador, para que este possa estabelecer uma ligação à VPN. \\TODO Tentar fazer com que seja feito da maneira mais automatizada possível.
-
+\newpage 
 \subsection{Base de Dados}
 A base de dados será utilizada para armazenar as informações dos utilizadores, como as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
 A base de dados irá ter a seguinte estrutura:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Recursos/ProjectSecure_DB.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/ProjectSecure_DB.png}
 	\caption{Estrutura da Base de Dados}
 	\label{fig:db_structure}
 \end{figure}
+
+\newpage 
 
 Sendo que a base de dados é composta por 4 tabelas, cada uma com as suas respetivas colunas,
 sendo que as tabelas são:\\\\
