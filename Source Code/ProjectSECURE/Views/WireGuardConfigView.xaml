@@ -3,204 +3,58 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Configuração WireGuard"
         Height="440"
-        Width="640"
+        Width="420"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         Background="{DynamicResource BackgroundBrush}"
         Foreground="{DynamicResource ForegroundBrush}">
 
-    <!-- Styles to ensure all text/fields respect the theme -->
-    <Window.Resources>
-        <!-- Default text -->
-        <Style TargetType="TextBlock">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource ForegroundBrush}"/>
-        </Style>
-
-        <!-- Labels (if used) -->
-        <Style TargetType="Label">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource ForegroundBrush}"/>
-        </Style>
-
-        <!-- GroupBox and header -->
-        <Style TargetType="GroupBox">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource ForegroundBrush}"/>
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource ForegroundBrush}"/>
-        </Style>
-
-        <!-- TextBox -->
-        <Style TargetType="TextBox">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource ForegroundBrush}"/>
-            <Setter Property="Background"
-                    Value="{DynamicResource BackgroundBrush}"/>
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource ForegroundBrush}"/>
-            <Setter Property="CaretBrush"
-                    Value="{DynamicResource ForegroundBrush}"/>
-        </Style>
-
-        <!-- PasswordBox -->
-        <Style TargetType="PasswordBox">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource ForegroundBrush}"/>
-            <Setter Property="Background"
-                    Value="{DynamicResource BackgroundBrush}"/>
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource ForegroundBrush}"/>
-            <Setter Property="CaretBrush"
-                    Value="{DynamicResource ForegroundBrush}"/>
-        </Style>
-    </Window.Resources>
-
-    <!-- Layout: config path, interface section, peer section, buttons -->
-    <Grid Margin="16">
+    <Grid Margin="32">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Config path -->
             <RowDefinition Height="Auto"/>
-            <!-- Interface section -->
             <RowDefinition Height="Auto"/>
-            <!-- Peer section -->
-            <RowDefinition Height="*"/>
-            <!-- Spacer -->
             <RowDefinition Height="Auto"/>
-            <!-- Buttons -->
         </Grid.RowDefinitions>
 
-        <!-- Path to WireGuard .conf file -->
-        <DockPanel Grid.Row="0"
-                   LastChildFill="True">
-            <TextBlock Text="Ficheiro .conf:"
+        <TextBlock Text="Download Configuração WireGuard"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Margin="0,0,0,16"
+                   Grid.Row="0"/>
+
+        <StackPanel Grid.Row="1"
+                    Margin="0,0,0,16">
+            <TextBlock Text="Guia rápido:"
+                       FontWeight="Bold"
+                       Margin="0,0,0,8"/>
+            <TextBlock Text="1 - Insira o seu nome"
+                       Margin="0,0,0,2"/>
+            <TextBlock Text="2 - Escolha um local para guardar o ficheiro"
+                       Margin="0,0,0,2"/>
+            <TextBlock Text="3 - Instale e abra o Wireguard"
+                       Margin="0,0,0,2"/>
+            <TextBlock Text="4 - Adicione o ficheiro como um túnel"
+                       Margin="0,0,0,2"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2"
+                    Margin="0,0,0,8">
+            <TextBlock Text="Nome: "
                        VerticalAlignment="Center"
                        Margin="0,0,8,0"/>
-            <TextBox x:Name="ConfigPathTextBox"
-                     Width="420"
-                     Text="%USERPROFILE%\AppData\Local\WireGuard\Configs\MyTunnel.conf"
+            <TextBox x:Name="NameTextBox"
+                     Width="140"
+                     Height="28"
                      Margin="0,0,8,0"/>
-            <Button Content="Procurar…"
-                    Click="BrowseButton_Click"/>
-        </DockPanel>
-
-        <!-- Interface section: private key, address, DNS -->
-        <GroupBox Header="[Interface]"
-                  Grid.Row="1"
-                  Margin="0,12,0,0">
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="160"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <!-- PrivateKey -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Address -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- DNS -->
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="PrivateKey:"
-                           Grid.Row="0"
-                           Grid.Column="0"
-                           Margin="0,4,8,4"
-                           VerticalAlignment="Center"/>
-                <PasswordBox x:Name="PrivateKeyBox"
-                             Grid.Row="0"
-                             Grid.Column="1"
-                             Height="28"/>
-
-                <TextBlock Text="Address:"
-                           Grid.Row="1"
-                           Grid.Column="0"
-                           Margin="0,4,8,4"
-                           VerticalAlignment="Center"/>
-                <TextBox x:Name="AddressTextBox"
-                         Grid.Row="1"
-                         Grid.Column="1"
-                         Height="28"
-                         ToolTip="Ex.: 10.8.0.2/32 (pode ter várias separadas por vírgula)"/>
-
-                <TextBlock Text="DNS:"
-                           Grid.Row="2"
-                           Grid.Column="0"
-                           Margin="0,4,8,4"
-                           VerticalAlignment="Center"/>
-                <TextBox x:Name="DnsTextBox"
-                         Grid.Row="2"
-                         Grid.Column="1"
-                         Height="28"
-                         ToolTip="Ex.: 1.1.1.1, 8.8.8.8"/>
-            </Grid>
-        </GroupBox>
-
-        <!-- Peer section: public key, allowed IPs, endpoint -->
-        <GroupBox Header="[Peer]"
-                  Grid.Row="2"
-                  Margin="0,12,0,0">
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="160"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <!-- PublicKey -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- AllowedIPs -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Endpoint -->
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="PublicKey:"
-                           Grid.Row="0"
-                           Grid.Column="0"
-                           Margin="0,4,8,4"
-                           VerticalAlignment="Center"/>
-                <TextBox x:Name="ServerPublicKeyTextBox"
-                         Grid.Row="0"
-                         Grid.Column="1"
-                         Height="28"/>
-
-                <TextBlock Text="AllowedIPs:"
-                           Grid.Row="1"
-                           Grid.Column="0"
-                           Margin="0,4,8,4"
-                           VerticalAlignment="Center"/>
-                <TextBox x:Name="AllowedIpsTextBox"
-                         Grid.Row="1"
-                         Grid.Column="1"
-                         Height="28"
-                         ToolTip="Ex.: 10.8.0.0/24 (pode ter várias separadas por vírgula)"/>
-
-                <TextBlock Text="Endpoint:"
-                           Grid.Row="2"
-                           Grid.Column="0"
-                           Margin="0,4,8,4"
-                           VerticalAlignment="Center"/>
-                <TextBox x:Name="EndpointTextBox"
-                         Grid.Row="2"
-                         Grid.Column="1"
-                         Height="28"
-                         ToolTip="Ex.: 203.0.113.10:51820"/>
-            </Grid>
-        </GroupBox>
-
-        <!-- Save and close buttons -->
-        <StackPanel Grid.Row="4"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    Margin="0,12,0,0">
-            <Button Content="Guardar"
-                    Width="110"
-                    Margin="0,0,8,0"
-                    Click="SaveButton_Click"/>
-            <Button Content="Fechar"
-                    Width="90"
-                    Click="CancelButton_Click"/>
         </StackPanel>
+
+        <Button Content="Download"
+                Width="120"
+                Height="32"
+                Grid.Row="4"
+                HorizontalAlignment="Center"
+                Click="DownloadButton_Click"/>
     </Grid>
 </Window>
