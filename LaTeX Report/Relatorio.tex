@@ -199,8 +199,8 @@ atualizações sobre o progresso do projeto.
 	\label{fig:project_schedule}
 \end{figure}
 
-Este projeto ficou guardado no repositório do GitHub da equipa, onde pode ser consultado por outros alunos e professores, a partir do seguinte
-link:\\ \url{https://github.com/MartinhoCaeiro/Projeto-Cripto}.
+Este projeto ficou guardado nos repositórios do GitHub da equipa, onde pode ser consultado por outros alunos e professores, a partir do seguinte
+link:\\ \url{https://github.com/MartinhoCaeiro/Projeto-Cripto} \&  \url{https://github.com/NarcisoUNK/ProjectFinal_ANDROID}.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Analise de Requisitos}\label{analise}
@@ -422,8 +422,60 @@ O ecrã de configuração WireGuard é composto por um formulário onde o utiliz
 	\caption{Ecrã de Configuração WireGuard - Computador}
 \end{figure}
 
+\newpage
+
 \subsection{Interface para Android}
-Para o desenvolvimento da interface para Android, foi utilizado o Android Studio, que é um ambiente de desenvolvimento integrado (IDE) oficial para o sistema operativo Android.
+Para o desenvolvimento da interface para Android, foi utilizado o Android Studio, que é um ambiente de desenvolvimento integrado 
+(IDE) oficial para o sistema operativo Android.
+\subsubsection{Ecrã de Login}
+O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação. 
+Este pode iniciar sessão ou criar uma conta, caso não possua uma. Também é possivel ver o estado da ligação WireGuard, caso esteja ligado 
+ou desligado. Existe ainda a possibilidade de estabelecer a comunicação de uma forma mais prática para o utilizador, através do download do 
+ficheiro de configuração do WireGuard.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \caption{Ecrã de Login - Android}
+    \label{fig:android_login}
+\end{figure}
+\newpage
+\subsubsection{Ecrã de configuração do WireGuard}
+Neste ecrã, o utilizador pode inserir um nome que está associado à sua ligação WireGuard. Após inserir e enviar o pedido, será 
+fornecido o ficheiro de configuração do WireGuard, que pode ser importado diretamente na aplicação do WireGuard no dispositivo Android.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \caption{Ecrã de Configuração do WireGuard - Android}
+    \label{fig:android_config_wireguard}
+\end{figure}
+
+\newpage
+
+\subsubsection{Ecrã de Lista de Chats}
+O ecrã de lista de chats é composto por uma lista de conversas anteriores, onde o utilizador pode selecionar uma conversa para visualizar o seu conteúdo. 
+Neste ecrã, também é possível iniciar uma nova conversa, caso o utilizador deseje.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \caption{Lista de Chats - Android}
+    \label{fig:android_lista_chats}
+\end{figure}
+
+\newpage
+
+\subsubsection{Ecrã de Chat}
+O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
+Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \caption{Ecrã de Chat - Android}
+    \label{fig:android_chat}
+\end{figure}
+
+\newpage
 
 \subsection{AlmaOS - Serviço de VPN}
 Para configurar corretamente o serviço de VPN, é necessário instalar o WireGuard no servidor AlmaOS 8.10,
