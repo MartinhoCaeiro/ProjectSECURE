@@ -37,14 +37,14 @@ namespace ProjectSECURE.Views
                 return;
             }
             string outputFile = dlg.FileName;
-            string url = $"https://{ipAddress}/download/{name}";
+            string url = $"http://{ipAddress}/download/{name}";
 
             try
             {
                 var psi = new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = "curl",
-                    Arguments = $"\"{url}\" -k -o \"{outputFile}\"",
+                    Arguments = $"\"{url}\" -o \"{outputFile}\"",
                     UseShellExecute = false,
                     CreateNoWindow = true
                 };
