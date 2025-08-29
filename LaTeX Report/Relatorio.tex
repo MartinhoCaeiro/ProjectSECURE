@@ -287,7 +287,7 @@ A interface para Android será desenvolvida em Kotlin, que é uma linguagem de p
 A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{almaos}), e será responsável por gerir as ligações dos utilizadores à VPN,
 bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que é um serviço de VPN de código aberto,
 leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
-do utilizador, para que este possa estabelecer uma ligação à VPN. \\TODO Tentar fazer com que seja feito da maneira mais automatizada possível.
+do utilizador, para que este possa estabelecer uma ligação à VPN.
 \newpage 
 \subsection{Base de Dados}
 A base de dados será utilizada para armazenar as informações dos utilizadores, como as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
@@ -561,7 +561,7 @@ não possui um endereço IP público próprio. Para contornar este problema, foi
 a que todos os pacotes que chegassem à porta 51820 fossem encaminhados para o servidor Linux, e este resolveria a situação encaminhando o resto dos pacotes pela VPN.\\
 Outro problema encontrado foi a dificuldade em encontrar uma maneira para estabelecer a conexão pela primeira vez, ou seja, enviar o ficheiro de configuração
 da VPN para o dispositivo do utilizador, de forma a que este pudesse estabelecer a conexão com o servidor. Para resolver este problema,
-foi necessário criar um \textit{script} que gerasse o ficheiro de configuração do WireGuard, e que fosse possível enviar esse ficheiro para o dispositivo do utilizador (\#TODO).
+foi necessário criar um \textit{script} que gerasse o ficheiro de configuração do WireGuard, e que fosse possível enviar esse ficheiro para o dispositivo do utilizador.
 
 \subsection{Problemas na aplicação Windows/Android}
 Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, como por exemplo:
