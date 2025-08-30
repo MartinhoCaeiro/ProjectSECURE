@@ -269,9 +269,9 @@ permitindo assim descobrir qual o algoritmo de encriptação utilizado. É poss�
 
 \section{Modulos do Sistema}\label{modulos}
 
-\subsection{Interface para Computador}
-A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente.
-A aplicação será desenvolvida utilizando o framework .NET.
+\subsection{Interface do Sistema}
+A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente, enquanto 
+que a interface para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma rápida e eficiente.
 Esta interface é composta por 4 ecrãs principais:
 \begin{itemize}
 	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação utilizando as suas credenciais, tambem é possivel ver o status da ligação WireGuard.
@@ -280,14 +280,21 @@ Esta interface é composta por 4 ecrãs principais:
 	\item \textbf{Ecrã de Configuração WireGuard:} onde o utilizador pode criar um ficheiro para configuração do WireGuard.
 \end{itemize}
 
-\subsection{Interface para Android}
-A interface para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma rápida e eficiente.
-
 \subsection{Módulo da VPN}
 A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{almaos}), e será responsável por gerir as ligações dos utilizadores à VPN,
 bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que é um serviço de VPN de código aberto,
 leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
 do utilizador, para que este possa estabelecer uma ligação à VPN.
+\subsection{Estrutura do Sistema}
+A estrutura do sistema é focada na troca de informação por dentro da VPN, podendo ser representada 
+na seguinte figura \ref{fig:system_architecture}: 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
+    \caption{Arquitetura do Sistema}
+    \label{fig:system_architecture}
+\end{figure}
+
 \newpage 
 \subsection{Base de Dados}
 A base de dados será utilizada para armazenar as informações dos utilizadores, como as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
@@ -417,7 +424,7 @@ Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma men
 O ecrã de configuração WireGuard é composto por um formulário onde o utilizador insere o seu nome, e um botão para descarregar o ficheiro de configuração do WireGuard.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+	\includegraphics[width=10cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
 	\label{fig:wireguard_pc}
 	\caption{Ecrã de Configuração WireGuard - Computador}
 \end{figure}
@@ -435,7 +442,7 @@ ficheiro de configuração do WireGuard.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \includegraphics[width=6cm]{Recursos/LoginAndroid.png} % Substitua pelo caminho da imagem
     \caption{Ecrã de Login - Android}
     \label{fig:android_login}
 \end{figure}
@@ -446,7 +453,7 @@ fornecido o ficheiro de configuração do WireGuard, que pode ser importado dire
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \includegraphics[width=6cm]{Recursos/WireguardAndroid.png} % Substitua pelo caminho da imagem
     \caption{Ecrã de Configuração do WireGuard - Android}
     \label{fig:android_config_wireguard}
 \end{figure}
@@ -458,7 +465,7 @@ O ecrã de lista de chats é composto por uma lista de conversas anteriores, ond
 Neste ecrã, também é possível iniciar uma nova conversa, caso o utilizador deseje.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \includegraphics[width=6cm]{Recursos/ListaAndroid.png} % Substitua pelo caminho da imagem
     \caption{Lista de Chats - Android}
     \label{fig:android_lista_chats}
 \end{figure}
@@ -470,7 +477,7 @@ O ecrã de chat é composto por uma lista de mensagens trocadas entre os utiliza
 Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
+    \includegraphics[width=6cm]{Recursos/ChatAndroid.png} % Substitua pelo caminho da imagem
     \caption{Ecrã de Chat - Android}
     \label{fig:android_chat}
 \end{figure}
@@ -566,14 +573,14 @@ foi necessário criar um \textit{script} que gerasse o ficheiro de configuraçã
 \subsection{Problemas na aplicação Windows/Android}
 Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, como por exemplo:
 \begin{itemize}
-	\item Problemas de compatibilidade entre tipos de base de dados (SQLite e Schemas)
+	\item Problemas de compatibilidade entre tipos de base de dados (SQLite e Schemas);
 	      \begin{itemize}
-		      \item Incompatibilidade de nomes entre tabelas
-		      \item Configurações por defeito diferentes entre as plataformas.
+		      \item Incompatibilidade de nomes entre tabela;
+		      \item Configurações por defeito diferentes entre as plataformas;
 	      \end{itemize}
-	\item Sincronização de dados entre dispositivos/sistemas operativos.
-	\item Visualização incorreta das informações
-	\item Permissões do Android
+	\item Sincronização de dados entre dispositivos/sistemas operativos;
+	\item Visualização incorreta das informações;
+	\item Permissões do Android;
 	\item Impossibilidade de modificar a base de dados enquanto a aplicação está a correr
 \end{itemize}
 
@@ -627,7 +634,14 @@ Como é possivel ver nas figuras abaixo, estes são os resultados:
     \caption{Teste com Wireshark}
     \label{fig:duas_imagens}
 \end{figure}
-
+%---------------------------------------------------------------------------------------------------------------------------
+\section{Melhorias Futuras}
+Este projeto está sujeito a imensas melhorias, tais como:
+\begin{itemize}
+    \item Implementação de novas funcionalidades, como mensagens de voz/chamadas criptografadas;
+    \item Melhoria da interface do utilizador;
+    \item Aumento da segurança das comunicações, adicionando HTTPS em vez de HTTP.
+\end{itemize}
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Conclusão}\label{con}
