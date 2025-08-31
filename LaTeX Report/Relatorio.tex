@@ -399,6 +399,7 @@ e no seu canto inferior esquerdo existe um botão para terminar sessão caso des
 \end{figure}
 
 \newpage
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Chat}
 O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
 Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
@@ -420,6 +421,7 @@ Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma men
 \end{figure}
 
 \newpage
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Configuração WireGuard}
 O ecrã de configuração WireGuard é composto por um formulário onde o utilizador insere o seu nome, e um botão para descarregar o ficheiro de configuração do WireGuard.
 \begin{figure}[h!]
@@ -430,10 +432,11 @@ O ecrã de configuração WireGuard é composto por um formulário onde o utiliz
 \end{figure}
 
 \newpage
-
+%-------------------------------------------------------------------------------------------------
 \subsection{Interface para Android}
 Para o desenvolvimento da interface para Android, foi utilizado o Android Studio, que é um ambiente de desenvolvimento integrado 
 (IDE) oficial para o sistema operativo Android.
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Login}
 O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação. 
 Este pode iniciar sessão ou criar uma conta, caso não possua uma. Também é possivel ver o estado da ligação WireGuard, caso esteja ligado 
@@ -447,6 +450,7 @@ ficheiro de configuração do WireGuard.
     \label{fig:android_login}
 \end{figure}
 \newpage
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de configuração do WireGuard}
 Neste ecrã, o utilizador pode inserir um nome que está associado à sua ligação WireGuard. Após inserir e enviar o pedido, será 
 fornecido o ficheiro de configuração do WireGuard, que pode ser importado diretamente na aplicação do WireGuard no dispositivo Android.
@@ -459,7 +463,7 @@ fornecido o ficheiro de configuração do WireGuard, que pode ser importado dire
 \end{figure}
 
 \newpage
-
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Lista de Chats}
 O ecrã de lista de chats é composto por uma lista de conversas anteriores, onde o utilizador pode selecionar uma conversa para visualizar o seu conteúdo. 
 Neste ecrã, também é possível iniciar uma nova conversa, caso o utilizador deseje.
@@ -471,7 +475,7 @@ Neste ecrã, também é possível iniciar uma nova conversa, caso o utilizador d
 \end{figure}
 
 \newpage
-
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Chat}
 O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
 Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
@@ -483,7 +487,7 @@ Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma men
 \end{figure}
 
 \newpage
-
+%-------------------------------------------------------------------------------------------------
 \subsection{AlmaOS - Serviço de VPN}
 Para configurar corretamente o serviço de VPN, é necessário instalar o WireGuard no servidor AlmaOS 8.10,
 para isso ser feito, foi necessário seguir os seguintes passos:
@@ -562,6 +566,7 @@ Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comu
 \newpage
 \section{Problemas Encontrados}\label{problemas}
 Durante o desenvolvimento do projeto, foram encontrados alguns problemas, que foram resolvidos da seguinte forma:
+%-------------------------------------------------------------------------------------------------
 \subsection{Problemas de Conexão}
 Logo no inicio da implementação da VPN foi necessário achar uma solução para a configuração de encaminhamento de pacotes, pois o servidor Linux
 não possui um endereço IP público próprio. Para contornar este problema, foi necessário configurar o encaminhamento de pacotes no router, de forma
@@ -569,7 +574,7 @@ a que todos os pacotes que chegassem à porta 51820 fossem encaminhados para o s
 Outro problema encontrado foi a dificuldade em encontrar uma maneira para estabelecer a conexão pela primeira vez, ou seja, enviar o ficheiro de configuração
 da VPN para o dispositivo do utilizador, de forma a que este pudesse estabelecer a conexão com o servidor. Para resolver este problema,
 foi necessário criar um \textit{script} que gerasse o ficheiro de configuração do WireGuard, e que fosse possível enviar esse ficheiro para o dispositivo do utilizador.
-
+%-------------------------------------------------------------------------------------------------
 \subsection{Problemas na aplicação Windows/Android}
 Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, como por exemplo:
 \begin{itemize}
@@ -592,7 +597,7 @@ Os testes realizados tem como base 2 metodos:
 	\item Verificação da base de dados através do servidor
 	\item Sniffing das comunicações com o uso do Wireshark
 \end{itemize}
-
+%-------------------------------------------------------------------------------------------------
 \subsection{Servidor}
 Os testes realizados no servidor foram focados na verificação da base de dados e na monitorização das comunicações.
 Para a verificação da base de dados, é feita a tentativa de ler o ficheiro enviado, e como é possivel verificar nas figuras abaixo,
@@ -600,40 +605,73 @@ ao ler o ficheiro sem criptografia, é possível visualizar o seu conteúdo perf
 não é possível visualizar o seu conteúdo pois o servidor guarda a base de dados sem desencriptar, isto leva a que o ficheiro nem seja reconhecido como uma base de dados.
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
+    \begin{subfigure}[b]{0.9\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/DBNormal.png}
         \caption{Sem Criptografia}
-        \label{fig:img1}
+        \label{fig:db_normal}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \vskip 2cm
+    \begin{subfigure}[b]{0.9\textwidth}
         \includegraphics[width=\textwidth]{Recursos/DBEncriptada.png}
         \caption{Com Criptografia}
-        \label{fig:img2}
+        \label{fig:db_encriptada}
     \end{subfigure}
     \caption{Teste com Servidor}
     \label{fig:duas_imagens}
 \end{figure}
-
+\newpage
+%-------------------------------------------------------------------------------------------------   
 \subsection{Comunicações}
 Para a monitorização das comunicações, foi utilizado o Wireshark para fazer sniffing dos pacotes que estavam a ser enviados e recebidos pelo servidor.
 Como é possivel ver nas figuras abaixo, estes são os resultados:
+
 \begin{figure}[htb]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
+    \begin{subfigure}[b]{1.05\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/WiresharkNormalMSG.png}
         \caption{Sem Criptografia}
-        \label{fig:img1}
+        \label{fig:wireshark_normal_fora}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/WiresharkEncriptada.png}
+
+    % Espaço vertical entre as imagens
+    \vskip 1cm
+
+    \begin{subfigure}[b]{1.05\textwidth}
+        \includegraphics[width=\textwidth]{Recursos/WiresharkEncriptadaMSG.png}
         \caption{Com Criptografia}
-        \label{fig:img2}
+        \label{fig:wireshark_encriptado_fora}
     \end{subfigure}
-    \caption{Teste com Wireshark}
+    \caption{Teste com Servidor}
     \label{fig:duas_imagens}
 \end{figure}
+Para obter esta captura, foi necessário selecionar dentro do Wireshark o adaptador associado à VPN para ver o tráfego que passa lá dentro. Ao analisar o resultado obtido pelo
+Wireshark não é possível detetar nenhuma diferença óbvia, sem ser a questão do aparecimento do \textit{(text/html)} nas mensagens criptografadas. 
+Isto, só se vai tornar mais visível, quando for selecionada a mensagem, e com o botão direito do rato, selecionar depois a opção \textit{Follow --> TCP Stream},
+isto fará com que apareçam os resultados das figuras \ref{fig:wireguard_normal} e \ref{fig:wireguard_encriptado}.
+
+\newpage
+Sendo assim, podemos analisar o conteúdo desta mensagem 
+HTTP, sendo ele na figura \ref{fig:wireguard_normal} a estrutura da base de dados nas fases iniciais do projeto, onde ainda não estava criptografada. Ao analisar o conteúdo após,
+seria possível visualizar todas as informações da base de dados, incluindo utilizadores, mensagens e outros dados sensíveis.
+\begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Recursos/WiresharkNormal.png}
+        \caption{Wireshark Sem Criptografia}
+        \label{fig:wireguard_normal}
+\end{figure}
+\newpage
+Agora, ao analisar o conteúdo da figura \ref{fig:wireguard_encriptado}, podemos ver que a estrutura da base de dados está ilegível para um
+ser humano devido à criptografia AES256/Serpent, sendo impossível saber o conteúdo se não for feita a decriptação, e para isto ocorrer 
+é necessário ter acesso à chave, seja para "desenvolopar", seja para desencriptar. Isto garante a segurança 
+das comunicações caso o acesso à VPN seja comprometido, e uma pessoa não autorizada consiga aceder ao tráfego que passa pela VPN.
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.7\textwidth]{Recursos/WiresharkEncriptada.png}
+        \caption{Wireshark Com Criptografia}
+        \label{fig:wireguard_encriptado}
+\end{figure}
+
+
 %---------------------------------------------------------------------------------------------------------------------------
 \section{Melhorias Futuras}
 Este projeto está sujeito a imensas melhorias, tais como:
