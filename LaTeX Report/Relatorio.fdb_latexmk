@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Relatorio"] 1756390834.4913 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1756572128.55037 0
+["biber Relatorio"] 1756390834.4913 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1756654703.72945 0
   "Recursos/referencias.bib" 1755444642 1955 f56d8982bf2418f05ee44ffbdb386ba4 ""
-  "Relatorio.bcf" 1756572128 134566 6bf989dcd366e432df060089fbe8e332 "pdflatex"
+  "Relatorio.bcf" 1756654703 134566 6bf989dcd366e432df060089fbe8e332 "pdflatex"
   (generated)
   "Relatorio.bbl"
   "Relatorio.blg"
   (rewritten before read)
-["pdflatex"] 1756572125.90575 "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1756572128.55153 0
+["pdflatex"] 1756654701.14564 "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1756654703.73026 0
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1755355470 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1000.pk" 1755805792 34112 6c14e1f8c1a5ff14dc68f6f7e7ea2c61 ""
   "C:/Users/amant/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1728.pk" 1755355481 71788 d4c096d6a38185e1b4671e1b82f71f05 ""
@@ -213,6 +213,7 @@
   "Recursos/ChatPC1.png" 1756050026 16786 73b1f31e56e32648d9929aa749b4d2a8 ""
   "Recursos/ChatPC2.png" 1756050026 15367 042be3eab0201310f14cf51c34f22904 ""
   "Recursos/Cronograma.png" 1755969079 21775 2f788f08c2907f47f67f53ee5880db38 ""
+  "Recursos/DBEncriptada.png" 1756654631 7819 8206d1a1520b834302c41fff8d349130 ""
   "Recursos/Decripta.png" 1756052107 11002 0bc1ea768f7f1ac01c537727b7621ae5 ""
   "Recursos/Encripta.png" 1756052070 12506 7ffcf9e12341da16f24b36f6fbdd0286 ""
   "Recursos/ListaAndroid.png" 1756571530 37563 c124ef38487d7ff8fd59bdd78e8c0df7 ""
@@ -227,14 +228,15 @@
   "Recursos/SistemaFisico.png" 1756569258 46801 f382efba96d6039dd08ad4d5b1ab74a1 ""
   "Recursos/WireguardAndroid.png" 1756571432 32758 57331da6f0a403f3a0595d10fb72ab2e ""
   "Recursos/WireguardPC.png" 1756390599 26654 0d95b46f7ce56fa0f37775e49ef78880 ""
-  "Relatorio.aux" 1756572128 11950 a3bad37936e06b30555bc646f936d5bc "pdflatex"
+  "Recursos/WiresharkEncriptada.png" 1756654586 21818 39e0fa1efa053e353cf75e45cf149c71 ""
+  "Relatorio.aux" 1756654703 11950 a3bad37936e06b30555bc646f936d5bc "pdflatex"
   "Relatorio.bbl" 1756390836 23549 ae8b57b9afd13e81a73d8e65964dab43 "biber Relatorio"
-  "Relatorio.lof" 1756572128 1666 46ab456ce71850f001ed6bfa987cac93 "pdflatex"
-  "Relatorio.out" 1756572128 4604 fe55e80098e6ab608134f57844e7faad "pdflatex"
-  "Relatorio.run.xml" 1756572128 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
-  "Relatorio.tex" 1756572123 31591 0f7be4edfa19db8bc8f38ced1759aeb9 ""
-  "Relatorio.toc" 1756572128 2555 9aff745a51b614d71e9cabc2009eef24 "pdflatex"
-  "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" 1756572123 31591 0f7be4edfa19db8bc8f38ced1759aeb9 ""
+  "Relatorio.lof" 1756654703 1666 46ab456ce71850f001ed6bfa987cac93 "pdflatex"
+  "Relatorio.out" 1756654703 4604 fe55e80098e6ab608134f57844e7faad "pdflatex"
+  "Relatorio.run.xml" 1756654703 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
+  "Relatorio.tex" 1756654695 31606 3985fe829ad83b3bb043120f647547fa ""
+  "Relatorio.toc" 1756654703 2555 9aff745a51b614d71e9cabc2009eef24 "pdflatex"
+  "d:/ESTIG/Projeto-Cripto/Projeto-Cripto/LaTeX Report/Relatorio.tex" 1756654695 31606 3985fe829ad83b3bb043120f647547fa ""
   (generated)
   "Relatorio.aux"
   "Relatorio.bcf"

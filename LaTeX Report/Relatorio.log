@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  30 AUG 2025 17:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  31 AUG 2025 16:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,23 +1288,25 @@ File: Recursos/LoginPC1.png Graphic file (type png)
 <use Recursos/LoginPC1.png>
 Package pdftex.def Info: Recursos/LoginPC1.png  used on input line 604.
 (pdftex.def)             Requested size: 188.21288pt x 218.1762pt.
-File: Recursos/LoginPC2.png Graphic file (type png)
-<use Recursos/LoginPC2.png>
-Package pdftex.def Info: Recursos/LoginPC2.png  used on input line 610.
-(pdftex.def)             Requested size: 188.21288pt x 219.2166pt.
+<Recursos/DBEncriptada.png, id=376, 400.49625pt x 60.97781pt>
+File: Recursos/DBEncriptada.png Graphic file (type png)
+<use Recursos/DBEncriptada.png>
+Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 610.
+(pdftex.def)             Requested size: 188.21288pt x 28.65677pt.
 File: Recursos/LoginPC1.png Graphic file (type png)
 <use Recursos/LoginPC1.png>
 Package pdftex.def Info: Recursos/LoginPC1.png  used on input line 624.
 (pdftex.def)             Requested size: 188.21288pt x 218.1762pt.
-File: Recursos/LoginPC2.png Graphic file (type png)
-<use Recursos/LoginPC2.png>
-Package pdftex.def Info: Recursos/LoginPC2.png  used on input line 630.
-(pdftex.def)             Requested size: 188.21288pt x 219.2166pt.
+<Recursos/WiresharkEncriptada.png, id=377, 714.41907pt x 124.96687pt>
+File: Recursos/WiresharkEncriptada.png Graphic file (type png)
+<use Recursos/WiresharkEncriptada.png>
+Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 630.
+(pdftex.def)             Requested size: 188.21288pt x 32.92155pt.
 
 
-[21]
+[21 <./Recursos/DBEncriptada.png>]
 
-[22]
+[22 <./Recursos/WiresharkEncriptada.png>]
 
 [23]
 
@@ -1324,17 +1326,17 @@ Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37254 strings out of 468134
- 748657 string characters out of 5430740
+ 37268 strings out of 468134
+ 749152 string characters out of 5430740
  1621757 words of memory out of 5000000
- 65274 multiletter control sequences out of 15000+600000
+ 65288 multiletter control sequences out of 15000+600000
  638969 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,9n,105p,752b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (31 pages, 553552 bytes).
+Output written on Relatorio.pdf (31 pages, 570908 bytes).
 PDF statistics:
- 937 PDF objects out of 1000 (max. 8388607)
+ 941 PDF objects out of 1000 (max. 8388607)
  91 named destinations out of 1000 (max. 500000)
- 343 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 353 words of extra memory for PDF output out of 10000 (max. 10000000)
 
