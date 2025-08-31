@@ -248,6 +248,7 @@ Sendo assim, a parte de encriptação das mensagens será feita como está demon
 será encriptada consoante um número pseudo-aleatório gerado pela aplicação, sendo assim escolhido o algoritmo de encriptação a utilizar naquele momento, o AES256 ou Serpent.
 Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}". É importante destacar que o seletor 
 está ofuscado, de forma a dificultar a sua identificação, a partir de uma máscara criada através da chave (\textit{salt}) e do número pseudo-aleatório.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/Encripta.png}
@@ -546,17 +547,25 @@ Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executa
     sudo systemctl enable --now wg-quick@wg0
 \end{verbatim}
 
+Para conseguir estabelecer a troca de ficheiros entre o servidor e o cliente, foi necessário implementar
+um \textit{script} que gerencia as trocas de ficheiros da base de dados entre os clientes e o servidor.
+Esse script foi feito em Python, utiliza a biblioteca Flask para criar uma API REST que permite a comunicação entre o cliente e o servidor.
+Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comunicar com o servidor.
+
 
 Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação
 proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos
 do dispositivo que está a fazer o papel de servidor. Para isso, foi criado um \textit{script} que cria o ficheiro
 de configuração do WireGuard para o cliente, sendo que este só deve adicionar o ficheiro de configuração na aplicação
-do WireGuard. O \textit{script} ainda automatiza a adição do cliente nas configurações do servidor.
+do WireGuard. O \textit{script} ainda automatiza a adição do cliente nas configurações do servidor. Foi criado ainda um 
+\textit{script} complementar, em Python, para ser obtido o ficheiro de configurações de maneira mais fácil para o utilizador/cliente. 
+Este script segue o mesmo princípio da troca da base de dados, com a diferença de que está a utilizar a seu endereço de IP local em vez 
+da VPN. Sendo assim, para obter o ficheiro de configurações, é necessário estabelecer conexão com o servidor no endereço 
+\textit{192.168.1.106:9595 {nome}}, onde \textit{nome} é o nome do utilizador que quer aceder à VPN. Ao estabelecer ligação, vai ter 
+um ficheiro de configurações criado por um administrador à espera de ser transferido. O administrador cria esse ficheiro com o auxilio do 
+\textit{script} anterior, para conseguir limitar o acesso às comunicações caso o acesso à VPN seja comprometido.
 
-Para conseguir estabelecer a troca de ficheiros entre o servidor e o cliente, foi necessário implementar
-um \textit{script} que gerencia as trocas de ficheiros da base de dados entre os clientes e o servidor.
-Esse script foi feito em Python, utiliza a biblioteca Flask para criar uma API REST que permite a comunicação entre o cliente e o servidor.
-Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comunicar com o servidor.
+
 \begin{verbatim}
     sudo firewall-cmd --add-port=8000/tcp --permanent
     sudo firewall-cmd --reload

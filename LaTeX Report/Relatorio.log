@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  31 AUG 2025 17:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  31 AUG 2025 17:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1127,7 +1127,7 @@ Overfull \hbox (33.7194pt too wide) in paragraph at lines 202--205
 <Recursos/Encripta.png, id=267, 554.07pt x 271.76532pt>
 File: Recursos/Encripta.png Graphic file (type png)
 <use Recursos/Encripta.png>
-Package pdftex.def Info: Recursos/Encripta.png  used on input line 253.
+Package pdftex.def Info: Recursos/Encripta.png  used on input line 254.
 (pdftex.def)             Requested size: 334.60422pt x 164.11787pt.
 
 
@@ -1135,7 +1135,7 @@ Package pdftex.def Info: Recursos/Encripta.png  used on input line 253.
 <Recursos/Decripta.png, id=275, 548.80031pt x 261.97874pt>
 File: Recursos/Decripta.png Graphic file (type png)
 <use Recursos/Decripta.png>
-Package pdftex.def Info: Recursos/Decripta.png  used on input line 264.
+Package pdftex.def Info: Recursos/Decripta.png  used on input line 265.
 (pdftex.def)             Requested size: 334.60422pt x 159.73085pt.
 
 
@@ -1143,7 +1143,7 @@ Package pdftex.def Info: Recursos/Decripta.png  used on input line 264.
 <Recursos/SistemaFisico.png, id=283, 931.22906pt x 490.08093pt>
 File: Recursos/SistemaFisico.png Graphic file (type png)
 <use Recursos/SistemaFisico.png>
-Package pdftex.def Info: Recursos/SistemaFisico.png  used on input line 293.
+Package pdftex.def Info: Recursos/SistemaFisico.png  used on input line 294.
 (pdftex.def)             Requested size: 334.60422pt x 176.09248pt.
 
 
@@ -1151,22 +1151,22 @@ Package pdftex.def Info: Recursos/SistemaFisico.png  used on input line 293.
 <Recursos/ProjectSecure_DB.png, id=290, 508.14844pt x 509.65407pt>
 File: Recursos/ProjectSecure_DB.png Graphic file (type png)
 <use Recursos/ProjectSecure_DB.png>
-Package pdftex.def Info: Recursos/ProjectSecure_DB.png  used on input line 305.
+Package pdftex.def Info: Recursos/ProjectSecure_DB.png  used on input line 306.
 (pdftex.def)             Requested size: 334.60422pt x 335.60283pt.
 
 
 [7 <./Recursos/ProjectSecure_DB.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 315--351
+Overfull \hbox (15.0pt too wide) in paragraph at lines 316--352
 []$[]$ 
  []
 
@@ -1176,12 +1176,12 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 315--351
 <Recursos/LoginPC1.png, id=300, 253.54726pt x 293.898pt>
 File: Recursos/LoginPC1.png Graphic file (type png)
 <use Recursos/LoginPC1.png>
-Package pdftex.def Info: Recursos/LoginPC1.png  used on input line 365.
+Package pdftex.def Info: Recursos/LoginPC1.png  used on input line 366.
 (pdftex.def)             Requested size: 188.21288pt x 218.1762pt.
 <Recursos/LoginPC2.png, id=301, 252.34274pt x 293.898pt>
 File: Recursos/LoginPC2.png Graphic file (type png)
 <use Recursos/LoginPC2.png>
-Package pdftex.def Info: Recursos/LoginPC2.png  used on input line 371.
+Package pdftex.def Info: Recursos/LoginPC2.png  used on input line 372.
 (pdftex.def)             Requested size: 188.21288pt x 219.2166pt.
 
 
@@ -1189,12 +1189,12 @@ Package pdftex.def Info: Recursos/LoginPC2.png  used on input line 371.
 <Recursos/ListaPC1.png, id=309, 291.489pt x 446.26724pt>
 File: Recursos/ListaPC1.png Graphic file (type png)
 <use Recursos/ListaPC1.png>
-Package pdftex.def Info: Recursos/ListaPC1.png  used on input line 387.
+Package pdftex.def Info: Recursos/ListaPC1.png  used on input line 388.
 (pdftex.def)             Requested size: 188.21288pt x 288.15pt.
 <Recursos/ListaPC2.png, id=310, 290.2845pt x 443.256pt>
 File: Recursos/ListaPC2.png Graphic file (type png)
 <use Recursos/ListaPC2.png>
-Package pdftex.def Info: Recursos/ListaPC2.png  used on input line 393.
+Package pdftex.def Info: Recursos/ListaPC2.png  used on input line 394.
 (pdftex.def)             Requested size: 188.21288pt x 287.39604pt.
 
 
@@ -1202,12 +1202,12 @@ Package pdftex.def Info: Recursos/ListaPC2.png  used on input line 393.
 <Recursos/ChatPC1.png, id=317, 290.2845pt x 446.26724pt>
 File: Recursos/ChatPC1.png Graphic file (type png)
 <use Recursos/ChatPC1.png>
-Package pdftex.def Info: Recursos/ChatPC1.png  used on input line 409.
+Package pdftex.def Info: Recursos/ChatPC1.png  used on input line 410.
 (pdftex.def)             Requested size: 188.21288pt x 289.34845pt.
 <Recursos/ChatPC2.png, id=318, 289.08pt x 446.26724pt>
 File: Recursos/ChatPC2.png Graphic file (type png)
 <use Recursos/ChatPC2.png>
-Package pdftex.def Info: Recursos/ChatPC2.png  used on input line 415.
+Package pdftex.def Info: Recursos/ChatPC2.png  used on input line 416.
 (pdftex.def)             Requested size: 188.21288pt x 290.55374pt.
 
 
@@ -1215,7 +1215,7 @@ Package pdftex.def Info: Recursos/ChatPC2.png  used on input line 415.
 <Recursos/WireguardPC.png, id=325, 305.943pt x 322.20375pt>
 File: Recursos/WireguardPC.png Graphic file (type png)
 <use Recursos/WireguardPC.png>
-Package pdftex.def Info: Recursos/WireguardPC.png  used on input line 429.
+Package pdftex.def Info: Recursos/WireguardPC.png  used on input line 430.
 (pdftex.def)             Requested size: 284.52756pt x 299.6513pt.
 
 
@@ -1223,7 +1223,7 @@ Package pdftex.def Info: Recursos/WireguardPC.png  used on input line 429.
 <Recursos/LoginAndroid.png, id=332, 215.30438pt x 431.36156pt>
 File: Recursos/LoginAndroid.png Graphic file (type png)
 <use Recursos/LoginAndroid.png>
-Package pdftex.def Info: Recursos/LoginAndroid.png  used on input line 448.
+Package pdftex.def Info: Recursos/LoginAndroid.png  used on input line 449.
 (pdftex.def)             Requested size: 170.71652pt x 342.03564pt.
 
 
@@ -1231,7 +1231,7 @@ Package pdftex.def Info: Recursos/LoginAndroid.png  used on input line 448.
 <Recursos/WireguardAndroid.png, id=338, 216.05719pt x 422.32782pt>
 File: Recursos/WireguardAndroid.png Graphic file (type png)
 <use Recursos/WireguardAndroid.png>
-Package pdftex.def Info: Recursos/WireguardAndroid.png  used on input line 460.
+Package pdftex.def Info: Recursos/WireguardAndroid.png  used on input line 461.
 (pdftex.def)             Requested size: 170.71652pt x 333.71265pt.
 
 
@@ -1239,7 +1239,7 @@ Package pdftex.def Info: Recursos/WireguardAndroid.png  used on input line 460.
 <Recursos/ListaAndroid.png, id=344, 213.04594pt x 464.4853pt>
 File: Recursos/ListaAndroid.png Graphic file (type png)
 <use Recursos/ListaAndroid.png>
-Package pdftex.def Info: Recursos/ListaAndroid.png  used on input line 472.
+Package pdftex.def Info: Recursos/ListaAndroid.png  used on input line 473.
 (pdftex.def)             Requested size: 170.71652pt x 372.21953pt.
 
 
@@ -1247,7 +1247,7 @@ Package pdftex.def Info: Recursos/ListaAndroid.png  used on input line 472.
 <Recursos/ChatAndroid.png, id=350, 220.57407pt x 451.6875pt>
 File: Recursos/ChatAndroid.png Graphic file (type png)
 <use Recursos/ChatAndroid.png>
-Package pdftex.def Info: Recursos/ChatAndroid.png  used on input line 484.
+Package pdftex.def Info: Recursos/ChatAndroid.png  used on input line 485.
 (pdftex.def)             Requested size: 170.71652pt x 349.60619pt.
 
 
@@ -1263,12 +1263,12 @@ Package pdftex.def Info: Recursos/ChatAndroid.png  used on input line 484.
 <Recursos/DBNormal.png, id=380, 496.10344pt x 78.2925pt>
 File: Recursos/DBNormal.png Graphic file (type png)
 <use Recursos/DBNormal.png>
-Package pdftex.def Info: Recursos/DBNormal.png  used on input line 609.
+Package pdftex.def Info: Recursos/DBNormal.png  used on input line 618.
 (pdftex.def)             Requested size: 376.42575pt x 59.40614pt.
 <Recursos/DBEncriptada.png, id=381, 400.49625pt x 60.97781pt>
 File: Recursos/DBEncriptada.png Graphic file (type png)
 <use Recursos/DBEncriptada.png>
-Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 615.
+Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 624.
 (pdftex.def)             Requested size: 376.42575pt x 57.31633pt.
 
 
@@ -1276,20 +1276,20 @@ Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 615.
 <Recursos/WiresharkNormalMSG.png, id=388, 408.02437pt x 39.14626pt>
 File: Recursos/WiresharkNormalMSG.png Graphic file (type png)
 <use Recursos/WiresharkNormalMSG.png>
-Package pdftex.def Info: Recursos/WiresharkNormalMSG.png  used on input line 631.
+Package pdftex.def Info: Recursos/WiresharkNormalMSG.png  used on input line 640.
 (pdftex.def)             Requested size: 439.16763pt x 42.13634pt.
 
-Overfull \hbox (20.91396pt too wide) in paragraph at lines 630--635
+Overfull \hbox (20.91396pt too wide) in paragraph at lines 639--644
  [][] 
  []
 
 <Recursos/WiresharkEncriptadaMSG.png, id=389, 614.295pt x 33.87656pt>
 File: Recursos/WiresharkEncriptadaMSG.png Graphic file (type png)
 <use Recursos/WiresharkEncriptadaMSG.png>
-Package pdftex.def Info: Recursos/WiresharkEncriptadaMSG.png  used on input line 640.
+Package pdftex.def Info: Recursos/WiresharkEncriptadaMSG.png  used on input line 649.
 (pdftex.def)             Requested size: 439.16763pt x 24.21896pt.
 
-Overfull \hbox (20.91396pt too wide) in paragraph at lines 639--644
+Overfull \hbox (20.91396pt too wide) in paragraph at lines 648--653
  [][] 
  []
 
@@ -1299,7 +1299,7 @@ Overfull \hbox (20.91396pt too wide) in paragraph at lines 639--644
 <Recursos/WiresharkNormal.png, id=399, 715.17188pt x 594.72188pt>
 File: Recursos/WiresharkNormal.png Graphic file (type png)
 <use Recursos/WiresharkNormal.png>
-Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 658.
+Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 667.
 (pdftex.def)             Requested size: 292.77629pt x 243.46548pt.
 
 
@@ -1307,7 +1307,7 @@ Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 658.
 <Recursos/WiresharkEncriptada.png, id=406, 921.4425pt x 657.2053pt>
 File: Recursos/WiresharkEncriptada.png Graphic file (type png)
 <use Recursos/WiresharkEncriptada.png>
-Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 669.
+Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 678.
 (pdftex.def)             Requested size: 292.77629pt x 208.8158pt.
 
 
@@ -1339,9 +1339,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,9n,105p,752b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (33 pages, 678026 bytes).
+Output written on Relatorio.pdf (33 pages, 681172 bytes).
 PDF statistics:
- 971 PDF objects out of 1000 (max. 8388607)
+ 978 PDF objects out of 1000 (max. 8388607)
  95 named destinations out of 1000 (max. 500000)
  373 words of extra memory for PDF output out of 10000 (max. 10000000)
 
