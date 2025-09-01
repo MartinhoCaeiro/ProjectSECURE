@@ -3080,7 +3080,9 @@
     <bcf:citekey order="7" intorder="1">python</bcf:citekey>
     <bcf:citekey order="8" intorder="1">bash</bcf:citekey>
     <bcf:citekey order="9" intorder="1">almaos</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">almaos</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">whatsapp</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">telegram</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">almaos</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
