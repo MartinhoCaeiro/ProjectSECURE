@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cm9lwe2muwc=",
+  "dgSpecHash": "KhFdey55+Xs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Narciso\\Desktop\\Projects\\workv2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
+  "projectFilePath": "C:\\Users\\Narciso\\Desktop\\Projects\\WORKV2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Narciso\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\Narciso\\.nuget\\packages\\microsoft.data.sqlite\\9.0.7\\microsoft.data.sqlite.9.0.7.nupkg.sha512",
