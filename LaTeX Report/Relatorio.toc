@@ -1,0 +1,33 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {section}{\numberline {1}Introdução}{1}{}%
+\contentsline {section}{\numberline {2}Analise de Requisitos}{2}{}%
+\contentsline {section}{\numberline {3}Tecnologias Utilizadas}{3}{}%
+\contentsline {section}{\numberline {4}Arquitetura do Sistema}{4}{}%
+\contentsline {subsection}{\numberline {4.1}Encriptação do Sistema}{4}{}%
+\contentsline {subsection}{\numberline {4.2}Estrutura do Sistema}{5}{}%
+\contentsline {section}{\numberline {5}Módulos do Sistema}{6}{}%
+\contentsline {subsection}{\numberline {5.1}Interface do Sistema}{6}{}%
+\contentsline {subsection}{\numberline {5.2}Módulo da VPN}{6}{}%
+\contentsline {subsection}{\numberline {5.3}Base de Dados}{7}{}%
+\contentsline {section}{\numberline {6}Desenvolvimento}{10}{}%
+\contentsline {subsection}{\numberline {6.1}Interface para Computador}{10}{}%
+\contentsline {subsubsection}{\numberline {6.1.1}Ecrã de Login}{10}{}%
+\contentsline {subsubsection}{\numberline {6.1.2}Ecrã de Lista de Chats}{11}{}%
+\contentsline {subsubsection}{\numberline {6.1.3}Ecrã de Chat}{12}{}%
+\contentsline {subsubsection}{\numberline {6.1.4}Ecrã de Configuração WireGuard}{13}{}%
+\contentsline {subsection}{\numberline {6.2}Interface para Android}{14}{}%
+\contentsline {subsubsection}{\numberline {6.2.1}Ecrã de Login}{14}{}%
+\contentsline {subsubsection}{\numberline {6.2.2}Ecrã de configuração do WireGuard}{15}{}%
+\contentsline {subsubsection}{\numberline {6.2.3}Ecrã de Lista de Chats}{16}{}%
+\contentsline {subsubsection}{\numberline {6.2.4}Ecrã de Chat}{17}{}%
+\contentsline {subsection}{\numberline {6.3}AlmaOS - Serviço de VPN}{18}{}%
+\contentsline {section}{\numberline {7}Problemas Encontrados}{21}{}%
+\contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{21}{}%
+\contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{21}{}%
+\contentsline {subsection}{\numberline {7.3}Depuração da camada criptográfica e protocolo de \textit {framing}}{22}{}%
+\contentsline {section}{\numberline {8}Testes}{27}{}%
+\contentsline {subsection}{\numberline {8.1}Servidor}{27}{}%
+\contentsline {subsection}{\numberline {8.2}Comunicações}{28}{}%
+\contentsline {section}{\numberline {9}Melhorias Futuras}{30}{}%
+\contentsline {section}{\numberline {10}Conclusão}{31}{}%
+\contentsline {section}{Bibliografia}{32}{}%
