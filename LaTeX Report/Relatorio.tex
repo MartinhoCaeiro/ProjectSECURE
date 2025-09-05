@@ -30,6 +30,29 @@
 \usepackage{afterpage}
 \usepackage[toc,page]{appendix}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% Código: listings para incluir trechos de código no relatório
+\usepackage{listings}
+\usepackage{courier}
+\lstdefinelanguage{Kotlin}{
+    keywords={package,import,object,fun,val,var,private,const,if,else,return,require,when,as,is},
+    morekeywords={ByteArray,SecureRandom,Cipher,GCMParameterSpec,SecretKeySpec,AEADParameters,PKCS5S2ParametersGenerator,SHA256Digest},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    string=[b]"
+}
+\lstset{
+    language=Kotlin,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    captionpos=b
+}
 
 
 % Comando para criar uma página vazia
@@ -274,6 +297,49 @@ na seguinte figura \ref{fig:system_architecture}:
     \label{fig:system_architecture}
 \end{figure}
 %---------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Implementação da Criptografia (excerto)}
+
+O projecto inclui um módulo chamado \texttt{DbCrypto} (implementado em Kotlin/Java) responsável por encapsular a encriptação e desencriptação dos conteúdos armazenados.
+Segue-se um excerto explicativo com os pontos-chave e um trecho do código mais relevante.
+
+\paragraph{Resumo da lógica}
+\begin{itemize}
+  \item Gera-se um \textbf{salt} e um \textbf{nonce} aleatórios para cada encriptação.
+  \item Deriva-se uma chave simétrica (256 bits) a partir da passphrase/\textit{masterKey} usando PBKDF2-SHA256 (100k iterações).
+  \item Calcula-se uma máscara (\textit{mask}) para ofuscar qual o algoritmo usado (AES ou Serpent) e guarda-se o valor ofuscado no cabeçalho.
+  \item Usa-se AES-GCM ou Serpent-GCM (via BouncyCastle) com AAD contendo o cabeçalho (magic, versão, algoritmo-ofuscado, iterações, salt e nonce).
+  \item O ficheiro resultante é: cabeçalho || ciphertext || tag.
+\end{itemize}
+
+\paragraph{Trecho de código}
+\begin{lstlisting}[caption={Excerto de \texttt{DbCrypto} — função de encriptação}]
+private fun encryptInternal(data: ByteArray, masterKey: ByteArray, salt: ByteArray, nonce: ByteArray, alg: Alg): ByteArray {
+    val key = deriveKey(masterKey, salt, ITERATIONS)
+    val mask = computeAlgMask(masterKey, salt)
+    val algXor = (alg.code.toInt() xor (mask.toInt() and 0xFF)).toByte()
+    val aad = buildHeader(algXor, ITERATIONS, salt, nonce) // full header is AAD
+    val ctWithTag = if (alg == Alg.AES) {
+        val cipher = Cipher.getInstance("AES/GCM/NoPadding")
+        cipher.init(Cipher.ENCRYPT_MODE, SecretKeySpec(key, "AES"), GCMParameterSpec(TAG_SIZE * 8, nonce))
+        cipher.updateAAD(aad)
+        cipher.doFinal(data)
+    } else {
+        val gcm = GCMBlockCipher(SerpentEngine())
+        gcm.init(true, AEADParameters(KeyParameter(key), TAG_SIZE * 8, nonce, aad))
+        val out = ByteArray(gcm.getOutputSize(data.size))
+        var len = gcm.processBytes(data, 0, data.size, out, 0)
+        len += gcm.doFinal(out, len)
+        out.copyOf(len)
+    }
+    return envelope(algXor, salt, nonce, ctWithTag)
+}
+\end{lstlisting}
+
+\paragraph{Preview / Exemplo de validação}
+Para validar o comportamento foi utilizada a função de desencriptação que verifica o cabeçalho, desfaz a máscara do algoritmo,
+re-deriva a chave com os mesmos parâmetros e tenta a desencriptação; a produção correcta deverá retornar o conteúdo SQLite original (verifica-se o "magic" do SQLite).
+
 
 \section{Módulos do Sistema}\label{modulos}
 

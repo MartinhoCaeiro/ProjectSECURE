@@ -5,29 +5,33 @@
 \contentsline {section}{\numberline {4}Arquitetura do Sistema}{4}{}%
 \contentsline {subsection}{\numberline {4.1}Encriptação do Sistema}{4}{}%
 \contentsline {subsection}{\numberline {4.2}Estrutura do Sistema}{5}{}%
-\contentsline {section}{\numberline {5}Módulos do Sistema}{6}{}%
-\contentsline {subsection}{\numberline {5.1}Interface do Sistema}{6}{}%
-\contentsline {subsection}{\numberline {5.2}Módulo da VPN}{6}{}%
-\contentsline {subsection}{\numberline {5.3}Base de Dados}{7}{}%
-\contentsline {section}{\numberline {6}Desenvolvimento}{10}{}%
-\contentsline {subsection}{\numberline {6.1}Interface para Computador}{10}{}%
-\contentsline {subsubsection}{\numberline {6.1.1}Ecrã de Login}{10}{}%
-\contentsline {subsubsection}{\numberline {6.1.2}Ecrã de Lista de Chats}{11}{}%
-\contentsline {subsubsection}{\numberline {6.1.3}Ecrã de Chat}{12}{}%
-\contentsline {subsubsection}{\numberline {6.1.4}Ecrã de Configuração WireGuard}{13}{}%
-\contentsline {subsection}{\numberline {6.2}Interface para Android}{14}{}%
-\contentsline {subsubsection}{\numberline {6.2.1}Ecrã de Login}{14}{}%
-\contentsline {subsubsection}{\numberline {6.2.2}Ecrã de configuração do WireGuard}{15}{}%
-\contentsline {subsubsection}{\numberline {6.2.3}Ecrã de Lista de Chats}{16}{}%
-\contentsline {subsubsection}{\numberline {6.2.4}Ecrã de Chat}{17}{}%
-\contentsline {subsection}{\numberline {6.3}AlmaOS - Serviço de VPN}{18}{}%
-\contentsline {section}{\numberline {7}Problemas Encontrados}{21}{}%
-\contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{21}{}%
-\contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{21}{}%
-\contentsline {subsection}{\numberline {7.3}Depuração da camada criptográfica e protocolo de \textit {framing}}{22}{}%
-\contentsline {section}{\numberline {8}Testes}{27}{}%
-\contentsline {subsection}{\numberline {8.1}Servidor}{27}{}%
-\contentsline {subsection}{\numberline {8.2}Comunicações}{28}{}%
-\contentsline {section}{\numberline {9}Melhorias Futuras}{30}{}%
-\contentsline {section}{\numberline {10}Conclusão}{31}{}%
-\contentsline {section}{Bibliografia}{32}{}%
+\contentsline {subsection}{\numberline {4.3}Implementação da Criptografia (excerto)}{6}{}%
+\contentsline {paragraph}{Resumo da lógica}{6}{}%
+\contentsline {paragraph}{Trecho de código}{6}{}%
+\contentsline {paragraph}{Preview / Exemplo de validação}{7}{}%
+\contentsline {section}{\numberline {5}Módulos do Sistema}{7}{}%
+\contentsline {subsection}{\numberline {5.1}Interface do Sistema}{7}{}%
+\contentsline {subsection}{\numberline {5.2}Módulo da VPN}{8}{}%
+\contentsline {subsection}{\numberline {5.3}Base de Dados}{9}{}%
+\contentsline {section}{\numberline {6}Desenvolvimento}{12}{}%
+\contentsline {subsection}{\numberline {6.1}Interface para Computador}{12}{}%
+\contentsline {subsubsection}{\numberline {6.1.1}Ecrã de Login}{12}{}%
+\contentsline {subsubsection}{\numberline {6.1.2}Ecrã de Lista de Chats}{13}{}%
+\contentsline {subsubsection}{\numberline {6.1.3}Ecrã de Chat}{14}{}%
+\contentsline {subsubsection}{\numberline {6.1.4}Ecrã de Configuração WireGuard}{15}{}%
+\contentsline {subsection}{\numberline {6.2}Interface para Android}{16}{}%
+\contentsline {subsubsection}{\numberline {6.2.1}Ecrã de Login}{16}{}%
+\contentsline {subsubsection}{\numberline {6.2.2}Ecrã de configuração do WireGuard}{17}{}%
+\contentsline {subsubsection}{\numberline {6.2.3}Ecrã de Lista de Chats}{18}{}%
+\contentsline {subsubsection}{\numberline {6.2.4}Ecrã de Chat}{19}{}%
+\contentsline {subsection}{\numberline {6.3}AlmaOS - Serviço de VPN}{20}{}%
+\contentsline {section}{\numberline {7}Problemas Encontrados}{23}{}%
+\contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{23}{}%
+\contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{23}{}%
+\contentsline {subsection}{\numberline {7.3}Depuração da camada criptográfica e protocolo de \textit {framing}}{24}{}%
+\contentsline {section}{\numberline {8}Testes}{29}{}%
+\contentsline {subsection}{\numberline {8.1}Servidor}{29}{}%
+\contentsline {subsection}{\numberline {8.2}Comunicações}{30}{}%
+\contentsline {section}{\numberline {9}Melhorias Futuras}{32}{}%
+\contentsline {section}{\numberline {10}Conclusão}{33}{}%
+\contentsline {section}{Bibliografia}{34}{}%
