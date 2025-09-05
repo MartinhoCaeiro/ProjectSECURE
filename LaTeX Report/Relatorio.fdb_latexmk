@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Relatorio"] 0 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1757093747.39217 -1
+["biber Relatorio"] 0 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1757096510.12353 -1
   "Recursos/referencias.bib" 1757092559 2440 bc8d26cc435174936905a8ea6ec4b206 ""
-  "Relatorio.bcf" 1757093746 134468 1f1611020e188231df332612a86b765b "pdflatex"
+  "Relatorio.bcf" 1757096509 134468 1f1611020e188231df332612a86b765b "pdflatex"
   (generated)
   "Relatorio.bbl"
   "Relatorio.blg"
   (rewritten before read)
-["pdflatex"] 1757093744.24436 "c:/Users/Narciso/Desktop/Projects/WORKV2/Projeto-Cripto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1757093747.39315 0
+["pdflatex"] 1757096505.34297 "c:/Users/Narciso/Desktop/Projects/WORKV2/Projeto-Cripto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1757096510.12473 0
   "C:/Users/Narciso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1757093716 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Narciso/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1000.pk" 1756867369 34112 76309f29c604c25e2c30ea29155d2cf6 ""
   "C:/Users/Narciso/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1200.pk" 1757085113 42728 d1d49ce5ddbd89aaae9751d7fc2d1bf1 ""
@@ -55,6 +55,7 @@
   "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb" 1136846148 50493 4ed1f7e9eba8f1f3e1ec25195460190d ""
   "C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb" 1136846148 45758 19968a0990191524e34e1994d4a31cb6 ""
@@ -238,13 +239,13 @@
   "Recursos/WiresharkEncriptadaMSG.png" 1757092559 7247 2d0be903d1942e8df76e02ff985b17d0 ""
   "Recursos/WiresharkNormal.png" 1757092559 49600 a671b3e7a4d7ecdd7330dac0b17343ff ""
   "Recursos/WiresharkNormalMSG.png" 1757092559 5231 ec696a65ef578216e4b67677a9ba507b ""
-  "Relatorio.aux" 1757093746 12228 40959e4c137e61562a029c6cba03dacf "pdflatex"
+  "Relatorio.aux" 1757096509 13150 17a9e6850f77b665a15e4676e194ada8 "pdflatex"
   "Relatorio.bbl" 1757092722 29585 17cd73f9f3dd581c8dad9cc4b22a1e02 "biber Relatorio"
-  "Relatorio.lof" 1757093746 1594 547b086998bc4141c37b7290e8bc2f19 "pdflatex"
-  "Relatorio.run.xml" 1757093746 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
-  "Relatorio.tex" 1757093737 49758 481358f1f64bcf62a669e99e7bcd84fc ""
-  "Relatorio.toc" 1757093746 2611 b1b082170e9b207ed213b80420933278 "pdflatex"
-  "c:/Users/Narciso/Desktop/Projects/WORKV2/Projeto-Cripto/LaTeX Report/Relatorio.tex" 1757093737 49758 481358f1f64bcf62a669e99e7bcd84fc ""
+  "Relatorio.lof" 1757096509 1594 8a10e25b208e3495006ef5f50f31fb25 "pdflatex"
+  "Relatorio.run.xml" 1757096509 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
+  "Relatorio.tex" 1757096510 60690 e35cf32e482b31be002e8c21a00a237b ""
+  "Relatorio.toc" 1757096509 3164 474faef808d88dbf8a9d6b69ae3b3885 "pdflatex"
+  "c:/Users/Narciso/Desktop/Projects/WORKV2/Projeto-Cripto/LaTeX Report/Relatorio.tex" 1757096510 60690 e35cf32e482b31be002e8c21a00a237b ""
   (generated)
   "Relatorio.aux"
   "Relatorio.bcf"

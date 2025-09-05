@@ -29,9 +29,18 @@
 \contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{23}{}%
 \contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{23}{}%
 \contentsline {subsection}{\numberline {7.3}Depuração da camada criptográfica e protocolo de \textit {framing}}{24}{}%
-\contentsline {section}{\numberline {8}Testes}{29}{}%
-\contentsline {subsection}{\numberline {8.1}Servidor}{29}{}%
-\contentsline {subsection}{\numberline {8.2}Comunicações}{30}{}%
-\contentsline {section}{\numberline {9}Melhorias Futuras}{32}{}%
-\contentsline {section}{\numberline {10}Conclusão}{33}{}%
-\contentsline {section}{Bibliografia}{34}{}%
+\contentsline {paragraph}{AEAD, GCM e EAX}{25}{}%
+\contentsline {paragraph}{AAD}{26}{}%
+\contentsline {paragraph}{KDF }{26}{}%
+\contentsline {paragraph}{Framing }{26}{}%
+\contentsline {paragraph}{Exemplo prático: offsets e pseudocódigo de parsing}{29}{}%
+\contentsline {paragraph}{Caso observado: logs e impacto prático}{30}{}%
+\contentsline {paragraph}{Reprodução e efeito sobre a base de dados}{30}{}%
+\contentsline {paragraph}{Diagnóstico e medidas imediatas}{31}{}%
+\contentsline {paragraph}{Recomendações para correção definitiva}{31}{}%
+\contentsline {section}{\numberline {8}Testes}{35}{}%
+\contentsline {subsection}{\numberline {8.1}Servidor}{35}{}%
+\contentsline {subsection}{\numberline {8.2}Comunicações}{36}{}%
+\contentsline {section}{\numberline {9}Melhorias Futuras}{38}{}%
+\contentsline {section}{\numberline {10}Conclusão}{39}{}%
+\contentsline {section}{Bibliografia}{40}{}%

@@ -705,29 +705,164 @@ Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, 
     \item Fragilidade no \textit{framing}: concatenação de mensagens sem delimitador robusto e leituras parciais do \textit{socket}.
 \end{itemize}
 
-	\textbf{Normalização do envelope e \textit{framing}.}
-Para eliminar ambiguidades foi definido e documentado um formato binário único, precedido por um \emph{length-prefix} de 4 bytes (\textbf{big-endian}):
+    % Explicação alargada e acessível sobre AEAD, GCM e EAX
+    \paragraph{AEAD, GCM e EAX}
+    AEAD (Authenticated Encryption with Associated Data) combina encriptação e autenticação numa única operação: cifra os dados para que ninguém os leia e, ao mesmo tempo, gera um selo (a chamada \textit{tag}) que comprova que os dados e certos metadados não foram alterados. Pensa nisto como enviar um envelope lacrado e com um selo de segurança — se o selo estiver danificado ou diferente, o recetor percebe que houve manipulação e rejeita a mensagem.
+
+    Dois modos comuns para obter AEAD são GCM e EAX. Ambos fazem essencialmente o mesmo: cifram os dados e produzem uma \textit{tag} que o recetor verifica. As diferenças técnicas interessam aos implementadores, mas para entender o problema prático convém saber o seguinte:
+
+    \begin{itemize}
+        \item \textbf{GCM (Galois/Counter Mode)}: é muito utilizado e rápido. Normalmente espera um \textit{nonce} de 12 bytes e produz uma \textit{tag} de 16 bytes. Um requisito crítico do GCM é a unicidade do \textit{nonce} para cada mensagem quando a mesma chave é usada — reutilizar um \textit{nonce} pode quebrar a segurança.
+        \item \textbf{EAX}: é outra construção AEAD que também cifra e gera uma tag, mas trata nonces e metadados de forma ligeiramente diferente. Funciona bem, mas não é compatível com GCM: se um lado usar GCM e o outro EAX, as tags não baterão e a decriptação falhará.
+    \end{itemize}
+
+    Em termos práticos, isto significa que o emissor e o recetor têm de concordar exatamente em: qual o modo (GCM ou EAX), o comprimento do \textit{nonce}, o comprimento da \textit{tag} e como se formam os metadados autenticados. Qualquer discrepância — modo diferente, nonce duplicado, tag truncada ou AAD com conteúdo diferente — faz com que a verificação falhe e a mensagem seja rejeitada (por exemplo com \texttt{BAD\_DECRYPT}).
+
+    \paragraph{AAD}
+    O AAD (Associated Authenticated Data) são informações que não são cifradas mas entram na criação do selo (tag). Exemplos: versão do protocolo, número de sequência, identificador de utilizador. O AAD protege estes campos contra alterações, mas exige que emissor e recetor tenham exactamente os mesmos bytes em AAD; qualquer diferença causa falha na verificação.
+
+    \paragraph{KDF }
+    Um KDF (Key Derivation Function) transforma uma chave mestra ou palavra‑passe num conjunto de chaves de uso (por exemplo: chave de encriptação, prefixo de nonce). Parâmetros como \textit{salt}, número de iterações e informação adicional (\textit{info}) têm de ser os mesmos nos dois lados; se não, as chaves diferirão e a decriptação não funcionará.
+
+    \paragraph{Framing }
+    TCP é um fluxo contínuo de bytes: pacotes enviados separadamente pelo emissor podem chegar agrupados ou fragmentados. \textbf{Framing} é o acordo que define onde começa e acaba cada mensagem (por exemplo usar um prefixo de comprimento de 4 bytes). Sem framing robusto, o recetor pode tentar decriptar dados incompletos ou várias mensagens coladas, levando a erros de autenticação (\texttt{BAD\_DECRYPT}) e problemas subsequentes no processamento.
+
+    
+    
+    
+                	extbf{Normalização do envelope e \textit{framing} (explicação detalhada)}
+Para remover ambiguidade em troca de mensagens sobre TCP definimos um contrato binário claro e passos de validação obrigatórios no receptor. O envelope tem sempre um \emph{length-prefix} de 4 bytes (\textbf{big-endian}) que indica o comprimento total do restante \textit{frame} e permite ao recetor saber quando tem um \textit{frame} completo.
+
+Formato canónico (campo : tamanho em bytes — descrito por ordem de leitura):
 \begin{itemize}
-    \item \textbf{LEN(4)} | \textbf{MAGIC(2)} | \textbf{VER(1)} | \textbf{ALG(1)} | \textbf{FLAGS(1)} | \textbf{SEQ(8)} | \textbf{TIMESTAMP(8)} | \textbf{NONCE(12)} | \textbf{TAG(16)} | \textbf{AAD\_LEN(2)} | \textbf{CT\_LEN(4)} | \textbf{AAD} | \textbf{CIPHERTEXT}.
-    \item \textbf{AAD determinística}: subset autenticado com ordem/endianidade fixas (MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, USER\_ID, RESERVED).
-    \item \textbf{NONCE (12 bytes)} derivado de prefixo da chave (4B de SHA-256(key)) concatenado com \textbf{SEQ} (8B big-endian) $\rightarrow$ unicidade garantida por mensagem.
-    \item \textbf{TAG} fixo de 16 bytes, sem truncagem.
+    \item \textbf{LEN (4)}: comprimento (em bytes) de tudo o que vem a seguir no \textit{frame}.
+    \item \textbf{MAGIC (2)}: identificador do protocolo (p. ex. 0x50 0x53 para "P S").
+    \item \textbf{VER (1)}: versão do envelope/protocolo.
+    \item \textbf{ALG (1)}: código do algoritmo (ex.: 1=AES, 2=SERPENT) — armazenado ofuscado no cabeçalho quando aplicável.
+    \item \textbf{FLAGS (1)}: flags de uso futuro (compactação, fragmentação, indicadores de diagnóstico).
+    \item \textbf{SEQ (8)}: contador monotónico de mensagem (big‑endian) — usado no AAD e na derivação do \textit{nonce}.
+    \item \textbf{TIMESTAMP (8)}: marca temporal para diagnóstico (opcional na verificação temporal).
+    \item \textbf{NONCE (12)}: nonce/IV usado pelo AEAD (a nossa prática: 4 bytes prefixo derivado da chave + 8 bytes de SEQ, total 12 bytes).
+    \item \textbf{TAG (16)}: etiqueta de autenticação AEAD (16 bytes, sem truncagem).
+    \item \textbf{AAD\_LEN (2)}: comprimento em bytes do campo AAD.
+    \item \textbf{CT\_LEN (4)}: comprimento em bytes do \textit{ciphertext}.
+    \item \textbf{AAD}: campo de metadados autenticados (tamanho AAD\_LEN).
+    \item \textbf{CIPHERTEXT}: dados cifrados (tamanho CT\_LEN) imediatamente seguidos do \textbf{TAG} já presente acima.
 \end{itemize}
 
-	\textbf{Implementações e salvaguardas.}
+Notas práticas e motivo das escolhas:
 \begin{itemize}
-    \item \textbf{BufferAssembler do lado PC}: acumula \textbf{LEN} e corpo até \textit{frame} completo antes de decifrar, evitando leitura parcial ou colagem de mensagens.
-    \item \textbf{SEQ} monotónico incluído no AAD e usado na derivação do NONCE para prevenir reutilização e facilitar rastreabilidade.
-    \item \textbf{Self-test vector} no arranque: cifra/decifra um vetor conhecido e aborta se falhar, evitando sessões inválidas.
-    \item \textbf{Backpressure/ACK opcional}: segunda mensagem só após ACK da primeira em fases de diagnóstico.
-    \item \textbf{Logs estruturados}: dump de \texttt{hex(AAD|NONCE|TAG)} e comprimentos; contadores de \texttt{AEAD\_FAIL} separados de exceções gerais.
+    \item Usar \textbf{LEN(4)} evita ambiguidade em streams TCP — o receptor acumula até LEN bytes e só depois processa o \textit{frame} completo.
+    \item Colocar \textbf{SEQ} no AAD e usá-lo para formar o \textbf{NONCE} (por exemplo: NONCE = SHA256(key)\verb|[:4]| \texttt{||} SEQ) garante unicidade por mensagem e rastreabilidade.
+    \item Reservar um campo \textbf{TAG} de 16 bytes e não a truncar reduz riscos de falsificação; qualquer truncagem deve ser documentada e deprecada.
+    \item Documentar explicitamente a ordem e a endianidade de cada campo evita erros por diferenças de implementação.
 \end{itemize}
 
-	\textbf{Bug das duas mensagens consecutivas.}
+Regras de segurança e robustez (obrigatórias):
 \begin{itemize}
-    \item \textbf{Causa raiz}: \textit{framing} frágil (concatenação sem delimitador) e processamento sem acumulador de \textit{frames}.
-    \item \textbf{Mitigações}: \textit{length-prefix} + \textit{BufferAssembler}; não reutilizar (key, nonce); captura e tratamento de exceções sem encerrar o ciclo de leitura.
+    \item Validar limites máximos (p. ex. AAD\_LEN < 4096, CT\_LEN < $10^7$) antes de alocar buffers para evitar DoS por mensagens gigantes.
+    \item Fazer comparações da TAG em tempo constante; limpar buffers e chaves sensíveis após uso.
+    \item Nunca assumir que um único \texttt{read()} do socket corresponde a exactamente um \textit{frame} — por isso o BufferAssembler existe.
+    \item Em caso de \texttt{AEAD\_FAIL} registar um dump hex do AAD/nonce/tag apenas em modo debug e com limitação de taxa para não vazar segredos em logs de produção.
 \end{itemize}
+
+Implementações e salvaguardas recomendadas
+\begin{itemize}
+    \item \textbf{BufferAssembler no receptor}: componente que acumula bytes lidos do socket, lê LEN quando possível e só entrega frames completos ao pipeline de decifração.
+    \item \textbf{Sequência monotónica (SEQ)}: incluir SEQ no AAD e na derivação do NONCE; rejeitar mensagens com SEQ duplicado ou regressivo (janela aceitável para reenvios controlada).
+    \item \textbf{Self‑test no arranque}: cifra/decifra um vetor conhecido para garantir compatibilidade do AEAD e dos parâmetros; abortar se o self‑test falhar.
+    \item \textbf{Backpressure e ACKs}: durante diagnóstico usar ACKs/pausas para evitar ráfagas; em produção garantir que o pipeline aplica limites e filas para escrita na BD.
+    \item \textbf{Logs estruturados}: registar contadores de \texttt{AEAD\_FAIL} e tipos de erro; dumps binários só em debug com rotação e retenção curta.
+\end{itemize}
+
+Bug observado: "duas mensagens consecutivas" — explicação técnica curta
+\begin{itemize}
+    \item Causa típica: leituras do socket que retornam parte de um frame seguido de parte do frame seguinte, e um receptor que tenta decifrar imediatamente sem acumular o frame completo; o resultado é que campos deslocam‑se (nonce/tag/AAD lidos do lugar errado) e a verificação AEAD falha.
+    \item Mitigação: implementar o BufferAssembler + length‑prefix e processar frames apenas quando completos; serializar gravações na BD (worker/fila) e usar transacções atómicas para evitar corrupção em caso de mensagens inválidas.
+\end{itemize}
+ 
+% Exemplo prático: offsets e pseudocódigo de parsing (adicionado)
+\paragraph{Exemplo prático: offsets e pseudocódigo de parsing}
+Para tornar o contrato mais palpável, apresentamos um mapeamento de offsets (em bytes) do início do \textit{frame} e um pseudocódigo simples que demonstra como o \textit{BufferAssembler} deve operar.
+
+Exemplo de offsets (início do frame = byte 0):
+\begin{verbatim}
+0..3   LEN (4 bytes, big-endian)
+4..5   MAGIC (2 bytes)
+6      VER (1 byte)
+7      ALG (1 byte)
+8      FLAGS (1 byte)
+9..16  SEQ (8 bytes)
+17..24 TIMESTAMP (8 bytes)
+25..36 NONCE (12 bytes)
+37..52 TAG (16 bytes)
+53..54 AAD_LEN (2 bytes)
+55..58 CT_LEN (4 bytes)
+59..(58+AAD_LEN)    AAD
+...      CIPHERTEXT (CT_LEN bytes)
+\end{verbatim}
+
+Pseudocódigo simplificado (lógica do receptor):
+\begin{verbatim}
+buffer = empty
+while socket open:
+    buffer += socket.read()
+    if len(buffer) < 4: continue  # ainda não temos LEN
+    LEN = be32(buffer[0:4])
+    if len(buffer) < 4 + LEN: continue  # aguardar frame completo
+    frame = buffer[4:4+LEN]
+    buffer = buffer[4+LEN:]  # remover frame consumido
+    # parse campos fixos do frame (MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, NONCE, TAG, AAD_LEN, CT_LEN)
+    if MAGIC != EXPECTED: log('bad magic'); continue
+    if AAD_LEN > MAX_AAD or CT_LEN > MAX_CT: log('oversize'); continue
+    aad = frame[offset_aad:offset_aad+AAD_LEN]
+    ct  = frame[offset_ct:offset_ct+CT_LEN]
+    if not aead_decrypt(ct, aad, nonce, key):
+        incr_counter('AEAD_FAIL')
+        log_debug_hex(aad, nonce, tag)
+        continue
+    deliver_payload(decrypted)
+    ack_if_required()
+\end{verbatim}
+
+Comentário final: este exemplo mostra por que motivo é crítico não tentar decifrar até o \textit{frame} completo estar disponível e por que a ordem/exatidão dos campos (nonce, AAD, tag) é determinante para a verificação AEAD.
+
+% --- detalhe adicionado: logs, reprodução e recomendações ---
+\paragraph{Caso observado: logs e impacto prático}
+Durante a instrumentação foi detectado um padrão de erro quando o servidor tenta decifrar pacotes com Serpent: mensagens como
+	\texttt{"Serpent compatibility decryption failed: All Serpent compatibility approaches failed"} seguidas de \texttt{BAD\_DECRYPT} aparecem no receptor (imagem de debug anexada). Estes sinais correspondem à falha da verificação AEAD — tipicamente causada por divergência nos campos autenticados (AAD), no \textit{nonce} ou por leitura/parsing incorreto do envelope.
+
+\paragraph{Reprodução e efeito sobre a base de dados}
+Verificámos um cenário replicável que provoca corrupção/queda da base de dados no PC quando o cliente Android envia duas mensagens muito próximas em tempo. Exemplo reproduzível:
+\begin{enumerate}
+    \item PC: OLA
+    \item ANDROID: SUP1
+    \item ANDROID: SUP2
+\end{enumerate}
+Ao enviar assim (duas mensagens consecutivas do Android) o receptor recebe \textit{frames} concatenados ou incompletos, tenta decifrá-los e falha (\texttt{BAD\_DECRYPT}), o que, nas implementações observadas, pode conduzir a escrita inválida na base de dados ou a estados em que a BD deixa de responder.
+
+\paragraph{Diagnóstico e medidas imediatas}
+Observações feitas durante a depuração:
+\begin{itemize}
+    \item Comparação lado-a-lado (hex) de AAD/nonce/tag mostra diferenças entre emissor e recetor quando ocorre a falha.
+    \item Reenvio isolado do mesmo envelope normalmente decifra correctamente, pelo que o problema não parece ser corrupção permanente dos bytes.
+    \item Condições de corrida no processamento e parsing de \textit{streams} TCP são a causa provável.
+\end{itemize}
+Medidas imediatas aplicadas:
+\begin{itemize}
+    \item Forçar processamento sequencial no receptor com um \textit{BufferAssembler} que reconstitui frames completos antes de qualquer operação criptográfica.
+    \item Introduzir ACK/backpressure em fases de diagnóstico para evitar ráfagas de mensagens concorrentes.
+    \item Garantir que cada escrita na BD ocorre dentro de transacções atómicas para evitar corrupção parcial.
+\end{itemize}
+
+\paragraph{Recomendações para correção definitiva}
+\begin{itemize}
+    \item Implementar o \textit{length-prefix} (4 bytes big-endian) e usar um \textit{BufferAssembler} robusto no receptor para evitar decifrações de dados incompletos.
+    \item Serializar o acesso à base de dados através de um worker dedicado ou fila de escrita e usar transacções/WAL para tolerância a ráfagas.
+    \item Validar comprimentos de AAD/nonce/tag antes de chamar a decriptação; registar dumps hex apenas em modo debug e com limitação de taxa.
+    \item Assegurar unicidade de nonce por mensagem (por exemplo: NONCE = prefixo chave || SEQ monotónico) e separar responsabilidades de KDF para evitar reutilização indevida de material criptográfico.
+\end{itemize}
+
 
 	\textbf{Resultados e validação.}
 \begin{itemize}

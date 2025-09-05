@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.8)  5 SEP 2025 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.8)  5 SEP 2025 19:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1141,66 +1141,98 @@ Overfull \hbox (49.74632pt too wide) in paragraph at lines 617--617
 [25]
 
 [26]
+Overfull \hbox (38.9756pt too wide) in paragraph at lines 756--757
+[]\T1/cmr/m/n/10 Colocar \T1/cmr/bx/n/10 SEQ \T1/cmr/m/n/10 no AAD e usá-lo para for-mar o \T1/cmr/bx/n/10 NONCE \T1/cmr/m/n/10 (por exem-plo: NONCE = SHA256(key)[][]\T1/pcr/m/n/10 [:4]
+ []
+
+
 
 [27]
 
 [28]
-<Recursos/DBNormal.png, id=169, 496.10344pt x 78.2925pt>
-File: Recursos/DBNormal.png Graphic file (type png)
-<use Recursos/DBNormal.png>
-Package pdftex.def Info: Recursos/DBNormal.png  used on input line 813.
-(pdftex.def)             Requested size: 376.42575pt x 59.40614pt.
-<Recursos/DBEncriptada.png, id=170, 400.49625pt x 60.97781pt>
-File: Recursos/DBEncriptada.png Graphic file (type png)
-<use Recursos/DBEncriptada.png>
-Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 819.
-(pdftex.def)             Requested size: 376.42575pt x 57.31633pt.
-
-
-[29 <./Recursos/DBNormal.png> <./Recursos/DBEncriptada.png>]
-<Recursos/WiresharkNormalMSG.png, id=176, 408.02437pt x 39.14626pt>
-File: Recursos/WiresharkNormalMSG.png Graphic file (type png)
-<use Recursos/WiresharkNormalMSG.png>
-Package pdftex.def Info: Recursos/WiresharkNormalMSG.png  used on input line 835.
-(pdftex.def)             Requested size: 439.16763pt x 42.13634pt.
-
-Overfull \hbox (20.91396pt too wide) in paragraph at lines 834--839
- [][] 
+Overfull \hbox (199.74632pt too wide) in paragraph at lines 826--826
+[]    \T1/pcr/m/n/10 # parse campos fixos do frame (MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, NONCE, TAG, AAD_LEN, CT_LEN)[] 
  []
 
-<Recursos/WiresharkEncriptadaMSG.png, id=177, 614.295pt x 33.87656pt>
-File: Recursos/WiresharkEncriptadaMSG.png Graphic file (type png)
-<use Recursos/WiresharkEncriptadaMSG.png>
-Package pdftex.def Info: Recursos/WiresharkEncriptadaMSG.png  used on input line 844.
-(pdftex.def)             Requested size: 439.16763pt x 24.21896pt.
 
-Overfull \hbox (20.91396pt too wide) in paragraph at lines 843--848
- [][] 
+Overfull \hbox (1.74632pt too wide) in paragraph at lines 826--826
+[]    \T1/pcr/m/n/10 if AAD_LEN > MAX_AAD or CT_LEN > MAX_CT: log('oversize'); continue[] 
  []
 
 
 
-[30 <./Recursos/WiresharkNormalMSG.png> <./Recursos/WiresharkEncriptadaMSG.png>]
-<Recursos/WiresharkNormal.png, id=184, 715.17188pt x 594.72188pt>
-File: Recursos/WiresharkNormal.png Graphic file (type png)
-<use Recursos/WiresharkNormal.png>
-Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 862.
-(pdftex.def)             Requested size: 292.77629pt x 243.46548pt.
+[29]
+Overfull \hbox (1.74632pt too wide) in paragraph at lines 832--834
+\T1/pcr/m/n/10 compatibility decryption failed: All Serpent compatibility approaches
+ []
 
 
-[31 <./Recursos/WiresharkNormal.png>]
-<Recursos/WiresharkEncriptada.png, id=189, 921.4425pt x 657.2053pt>
-File: Recursos/WiresharkEncriptada.png Graphic file (type png)
-<use Recursos/WiresharkEncriptada.png>
-Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 873.
-(pdftex.def)             Requested size: 292.77629pt x 208.8158pt.
 
+[30]
 
-[32 <./Recursos/WiresharkEncriptada.png>]
+[31]
+
+[32]
 
 [33]
 
-[34] (Relatorio.aux)
+[34]
+<Recursos/DBNormal.png, id=189, 496.10344pt x 78.2925pt>
+File: Recursos/DBNormal.png Graphic file (type png)
+<use Recursos/DBNormal.png>
+Package pdftex.def Info: Recursos/DBNormal.png  used on input line 948.
+(pdftex.def)             Requested size: 376.42575pt x 59.40614pt.
+<Recursos/DBEncriptada.png, id=190, 400.49625pt x 60.97781pt>
+File: Recursos/DBEncriptada.png Graphic file (type png)
+<use Recursos/DBEncriptada.png>
+Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 954.
+(pdftex.def)             Requested size: 376.42575pt x 57.31633pt.
+
+
+[35 <./Recursos/DBNormal.png> <./Recursos/DBEncriptada.png>]
+<Recursos/WiresharkNormalMSG.png, id=196, 408.02437pt x 39.14626pt>
+File: Recursos/WiresharkNormalMSG.png Graphic file (type png)
+<use Recursos/WiresharkNormalMSG.png>
+Package pdftex.def Info: Recursos/WiresharkNormalMSG.png  used on input line 970.
+(pdftex.def)             Requested size: 439.16763pt x 42.13634pt.
+
+Overfull \hbox (20.91396pt too wide) in paragraph at lines 969--974
+ [][] 
+ []
+
+<Recursos/WiresharkEncriptadaMSG.png, id=197, 614.295pt x 33.87656pt>
+File: Recursos/WiresharkEncriptadaMSG.png Graphic file (type png)
+<use Recursos/WiresharkEncriptadaMSG.png>
+Package pdftex.def Info: Recursos/WiresharkEncriptadaMSG.png  used on input line 979.
+(pdftex.def)             Requested size: 439.16763pt x 24.21896pt.
+
+Overfull \hbox (20.91396pt too wide) in paragraph at lines 978--983
+ [][] 
+ []
+
+
+
+[36 <./Recursos/WiresharkNormalMSG.png> <./Recursos/WiresharkEncriptadaMSG.png>]
+<Recursos/WiresharkNormal.png, id=204, 715.17188pt x 594.72188pt>
+File: Recursos/WiresharkNormal.png Graphic file (type png)
+<use Recursos/WiresharkNormal.png>
+Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 997.
+(pdftex.def)             Requested size: 292.77629pt x 243.46548pt.
+
+
+[37 <./Recursos/WiresharkNormal.png>]
+<Recursos/WiresharkEncriptada.png, id=209, 921.4425pt x 657.2053pt>
+File: Recursos/WiresharkEncriptada.png Graphic file (type png)
+<use Recursos/WiresharkEncriptada.png>
+Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 1008.
+(pdftex.def)             Requested size: 292.77629pt x 208.8158pt.
+
+
+[38 <./Recursos/WiresharkEncriptada.png>]
+
+[39]
+
+[40] (Relatorio.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -1210,17 +1242,17 @@ Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32778 strings out of 473682
- 677593 string characters out of 5718265
+ 32782 strings out of 473682
+ 677657 string characters out of 5718265
  1677696 words of memory out of 5000000
- 55399 multiletter control sequences out of 15000+600000
+ 55403 multiletter control sequences out of 15000+600000
  574317 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,9n,107p,769b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on Relatorio.pdf (41 pages, 716857 bytes).
+ <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Narciso\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Narciso/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on Relatorio.pdf (47 pages, 737861 bytes).
 PDF statistics:
- 759 PDF objects out of 1000 (max. 8388607)
+ 782 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
