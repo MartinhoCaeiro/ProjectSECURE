@@ -628,7 +628,7 @@ Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, 
     \item Ensaios com \textit{scripts} Python isolando a decriptação e testes negativos (alteração de 1 byte para confirmar assinatura de falha).
     \item Validações com ferramentas auxiliares (\texttt{openssl dgst}, \texttt{hexdump -C}).
 \end{enumerate}
-
+\newpage
 	\textbf{Hipóteses priorizadas.}
 \begin{itemize}
     \item Divergência de modo AEAD (GCM/EAX) ou parâmetros.
@@ -650,17 +650,17 @@ Para eliminar ambiguidades foi definido e documentado um formato binário único
 
 	\textbf{Implementações e salvaguardas.}
 \begin{itemize}
-    \item \textit{BufferAssembler} do lado PC: acumula \textbf{LEN} e corpo até \textit{frame} completo antes de decifrar, evitando leitura parcial ou colagem de mensagens.
+    \item \textbf{BufferAssembler do lado PC}: acumula \textbf{LEN} e corpo até \textit{frame} completo antes de decifrar, evitando leitura parcial ou colagem de mensagens.
     \item \textbf{SEQ} monotónico incluído no AAD e usado na derivação do NONCE para prevenir reutilização e facilitar rastreabilidade.
     \item \textbf{Self-test vector} no arranque: cifra/decifra um vetor conhecido e aborta se falhar, evitando sessões inválidas.
-    \item \textit{Backpressure}/ACK opcional: segunda mensagem só após ACK da primeira em fases de diagnóstico.
+    \item \textbf{Backpressure/ACK opcional}: segunda mensagem só após ACK da primeira em fases de diagnóstico.
     \item \textbf{Logs estruturados}: dump de \texttt{hex(AAD|NONCE|TAG)} e comprimentos; contadores de \texttt{AEAD\_FAIL} separados de exceções gerais.
 \end{itemize}
 
-	extbf{Bug das duas mensagens consecutivas.}
+	\textbf{Bug das duas mensagens consecutivas.}
 \begin{itemize}
-    \item Causa raiz: \textit{framing} frágil (concatenação sem delimitador) e processamento sem acumulador de \textit{frames}.
-    \item Mitigações: \textit{length-prefix} + \textit{BufferAssembler}; não reutilizar (key, nonce); captura e tratamento de exceções sem encerrar o ciclo de leitura.
+    \item \textbf{Causa raiz}: \textit{framing} frágil (concatenação sem delimitador) e processamento sem acumulador de \textit{frames}.
+    \item \textbf{Mitigações}: \textit{length-prefix} + \textit{BufferAssembler}; não reutilizar (key, nonce); captura e tratamento de exceções sem encerrar o ciclo de leitura.
 \end{itemize}
 
 	\textbf{Resultados e validação.}
@@ -673,12 +673,14 @@ Para eliminar ambiguidades foi definido e documentado um formato binário único
 	\textbf{Lista de verificação (antes de nova tentativa).}
 \begin{itemize}
     \item Mesmo algoritmo e modo AEAD nos dois lados; \textbf{TAG=16B}, \textbf{NONCE=12B} único.
-    \item KDF com \textit{salt}/\textit{info} idênticos; AAD determinística e documentada.
-    \item \textit{Framing} com \textbf{LEN(4)} ativo; tratamento de exceções não encerra o processo.
+    \item \textbf{KDF} com \textit{salt}/\textit{info} idênticos; AAD determinística e documentada.
+    \item \textbf{Framing} com \textbf{LEN(4)} ativo; tratamento de exceções não encerra o processo.
     \item \textbf{Self-test} no arranque aprovado.
 \end{itemize}
 
-	\textbf{Lições aprendidas.} A principal fonte de instabilidade não era apenas a cifra, mas a ausência de um contrato binário formal (layout de envelope + AAD + \textit{framing}). Ao fixar cada campo e a sua semântica, reduziram-se incompatibilidades e simplificou-se a depuração. A unicidade do nonce derivado de \textbf{SEQ} e a instrumentação detalhada foram determinantes para estabilizar o sistema.
+	\textbf{Lições aprendidas.} A principal fonte de instabilidade não era apenas a cifra, mas a ausência de um contrato binário formal 
+    (layout de envelope + AAD + \textit{framing}). Ao fixar cada campo e a sua semântica, reduziram-se incompatibilidades e simplificou-se 
+    a depuração. A unicidade do nonce derivado de \textbf{SEQ} e a instrumentação detalhada foram determinantes para estabilizar o sistema.
 
 \medskip
 \textbf{Fundamentação teórica (AEAD, AAD, nonces e framing).}

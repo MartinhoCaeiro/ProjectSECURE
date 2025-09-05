@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  5 SEP 2025 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  5 SEP 2025 17:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1105,13 +1105,13 @@ Package pdftex.def Info: Recursos/ChatAndroid.png  used on input line 495.
 [21]
 
 [22]
+
+[23]
 Overfull \hbox (19.3732pt too wide) in paragraph at lines 657--658
 []\T1/cmr/bx/n/10 Logs es-tru-tu-ra-dos\T1/cmr/m/n/10 : dump de \T1/cmtt/m/n/10 hex(AAD|NONCE|TAG) \T1/cmr/m/n/10 e com-pri-men-tos; con-ta-do-res de \T1/cmtt/m/n/10 AEAD_FAIL
  []
 
 
-
-[23]
 
 [24]
 
@@ -1121,12 +1121,12 @@ Overfull \hbox (19.3732pt too wide) in paragraph at lines 657--658
 <Recursos/DBNormal.png, id=161, 496.10344pt x 78.2925pt>
 File: Recursos/DBNormal.png Graphic file (type png)
 <use Recursos/DBNormal.png>
-Package pdftex.def Info: Recursos/DBNormal.png  used on input line 745.
+Package pdftex.def Info: Recursos/DBNormal.png  used on input line 747.
 (pdftex.def)             Requested size: 376.42575pt x 59.40614pt.
 <Recursos/DBEncriptada.png, id=162, 400.49625pt x 60.97781pt>
 File: Recursos/DBEncriptada.png Graphic file (type png)
 <use Recursos/DBEncriptada.png>
-Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 751.
+Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 753.
 (pdftex.def)             Requested size: 376.42575pt x 57.31633pt.
 
 
@@ -1134,20 +1134,20 @@ Package pdftex.def Info: Recursos/DBEncriptada.png  used on input line 751.
 <Recursos/WiresharkNormalMSG.png, id=168, 408.02437pt x 39.14626pt>
 File: Recursos/WiresharkNormalMSG.png Graphic file (type png)
 <use Recursos/WiresharkNormalMSG.png>
-Package pdftex.def Info: Recursos/WiresharkNormalMSG.png  used on input line 767.
+Package pdftex.def Info: Recursos/WiresharkNormalMSG.png  used on input line 769.
 (pdftex.def)             Requested size: 439.16763pt x 42.13634pt.
 
-Overfull \hbox (20.91396pt too wide) in paragraph at lines 766--771
+Overfull \hbox (20.91396pt too wide) in paragraph at lines 768--773
  [][] 
  []
 
 <Recursos/WiresharkEncriptadaMSG.png, id=169, 614.295pt x 33.87656pt>
 File: Recursos/WiresharkEncriptadaMSG.png Graphic file (type png)
 <use Recursos/WiresharkEncriptadaMSG.png>
-Package pdftex.def Info: Recursos/WiresharkEncriptadaMSG.png  used on input line 776.
+Package pdftex.def Info: Recursos/WiresharkEncriptadaMSG.png  used on input line 778.
 (pdftex.def)             Requested size: 439.16763pt x 24.21896pt.
 
-Overfull \hbox (20.91396pt too wide) in paragraph at lines 775--780
+Overfull \hbox (20.91396pt too wide) in paragraph at lines 777--782
  [][] 
  []
 
@@ -1157,7 +1157,7 @@ Overfull \hbox (20.91396pt too wide) in paragraph at lines 775--780
 <Recursos/WiresharkNormal.png, id=175, 715.17188pt x 594.72188pt>
 File: Recursos/WiresharkNormal.png Graphic file (type png)
 <use Recursos/WiresharkNormal.png>
-Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 794.
+Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 796.
 (pdftex.def)             Requested size: 292.77629pt x 243.46548pt.
 
 
@@ -1165,7 +1165,7 @@ Package pdftex.def Info: Recursos/WiresharkNormal.png  used on input line 794.
 <Recursos/WiresharkEncriptada.png, id=180, 921.4425pt x 657.2053pt>
 File: Recursos/WiresharkEncriptada.png Graphic file (type png)
 <use Recursos/WiresharkEncriptada.png>
-Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 805.
+Package pdftex.def Info: Recursos/WiresharkEncriptada.png  used on input line 807.
 (pdftex.def)             Requested size: 292.77629pt x 208.8158pt.
 
 
@@ -1191,9 +1191,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,9n,105p,752b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk><C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/amant/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Relatorio.pdf (39 pages, 695310 bytes).
+Output written on Relatorio.pdf (39 pages, 695577 bytes).
 PDF statistics:
- 798 PDF objects out of 1000 (max. 8388607)
+ 799 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
