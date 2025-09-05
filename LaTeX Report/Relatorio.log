@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  1 SEP 2025 16:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.16)  5 SEP 2025 16:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1235,11 +1235,11 @@ Package pdftex.def Info: Recursos/WireguardAndroid.png  used on input line 468.
 
 
 [14 <./Recursos/WireguardAndroid.png>]
-<Recursos/ListaAndroid.png, id=353, 213.04594pt x 464.4853pt>
+<Recursos/ListaAndroid.png, id=353, 219.06844pt x 476.53032pt>
 File: Recursos/ListaAndroid.png Graphic file (type png)
 <use Recursos/ListaAndroid.png>
 Package pdftex.def Info: Recursos/ListaAndroid.png  used on input line 480.
-(pdftex.def)             Requested size: 170.71652pt x 372.21953pt.
+(pdftex.def)             Requested size: 170.71652pt x 371.35768pt.
 
 
 [15 <./Recursos/ListaAndroid.png>]
@@ -1340,7 +1340,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,9n,105p,752b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\amant\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (34 pages, 685190 bytes).
+Output written on Relatorio.pdf (34 pages, 675896 bytes).
 PDF statistics:
  996 PDF objects out of 1000 (max. 8388607)
  99 named destinations out of 1000 (max. 500000)
