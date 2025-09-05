@@ -1,5 +1,4 @@
 \documentclass[a4paper]{article}
-% Pacotes necessários
 \usepackage[portuguese]{babel}
 \usepackage[backend=biber, style=apa, citestyle=apa, language=portuguese]{biblatex}
 \usepackage{csquotes}
@@ -7,7 +6,6 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{amsmath}
-\usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage{siunitx} % Required for alignment
@@ -15,7 +13,6 @@
   round-mode          = places, % Rounds numbers
   round-precision     = 2, % to 2 places
 }
-\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{karnaugh-map}
@@ -25,7 +22,6 @@
 \usepackage{titling}
 \usepackage[T1]{fontenc}
 \usepackage{float}
-\usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \usepackage{indentfirst}
 \usepackage{array}
@@ -34,7 +30,6 @@
 \usepackage{afterpage}
 \usepackage[toc,page]{appendix}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-\onehalfspacing
 
 
 % Comando para criar uma página vazia
@@ -49,14 +44,12 @@
 \newcommand{\firsttitlepage}{
     \begin{titlepage}
         \centering
-        \vspace*{1cm}
         
         % Logos superior
         \begin{figure}[h!]
             \centering
             \includegraphics[width=6cm]{Recursos/Logos/LOGO_IPB} % Substitua pelo caminho da imagem
             \vspace{0.5cm}
-        \end{figure}
 
         % Informações da instituição
         \large\textbf{INSTITUTO POLITÉCNICO DE BEJA} \\
@@ -64,7 +57,6 @@
         \large\textbf{Licenciatura em Engenharia Informática} \\
         \large\textbf{Projeto Final de Curso} \\
         
-        \vspace{1cm}
         
         % Título do projeto
         {\Huge \textbf{Desenvolvimento de um sistema de comunicações seguras }} \\
@@ -323,38 +315,47 @@ sendo que as tabelas são:\\\\
 \begin{minipage}{\textwidth}
 
 
-	\begin{itemize}
+    \begin{itemize}
 
-		\item \textbf{User:}
-		      \begin{itemize}
-			      \item UserID (chave primária)
-			      \item Username (string)
-			      \item Password (string)
-		      \end{itemize}
+        \item \textbf{User:}
+              \begin{itemize}
+                  \item UserID (chave primária)
+                  \item Username (string)
+                  \item Password (string)
+              \end{itemize}
 
-		\item \textbf{Chat:}
-		      \begin{itemize}
-			      \item ChatID (chave primária)
-			      \item Name (string)
-			      \item AdminID (chave estrangeira, referência à tabela User)
-		      \end{itemize}
+        \item \textbf{Chat:}
+              \begin{itemize}
+                  \item ChatID (chave primária)
+                  \item Name (string)
+                  \item AdminID (chave estrangeira, referência à tabela User)
+              \end{itemize}
 
-		\item \textbf{Participant:}
-		      \begin{itemize}
-			      \item ParticipantID (chave primária)
-			      \item ChatID (chave estrangeira, referência à tabela Chat)
-			      \item UserID (chave estrangeira, referência à tabela User)
-		      \end{itemize}
-		      \newpage
-		\item \textbf{Message:}
-		      \begin{itemize}
-			      \item MessageID (chave primária)
-			      \item ParticipantID (chave estrangeira, referência à tabela Participant)
-			      \item Content (string)
-			      \item Date (data e hora da mensagem)
-			      \item SenderUserID (chave estrangeira, referência à tabela Participant)
-		      \end{itemize}
-	\end{itemize}
+        \item \textbf{Participant:}
+              \begin{itemize}
+                  \item ParticipantID (chave primária)
+                  \item ChatID (chave estrangeira, referência à tabela Chat)
+                  \item UserID (chave estrangeira, referência à tabela User)
+              \end{itemize}
+              \newpage
+        \item \textbf{Message:}
+              \begin{itemize}
+                  \item MessageID (chave primária)
+                  \item ParticipantID (chave estrangeira, referência à tabela Participant)
+                  \item Content (string)
+                  \item Date (data e hora da mensagem)
+                  \item SenderUserID (chave estrangeira, referência à tabela Participant)
+              \end{itemize}
+    \end{itemize}
+
+    % Inserir imagem e legenda manualmente dentro do minipage
+    \vspace{1em}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/ProjectSecure_DB.png}
+    \begin{center}
+        \small \textbf{Figura:} Estrutura da Base de Dados
+    \end{center}
+
 \end{minipage}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -372,16 +373,16 @@ Também é possivel ver o estado da ligação WireGuard, caso esteja ligado ou d
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
         \caption{WireGuard Ativado}
-        \label{fig:img1}
+    \label{fig:login_pc_img1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Recursos/LoginPC2.png}
         \caption{Wireguard Desativado}
-        \label{fig:img2}
+    \label{fig:login_pc_img2}
     \end{subfigure}
     \caption{Ecrã de Login - Computador}
-    \label{fig:duas_imagens}
+    \label{fig:login_pc_duas_imagens}
 \end{figure}
 
 \newpage
@@ -394,16 +395,16 @@ e no seu canto inferior esquerdo existe um botão para terminar sessão caso des
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Recursos/ListaPC1.png}
         \caption{WireGuard Ativado}
-        \label{fig:img1}
+    \label{fig:lista_pc_img1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Recursos/ListaPC2.png}
         \caption{Wireguard Desativado}
-        \label{fig:img2}
+    \label{fig:lista_pc_img2}
     \end{subfigure}
     \caption{Ecrã de Lista de Chats - Computador}
-    \label{fig:duas_imagens}
+    \label{fig:lista_pc_duas_imagens}
 \end{figure}
 
 \newpage
@@ -416,16 +417,16 @@ Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma men
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Recursos/ChatPC1.png}
         \caption{WireGuard Ativado}
-        \label{fig:img1}
+    \label{fig:chat_pc_img1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{Recursos/ChatPC2.png}
         \caption{Wireguard Desativado}
-        \label{fig:img2}
+    \label{fig:chat_pc_img2}
     \end{subfigure}
     \caption{Ecrã de Chat - Computador}
-    \label{fig:duas_imagens}
+    \label{fig:chat_pc_duas_imagens}
 \end{figure}
 
 \newpage
@@ -606,7 +607,124 @@ Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, 
 \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
+\subsection{Depuração da camada criptográfica e protocolo de \textit{framing}}
+\label{subsec:cripto-framing}
+    	\textbf{Contexto.} A arquitetura Cliente Android (Kotlin) \(\leftrightarrow\) Servidor PC (Python) exige confidencialidade e integridade ponta-a-ponta. Foi adotado Serpent-256 em modo AEAD, com AAD a autenticar metadados. Em testes iniciais surgiram falhas consistentes de decriptação (\texttt{BAD\_DECRYPT}).
+
+	\textbf{Sintomas observados.}
+\begin{itemize}
+    \item \texttt{BAD\_DECRYPT} repetido antes de qualquer \textit{plaintext} ser obtido.
+    \item Comprimento de chave correto (32 bytes), AAD com 38 bytes constantes mas não padronizados.
+    \item Falha idêntica entre várias “abordagens de compatibilidade”, sugerindo desalinhamento estrutural (nonce/tag/AAD) e não corrupção de dados.
+    \item Envio rápido de duas mensagens causava paragens no receptor (``silêncio'') ou exceções intermitentes.
+\end{itemize}
+
+	\textbf{Metodologia de depuração.}
+\begin{enumerate}[label=\alph*)]
+    \item Instrumentação com \textit{logs} DEBUG antes/depois de: derivação de chave, montagem de AAD, geração/uso de nonce, chamada AEAD.
+    \item \textit{Hexdump}/\textit{base64} lado-a-lado (cliente/servidor) de AAD, nonce, \textit{ciphertext}, tag; assertivas de tamanho de segmentos.
+    \item Ensaios com \textit{scripts} Python isolando a decriptação e testes negativos (alteração de 1 byte para confirmar assinatura de falha).
+    \item Validações com ferramentas auxiliares (\texttt{openssl dgst}, \texttt{hexdump -C}).
+\end{enumerate}
+
+	\textbf{Hipóteses priorizadas.}
+\begin{itemize}
+    \item Divergência de modo AEAD (GCM/EAX) ou parâmetros.
+    \item Nonce/IV com tamanho/ordem diferentes (p. ex., 12 vs 16 bytes) ou reutilização acidental.
+    \item Tag truncada (12 vs 16 bytes) na serialização.
+    \item Construção de AAD assimétrica (ordem, endianidade, inclusão/omissão de campos).
+    \item Parâmetros de KDF distintos (\textit{salt}/\textit{info}).
+    \item Fragilidade no \textit{framing}: concatenação de mensagens sem delimitador robusto e leituras parciais do \textit{socket}.
+\end{itemize}
+
+	\textbf{Normalização do envelope e \textit{framing}.}
+Para eliminar ambiguidades foi definido e documentado um formato binário único, precedido por um \emph{length-prefix} de 4 bytes (\textbf{big-endian}):
+\begin{itemize}
+    \item \textbf{LEN(4)} | \textbf{MAGIC(2)} | \textbf{VER(1)} | \textbf{ALG(1)} | \textbf{FLAGS(1)} | \textbf{SEQ(8)} | \textbf{TIMESTAMP(8)} | \textbf{NONCE(12)} | \textbf{TAG(16)} | \textbf{AAD\_LEN(2)} | \textbf{CT\_LEN(4)} | \textbf{AAD} | \textbf{CIPHERTEXT}.
+    \item \textbf{AAD determinística}: subset autenticado com ordem/endianidade fixas (MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, USER\_ID, RESERVED).
+    \item \textbf{NONCE (12 bytes)} derivado de prefixo da chave (4B de SHA-256(key)) concatenado com \textbf{SEQ} (8B big-endian) $\rightarrow$ unicidade garantida por mensagem.
+    \item \textbf{TAG} fixo de 16 bytes, sem truncagem.
+\end{itemize}
+
+	\textbf{Implementações e salvaguardas.}
+\begin{itemize}
+    \item \textit{BufferAssembler} do lado PC: acumula \textbf{LEN} e corpo até \textit{frame} completo antes de decifrar, evitando leitura parcial ou colagem de mensagens.
+    \item \textbf{SEQ} monotónico incluído no AAD e usado na derivação do NONCE para prevenir reutilização e facilitar rastreabilidade.
+    \item \textbf{Self-test vector} no arranque: cifra/decifra um vetor conhecido e aborta se falhar, evitando sessões inválidas.
+    \item \textit{Backpressure}/ACK opcional: segunda mensagem só após ACK da primeira em fases de diagnóstico.
+    \item \textbf{Logs estruturados}: dump de \texttt{hex(AAD|NONCE|TAG)} e comprimentos; contadores de \texttt{AEAD\_FAIL} separados de exceções gerais.
+\end{itemize}
+
+	extbf{Bug das duas mensagens consecutivas.}
+\begin{itemize}
+    \item Causa raiz: \textit{framing} frágil (concatenação sem delimitador) e processamento sem acumulador de \textit{frames}.
+    \item Mitigações: \textit{length-prefix} + \textit{BufferAssembler}; não reutilizar (key, nonce); captura e tratamento de exceções sem encerrar o ciclo de leitura.
+\end{itemize}
+
+	\textbf{Resultados e validação.}
+\begin{itemize}
+    \item Eliminação do ``silêncio'' após ráfagas curtas e ausência de \texttt{BAD\_DECRYPT} nas execuções instrumentadas.
+    \item \textit{Stress tests} internos com pares de mensagens (intervalos 30--250 ms) sem \textit{crash}; \textit{logs} confirmam \textbf{SEQ} crescente e \textit{frames} completos.
+    \item Critérios de fecho definidos: 0 ocorrências \texttt{BAD\_DECRYPT} em campanhas prolongadas; 100 envios duplos consecutivos sem \textit{crash}; latência média $< 150$ ms; \textbf{SEQ} sem desvios não explicados.
+\end{itemize}
+
+	\textbf{Lista de verificação (antes de nova tentativa).}
+\begin{itemize}
+    \item Mesmo algoritmo e modo AEAD nos dois lados; \textbf{TAG=16B}, \textbf{NONCE=12B} único.
+    \item KDF com \textit{salt}/\textit{info} idênticos; AAD determinística e documentada.
+    \item \textit{Framing} com \textbf{LEN(4)} ativo; tratamento de exceções não encerra o processo.
+    \item \textbf{Self-test} no arranque aprovado.
+\end{itemize}
+
+	\textbf{Lições aprendidas.} A principal fonte de instabilidade não era apenas a cifra, mas a ausência de um contrato binário formal (layout de envelope + AAD + \textit{framing}). Ao fixar cada campo e a sua semântica, reduziram-se incompatibilidades e simplificou-se a depuração. A unicidade do nonce derivado de \textbf{SEQ} e a instrumentação detalhada foram determinantes para estabilizar o sistema.
+
+\medskip
+\textbf{Fundamentação teórica (AEAD, AAD, nonces e framing).}
+\begin{itemize}
+    \item \textbf{AEAD} (\textit{Authenticated Encryption with Associated Data}) combina confidencialidade e integridade: a decriptação falha integralmente se qualquer bit do \textit{ciphertext}, da \textbf{TAG} ou da \textbf{AAD} estiver alterado. Isto previne ataques de manipulação e “corta e cola”.
+    \item \textbf{AAD} é não cifrada mas autenticada; deve incluir metadados que definem o contexto (p. ex., versão, algoritmo, \textbf{SEQ}, \textbf{USER\_ID}). Divergências entre emissor e recetor provocam \texttt{BAD\_DECRYPT} por falha na verificação da TAG.
+    \item O tamanho da \textbf{TAG} (tipicamente 16 bytes) é um compromisso entre segurança e espaço. Truncagens elevam o risco de falsificações bem-sucedidas.
+    \item \textbf{Nonces/IVs} em modos como GCM/EAX devem ser \emph{únicos por chave}. Reutilização de nonce compromete a confidencialidade e pode afetar a integridade.
+\end{itemize}
+
+\textbf{Modos AEAD e requisitos de nonce.}
+\begin{itemize}
+    \item \textbf{GCM}: desempenho elevado; nonce recomendado de 96 bits (12 bytes) e unicidade estrita por chave.
+    \item \textbf{EAX/OCB}: alternativas com requisitos semelhantes de unicidade. OCB teve restrições de patente históricas.
+    \item \textbf{SIV} (\textit{Synthetic IV}): tolera reutilização de nonce, adequado quando a unicidade não é garantida, à custa de desempenho.
+    \item \textbf{Prática adotada}: NONCE = prefixo derivado da chave || \textbf{SEQ} (12 bytes), garantindo unicidade se \textbf{SEQ} for monotónico por sessão.
+\end{itemize}
+
+\textbf{Derivação e separação de chaves (KDF).}
+\begin{itemize}
+    \item Utilize \textbf{HKDF} com \textit{salt} e \textit{info} para derivar chaves de sessão a partir de uma raiz, aplicando \emph{domain separation} para \textit{encrypt}, \textit{mac}, \textit{nonce-prefix}, etc.
+    \item Evite reutilizar a mesma chave para múltiplos propósitos; separe por função para reduzir o acoplamento e facilitar auditoria.
+    \item Considere rotação por tempo ou contagem; registe \textbf{VER}/\textbf{ALG} no envelope para agilidade criptográfica.
+\end{itemize}
+
+\textbf{Framing em canais de \textit{byte-stream} (TCP).}
+\begin{itemize}
+    \item TCP pode fragmentar ou coalescer envios; o recetor deve reconstituir \textit{frames} completos.
+    \item Um \textbf{length-prefix} fixo (4 bytes big-endian) torna os \textit{frames} auto-delimitados e evita ambiguidades.
+    \item Defina \textbf{limites máximos} por \textit{frame} e valide \textbf{LEN} antes de alocar/copiar; implemente um \textit{BufferAssembler} que apenas decifra após \textit{frame} completo.
+\end{itemize}
+
+\textbf{Proteções adicionais.}
+\begin{itemize}
+    \item \textbf{SEQ} monotónico, janela anti-\textit{replay} e \textbf{TIMESTAMP} para diagnóstico e controlo de ritmo.
+    \item Comparação de \textbf{TAG} em tempo constante; limpeza de chaves e \textit{buffers} sensíveis quando possível.
+    \item Erros genéricos no protocolo e \textit{logs} internos detalhados com limitação de taxa.
+\end{itemize}
+
+\textbf{Testes e verificação.}
+\begin{itemize}
+    \item \textbf{Vetores de teste} determinísticos no arranque (\textit{self-test}).
+    \item \textbf{Fuzzing} do \textit{BufferAssembler} e do desserializador; testes de propriedades (\textit{round-trip}, rejeição a \textit{bitflips}).
+    \item Testes negativos: nonce repetido, TAG truncada, AAD alterada; \textbf{stress tests} com ráfagas e latências variáveis.
+\end{itemize}
+% ...existing code...
 \newpage
+% ...existing code...
 \section{Testes}\label{testes}
 Os testes realizados tem como base 2 metodos:
 \begin{itemize}
@@ -633,7 +751,7 @@ não é possível visualizar o seu conteúdo pois o servidor guarda a base de da
         \label{fig:db_encriptada}
     \end{subfigure}
     \caption{Teste com Servidor}
-    \label{fig:duas_imagens}
+    \label{fig:wireshark_msg_duas_imagens}
 \end{figure}
 \newpage
 %-------------------------------------------------------------------------------------------------   
