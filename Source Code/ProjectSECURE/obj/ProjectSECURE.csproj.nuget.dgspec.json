@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ESTIG\\Projeto-Cripto\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj": {}
+    "C:\\Users\\Narciso\\Desktop\\Projects\\workv2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj": {}
   },
   "projects": {
-    "D:\\ESTIG\\Projeto-Cripto\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj": {
+    "C:\\Users\\Narciso\\Desktop\\Projects\\workv2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ESTIG\\Projeto-Cripto\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
+        "projectUniqueName": "C:\\Users\\Narciso\\Desktop\\Projects\\workv2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
         "projectName": "ProjectSECURE",
-        "projectPath": "D:\\ESTIG\\Projeto-Cripto\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
-        "packagesPath": "C:\\Users\\amant\\.nuget\\packages\\",
-        "outputPath": "D:\\ESTIG\\Projeto-Cripto\\Projeto-Cripto\\Source Code\\ProjectSECURE\\obj\\",
+        "projectPath": "C:\\Users\\Narciso\\Desktop\\Projects\\workv2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
+        "packagesPath": "C:\\Users\\Narciso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Narciso\\Desktop\\Projects\\workv2\\Projeto-Cripto\\Source Code\\ProjectSECURE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\amant\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Narciso\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0-windows"
