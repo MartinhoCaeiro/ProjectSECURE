@@ -101,7 +101,7 @@
         \end{figure}
         
         % Local e data
-        {\large Beja, julho de 2025}
+        {\large Beja, setembro de 2025}
     \end{titlepage}
 }
 
@@ -136,7 +136,7 @@
         \vfill
         
         % Local e data
-        {\large Beja, julho de 2025}
+        {\large Beja, setembro de 2025}
     \end{titlepage}
 }
 
@@ -774,52 +774,6 @@ Bug observado: "duas mensagens consecutivas" — explicação técnica curta
     \item Mitigação: implementar o BufferAssembler + length‑prefix e processar frames apenas quando completos; serializar gravações na BD (worker/fila) e usar transacções atómicas para evitar corrupção em caso de mensagens inválidas.
 \end{itemize}
  
-% Exemplo prático: offsets e pseudocódigo de parsing (adicionado)
-\paragraph{Exemplo prático: offsets e pseudocódigo de parsing}
-Para tornar o contrato mais palpável, apresentamos um mapeamento de offsets (em bytes) do início do \textit{frame} e um pseudocódigo simples que demonstra como o \textit{BufferAssembler} deve operar.
-
-Exemplo de offsets (início do frame = byte 0):
-\begin{verbatim}
-0..3   LEN (4 bytes, big-endian)
-4..5   MAGIC (2 bytes)
-6      VER (1 byte)
-7      ALG (1 byte)
-8      FLAGS (1 byte)
-9..16  SEQ (8 bytes)
-17..24 TIMESTAMP (8 bytes)
-25..36 NONCE (12 bytes)
-37..52 TAG (16 bytes)
-53..54 AAD_LEN (2 bytes)
-55..58 CT_LEN (4 bytes)
-59..(58+AAD_LEN)    AAD
-...      CIPHERTEXT (CT_LEN bytes)
-\end{verbatim}
-
-Pseudocódigo simplificado (lógica do receptor):
-\begin{verbatim}
-buffer = empty
-while socket open:
-    buffer += socket.read()
-    if len(buffer) < 4: continue  # ainda não temos LEN
-    LEN = be32(buffer[0:4])
-    if len(buffer) < 4 + LEN: continue  # aguardar frame completo
-    frame = buffer[4:4+LEN]
-    buffer = buffer[4+LEN:]  # remover frame consumido
-    # parse campos fixos do frame (MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, NONCE, TAG, AAD_LEN, CT_LEN)
-    if MAGIC != EXPECTED: log('bad magic'); continue
-    if AAD_LEN > MAX_AAD or CT_LEN > MAX_CT: log('oversize'); continue
-    aad = frame[offset_aad:offset_aad+AAD_LEN]
-    ct  = frame[offset_ct:offset_ct+CT_LEN]
-    if not aead_decrypt(ct, aad, nonce, key):
-        incr_counter('AEAD_FAIL')
-        log_debug_hex(aad, nonce, tag)
-        continue
-    deliver_payload(decrypted)
-    ack_if_required()
-\end{verbatim}
-
-Comentário final: este exemplo mostra por que motivo é crítico não tentar decifrar até o \textit{frame} completo estar disponível e por que a ordem/exatidão dos campos (nonce, AAD, tag) é determinante para a verificação AEAD.
-
 % --- detalhe adicionado: logs, reprodução e recomendações ---
 \paragraph{Caso observado: logs e impacto prático}
 Durante a instrumentação foi detectado um padrão de erro quando o servidor tenta decifrar pacotes com Serpent: mensagens como
@@ -920,9 +874,7 @@ Medidas imediatas aplicadas:
     \item \textbf{Fuzzing} do \textit{BufferAssembler} e do desserializador; testes de propriedades (\textit{round-trip}, rejeição a \textit{bitflips}).
     \item Testes negativos: nonce repetido, TAG truncada, AAD alterada; \textbf{stress tests} com ráfagas e latências variáveis.
 \end{itemize}
-% ...existing code...
-\newpage
-% ...existing code...
+
 \section{Testes}\label{testes}
 Os testes realizados tem como base 2 metodos:
 \begin{itemize}
