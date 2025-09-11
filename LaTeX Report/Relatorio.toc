@@ -42,4 +42,5 @@
 \contentsline {subsection}{\numberline {8.2}Comunicações}{33}{}%
 \contentsline {section}{\numberline {9}Melhorias Futuras}{35}{}%
 \contentsline {section}{\numberline {10}Conclusão}{36}{}%
+\contentsline {section}{\numberline {11}Agradecimentos}{36}{}%
 \contentsline {section}{Bibliografia}{37}{}%
