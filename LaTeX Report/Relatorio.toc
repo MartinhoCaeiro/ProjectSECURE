@@ -28,18 +28,16 @@
 \contentsline {section}{\numberline {7}Problemas Encontrados}{22}{}%
 \contentsline {subsection}{\numberline {7.1}Problemas de Conexão}{22}{}%
 \contentsline {subsection}{\numberline {7.2}Problemas na aplicação Windows/Android}{22}{}%
-\contentsline {subsection}{\numberline {7.3}Depuração da camada criptográfica e protocolo de \textit {framing}}{23}{}%
-\contentsline {paragraph}{AEAD, GCM e EAX}{24}{}%
-\contentsline {paragraph}{AAD}{25}{}%
-\contentsline {paragraph}{KDF }{25}{}%
-\contentsline {paragraph}{Framing }{25}{}%
-\contentsline {paragraph}{Caso observado: logs e impacto prático}{28}{}%
-\contentsline {paragraph}{Reprodução e efeito sobre a base de dados}{28}{}%
-\contentsline {paragraph}{Diagnóstico e medidas imediatas}{28}{}%
-\contentsline {paragraph}{Recomendações para correção definitiva}{29}{}%
-\contentsline {section}{\numberline {8}Testes}{32}{}%
-\contentsline {subsection}{\numberline {8.1}Servidor}{32}{}%
-\contentsline {subsection}{\numberline {8.2}Comunicações}{33}{}%
-\contentsline {section}{\numberline {9}Melhorias Futuras}{35}{}%
-\contentsline {section}{\numberline {10}Conclusão}{36}{}%
-\contentsline {section}{Bibliografia}{37}{}%
+\contentsline {subsection}{\numberline {7.3}Depuração da camada criptográfica e protocolo de \textit {framing}}{24}{}%
+\contentsline {paragraph}{Normalização do envelope e \textit {framing}}{25}{}%
+\contentsline {paragraph}{Robustez na receção e persistência}{25}{}%
+\contentsline {paragraph}{Caso observado: logs e impacto prático}{26}{}%
+\contentsline {paragraph}{Reprodução e efeito sobre a base de dados}{26}{}%
+\contentsline {paragraph}{Diagnóstico e medidas imediatas}{26}{}%
+\contentsline {paragraph}{Recomendações para correção definitiva}{27}{}%
+\contentsline {section}{\numberline {8}Testes}{28}{}%
+\contentsline {subsection}{\numberline {8.1}Servidor}{29}{}%
+\contentsline {subsection}{\numberline {8.2}Comunicações}{30}{}%
+\contentsline {section}{\numberline {9}Melhorias Futuras}{32}{}%
+\contentsline {section}{\numberline {10}Conclusão}{33}{}%
+\contentsline {section}{Bibliografia}{34}{}%
