@@ -131,7 +131,7 @@
         \vspace{2cm}
 
         % Orientador
-        \large Orientador: Professor Rui Silva \\
+        \large Orientador: Professor Rui Miguel Soares Silva \\
         
         \vfill
         
@@ -219,7 +219,12 @@ link:\\ \url{https://github.com/MartinhoCaeiro/Projeto-Cripto} \&  \url{https://
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Analise de Requisitos}\label{analise}
-Para a realização deste projeto, foram necessários os seguintes requisitos:
+Para a realização deste projeto, após ser idealizado entre os membros da equipa e analisadas outras aplicações de troca de mensagens, como o \textit{WhatsApp} (\cite{whatsapp}) 
+e \textit{Telegram} (\cite{telegram}), para compreender como estas funcionam. Chegando à conclusão de que utilizam
+uma encriptação de ponta a ponta para garantir a segurança das mensagens. Neste projeto, será implementada uma abordagem 
+bastante semelhante, porém com a integração da VPN. A ideia da VPN surgiu após uma conversa entre os membros da equipa, onde foi discutido o que aconteria se o tráfego da aplicação 
+fosse encaminhado através de uma VPN, e assim a equipa concluiu que isso garantiria uma camada extra de segurança.
+Sendo assim, foram definidos os seguintes requisitos funcionais e não funcionais:
 \begin{itemize}
 	\item \textbf{Requisitos Funcionais:}
 	      \begin{itemize}
@@ -236,10 +241,7 @@ Para a realização deste projeto, foram necessários os seguintes requisitos:
 	      \end{itemize}
 \end{itemize}
 
-Foram ainda analisadas outras aplicações de troca de mensagens seguras, como o \textit{WhatsApp} (\cite{whatsapp}) 
-e \textit{Telegram} (\cite{telegram}), para compreender como estas funcionam. Chegando à conclusão de que utilizam
-uma encriptação de ponta a ponta para garantir a segurança das mensagens. Neste projeto, será implementada uma abordagem 
-bastante semelhante, porém com a integração da VPN.
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
@@ -247,11 +249,31 @@ bastante semelhante, porém com a integração da VPN.
 Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 \begin{itemize}
 	\item \textbf{Linguagens de Programação:} C\#, Kotlin
+	\begin{itemize}
+        \item C\#: Utilizada para o desenvolvimento da aplicação de desktop (Windows), outra possibilidade seria Java, porém 
+        foi escolhido C\# por ter sido utilizada há pouco tempo em outra unidade curricular.
+        \item Kotlin: Utilizada para o desenvolvimento da aplicação Android, outra possibilidade seria também Java, porém
+        foi escolhido Kotlin por ser uma linguagem mais moderna e concisa, e ter sido utilizada recentemente em outra unidade curricular.
+    \end{itemize}
 	\item \textbf{Frameworks:} .NET, WireGuard
+	\begin{itemize}
+        \item .NET: Utilizada para o desenvolvimento da aplicação de desktop (Windows), e decidimos por ter sido utilizada recentemente em outra unidade curricular.
+        \item WireGuard: Utilizada para a implementação da VPN, por ser uma solução de VPN moderna, leve e de alto desempenho, e após pesquisas, foi visto que funcionava sem problemas
+        em AlmaOS 8.10 e que era fácil de configurar nos dispositivos clientes.
+    \end{itemize}
 	\item \textbf{Base de Dados:} SQLite
+	\begin{itemize}
+        \item Por ser um sistema de gestão de base de dados relacional leve, rápido e fácil de usar.
+    \end{itemize}
 	\item \textbf{Criptografia:} Rijndael (Vencedor AES), Serpent (Segundo lugar AES)
-	\item \textbf{Ferramentas de Desenvolvimento:} Git, Visual Studio Code, Android Studio
-	\item  \textbf{Serviços de Hospedagem:} GitHub
+	\begin{itemize}
+        \item Foram escolhidos por serem algoritmos de criptografia simétrica seguros e eficientes, e por serem amplamente utilizados em aplicações de segurança. Foi recomendado 
+        pelo professor orientador.
+    \end{itemize}
+	\item \textbf{Ferramentas de Desenvolvimento:} Git, Visual Studio Code, Android Studio, GitHub
+	\begin{itemize}
+        \item Todos os membros da equipa utilizam todas estas ferramentas, por serem ferramentas de desenvolvimento modernas, eficientes e fáceis de usar.
+    \end{itemize}
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -348,8 +370,8 @@ re-deriva a chave com os mesmos parâmetros e tenta a desencriptação; a produ�
 \section{Módulos do Sistema}\label{modulos}
 
 \subsection{Interface}
-A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente, enquanto 
-que a interface para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma rápida e eficiente.
+A interface para computador será desenvolvida em C\#, uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma eficiente e a interface 
+para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma eficiente.
 Esta interface é composta por 4 ecrãs principais:
 \begin{itemize}
 	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação utilizando as suas credenciais, tambem é possivel ver o status da ligação WireGuard.
@@ -933,8 +955,19 @@ Este projeto está sujeito a imensas melhorias, tais como:
 \section{Conclusão}\label{con}
 Concluimos assim que o projeto foi um sucesso, pois conseguimos desenvolver um sistema de comunicações seguras
 que permite a troca de mensagens de texto entre os seus utilizadores, sem que haja a possibilidade de terceiros acederem às mensagens trocadas.
-Em geral, foi um projeto que nos permitiu aprender bastante sobre a área de cibersegurança e comunicações seguras,
-e que nos possibilitou aplicar os conhecimentos adquiridos ao longo do curso de Engenharia Informática.
+Em geral, foi um projeto que nos permitiu aprender bastante sobre a área de cibersegurança e comunicações seguras, 
+sendo que a implementação de uma VPN com o WireGuard foi um desafio interessante e que nos permitiu aprender bastante sobre o funcionamento das VPNs.
+Além do enorme desafio que foi implementar a camada da criptografia, e fazê-la funcionar corretamente entre dois sistemas operativos diferentes (Android e Windows), e 
+ainda com linguagens de programação diferentes (C\# e Kotlin).
+
+Foi necessário aprender bastante sobre criptografia, servidores, redes e protocolos de comunicação, 
+e foi importante também para aprender a trabalhar em equipa, e separar as tarefas de maneira eficiente, para que tudo fosse feito dentro do prazo estipulado e sem 
+sobrecarregar nenhum dos elementos da equipa. Este projeto não só reforçou as nossas competências técnicas e de colaboração, como também contribuiu para uma 
+solução que pode servir de base a futuras melhorias e aplicações em ambientes reais.
+
+\section{Agradecimentos}\label{agradecimentos}
+Gostaríamos de agradecer ao professor Rui Miguel Soares Silva pela sua disponibilidade para dar opiniões e ajudar durante o projeto, assim como aos nossos colegas de turma pelo apoio e 
+colaboração.
 %---------------------------------------------------------------------------------------------------------------------------
 
 \newpage
