@@ -257,14 +257,26 @@ Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Arquitetura do Sistema}\label{arquitetura}
-O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores que estiverem registado na VPN poderão comunicar entre si.
+O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores que estiverem registados na VPN poderão comunicar entre si.
 Dentro da aplicação, os utilizadores podem saber quem está associado a um endereço IP da VPN, e assim enviar mensagens para esse utilizador.
 Ao enviar uma mensagem, a aplicação irá contatar o servidor da VPN, para obter o caminho até ao destinatário, e assim enviar a mensagem.
 Essa mensagem será encriptada antes de ser enviada, para garantir a confidencialidade e integridade da mensagem. Existe a variação
-da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que os métodos de encriptação utilizados são o AES
+da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que as cifras de encriptação utilizadas são o AES
 e o Serpent.
-\subsection{Encriptação do Sistema}
-Sendo assim, a parte de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Estrutura}
+A estrutura do sistema é focada na troca de informação por dentro da VPN, podendo ser representada 
+na seguinte figura \ref{fig:system_architecture}: 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
+    \caption{Arquitetura do Sistema}
+    \label{fig:system_architecture}
+\end{figure}
+\newpage
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Encriptação}
+O processo de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem
 será encriptada consoante um número pseudo-aleatório gerado pela aplicação, sendo assim escolhido o algoritmo de encriptação a utilizar naquele momento, o AES256 ou Serpent.
 Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}". É importante destacar que o seletor 
 está ofuscado, de forma a dificultar a sua identificação, a partir de uma máscara criada através da chave (\textit{salt}) e do número pseudo-aleatório.
@@ -287,15 +299,7 @@ permitindo assim descobrir qual o algoritmo de encriptação utilizado. É poss�
 	\label{fig:decryption_process}
 \end{figure}
 
-\subsection{Estrutura do Sistema}
-A estrutura do sistema é focada na troca de informação por dentro da VPN, podendo ser representada 
-na seguinte figura \ref{fig:system_architecture}: 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
-    \caption{Arquitetura do Sistema}
-    \label{fig:system_architecture}
-\end{figure}
+
 %---------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Implementação da Criptografia (excerto)}
@@ -343,7 +347,7 @@ re-deriva a chave com os mesmos parâmetros e tenta a desencriptação; a produ�
 
 \section{Módulos do Sistema}\label{modulos}
 
-\subsection{Interface do Sistema}
+\subsection{Interface}
 A interface para computador será desenvolvida em C\#, cuja qual é uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma rápida e eficiente, enquanto 
 que a interface para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma rápida e eficiente.
 Esta interface é composta por 4 ecrãs principais:
@@ -356,14 +360,14 @@ Esta interface é composta por 4 ecrãs principais:
 
 \subsection{Módulo da VPN}
 A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{almaos}), e será responsável por gerir as ligações dos utilizadores à VPN,
-bem como a autenticação dos mesmos. O serviço escolhido foi o WireGuard, que é um serviço de VPN de código aberto,
+bem como a autenticação dos mesmos. A solução escolhida foi o WireGuard, que é uma solução de VPN de código aberto,
 leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
 do utilizador, para que este possa estabelecer uma ligação à VPN.
 
 
 \newpage 
 \subsection{Base de Dados}
-A base de dados será utilizada para armazenar as informações dos utilizadores, como as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
+A base de dados será utilizada para armazenar as informações dos utilizadores, as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
 A base de dados irá ter a seguinte estrutura:
 
 \begin{figure}[H]
@@ -643,7 +647,8 @@ um ficheiro de configurações criado por um administrador à espera de ser tran
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Problemas Encontrados}\label{problemas}
-Durante o desenvolvimento do projeto, foram encontrados alguns problemas, que foram resolvidos da seguinte forma:
+Durante o desenvolvimento do projeto, foram encontrados alguns problemas e respetivas soluções. Nas secções seguintes 
+apresenta-se um conjunto de problemas e soluções selecionados, pela sua relevância no projeto.
 %-------------------------------------------------------------------------------------------------
 \subsection{Problemas de Conexão}
 Logo no inicio da implementação da VPN foi necessário achar uma solução para a configuração de encaminhamento de pacotes, pois o servidor Linux
