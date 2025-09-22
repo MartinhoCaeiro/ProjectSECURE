@@ -1956,19 +1956,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Narciso\\.nuget\\packages\\": {}
+    "C:\\Users\\Marti\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Narciso\\Desktop\\Projects\\New folder\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
+      "projectUniqueName": "C:\\Users\\Marti\\Documents\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
       "projectName": "ProjectSECURE",
-      "projectPath": "C:\\Users\\Narciso\\Desktop\\Projects\\New folder\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
-      "packagesPath": "C:\\Users\\Narciso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Narciso\\Desktop\\Projects\\New folder\\Projeto-Cripto\\Source Code\\ProjectSECURE\\obj\\",
+      "projectPath": "C:\\Users\\Marti\\Documents\\Projeto-Cripto\\Source Code\\ProjectSECURE\\ProjectSECURE.csproj",
+      "packagesPath": "C:\\Users\\Marti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marti\\Documents\\Projeto-Cripto\\Source Code\\ProjectSECURE\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Narciso\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Marti\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0-windows"
@@ -2054,7 +2054,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -127,44 +127,6 @@
       \verb https://www.python.org/
       \endverb
     \endentry
-    \entry{whatsapp}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3b37cc6a0b4f5a1801787c8e7c69c8f8}{%
-           family={Inc.},
-           familyi={I\bibinitperiod},
-           given={WhatsApp},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{fullhash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{fullhashraw}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{bibnamehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authorbibnamehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authornamehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authorfullhash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authorfullhashraw}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Página oficial do WhatsApp}
-      \field{title}{WhatsApp: A Messaging App}
-      \field{urlday}{16}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.whatsapp.com/
-      \endverb
-      \verb{url}
-      \verb https://www.whatsapp.com/
-      \endverb
-    \endentry
     \entry{pagep}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
@@ -235,44 +197,6 @@
       \verb https://kotlinlang.org/
       \endverb
     \endentry
-    \entry{telegram}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ce13141b51d09eb66965a803b5979165}{%
-           family={LLP},
-           familyi={L\bibinitperiod},
-           given={Telegram\bibnamedelima Messenger},
-           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{fullhash}{ce13141b51d09eb66965a803b5979165}
-      \strng{fullhashraw}{ce13141b51d09eb66965a803b5979165}
-      \strng{bibnamehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authorbibnamehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authornamehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authorfullhash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authorfullhashraw}{ce13141b51d09eb66965a803b5979165}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Página oficial do Telegram}
-      \field{title}{Telegram: A Cloud-Based Instant Messaging App}
-      \field{urlday}{16}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://telegram.org/
-      \endverb
-      \verb{url}
-      \verb https://telegram.org/
-      \endverb
-    \endentry
     \entry{csharp}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
@@ -341,6 +265,76 @@
       \endverb
       \verb{url}
       \verb https://www.sqlite.org/
+      \endverb
+    \endentry
+    \entry{telegram}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=940e305a22b127fc1acfd678d33630e6}{%
+           family={Telegram\bibnamedelima Messenger\bibnamedelima LLP},
+           familyi={T\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{fullhash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{fullhashraw}{940e305a22b127fc1acfd678d33630e6}
+      \strng{bibnamehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authorbibnamehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authornamehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authorfullhash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authorfullhashraw}{940e305a22b127fc1acfd678d33630e6}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Telegram}
+      \field{title}{Telegram: A Cloud-Based Instant Messaging App}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://telegram.org/
+      \endverb
+      \verb{url}
+      \verb https://telegram.org/
+      \endverb
+    \endentry
+    \entry{whatsapp}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=213892f225a25417b0491ebf9cb40398}{%
+           family={WhatsApp\bibnamedelima Inc.},
+           familyi={W\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{fullhash}{213892f225a25417b0491ebf9cb40398}
+      \strng{fullhashraw}{213892f225a25417b0491ebf9cb40398}
+      \strng{bibnamehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authorbibnamehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authornamehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authorfullhash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authorfullhashraw}{213892f225a25417b0491ebf9cb40398}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do WhatsApp}
+      \field{title}{WhatsApp: A Messaging App}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.whatsapp.com/
+      \endverb
+      \verb{url}
+      \verb https://www.whatsapp.com/
       \endverb
     \endentry
     \entry{wireguard}{online}{}{}
@@ -488,44 +482,6 @@
       \verb https://www.python.org/
       \endverb
     \endentry
-    \entry{whatsapp}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3b37cc6a0b4f5a1801787c8e7c69c8f8}{%
-           family={Inc.},
-           familyi={I\bibinitperiod},
-           given={WhatsApp},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{fullhash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{fullhashraw}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{bibnamehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authorbibnamehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authornamehash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authorfullhash}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \strng{authorfullhashraw}{3b37cc6a0b4f5a1801787c8e7c69c8f8}
-      \field{sortinit}{I}
-      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Página oficial do WhatsApp}
-      \field{title}{WhatsApp: A Messaging App}
-      \field{urlday}{16}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.whatsapp.com/
-      \endverb
-      \verb{url}
-      \verb https://www.whatsapp.com/
-      \endverb
-    \endentry
     \entry{pagep}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
@@ -596,44 +552,6 @@
       \verb https://kotlinlang.org/
       \endverb
     \endentry
-    \entry{telegram}{online}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ce13141b51d09eb66965a803b5979165}{%
-           family={LLP},
-           familyi={L\bibinitperiod},
-           given={Telegram\bibnamedelima Messenger},
-           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{fullhash}{ce13141b51d09eb66965a803b5979165}
-      \strng{fullhashraw}{ce13141b51d09eb66965a803b5979165}
-      \strng{bibnamehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authorbibnamehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authornamehash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authorfullhash}{ce13141b51d09eb66965a803b5979165}
-      \strng{authorfullhashraw}{ce13141b51d09eb66965a803b5979165}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Página oficial do Telegram}
-      \field{title}{Telegram: A Cloud-Based Instant Messaging App}
-      \field{urlday}{16}
-      \field{urlmonth}{8}
-      \field{urlyear}{2025}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://telegram.org/
-      \endverb
-      \verb{url}
-      \verb https://telegram.org/
-      \endverb
-    \endentry
     \entry{csharp}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=140864078aeca1c7c35b4beb33c53c34}{%
@@ -702,6 +620,76 @@
       \endverb
       \verb{url}
       \verb https://www.sqlite.org/
+      \endverb
+    \endentry
+    \entry{telegram}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=940e305a22b127fc1acfd678d33630e6}{%
+           family={Telegram\bibnamedelima Messenger\bibnamedelima LLP},
+           familyi={T\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{fullhash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{fullhashraw}{940e305a22b127fc1acfd678d33630e6}
+      \strng{bibnamehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authorbibnamehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authornamehash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authorfullhash}{940e305a22b127fc1acfd678d33630e6}
+      \strng{authorfullhashraw}{940e305a22b127fc1acfd678d33630e6}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do Telegram}
+      \field{title}{Telegram: A Cloud-Based Instant Messaging App}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://telegram.org/
+      \endverb
+      \verb{url}
+      \verb https://telegram.org/
+      \endverb
+    \endentry
+    \entry{whatsapp}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=213892f225a25417b0491ebf9cb40398}{%
+           family={WhatsApp\bibnamedelima Inc.},
+           familyi={W\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{fullhash}{213892f225a25417b0491ebf9cb40398}
+      \strng{fullhashraw}{213892f225a25417b0491ebf9cb40398}
+      \strng{bibnamehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authorbibnamehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authornamehash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authorfullhash}{213892f225a25417b0491ebf9cb40398}
+      \strng{authorfullhashraw}{213892f225a25417b0491ebf9cb40398}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Página oficial do WhatsApp}
+      \field{title}{WhatsApp: A Messaging App}
+      \field{urlday}{16}
+      \field{urlmonth}{8}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.whatsapp.com/
+      \endverb
+      \verb{url}
+      \verb https://www.whatsapp.com/
       \endverb
     \endentry
     \entry{wireguard}{online}{}{}

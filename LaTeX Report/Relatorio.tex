@@ -154,25 +154,34 @@
 % Abstract
 \section*{\LARGE\textbf{\textit{Resumo}}}
 
-Neste relatório será abordado o processo de criação de uma solução de comunicações seguras,
-que permita a troca de mensagens de texto entre os seus utilizadores.
-Este relatório foi realizado no âmbito da Unidade Curricular de
-Estágio ou Projeto (\cite{pagep}).
+Neste relatório apresenta-se o processo de conceção e implementação de uma solução orientada para comunicações seguras,
+com enfoque na troca de mensagens de texto entre utilizadores, garantindo a proteção e confidencialidade da informação transmitida.
+O trabalho descrito foi desenvolvido no âmbito da Unidade Curricular de Estágio ou Projeto (\cite{pagep}), tendo como objetivo principal
+a aplicação prática de conhecimentos adquiridos ao longo do curso, bem como a exploração de novas competências nas áreas de cibersegurança,
+redes e protocolos de comunicação.
+
+Ao longo do relatório são descritos os principais desafios enfrentados, entre os quais a implementação de uma VPN com recurso ao WireGuard,
+a integração entre diferentes sistemas operativos (Android e Windows) e linguagens de programação (C\# e Kotlin), bem como o desenvolvimento
+da camada de criptografia. São ainda analisadas as aprendizagens obtidas, tanto a nível técnico como no trabalho em equipa, apresentando-se
+no final uma reflexão sobre os resultados alcançados e as possíveis evoluções futuras da solução desenvolvida.
 
 
 \vspace{1cm}
 % Keywords
 \textbf{Keywords:} aplicações, cibersegurança, comunicações, criptografia, c\#, python, bash, almalinux, wireguard, sqlite, kotlin
 \newpage
-%--------------------------------------------------------------------------------------------------------------------------------------
 
+%--------------------------------------------------------------------------------------------------------------------------------------
 \section*{\LARGE\textbf{\textit{Abstract}}}
 
-In this report, we will address the creation process of a secure communication
-solution that allows text message exchange between its users.
-This report was carried out within the scope of the
-Curricular Unit of Internship or Project (\cite{pagep}).
+This report presents the process of designing and implementing a solution for secure communications, with a particular focus on enabling
+text message exchange between users while ensuring data protection and confidentiality. The work described was carried out within the scope
+of the Curricular Unit of Internship or Project (\cite{pagep}), with the main objective of applying the knowledge acquired throughout the
+course, as well as exploring new skills in the areas of cybersecurity, networks, and communication protocols.
 
+Throughout the report, the main challenges are discussed, including the implementation of a VPN using WireGuard, the integration across
+different operating systems (Android and Windows) and programming languages (C\# and Kotlin), as well as the development of the encryption
+layer. The document also highlights the technical and collaborative skills strengthened during the project and concludes with a reflection on the results achieved, as well as potential future improvements and applications of the proposed solution.
 
 \vspace{1cm}
 % Keywords
@@ -192,21 +201,22 @@ Curricular Unit of Internship or Project (\cite{pagep}).
 \pagenumbering{arabic}
 
 \section{Introdução}\label{intro}
-Para a realização do projeto é necessário desenvolver um sistema de comunicações seguras, que permita a troca de mensagens de texto entre os seus utilizadores.
-Para tal, é necessário implementar um sistema de autenticação de utilizadores, que permita a criação de contas de utilizador e a autenticação dos mesmos.
-O sistema deve ser capaz de garantir a confidencialidade, integridade e autenticidade das mensagens trocadas entre os utilizadores. As tecnologias a utilizadas
-no desenvolvimento deste projeto são: WireGuard (\cite{wireguard}), SQLite (\cite{sqlite}), C\# (\cite{csharp}), Kotlin (\cite{kotlin}), Python (\cite{python}),
-Bash (\cite{bash}), AlmaOS (\cite{almaos}). Em relação a criptografia, serão utilizados os algoritmos Rijndael (vencedor do AES) e
-Serpent (segundo lugar do AES), que são algoritmos de criptografia simétrica.
+Para a realização do projeto foi necessário desenvolver um sistema de comunicações seguras, que permitisse a troca de mensagens de texto
+entre utilizadores. Para tal, tornou-se essencial implementar um sistema de autenticação de utilizadores, que possibilitasse a criação
+de contas e a respetiva validação de acesso.
+O sistema deveria garantir a confidencialidade, integridade e autenticidade das mensagens trocadas. As tecnologias utilizadas no
+desenvolvimento deste projeto foram: WireGuard (\cite{wireguard}), SQLite (\cite{sqlite}), C\# (\cite{csharp}), Kotlin (\cite{kotlin}),
+Python (\cite{python}), Bash (\cite{bash}) e AlmaOS (\cite{almaos}).
 
-Para este projeto, foi decidido utilizar uma variação da metodologia do \textit{SCRUM}, onde eram realizadas reuniões semanais ao ínicio, e depois
-foi sendo feito para ocorrer mais tempo entre reuniões, de forma a que fosse possível ter mais tempo para o desenvolvimento das
-tarefas. Os três membros da equipa foram divididos entre as três áreas do projeto, nomeadamente: desenvolvimento da aplicação Windows,
-desenvolvimento da aplicação Android e por último, a configuração da infraestrutura da rede.
+No que respeita à criptografia, foram adotados os algoritmos
+Rijndael (vencedor do AES) e Serpent (segundo classificado no AES), ambos algoritmos de criptografia simétrica.
+Para a gestão do projeto, optou-se por uma adaptação da metodologia \textit{SCRUM}, com reuniões semanais no início e,
+posteriormente, com maior espaçamento temporal, de forma a permitir períodos mais alargados dedicados ao desenvolvimento das tarefas.
+Os três membros da equipa foram distribuídos pelas principais áreas do projeto: desenvolvimento da aplicação Windows, desenvolvimento
+da aplicação Android e configuração da infraestrutura de rede.
+O cronograma do projeto foi estruturado em duas fases principais: Análise de Requisitos e Desenvolvimento, conforme ilustrado
+na figura \ref{fig:project_schedule}. O relatório foi atualizado semanalmente, incorporando novas informações e registos de progresso.
 
-O cronograma do projeto foi dividido em duas fases principais: Análise de Requisitos, Desenvolvimento, como é possível
-ver na figura \ref{fig:project_schedule}. O relatório foi modificado a cada semana, acrescentando novas informações e
-atualizações sobre o progresso do projeto.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/Cronograma.png}
@@ -214,95 +224,124 @@ atualizações sobre o progresso do projeto.
 	\label{fig:project_schedule}
 \end{figure}
 
-Este projeto ficou guardado nos repositórios do GitHub da equipa, onde pode ser consultado por outros alunos e professores, a partir do seguinte
-link:\\ \url{https://github.com/MartinhoCaeiro/Projeto-Cripto} \&  \url{https://github.com/NarcisoUNK/ProjectFinal_ANDROID}.
+O projeto foi armazenado nos repositórios GitHub da equipa, podendo ser consultado por outros alunos e docentes através dos seguintes endereços:
+\url{https://github.com/MartinhoCaeiro/Projeto-Cripto} \& \url{https://github.com/NarcisoUNK/ProjectFinal_ANDROID}.
+
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
-\section{Analise de Requisitos}\label{analise}
-Para a realização deste projeto, após ser idealizado entre os membros da equipa e analisadas outras aplicações de troca de mensagens, como o \textit{WhatsApp} (\cite{whatsapp}) 
-e \textit{Telegram} (\cite{telegram}), para compreender como estas funcionam. Chegando à conclusão de que utilizam
-uma encriptação de ponta a ponta para garantir a segurança das mensagens. Neste projeto, será implementada uma abordagem 
-bastante semelhante, porém com a integração da VPN. A ideia da VPN surgiu após uma conversa entre os membros da equipa, onde foi discutido o que aconteria se o tráfego da aplicação 
-fosse encaminhado através de uma VPN, e assim a equipa concluiu que isso garantiria uma camada extra de segurança.
-Sendo assim, foram definidos os seguintes requisitos funcionais e não funcionais:
+\section{Análise de Requisitos}\label{analise}
+Para a realização deste projeto, a equipa iniciou o trabalho com a idealização da solução e a análise de outras aplicações de troca de mensagens,
+como o \textit{WhatsApp} (\cite{whatsapp}) e o \textit{Telegram} (\cite{telegram}), de forma a compreender o seu funcionamento.
+Constatou-se que estas plataformas recorrem a encriptação ponta a ponta para assegurar a proteção das mensagens.
+Neste projeto, será seguida uma abordagem semelhante, mas complementada com a integração de uma VPN.
+A ideia da utilização da VPN surgiu de uma discussão entre os membros da equipa, onde se considerou o impacto de encaminhar o tráfego
+da aplicação através desta tecnologia. Concluiu-se que tal integração acrescentaria uma camada adicional de segurança.
+Deste modo, foram definidos os seguintes requisitos funcionais e não funcionais:
+
 \begin{itemize}
 	\item \textbf{Requisitos Funcionais:}
 	      \begin{itemize}
 		      \item O sistema deve permitir a criação de contas de utilizador.
 		      \item O sistema deve permitir a autenticação de utilizadores.
-		      \item O sistema deve permitir o envio e receção de mensagens entre utilizadores.
+		      \item O sistema deve permitir o envio e a receção de mensagens entre utilizadores.
 		      \item O sistema deve garantir a confidencialidade, integridade e autenticidade das mensagens trocadas.
 	      \end{itemize}
 	\item \textbf{Requisitos Não Funcionais:}
 	      \begin{itemize}
 		      \item O sistema deve ser seguro e resistente a ataques.
-		      \item O sistema deve ser fácil de usar e intuitivo.
-		      \item O sistema deve ser escalável e capaz de suportar um grande número de utilizadores.
+		      \item O sistema deve ser de fácil utilização e intuitivo.
+		      \item O sistema deve ser escalável e capaz de suportar um elevado número de utilizadores.
 	      \end{itemize}
 \end{itemize}
 
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Diagrama de Casos de Uso}\label{casos_de_uso}
 
+O diagrama de casos de uso apresentado na Figura \ref{fig:use_case_diagram} fornece uma visão global das funcionalidades principais do sistema e das interações entre os utilizadores e o servidor. Nele, é possível identificar os atores envolvidos — nomeadamente os utilizadores finais e o servidor — bem como os casos de uso associados a cada ator.
 
+Entre os casos de uso representados, destacam-se:
+\begin{itemize}
+	\item Criação e autenticação de contas de utilizador;
+	\item Envio e receção de mensagens de texto, garantindo a confidencialidade através de encriptação;
+	\item Gestão de chats, incluindo a criação de novas conversas e a adição de participantes;
+	\item Configuração do serviço WireGuard, incluindo o download do ficheiro de configuração necessário para o estabelecimento da VPN;
+	\item Sincronização e armazenamento seguro da base de dados SQLite entre cliente e servidor.
+\end{itemize}
+
+Este diagrama serve como um ponto de referência para compreender o comportamento esperado do sistema e a forma como os utilizadores interagem com as diferentes funcionalidades, complementando as descrições apresentadas na secção de requisitos funcionais e não funcionais.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
+	\caption{Diagrama de Casos de Uso}
+	\label{fig:use_case_diagram}
+\end{figure}
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Tecnologias Utilizadas}\label{tecnologias}
 Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
+
 \begin{itemize}
 	\item \textbf{Linguagens de Programação:} C\#, Kotlin
-	\begin{itemize}
-        \item C\#: Utilizada para o desenvolvimento da aplicação de desktop (Windows), outra possibilidade seria Java, porém 
-        foi escolhido C\# por ter sido utilizada há pouco tempo em outra unidade curricular.
-        \item Kotlin: Utilizada para o desenvolvimento da aplicação Android, outra possibilidade seria também Java, porém
-        foi escolhido Kotlin por ser uma linguagem mais moderna e concisa, e ter sido utilizada recentemente em outra unidade curricular.
-    \end{itemize}
+	      \begin{itemize}
+		      \item \textbf{C\#:} Utilizada para o desenvolvimento da aplicação de desktop (Windows). Embora tivesse sido considerada a possibilidade de recorrer a Java, optou-se por C\# por já ter sido utilizada recentemente noutra unidade curricular.
+		      \item \textbf{Kotlin:} Utilizada para o desenvolvimento da aplicação Android. Apesar de também ter sido ponderado o uso de Java, escolheu-se Kotlin por se tratar de uma linguagem mais moderna e concisa, além de ter sido igualmente abordada noutra unidade curricular.
+	      \end{itemize}
 	\item \textbf{Frameworks:} .NET, WireGuard
-	\begin{itemize}
-        \item .NET: Utilizada para o desenvolvimento da aplicação de desktop (Windows), e decidimos por ter sido utilizada recentemente em outra unidade curricular.
-        \item WireGuard: Utilizada para a implementação da VPN, por ser uma solução de VPN moderna, leve e de alto desempenho, e após pesquisas, foi visto que funcionava sem problemas
-        em AlmaOS 8.10 e que era fácil de configurar nos dispositivos clientes.
-    \end{itemize}
+	      \begin{itemize}
+		      \item \textbf{.NET:} Utilizada para o desenvolvimento da aplicação de desktop (Windows), tendo sido selecionada por já ter sido aplicada previamente noutra unidade curricular.
+		      \item \textbf{WireGuard:} Utilizada para a implementação da VPN, por se tratar de uma solução moderna, leve e de elevado desempenho.
+	      \end{itemize}
 	\item \textbf{Base de Dados:} SQLite
-	\begin{itemize}
-        \item Por ser um sistema de gestão de base de dados relacional leve, rápido e fácil de usar.
-    \end{itemize}
-	\item \textbf{Criptografia:} Rijndael (Vencedor AES), Serpent (Segundo lugar AES)
-	\begin{itemize}
-        \item Foram escolhidos por serem algoritmos de criptografia simétrica seguros e eficientes, e por serem amplamente utilizados em aplicações de segurança. Foi recomendado 
-        pelo professor orientador.
-    \end{itemize}
+	      \begin{itemize}
+		      \item Selecionada por ser um sistema de gestão de base de dados relacional leve, rápido e de fácil utilização.
+	      \end{itemize}
+	\item \textbf{Criptografia:} Rijndael (vencedor do AES), Serpent (segundo classificado no AES)
+	      \begin{itemize}
+		      \item Optou-se por estes algoritmos de criptografia simétrica por serem considerados seguros e eficientes, além de serem amplamente utilizados em aplicações de segurança. A escolha foi ainda reforçada pela recomendação do professor orientador.
+	      \end{itemize}
 	\item \textbf{Ferramentas de Desenvolvimento:} Git, Visual Studio Code, Android Studio, GitHub
-	\begin{itemize}
-        \item Todos os membros da equipa utilizam todas estas ferramentas, por serem ferramentas de desenvolvimento modernas, eficientes e fáceis de usar.
-    \end{itemize}
+	      \begin{itemize}
+		      \item Utilizadas por todos os membros da equipa, por se tratarem de ferramentas modernas, eficientes e de fácil utilização.
+	      \end{itemize}
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Arquitetura do Sistema}\label{arquitetura}
-O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores que estiverem registados na VPN poderão comunicar entre si.
-Dentro da aplicação, os utilizadores podem saber quem está associado a um endereço IP da VPN, e assim enviar mensagens para esse utilizador.
-Ao enviar uma mensagem, a aplicação irá contatar o servidor da VPN, para obter o caminho até ao destinatário, e assim enviar a mensagem.
-Essa mensagem será encriptada antes de ser enviada, para garantir a confidencialidade e integridade da mensagem. Existe a variação
-da encriptação utilizada na mensagem, de acordo com uma lógica pré-definida na aplicação, sendo que as cifras de encriptação utilizadas são o AES
-e o Serpent.
+O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores registados na VPN poderão comunicar entre si.
+É importante notar que cada mensagem enviada corresponde ao ficheiro completo da base de dados SQLite, encapsulado e encriptado,
+e não apenas às mensagens recentes ou alterações individuais. Esta abordagem garante a consistência dos dados entre cliente e servidor, embora aumente o volume de dados.
+Dentro da aplicação, é possível identificar quais os utilizadores associados a um determinado endereço IP da VPN e, dessa forma, estabelecer comunicação através do envio de mensagens.
+Quando uma mensagem é enviada, a aplicação contacta o servidor da VPN para obter o caminho até ao destinatário e proceder à entrega.
+Antes da transmissão, a mensagem é encriptada, garantindo assim a sua confidencialidade e integridade.
+A encriptação utilizada varia de acordo com uma lógica pré-definida na aplicação, recorrendo-se aos algoritmos AES (Rijndael) e Serpent.
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Estrutura}
-A estrutura do sistema é focada na troca de informação por dentro da VPN, podendo ser representada 
-na seguinte figura \ref{fig:system_architecture}: 
+A estrutura do sistema centra-se na troca de informação através da VPN,
+podendo ser representada pela figura \ref{fig:system_architecture}:
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
-    \caption{Arquitetura do Sistema}
-    \label{fig:system_architecture}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
+	\caption{Arquitetura do Sistema}
+	\label{fig:system_architecture}
 \end{figure}
 \newpage
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Encriptação}
-O processo de encriptação das mensagens será feita como está demonstrado na figura \ref{fig:encryption_process}. A mensagem
-será encriptada consoante um número pseudo-aleatório gerado pela aplicação, sendo assim escolhido o algoritmo de encriptação a utilizar naquele momento, o AES256 ou Serpent.
-Para encriptar, é necessário fornecer também uma chave de encriptação. Nesta fase, a chave de encriptação é "\textit{\textbf{Spartacus}}". É importante destacar que o seletor 
-está ofuscado, de forma a dificultar a sua identificação, a partir de uma máscara criada através da chave (\textit{salt}) e do número pseudo-aleatório.
+O processo de encriptação das mensagens encontra-se ilustrado na figura \ref{fig:encryption_process}.
+A mensagem é encriptada com base num número pseudo-aleatório gerado pela aplicação,
+o qual determina o algoritmo de encriptação a utilizar nesse momento, podendo ser AES-256 ou Serpent.
 
+Cada operação de encriptação corresponde à transmissão do ficheiro completo da base de dados SQLite.
+Mesmo que apenas pequenas alterações sejam realizadas na BD, o sistema envia o ficheiro integral,
+garantindo a sincronização total e evitando inconsistências entre clientes e servidor.
+
+Para a encriptação, é igualmente necessária uma chave, que nesta fase corresponde a "\textit{\textbf{Spartacus}}".
+Importa salientar que o seletor se encontra ofuscado, de modo a dificultar a sua identificação,
+recorrendo a uma máscara gerada a partir da chave (\textit{salt}) e do número pseudo-aleatório.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/Encripta.png}
@@ -312,8 +351,8 @@ está ofuscado, de forma a dificultar a sua identificação, a partir de uma má
 
 \newpage
 
-Para desencriptar, é necessário fazer o processo inverso. Desta forma, o número pseudo-aleatório está anexado à mensagem encriptada,
-permitindo assim descobrir qual o algoritmo de encriptação utilizado. É possível ver este processo na figura \ref{fig:decryption_process}.
+O processo de desencriptação corresponde à operação inversa. Para tal, o número pseudo-aleatório é anexado à mensagem encriptada,
+permitindo identificar qual o algoritmo de encriptação utilizado. Este processo encontra-se representado na figura \ref{fig:decryption_process}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/Decripta.png}
@@ -321,21 +360,19 @@ permitindo assim descobrir qual o algoritmo de encriptação utilizado. É poss�
 	\label{fig:decryption_process}
 \end{figure}
 
-
 %---------------------------------------------------------------------------------------------------------------------------
-
-\subsection{Implementação da Criptografia (excerto)}
-
-O projecto inclui um módulo chamado \texttt{DbCrypto} (implementado em Kotlin/Java) responsável por encapsular a encriptação e desencriptação dos conteúdos armazenados.
-Segue-se um excerto explicativo com os pontos-chave e um trecho do código mais relevante.
+\subsection{Implementação da Criptografia}
+O projeto inclui um módulo denominado \texttt{DbCrypto} (implementado em Kotlin/Java), responsável por encapsular os processos
+de encriptação e desencriptação dos conteúdos armazenados. Apresenta-se de seguida um resumo explicativo com os pontos-chave,
+acompanhado de um excerto do código mais relevante.
 
 \paragraph{Resumo da lógica}
 \begin{itemize}
-  \item Gera-se um \textbf{salt} e um \textbf{nonce} aleatórios para cada encriptação.
-  \item Deriva-se uma chave simétrica (256 bits) a partir da passphrase/\textit{masterKey} usando PBKDF2-SHA256 (100k iterações).
-  \item Calcula-se uma máscara (\textit{mask}) para ofuscar qual o algoritmo usado (AES ou Serpent) e guarda-se o valor ofuscado no cabeçalho.
-  \item Usa-se AES-GCM ou Serpent-GCM (via BouncyCastle) com AAD contendo o cabeçalho (magic, versão, algoritmo-ofuscado, iterações, salt e nonce).
-  \item O ficheiro resultante é: cabeçalho || ciphertext || tag.
+	\item Para cada encriptação, é gerado um \textbf{salt} e um \textbf{nonce} aleatórios.
+	\item A partir da \textit{passphrase}/\textit{masterKey}, deriva-se uma chave simétrica de 256 bits utilizando PBKDF2-SHA256 (100k iterações).
+	\item É calculada uma máscara (\textit{mask}) para ofuscar o algoritmo utilizado (AES ou Serpent), sendo o valor ofuscado armazenado no cabeçalho.
+	\item Recorre-se a AES-GCM ou Serpent-GCM (via BouncyCastle), com AAD a incluir o cabeçalho (magic, versão, algoritmo ofuscado, número de iterações, salt e nonce).
+	\item O ficheiro resultante apresenta a seguinte estrutura: cabeçalho || \textit{ciphertext} || \textit{tag}.
 \end{itemize}
 
 \paragraph{Trecho de código}
@@ -362,162 +399,178 @@ private fun encryptInternal(data: ByteArray, masterKey: ByteArray, salt: ByteArr
 }
 \end{lstlisting}
 
-\paragraph{Preview / Exemplo de validação}
-Para validar o comportamento foi utilizada a função de desencriptação que verifica o cabeçalho, desfaz a máscara do algoritmo,
-re-deriva a chave com os mesmos parâmetros e tenta a desencriptação; a produção correcta deverá retornar o conteúdo SQLite original (verifica-se o "magic" do SQLite).
+\paragraph{Exemplo de validação}
+Para validar o comportamento, foi utilizada a função de desencriptação que procede à verificação do cabeçalho,
+desfaz a máscara do algoritmo, re-deriva a chave com os mesmos parâmetros e tenta a desencriptação.
+A execução correta deste processo deverá devolver o conteúdo SQLite original, validado pela presença do identificador “magic” do SQLite.
 
-
+%---------------------------------------------------------------------------------------------------------------------------
 \section{Módulos do Sistema}\label{modulos}
+O sistema foi concebido de forma modular, permitindo separar claramente as responsabilidades de cada componente e facilitar a manutenção futura.
+Cada módulo desempenha uma função específica, mas todos interagem de forma integrada para assegurar o correto funcionamento da aplicação.
+Entre os principais módulos destacam-se a interface de utilizador, responsável pela interação direta com o sistema, os módulos de comunicação, criptografia e gestão de dados.
 
+%---------------------------------------------------------------------------------------------------------------------------
 \subsection{Interface}
-A interface para computador será desenvolvida em C\#, uma linguagem rápida e fácil de aprender, e que permite o desenvolvimento de aplicações desktop de forma eficiente e a interface 
-para Android será desenvolvida em Kotlin, que é uma linguagem de programação moderna e concisa, que permite o desenvolvimento de aplicações Android de forma eficiente.
-Esta interface é composta por 4 ecrãs principais:
+A interface para computador foi desenvolvida em C\#, uma linguagem que possibilita o desenvolvimento eficiente de aplicações desktop.
+Já a interface para dispositivos Android foi implementada em Kotlin, uma linguagem moderna e concisa, amplamente utilizada no desenvolvimento de aplicações móveis.
+
+A interface é composta por quatro ecrãs principais:
 \begin{itemize}
-	\item \textbf{Ecrã de Login:} onde o utilizador pode autenticar-se na aplicação utilizando as suas credenciais, tambem é possivel ver o status da ligação WireGuard.
-	\item \textbf{Ecrã de Lista de Chats:} onde o utilizador pode ver a lista de chats existentes, bem como criar novos chats.
-	\item \textbf{Ecrã de Chat:} onde o utilizador pode enviar e receber mensagens de outros utilizadores.
-	\item \textbf{Ecrã de Configuração WireGuard:} onde o utilizador pode criar um ficheiro para configuração do WireGuard.
+	\item \textbf{Ecrã de Login:} permite ao utilizador autenticar-se na aplicação através das suas credenciais, sendo também possível visualizar o estado da ligação WireGuard.
+	\item \textbf{Ecrã de Lista de Chats:} apresenta a lista de conversas existentes e possibilita a criação de novos chats.
+	\item \textbf{Ecrã de Chat:} permite ao utilizador enviar e receber mensagens de outros utilizadores.
+	\item \textbf{Ecrã de Configuração WireGuard:} possibilita a criação de um ficheiro de configuração para o WireGuard.
 \end{itemize}
 
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
 \subsection{Módulo da VPN}
-A VPN estará alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{almaos}), e será responsável por gerir as ligações dos utilizadores à VPN,
-bem como a autenticação dos mesmos. A solução escolhida foi o WireGuard, que é uma solução de VPN de código aberto,
-leve e de alto desempenho, que utiliza criptografia moderna para garantir a segurança das comunicações. É necessário configurar previamente o WireGuard no dispositivo
-do utilizador, para que este possa estabelecer uma ligação à VPN.
+A VPN encontra-se alojada num servidor com o sistema operativo AlmaOS 8.10 (\cite{almaos}) e é responsável pela gestão das ligações dos utilizadores,
+bem como pela sua autenticação. A solução selecionada foi o WireGuard, uma tecnologia de VPN de código aberto, leve e de elevado desempenho, que recorre
+a criptografia moderna para garantir a segurança das comunicações. Para que o utilizador possa estabelecer ligação à VPN, é necessário que o WireGuard
+esteja previamente configurado no respetivo dispositivo.
 
-
-\newpage 
+%---------------------------------------------------------------------------------------------------------------------------
 \subsection{Base de Dados}
-A base de dados será utilizada para armazenar as informações dos utilizadores, as suas credenciais, bem como as mensagens trocadas entre os utilizadores, esta será implementada utilizando o SQLite.
-A base de dados irá ter a seguinte estrutura:
+A base de dados é utilizada para armazenar as informações dos utilizadores, incluindo as credenciais de acesso, bem como as mensagens trocadas entre eles.
+Para a sua implementação foi escolhido o SQLite, por se tratar de um sistema de gestão de base de dados leve, relacional e amplamente utilizado em aplicações móveis e de pequena escala.
 
+A estrutura da base de dados é apresentada na figura \ref{fig:db_structure}:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/ProjectSecure_DB.png}
+	\includegraphics[width=0.65\textwidth]{Recursos/ProjectSecure_DB.png}
 	\caption{Estrutura da Base de Dados}
 	\label{fig:db_structure}
 \end{figure}
 
-\newpage 
-
-Sendo que a base de dados é composta por 4 tabelas, cada uma com as suas respetivas colunas,
-sendo que as tabelas são:
+\newpage
+A base de dados é composta por quatro tabelas principais, cada uma com as suas respetivas colunas:\\
 
 \begin{minipage}{\textwidth}
+	\begin{itemize}
+		\item \textbf{User:}
+		      \begin{itemize}
+			      \item UserID (chave primária)
+			      \item Username (texto)
+			      \item Password (texto)
+		      \end{itemize}
 
+		\item \textbf{Chat:}
+		      \begin{itemize}
+			      \item ChatID (chave primária)
+			      \item Name (texto)
+			      \item AdminID (chave estrangeira, referência à tabela User)
+		      \end{itemize}
 
-    \begin{itemize}
+		\item \textbf{Participant:}
+		      \begin{itemize}
+			      \item ParticipantID (chave primária)
+			      \item ChatID (chave estrangeira, referência à tabela Chat)
+			      \item UserID (chave estrangeira, referência à tabela User)
+		      \end{itemize}
 
-        \item \textbf{User:}
-              \begin{itemize}
-                  \item UserID (chave primária)
-                  \item Username (string)
-                  \item Password (string)
-              \end{itemize}
-
-        \item \textbf{Chat:}
-              \begin{itemize}
-                  \item ChatID (chave primária)
-                  \item Name (string)
-                  \item AdminID (chave estrangeira, referência à tabela User)
-              \end{itemize}
-
-        \item \textbf{Participant:}
-              \begin{itemize}
-                  \item ParticipantID (chave primária)
-                  \item ChatID (chave estrangeira, referência à tabela Chat)
-                  \item UserID (chave estrangeira, referência à tabela User)
-              \end{itemize}
-              \newpage
-        \item \textbf{Message:}
-              \begin{itemize}
-                  \item MessageID (chave primária)
-                  \item ParticipantID (chave estrangeira, referência à tabela Participant)
-                  \item Content (string)
-                  \item Date (data e hora da mensagem)
-                  \item SenderUserID (chave estrangeira, referência à tabela Participant)
-              \end{itemize}
-    \end{itemize}
-
-
+		\item \textbf{Message:}
+		      \begin{itemize}
+			      \item MessageID (chave primária)
+			      \item ParticipantID (chave estrangeira, referência à tabela Participant)
+			      \item Content (texto)
+			      \item Date (data e hora da mensagem)
+			      \item SenderUserID (chave estrangeira, referência à tabela User)
+		      \end{itemize}
+	\end{itemize}
 \end{minipage}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Desenvolvimento}\label{desenvolvimento}
-\subsection{Interface para Computador}
-Para o desenvolvimento da interface para computador, foi utilizado o Visual Studio Code, que é um ambiente de desenvolvimento integrado (IDE) da Microsoft.
+Esta secção descreve os principais módulos do sistema, com foco na implementação das interfaces, funcionalidades de comunicação,
+gestão de mensagens e configuração da VPN. Serão apresentados os detalhes técnicos das aplicações para computador e Android,
+bem como os processos de autenticação, encriptação e gestão de dados.
 
+\subsection{Interface para Computador}
+Para o desenvolvimento da interface para computador foi utilizado o Visual Studio Code, um ambiente de desenvolvimento integrado
+(IDE) da Microsoft, que oferece suporte a diversas linguagens e ferramentas, permitindo um processo de implementação ágil e organizado.
+
+%-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Login}
-O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação.
-Caso não tenha uma conta criada apenas tem que preencher o formulario e clicar no botão de criar conta, esta ação só é possivel com o Wireguard ativado.
-Também é possivel ver o estado da ligação WireGuard, caso esteja ligado ou desligado.
+O ecrã de login é composto por um formulário onde o utilizador pode introduzir as suas credenciais, bem como um botão para efetuar a autenticação na aplicação.
+Caso o utilizador não possua uma conta, pode criar uma diretamente no mesmo formulário, sendo apenas necessário
+preencher os campos e selecionar a opção de criação de conta. Esta ação apenas é possível quando a ligação ao WireGuard está ativa.
+Adicionalmente, o ecrã apresenta o estado da ligação ao WireGuard, indicando se esta se encontra ativa ou inativa.
 \begin{figure}[htb]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
-        \caption{WireGuard Ativado}
-    \label{fig:login_pc_img1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/LoginPC2.png}
-        \caption{Wireguard Desativado}
-    \label{fig:login_pc_img2}
-    \end{subfigure}
-    \caption{Ecrã de Login - Computador}
-    \label{fig:login_pc_duas_imagens}
+	\centering
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/LoginPC1.png}
+		\caption{WireGuard Ativado}
+		\label{fig:login_pc_img1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/LoginPC2.png}
+		\caption{WireGuard Desativado}
+		\label{fig:login_pc_img2}
+	\end{subfigure}
+	\caption{Ecrã de Login — Computador}
+	\label{fig:login_pc_duas_imagens}
 \end{figure}
 
+%-------------------------------------------------------------------------------------------------
 \newpage
 \subsubsection{Ecrã de Lista de Chats}
-O ecrã de lista de chats é composto por uma lista de chats existentes e um botão para criar novos chats, este só pode ser criado com o WireGuard ativado.
-No seu canto superior direito, existe um botão para aceder às definições da aplicação, onde o utilizador pode configurar se quer a aplicação em modo escuro ou claro,
-e no seu canto inferior esquerdo existe um botão para terminar sessão caso deseja mudar de utilizador.
+O ecrã de lista de chats apresenta os chats existentes e inclui um botão para a criação de novos chats,
+que apenas pode ser utilizado quando a ligação ao WireGuard se encontra ativa.
+No canto superior direito do ecrã, encontra-se um botão para aceder às definições da aplicação, permitindo
+ao utilizador selecionar o modo de visualização, claro ou escuro. À sua esquerda,
+existe um botão para terminar a sessão, possibilitando a troca de utilizador de forma rápida e segura.\\
+
 \begin{figure}[htb]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/ListaPC1.png}
-        \caption{WireGuard Ativado}
-    \label{fig:lista_pc_img1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/ListaPC2.png}
-        \caption{Wireguard Desativado}
-    \label{fig:lista_pc_img2}
-    \end{subfigure}
-    \caption{Ecrã de Lista de Chats - Computador}
-    \label{fig:lista_pc_duas_imagens}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/ListaPC1.png}
+		\caption{WireGuard Ativado}
+		\label{fig:lista_pc_img1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/ListaPC2.png}
+		\caption{WireGuard Desativado}
+		\label{fig:lista_pc_img2}
+	\end{subfigure}
+	\caption{Ecrã de Lista de Chats — Computador}
+	\label{fig:lista_pc_duas_imagens}
 \end{figure}
 
-\newpage
 %-------------------------------------------------------------------------------------------------
+\newpage
 \subsubsection{Ecrã de Chat}
-O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
-Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
+O ecrã de chat apresenta a lista de mensagens trocadas entre os utilizadores, sendo que as mensagens
+recebidas aparecem no lado esquerdo, enquanto as mensagens enviadas são exibidas no lado direito.
+O envio de mensagens apenas é possível quando a ligação ao WireGuard se encontra ativa.
+Para enviar uma mensagem, o utilizador deve introduzir o texto no campo apropriado e selecionar o botão de envio.\\
+
 \begin{figure}[htb]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/ChatPC1.png}
-        \caption{WireGuard Ativado}
-    \label{fig:chat_pc_img1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/ChatPC2.png}
-        \caption{Wireguard Desativado}
-    \label{fig:chat_pc_img2}
-    \end{subfigure}
-    \caption{Ecrã de Chat - Computador}
-    \label{fig:chat_pc_duas_imagens}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/ChatPC1.png}
+		\caption{WireGuard Ativado}
+		\label{fig:chat_pc_img1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/ChatPC2.png}
+		\caption{Wireguard Desativado}
+		\label{fig:chat_pc_img2}
+	\end{subfigure}
+	\caption{Ecrã de Chat - Computador}
+	\label{fig:chat_pc_duas_imagens}
 \end{figure}
 
-\newpage
 %-------------------------------------------------------------------------------------------------
+\newpage
 \subsubsection{Ecrã de Configuração WireGuard}
-O ecrã de configuração WireGuard é composto por um formulário onde o utilizador insere o seu nome, e um botão para descarregar o ficheiro de configuração do WireGuard.
+O ecrã de configuração do WireGuard apresenta um formulário onde o utilizador deve introduzir o seu nome.
+Após preenchimento, é disponibilizado um botão que permite descarregar o ficheiro de configuração do WireGuard, necessário para estabelecer a ligação à VPN.\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=10cm]{Recursos/WireguardPC.png} % Substitua pelo caminho da imagem
@@ -525,249 +578,273 @@ O ecrã de configuração WireGuard é composto por um formulário onde o utiliz
 	\caption{Ecrã de Configuração WireGuard - Computador}
 \end{figure}
 
-\newpage
 %-------------------------------------------------------------------------------------------------
+\newpage
 \subsection{Interface para Android}
-Para o desenvolvimento da interface para Android, foi utilizado o Android Studio, que é um ambiente de desenvolvimento integrado 
-(IDE) oficial para o sistema operativo Android.
+Para o desenvolvimento da interface para Android foi utilizado o Android Studio, o ambiente de desenvolvimento integrado
+(IDE) oficial para o sistema operativo Android, que oferece suporte a ferramentas e bibliotecas nativas,
+permitindo um desenvolvimento eficiente e estruturado das aplicações móveis.
+
 %-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de Login}
-O ecrã de login é composto por um formulário onde o utilizador pode inserir as suas credenciais, e um botão para autenticar-se na aplicação. 
-Este pode iniciar sessão ou criar uma conta, caso não possua uma. Também é possivel ver o estado da ligação WireGuard, caso esteja ligado 
-ou desligado. Existe ainda a possibilidade de estabelecer a comunicação de uma forma mais prática para o utilizador, através do download do 
-ficheiro de configuração do WireGuard.
+O ecrã de login apresenta um formulário onde o utilizador pode introduzir as suas credenciais e um botão
+para efetuar a autenticação na aplicação. O utilizador pode iniciar sessão ou criar uma nova conta caso ainda não possua uma.
+A interface oferece também a possibilidade de facilitar a configuração da comunicação, permitindo ao utilizador descarregar
+o ficheiro de configuração do WireGuard diretamente a partir do ecrã de login.\\
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=6cm]{Recursos/LoginAndroid.png} % Substitua pelo caminho da imagem
-    \label{fig:android_login}
-    \caption{Ecrã de Login - Android}
-    
+	\centering
+	\includegraphics[width=5cm]{Recursos/LoginAndroid.png} % Substitua pelo caminho da imagem
+	\label{fig:android_login}
+	\caption{Ecrã de Login - Android}
+
 \end{figure}
 \newpage
+
 %-------------------------------------------------------------------------------------------------
 \subsubsection{Ecrã de configuração do WireGuard}
-Neste ecrã, o utilizador pode inserir um nome que está associado à sua ligação WireGuard. Após inserir e enviar o pedido, será 
-fornecido o ficheiro de configuração do WireGuard, que pode ser importado diretamente na aplicação do WireGuard no dispositivo Android.
-
+Neste ecrã, o utilizador deve introduzir um nome associado à sua ligação WireGuard. Após o preenchimento
+e envio do pedido, é disponibilizado o ficheiro de configuração do WireGuard, que pode ser importado
+diretamente na aplicação do WireGuard no dispositivo Android, permitindo a configuração rápida e segura da ligação à VPN.\\
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=6cm]{Recursos/WireguardAndroid.png} % Substitua pelo caminho da imagem
-    \label{fig:android_config_wireguard}
-    \caption{Ecrã de Configuração do WireGuard - Android}
-    
+	\centering
+	\includegraphics[width=6cm]{Recursos/WireguardAndroid.png} % Substitua pelo caminho da imagem
+	\label{fig:android_config_wireguard}
+	\caption{Ecrã de Configuração do WireGuard - Android}
+
 \end{figure}
 
-\newpage
 %-------------------------------------------------------------------------------------------------
+\newpage
 \subsubsection{Ecrã de Lista de Chats}
-O ecrã de lista de chats é composto por uma lista de conversas anteriores, onde o utilizador pode selecionar uma conversa para visualizar o seu conteúdo. 
-Neste ecrã, também é possível iniciar uma nova conversa, caso o utilizador deseje.
+O ecrã de lista de chats apresenta uma relação das conversas anteriores, permitindo ao utilizador
+selecionar qualquer uma delas para visualizar o respetivo conteúdo.
+Adicionalmente, é possível iniciar uma nova conversa caso o utilizador assim o deseje,
+promovendo uma gestão simples e intuitiva das interações.\\
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=6cm]{Recursos/ListaAndroid.png} % Substitua pelo caminho da imagem
-    \caption{Lista de Chats - Android}
-    \label{fig:android_lista_chats}
+	\centering
+	\includegraphics[width=6cm]{Recursos/ListaAndroid.png} % Substitua pelo caminho da imagem
+	\caption{Lista de Chats - Android}
+	\label{fig:android_lista_chats}
 \end{figure}
 
-\newpage
 %-------------------------------------------------------------------------------------------------
+\newpage
 \subsubsection{Ecrã de Chat}
-O ecrã de chat é composto por uma lista de mensagens trocadas entre os utilizadores, mensagens recebidas ficam do lado esquerdo e mensagens enviadas no lado direito.
-Apenas é possivel enviar mensagens com o WireGuard ativado, para enviar uma mensagem basta escrever no campo de texto e clicar no botão de enviar.
+O ecrã de chat apresenta a lista de mensagens trocadas entre os utilizadores, sendo que as mensagens
+recebidas são exibidas no lado esquerdo, enquanto as mensagens enviadas aparecem no lado direito.
+O envio de mensagens apenas é possível quando a ligação ao WireGuard se encontra ativa.
+Para enviar uma mensagem, o utilizador deve introduzir o texto no campo apropriado e selecionar o botão de envio.\\
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=6cm]{Recursos/ChatAndroid.png} % Substitua pelo caminho da imagem
-    \caption{Ecrã de Chat - Android}
-    \label{fig:android_chat}
+	\centering
+	\includegraphics[width=6cm]{Recursos/ChatAndroid.png} % Substitua pelo caminho da imagem
+	\caption{Ecrã de Chat - Android}
+	\label{fig:android_chat}
 \end{figure}
 
-\newpage
 %-------------------------------------------------------------------------------------------------
-\subsection{AlmaOS - Serviço de VPN}
-Para configurar corretamente o serviço de VPN, é necessário instalar o WireGuard no servidor AlmaOS 8.10,
-para isso ser feito, foi necessário seguir os seguintes passos:
-\begin{enumerate}
-	\item Adicionar o repositório EPEL - sudo dnf install epel-release
-	\item Adicionar o repositório ELREPO - sudo dnf install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
-	\item Ativar o CodeReady Builder - sudo /usr/bin/crb enable
-	\item Atualizar os metadados - sudo dnf makecache
-	\item sudo dnf --enablerepo=elrepo install kmod-wireguard -y
-	\item Instalar o WireGuardTools - sudo dnf install wireguard-tools -y
-\end{enumerate}
-Para verificar se o WireGuard está instalado corretamente, pode-se utilizar o comando \textbf{"sudo modprobe wireguard"},
-se este não devolver nenhum output, significa que o WireGuard está instalado corretamente.
-
-Agora, para configurar o WireGuard, é necessário criar as chaves de criptografia, para isso é necessário
-ir para a pasta \textbf{/etc/wireguard} e executar o seguintes comando:
-\begin{verbatim}
-    wg genkey | tee server_private.key | wg pubkey > server_public.key
-    chmod 600 server_private.key
-\end{verbatim}
-Isto irá gerar duas chaves, uma privada e uma pública, que serão utilizadas para autenticar os utilizadores na VPN.
 \newpage
-Após isso, é necessário criar o ficheiro de configuração do WireGuard, onde estará definida a configuração da VPN em si,
-como o endereço IP da VPN, a porta de escuta, as chaves de criptografia, entre outros.
-Para isso, é necessário criar o ficheiro \textbf{wg0.conf} na pasta \textbf{/etc/wireguard}, e adicionar o seguinte conteúdo:
+\subsection{AlmaOS - Serviço de VPN}
+Para configurar corretamente o serviço de VPN, é necessário instalar o WireGuard no servidor AlmaOS 8.10. Para tal, devem ser seguidos os seguintes passos:
+
+\begin{enumerate}
+	\item Adicionar o repositório EPEL: \texttt{sudo dnf install epel-release}
+	\item Adicionar o repositório ELRepo: \texttt{sudo dnf install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm}
+
+	\item Ativar o CodeReady Builder: \texttt{sudo /usr/bin/crb enable}
+	\item Atualizar os metadados: \texttt{sudo dnf makecache}
+	\item Instalar o módulo WireGuard: \texttt{sudo dnf --enablerepo=elrepo install kmod-wireguard -y}
+	\item Instalar as ferramentas WireGuard: \texttt{sudo dnf install wireguard-tools -y}
+\end{enumerate}
+
+Para verificar se o WireGuard foi instalado corretamente, pode-se utilizar o comando:
+
+\begin{verbatim}
+sudo modprobe wireguard
+\end{verbatim}
+
+Se o comando não apresentar qualquer output, significa que o WireGuard se encontra instalado corretamente.
+
+De seguida, para configurar o WireGuard, é necessário gerar as chaves de criptografia. Para tal, aceda à pasta \texttt{/etc/wireguard} e execute o seguinte comando:
+
+\begin{verbatim}
+wg genkey | tee server_private.key | wg pubkey > server_public.key
+chmod 600 server_private.key
+\end{verbatim}
+
+Este procedimento gera duas chaves: uma privada e uma pública, que serão utilizadas para autenticar os utilizadores na VPN.
+
+\newpage
+Após a criação das chaves de criptografia, é necessário gerar o ficheiro de configuração do WireGuard,
+onde serão definidas as configurações da VPN, incluindo o endereço IP da rede, a porta de escuta, as chaves de criptografia, entre outros parâmetros.
+
+Para tal, deve ser criado o ficheiro \textbf{wg0.conf} na pasta \textbf{/etc/wireguard}, contendo o seguinte:
 \begin{verbatim}
     [Interface]
     PrivateKey = <Chave Privada do Servidor>
     Address = 10.0.0.1/24
     ListenPort = 51820
     SaveConfig = true
+
     [Peer]
     PublicKey = <Chave Pública do Cliente>
     AllowedIPs = 10.0.0.2/32
 \end{verbatim}
 
-Para garantir o bom funcionamento da VPN, é necessário ativar o encaminhamento de endereços IP, para assim permitir o tráfego de rede.
-Para isso, é necessário fazer o seguinte comando:
+Para assegurar o correto funcionamento da VPN, é necessário ativar o encaminhamento de endereços IP, permitindo o tráfego de rede. Para tal, execute os seguintes comandos:
+
 \begin{verbatim}
-    # Para permitir o tráfego de rede 
+    # Ativar o encaminhamento de IP
+
     echo "net.ipv4.ip_forward = 1" | sudo tee -a /etc/sysctl.conf
     sudo sysctl -p
 
-    # Para permitir o tráfego pela porta 51820
+    # Configurar firewall e NAT para permitir o tráfego pela porta 51820
+
     sudo firewall-cmd --add-masquerade --permanent
     sudo firewall-cmd --add-port=51820/udp --permanent
     sudo iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j MASQUERADE
     sudo firewall-cmd --reload
-
 \end{verbatim}
+
 \newpage
-Para ser possível encaminhar o tráfego de rede, é necessário adicionar uma regra ao Router para que, todos os pacotes que cheguem à porta 51820
-sejam encaminhados para o servidor WireGuard.
-Por fim, basta iniciar o serviço do WireGuard, para isso é necessário executar o seguinte comando:
-\begin{verbatim}
-    sudo systemctl enable --now wg-quick@wg0
-\end{verbatim}
+Para permitir o encaminhamento do tráfego de rede, é necessário adicionar
+uma regra no router que redirecione todos os pacotes que cheguem à porta 51820 para o servidor WireGuard.
 
-Para conseguir estabelecer a troca de ficheiros entre o servidor e o cliente, foi necessário implementar
-um \textit{script} que gerencia as trocas de ficheiros da base de dados entre os clientes e o servidor.
-Esse script foi feito em Python, utiliza a biblioteca Flask para criar uma API REST que permite a comunicação entre o cliente e o servidor.
-Foi necessário permitir a porta 8000 no servidor, para que o cliente possa comunicar com o servidor.
-
-
-Do lado do cada cliente, vai ser necessário configurar o WireGuard, de maneira a que apenas a informação
-proveniente da aplicação desenvolvida seja enviada através da VPN, onde assim serão poupados recursos
-do dispositivo que está a fazer o papel de servidor. Para isso, foi criado um \textit{script} que cria o ficheiro
-de configuração do WireGuard para o cliente, sendo que este só deve adicionar o ficheiro de configuração na aplicação
-do WireGuard. O \textit{script} ainda automatiza a adição do cliente nas configurações do servidor. Foi criado ainda um 
-\textit{script} complementar, em Python, para ser obtido o ficheiro de configurações de maneira mais fácil para o utilizador/cliente. 
-Este script segue o mesmo princípio da troca da base de dados, com a diferença de que está a utilizar a seu endereço de IP local em vez 
-da VPN. Sendo assim, para obter o ficheiro de configurações, é necessário estabelecer conexão com o servidor no endereço 
-\textit{192.168.1.106:9595 {nome}}, onde \textit{nome} é o nome do utilizador que quer aceder à VPN. Ao estabelecer ligação, vai ter 
-um ficheiro de configurações criado por um administrador à espera de ser transferido. O administrador cria esse ficheiro com o auxilio do 
-\textit{script} anterior, para conseguir limitar o acesso às comunicações caso o acesso à VPN seja comprometido.
-
+De seguida, o serviço do WireGuard deve ser iniciado, executando o seguinte comando:
 
 \begin{verbatim}
-    sudo firewall-cmd --add-port=8000/tcp --permanent
-    sudo firewall-cmd --reload
+sudo systemctl enable --now wg-quick@wg0
 \end{verbatim}
+
+Para possibilitar a troca de ficheiros entre o servidor e os clientes, foi implementado um \textit{script}
+em Python que gere a sincronização da base de dados. Este \textit{script} utiliza a biblioteca Flask para criar uma API REST,
+permitindo a comunicação segura entre cliente e servidor. No servidor, foi necessário permitir a porta 8000 para que a comunicação seja efetuada corretamente:
+
+\begin{verbatim}
+sudo firewall-cmd --add-port=8000/tcp --permanent
+sudo firewall-cmd --reload
+\end{verbatim}
+
+No lado de cada cliente, é necessário configurar o WireGuard de forma a que apenas a informação proveniente da aplicação
+desenvolvida seja enviada através da VPN, poupando assim recursos no dispositivo que atua como servidor. Para facilitar este processo,
+foi criado um \textit{script} que gera automaticamente o ficheiro de configuração do WireGuard para o cliente. O utilizador apenas precisa de
+adicionar este ficheiro na aplicação WireGuard.
+
+O mesmo \textit{script} automatiza a adição do cliente nas configurações do servidor. Foi ainda desenvolvido um \textit{script} complementar
+em Python para disponibilizar o ficheiro de configuração de forma simples para o utilizador/cliente. Este segundo \textit{script} funciona de forma
+semelhante à sincronização da base de dados, com a diferença de que utiliza o endereço IP local do servidor em vez da VPN.
+
+Para obter o ficheiro de configuração, o utilizador deve estabelecer ligação com o servidor no endereço \textit{192.168.1.106:9595/{nome}}, onde \textit{nome}
+corresponde ao nome do utilizador que pretende aceder à VPN. Após estabelecer a ligação, o ficheiro de configuração criado pelo administrador estará disponível para transferência.
+O administrador gera este ficheiro utilizando o \textit{script} anterior, permitindo limitar o acesso às comunicações caso a VPN seja comprometida.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Problemas Encontrados}\label{problemas}
-Durante o desenvolvimento do projeto, foram encontrados alguns problemas e respetivas soluções. Nas secções seguintes 
-apresenta-se um conjunto de problemas e soluções selecionados, pela sua relevância no projeto.
+Durante o desenvolvimento do projeto foram identificados alguns problemas, bem como as respetivas soluções. Nas secções seguintes
+apresenta-se um conjunto de problemas e soluções selecionados, em função da sua relevância para o projeto.
+
 %-------------------------------------------------------------------------------------------------
 \subsection{Problemas de Conexão}
-Logo no inicio da implementação da VPN foi necessário achar uma solução para a configuração de encaminhamento de pacotes, pois o servidor Linux
-não possui um endereço IP público próprio. Para contornar este problema, foi necessário configurar o encaminhamento de pacotes no router, de forma
-a que todos os pacotes que chegassem à porta 51820 fossem encaminhados para o servidor Linux, e este resolveria a situação encaminhando o resto dos pacotes pela VPN.\\
-Outro problema encontrado foi a dificuldade em encontrar uma maneira para estabelecer a conexão pela primeira vez, ou seja, enviar o ficheiro de configuração
-da VPN para o dispositivo do utilizador, de forma a que este pudesse estabelecer a conexão com o servidor. Para resolver este problema,
-foi necessário criar um \textit{script} que gerasse o ficheiro de configuração do WireGuard, e que fosse possível enviar esse ficheiro para o dispositivo do utilizador.
+Logo no início da implementação da VPN, foi necessário encontrar uma solução para a configuração do encaminhamento de pacotes,
+uma vez que o servidor Linux não possui um endereço IP público próprio. Para contornar este problema, procedeu-se à configuração
+do encaminhamento de pacotes no router, de forma a que todos os pacotes recebidos na porta 51820 fossem direcionados para o servidor Linux,
+o qual se encarregaria de encaminhar o restante do tráfego através da VPN.
+
+Outro problema identificado foi a dificuldade em estabelecer a conexão inicial, ou seja, enviar o ficheiro de configuração da VPN para o
+dispositivo do utilizador de modo a permitir a ligação ao servidor. Para resolver esta situação, foi necessário criar um \textit{script}
+que gerasse automaticamente o ficheiro de configuração do WireGuard e possibilitasse o seu envio para o dispositivo do utilizador.
+
 %-------------------------------------------------------------------------------------------------
-\subsection{Problemas na aplicação Windows/Android}
-Durante o desenvolvimento da aplicação, foram encontrados diversos problemas, como por exemplo:
+\subsection{Problemas na Aplicação Windows/Android}
+Durante o desenvolvimento da aplicação, foram identificados diversos problemas, entre os quais se destacam:
+
 \begin{itemize}
-	\item Problemas de compatibilidade entre tipos de base de dados (SQLite e Schemas);
+	\item \textbf{Problemas de compatibilidade entre tipos de base de dados (SQLite e Schemas):}
 	      \begin{itemize}
-		      \item Incompatibilidade de nomes entre tabelas, sendo necessário colocar as tabelas em letra minúscula em ambos. 
-              A solução passou por uniformizar a definição das entidades. Exemplo:
-              \newpage
-\begin{lstlisting}[language=Kotlin, caption={Definição da tabela \texttt{users} em Kotlin}]
+		      \item Incompatibilidade de nomes entre tabelas, sendo necessário uniformizar as tabelas em letra minúscula em ambas as plataformas. A solução consistiu em padronizar a definição das entidades. Exemplo:
+		            \newpage
+		            \begin{lstlisting}[language=Kotlin, caption={Definição da tabela \texttt{users} em Kotlin}]
 @Entity(tableName = "users")
 data class UserEntity(
-    @PrimaryKey
-    @ColumnInfo(name = "UserId")
-    val userId: String,
-    @ColumnInfo(name = "Name")
-    val name: String,
-    @ColumnInfo(name = "Password")
-    val password: String
+@PrimaryKey
+@ColumnInfo(name = "UserId")
+val userId: String,
+@ColumnInfo(name = "Name")
+val name: String,
+@ColumnInfo(name = "Password")
+val password: String
 )
 \end{lstlisting}
 
-		      \item Configurações por defeito diferentes entre as plataformas, sendo necessário deixar explícito em ambos os lados 
-              sobre as configurações necessárias, como por exemplo \texttt{NOT NULL};
+		      \item Configurações por defeito diferentes entre as plataformas, sendo necessário explicitar em ambos os lados as configurações essenciais, como por exemplo \texttt{NOT NULL}.
 	      \end{itemize}
-	\item Permissões do Android, sendo necessário adicionar todas as permissões necessárias no \texttt{AndroidManifest.xml} para funcionar corretamente. 
-    A solução foi a inclusão explícita das permissões obrigatórias:
-\begin{lstlisting}[language=XML, caption={Permissões no AndroidManifest.xml}]
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-\end{lstlisting}
 
-	\item Visualização/sincronização incorreta das informações e a impossibilidade de modificar a base de dados enquanto a aplicação está a correr. 
-    Para resolver, foi criada uma base de dados temporária (\textit{snapshot}) através da instrução \texttt{VACUUM INTO}, garantindo consistência sem bloquear a BD principal:
-\newpage
-    
-\begin{lstlisting}[language=Kotlin, caption={Criação de snapshot temporário da base de dados}]
+	\item \textbf{Permissões no Android:}
+	      Foi necessário adicionar todas as permissões obrigatórias no ficheiro \texttt{AndroidManifest.xml} para que a aplicação funcionasse corretamente. A solução passou pela inclusão explícita das permissões:
+	      \begin{lstlisting}[language=XML, caption={Permissões no AndroidManifest.xml}]  
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <uses-permission android:name="android.permission.INTERNET" /> \end{lstlisting}
+	      \newpage
+	\item \textbf{Visualização e sincronização incorreta de informações:}
+	      Existia também a impossibilidade de modificar a base de dados enquanto a aplicação estava a correr. Para contornar esta limitação, foi criada uma base de dados temporária (\textit{snapshot}) através da instrução \texttt{VACUUM INTO}, garantindo consistência sem bloquear a base de dados principal:
+	      \begin{lstlisting}[language=Kotlin, caption={Criação de \textit{snapshot} temporário da base de dados}]  
+
+
 private fun createDatabaseSnapshot(context: Context): File? {
-    val dbFile = context.getDatabasePath(DB_NAME)
-    if (!dbFile.exists()) return null
-    return try {
-        val sqlDb = SQLiteDatabase.openDatabase(dbFile.path, null, SQLiteDatabase.OPEN_READWRITE)
-        try {
-            sqlDb.rawQuery("PRAGMA wal_checkpoint(PASSIVE);", null).close()
-            val snapshot = File.createTempFile("upload_snapshot", ".db", context.cacheDir)
-            val escaped = snapshot.absolutePath.replace("'", "''")
-            sqlDb.execSQL("VACUUM INTO '$escaped'")
-            snapshot
-        } finally { sqlDb.close() }
-    } catch (e: Exception) { null }
+val dbFile = context.getDatabasePath(DB_NAME)
+if (!dbFile.exists()) return null
+return try {
+val sqlDb = SQLiteDatabase.openDatabase(dbFile.path, null, SQLiteDatabase.OPEN_READWRITE)
+try {
+sqlDb.rawQuery("PRAGMA wal_checkpoint(PASSIVE);", null).close()
+val snapshot = File.createTempFile("upload_snapshot", ".db", context.cacheDir)
+val escaped = snapshot.absolutePath.replace("'", "''")
+sqlDb.execSQL("VACUUM INTO '$escaped'")
+snapshot
+} finally { sqlDb.close() }
+} catch (e: Exception) { null }
 }
 \end{lstlisting}
 \end{itemize}
 
-
 %-------------------------------------------------------------------------------------------------
-\subsection{Depuração da camada criptográfica e protocolo de \textit{framing}}
+\newpage
+\subsection{Depuração da Camada Criptográfica e Protocolo de \textit{Framing}}
 \label{subsec:cripto-framing}
-\subsubsection*{Contexto}
-A arquitetura Cliente Android (Kotlin) $\leftrightarrow$ Servidor PC (Python) exige confidencialidade e integridade ponta-a-ponta. 
-Foi adotado Serpent-256 em modo AEAD, com AAD a autenticar metadados. 
-Durante os testes iniciais surgiram falhas consistentes de decriptação (\texttt{BAD\_DECRYPT}), mesmo com parâmetros aparentemente corretos.
 
-\subsubsection*{Sintomas observados}
+\paragraph{Contexto}
+A comunicação Cliente Android (Kotlin) $\leftrightarrow$ Servidor PC (Python) exige confidencialidade
+e integridade ponta-a-ponta. Foi adotado Serpent-256 em modo AEAD, com AAD autenticando metadados.
+Durante os testes iniciais surgiram falhas de decriptação (\texttt{BAD\_DECRYPT}) mesmo com parâmetros aparentemente corretos.
+
+\paragraph{Sintomas}
 \begin{itemize}
-    \item Erros repetidos \texttt{BAD\_DECRYPT} antes de qualquer \textit{plaintext} ser obtido.
-    \item Comprimento de chave válido (32 bytes), mas divergências estruturais em nonce/tag/AAD.
-    \item Envio rápido de duas mensagens consecutivas causava bloqueio ou exceções no recetor.
+	\item Erros \texttt{BAD\_DECRYPT} antes de obter qualquer \textit{plaintext}.
+	\item Chaves válidas, mas divergências em nonce, tag ou AAD.
+	\item Envio rápido de mensagens consecutivas provocava bloqueio ou exceções.
 \end{itemize}
 
-\subsubsection*{Metodologia de depuração}
-\begin{enumerate}[label=\alph*)]
-    \item Instrumentação com \textit{logs} detalhados (chave, AAD, nonce, tag).
-    \item Comparação lado-a-lado (hex/base64) entre cliente e servidor.
-    \item Ensaios isolados em \textit{scripts} Python com testes negativos (alteração de 1 byte).
-    \item Validação com ferramentas externas (\texttt{openssl}, \texttt{hexdump}).
-\end{enumerate}
-
-\subsubsection*{Soluções implementadas}
-\paragraph{Normalização do envelope e \textit{framing}}
+\paragraph{Abordagem de Depuração}
 \begin{itemize}
-    \item Definição de contrato binário canónico com prefixo de comprimento de 4 bytes (\textbf{big-endian}).
-    \item Estrutura formal: LEN, MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, NONCE, TAG, AAD\_LEN, CT\_LEN, AAD, CIPHERTEXT.
-    \item Regras explícitas de endianidade e tamanhos para evitar ambiguidade.
+	\item Instrumentação com \textit{logs} detalhados (chave, AAD, nonce, tag).
+	\item Comparação hex/base64 entre cliente e servidor.
+	\item Testes isolados em \textit{scripts} Python com alterações de 1 byte.
+	\item Validação com ferramentas externas (\texttt{openssl}, \texttt{hexdump}).
 \end{itemize}
 
-Para implementar este modelo, foi criada uma função de encriptação capaz de gerar o envelope
-com os campos de \textit{header} autenticados como AAD, garantindo consistência entre cliente e servidor:\newpage
+\paragraph{Soluções Implementadas}
 
+\paragraph{Normalização do Envelope e \textit{Framing}}
+\begin{itemize}
+	\item Contrato binário canónico com prefixo de 4 bytes (\textbf{big-endian}).
+	\item Estrutura: LEN, MAGIC, VER, ALG, FLAGS, SEQ, TIMESTAMP, NONCE, TAG, AAD\_LEN, CT\_LEN, AAD, CIPHERTEXT.
+	\item Regras claras de endianidade e tamanhos.
+	\item Envelope de encriptação com AAD autenticado, garantindo consistência cliente-servidor.
+\end{itemize}
+
+\newpage
 \begin{lstlisting}[language=Kotlin, caption={Função de encriptação com AAD e envelope binário}]
 private fun encryptInternal(
     data: ByteArray,
@@ -802,210 +879,179 @@ private fun encryptInternal(
 }
 \end{lstlisting}
 
-\paragraph{Robustez na receção e persistência}
+\paragraph{Robustez na Receção e Persistência}
 \begin{itemize}
-    \item Implementação de \textit{BufferAssembler} para só entregar \textit{frames} completos ao descifrador.
-    \item Rejeição de mensagens com SEQ duplicado/regressivo (anti-replay).
-    \item Escrita na BD encapsulada em transações atómicas, com acesso serializado por \textit{worker/fila}.
+	\item Uso de \textit{BufferAssembler} para processar apenas \textit{frames} completos.
+	\item Rejeição de SEQ duplicados ou regressivos (anti-replay).
+	\item Escrita na base de dados via transações atómicas, com acesso serializado.
 \end{itemize}
 
-\subsubsection*{Resultados e validação}
+\paragraph{Resultados}
 \begin{itemize}
-    \item Eliminação dos erros \texttt{BAD\_DECRYPT} após ráfagas curtas.
-    \item \textit{Stress tests} com envios consecutivos (30--250 ms) sem falhas de descifragem nem corrupção da BD.
-    \item Critérios de fecho: 0 ocorrências de falha em campanhas prolongadas; 100 envios duplos consecutivos sem \textit{crash}; latência média $< 150$ ms.
+	\item Eliminação de \texttt{BAD\_DECRYPT} após ráfagas curtas.
+	\item Envios consecutivos (30--250 ms) sem falhas ou corrupção da BD.
+	\item Critérios de fecho: 0 falhas em campanhas prolongadas; 100 envios duplos consecutivos sem \textit{crash}; latência média $< 150$ ms.
 \end{itemize}
 
-\paragraph{Caso observado: logs e impacto prático}
-Durante a instrumentação foi detetado um padrão de erro quando o servidor tenta decifrar pacotes com Serpent: mensagens como
-\texttt{"Serpent compatibility decryption failed: All Serpent compatibility approaches failed"} seguidas de \texttt{BAD\_DECRYPT} aparecem no recetor. Estes sinais correspondem à falha da verificação AEAD — tipicamente causada por divergência nos campos autenticados (AAD), no \textit{nonce} ou por leitura/parsing incorreto do envelope.
-
-\paragraph{Reprodução e efeito sobre a base de dados}
-Verificou-se um cenário replicável que provoca corrupção/queda da base de dados no PC quando o cliente Android envia duas mensagens muito próximas em tempo. Exemplo:
-\begin{enumerate}
-    \item PC: OLA
-    \item ANDROID: SUP1
-    \item ANDROID: SUP2
-\end{enumerate}
-Nesse caso o recetor recebe \textit{frames} concatenados ou incompletos, tenta decifrá-los e falha (\texttt{BAD\_DECRYPT}), o que pode conduzir a escrita inválida na base de dados ou a estados em que a BD deixa de responder.
-
-\paragraph{Diagnóstico e medidas imediatas}
+\paragraph{Diagnóstico e Medidas}
 \begin{itemize}
-    \item Comparação lado-a-lado (hex) de AAD/nonce/tag mostra diferenças entre emissor e recetor quando ocorre a falha.
-    \item Reenvio isolado do mesmo envelope normalmente decifra corretamente, pelo que o problema não parece ser corrupção permanente dos bytes.
-    \item Condições de corrida no processamento e parsing de \textit{streams} TCP são a causa provável.
-\end{itemize}
-Medidas imediatas aplicadas:
-\begin{itemize}
-    \item Forçar processamento sequencial no recetor com um \textit{BufferAssembler}.
-    \item Introduzir ACK/backpressure em fases de diagnóstico para evitar ráfagas concorrentes.
-    \item Garantir que cada escrita na BD ocorre dentro de transações atómicas para evitar corrupção parcial.
+	\item Condições de corrida no parsing TCP causavam concatenação ou fragmentação de \textit{frames}.
+	\item Reenvio isolado decifra corretamente; problema ocorre apenas em ráfagas rápidas.
+	\item Medidas imediatas: processamento sequencial, ACK/backpressure, transações atómicas na BD.
 \end{itemize}
 
-\paragraph{Recomendações para correção definitiva}
+\paragraph{Recomendações}
 \begin{itemize}
-    \item Implementar o \textit{length-prefix} (4 bytes big-endian) e usar um \textit{BufferAssembler} robusto.
-    \item Serializar o acesso à base de dados através de um worker dedicado ou fila de escrita.
-    \item Validar comprimentos de AAD/nonce/tag antes de chamar a decriptação.
-    \item Assegurar unicidade de nonce por mensagem (ex.: NONCE = prefixo chave || SEQ monotónico).
+	\item \textit{Length-prefix} (4 bytes big-endian) + \textit{BufferAssembler} robusto.
+	\item Serialização de escrita na BD via \textit{worker} ou fila dedicada.
+	\item Validação de comprimentos de AAD, nonce e tag antes da decriptação.
+	\item NONCE único por mensagem (prefixo da chave + SEQ).
 \end{itemize}
 
-\subsubsection*{Lições aprendidas}
-A principal fonte de instabilidade não era apenas a cifra, mas a ausência de um contrato binário formal (layout de envelope + AAD + \textit{framing}). Ao fixar cada campo e a sua semântica, reduziram-se incompatibilidades e simplificou-se a depuração. A unicidade do nonce derivado de \textbf{SEQ} e a instrumentação detalhada foram determinantes para estabilizar o sistema.
-
-\medskip
-\textbf{Fundamentação teórica (AEAD, AAD, nonces e framing).}
+\paragraph{Lições Aprendidas}
 \begin{itemize}
-    \item \textbf{AEAD} combina confidencialidade e integridade: a decriptação falha integralmente se qualquer bit do \textit{ciphertext}, da \textbf{TAG} ou da \textbf{AAD} estiver alterado.
-    \item \textbf{AAD} é não cifrada mas autenticada; divergências entre emissor e recetor provocam \texttt{BAD\_DECRYPT}.
-    \item O tamanho da \textbf{TAG} (tipicamente 16 bytes) é um compromisso entre segurança e espaço.
-    \item \textbf{Nonces/IVs} em modos como GCM/EAX devem ser \emph{únicos por chave}.
+	\item Estabilidade depende do contrato binário formal: envelope + AAD + \textit{framing}.
+	\item Unicidade de nonce derivada do SEQ e instrumentação detalhada são essenciais.
 \end{itemize}
 
-\textbf{Modos AEAD e requisitos de nonce.}
+\paragraph{Fundamentos Criptográficos e Práticas}
 \begin{itemize}
-    \item \textbf{GCM}: nonce recomendado de 96 bits (12 bytes) e unicidade estrita.
-    \item \textbf{EAX/OCB}: alternativas com requisitos semelhantes.
-    \item \textbf{SIV}: tolera reutilização de nonce, à custa de desempenho.
-    \item \textbf{Prática adotada}: NONCE = prefixo derivado da chave || \textbf{SEQ} (12 bytes).
+	\item AEAD garante confidencialidade e integridade; falha se qualquer bit for alterado.
+	\item AAD autenticada mas não cifrada; divergências provocam \texttt{BAD\_DECRYPT}.
+	\item Nonces únicos por chave (GCM 96 bits).
+	\item HKDF para derivação de chaves de sessão; separação por função (encrypt, mac, nonce).
+	\item TCP pode fragmentar ou coalescer envios; usar length-prefix e validar LEN.
+	\item Proteções adicionais: SEQ monotónico, anti-replay, TIMESTAMP, comparação de TAG em tempo constante.
 \end{itemize}
 
-\textbf{Derivação e separação de chaves (KDF).}
+\paragraph{Testes e Verificação}
 \begin{itemize}
-    \item Utilize \textbf{HKDF} com \textit{salt} e \textit{info} para derivar chaves de sessão.
-    \item Separe chaves por função (encrypt, mac, nonce-prefix, etc.).
-    \item Considere rotação por tempo ou contagem; registe \textbf{VER}/\textbf{ALG} no envelope.
+	\item Vetores determinísticos no arranque (\textit{self-test}).
+	\item \textit{Fuzzing} do \textit{BufferAssembler} e desserializador.
+	\item Testes negativos: nonce repetido, TAG truncada, AAD alterada; \textit{stress tests} com ráfagas e latências variáveis.
 \end{itemize}
 
-\textbf{Framing em canais de \textit{byte-stream} (TCP).}
-\begin{itemize}
-    \item TCP pode fragmentar ou coalescer envios; o recetor deve reconstituir \textit{frames} completos.
-    \item Um \textbf{length-prefix} fixo (4 bytes big-endian) torna os \textit{frames} auto-delimitados.
-    \item Defina \textbf{limites máximos} por \textit{frame} e valide \textbf{LEN}.
-\end{itemize}
-
-\textbf{Proteções adicionais.}
-\begin{itemize}
-    \item \textbf{SEQ} monotónico, janela anti-\textit{replay} e \textbf{TIMESTAMP}.
-    \item Comparação de \textbf{TAG} em tempo constante; limpeza de chaves e \textit{buffers} sensíveis.
-    \item Erros genéricos no protocolo e \textit{logs} internos detalhados com limitação de taxa.
-\end{itemize}
-
-\textbf{Testes e verificação.}
-\begin{itemize}
-    \item \textbf{Vetores de teste} determinísticos no arranque (\textit{self-test}).
-    \item \textbf{Fuzzing} do \textit{BufferAssembler} e do desserializador.
-    \item Testes negativos: nonce repetido, TAG truncada, AAD alterada; \textbf{stress tests} com ráfagas e latências variáveis.
-\end{itemize}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\section{Testes}\label{testes}
-Os testes realizados tem como base 2 metodos:
-\begin{itemize}
-	\item Verificação da base de dados através do servidor
-	\item Sniffing das comunicações com o uso do Wireshark
-\end{itemize}
 %-------------------------------------------------------------------------------------------------
+\newpage
+\section{Testes Realizados}\label{testes}
+Nesta secção descrevem-se os testes efetuados ao longo do desenvolvimento, incluindo verificação da integridade da base de dados,
+monitorização do tráfego de rede e validação da camada criptográfica. Os testes foram realizados em diferentes cenários para garantir
+que o sistema cumpre os requisitos de confidencialidade, integridade e autenticidade das mensagens trocadas.
+
 \subsection{Servidor}
-Os testes realizados no servidor foram focados na verificação da base de dados e na monitorização das comunicações.
-Para a verificação da base de dados, é feita a tentativa de ler o ficheiro enviado, e como é possivel verificar nas figuras abaixo,
-ao ler o ficheiro sem criptografia, é possível visualizar o seu conteúdo perfeitamente, ao ler o ficheiro com criptografia,
-não é possível visualizar o seu conteúdo pois o servidor guarda a base de dados sem desencriptar, isto leva a que o ficheiro nem seja reconhecido como uma base de dados.
+Os testes no servidor focaram-se na validação da base de dados e na monitorização das comunicações da aplicação.
+
+Para verificar a base de dados, foram realizados ensaios de leitura do ficheiro armazenado. Nas figuras \ref{fig:db_normal} e \ref{fig:db_encriptada} é possível observar o seguinte:
+\begin{itemize}
+	\item Ao ler o ficheiro sem criptografia, o conteúdo da base de dados é visualizável e reconhecível pelo sistema.
+	\item Ao ler o ficheiro com criptografia, o conteúdo não é legível, nem reconhecido como uma base de dados válida, evidenciando que a camada de encriptação está a funcionar corretamente.
+\end{itemize}
+
 \begin{figure}[htb]
-    \centering
-    \begin{subfigure}[b]{0.9\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/DBNormal.png}
-        \caption{Sem Criptografia}
-        \label{fig:db_normal}
-    \end{subfigure}
-    \vskip 2cm
-    \begin{subfigure}[b]{0.9\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/DBEncriptada.png}
-        \caption{Com Criptografia}
-        \label{fig:db_encriptada}
-    \end{subfigure}
-    \caption{Teste com Servidor}
-    \label{fig:wireshark_msg_duas_imagens}
+	\centering
+	\begin{subfigure}[b]{0.9\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/DBNormal.png}
+		\caption{Sem Criptografia}
+		\label{fig:db_normal}
+	\end{subfigure}
+	\vskip 1cm
+	\begin{subfigure}[b]{0.9\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/DBEncriptada.png}
+		\caption{Com Criptografia}
+		\label{fig:db_encriptada}
+	\end{subfigure}
+	\caption{Visualização da Base de Dados no Servidor}
+	\label{fig:wireshark_msg_duas_imagens}
 \end{figure}
 \newpage
+
 %-------------------------------------------------------------------------------------------------   
 \subsection{Comunicações}
-Para a monitorização das comunicações, foi utilizado o Wireshark para fazer sniffing dos pacotes que estavam a ser enviados e recebidos pelo servidor.
-Como é possivel ver nas figuras abaixo, estes são os resultados:
+
+Para monitorizar as comunicações, foi utilizado o Wireshark, permitindo a captura dos pacotes enviados
+e recebidos pelo servidor. Nas figuras \ref{fig:wireshark_normal_fora} e \ref{fig:wireshark_encriptado_fora}
+apresentam-se exemplos destes testes, comparando tráfego sem e com criptografia.
 
 \begin{figure}[htb]
-    \centering
-    \begin{subfigure}[b]{1.05\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/WiresharkNormalMSG.png}
-        \caption{Sem Criptografia}
-        \label{fig:wireshark_normal_fora}
-    \end{subfigure}
-
-    % Espaço vertical entre as imagens
-    \vskip 1cm
-
-    \begin{subfigure}[b]{1.05\textwidth}
-        \includegraphics[width=\textwidth]{Recursos/WiresharkEncriptadaMSG.png}
-        \caption{Com Criptografia}
-        \label{fig:wireshark_encriptado_fora}
-    \end{subfigure}
-    \caption{Teste com Servidor}
-    \label{fig:duas_imagens}
+	\centering
+	\begin{subfigure}[b]{1.05\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/WiresharkNormalMSG.png}
+		\caption{Sem Criptografia}
+		\label{fig:wireshark_normal_fora}
+	\end{subfigure}
+	\vskip 1cm
+	\begin{subfigure}[b]{1.05\textwidth}
+		\includegraphics[width=\textwidth]{Recursos/WiresharkEncriptadaMSG.png}
+		\caption{Com Criptografia}
+		\label{fig:wireshark_encriptado_fora}
+	\end{subfigure}
+	\caption{Monitorização do tráfego no servidor com Wireshark}
+	\label{fig:duas_imagens}
 \end{figure}
-Para obter esta captura, foi necessário selecionar dentro do Wireshark o adaptador associado à VPN para ver o tráfego que passa lá dentro. Ao analisar o resultado obtido pelo
-Wireshark não é possível detetar nenhuma diferença óbvia, sem ser a questão do aparecimento do \textit{(text/html)} nas mensagens criptografadas. 
-Isto, só se vai tornar mais visível, quando for selecionada a mensagem, e com o botão direito do rato, selecionar depois a opção \textit{Follow --> TCP Stream},
-isto fará com que apareçam os resultados das figuras \ref{fig:wireguard_normal} e \ref{fig:wireguard_encriptado}.
 
-\newpage
-Sendo assim, podemos analisar o conteúdo desta mensagem 
-HTTP, sendo ele na figura \ref{fig:wireguard_normal} a estrutura da base de dados nas fases iniciais do projeto, onde ainda não estava criptografada. Ao analisar o conteúdo após,
-seria possível visualizar todas as informações da base de dados, incluindo utilizadores, mensagens e outros dados sensíveis.
+Para obter estas capturas, foi necessário selecionar no Wireshark o adaptador associado à VPN,
+garantindo que apenas o tráfego da aplicação era analisado. Ao observar as imagens,
+não se detectam diferenças óbvias, exceto pelo aparecimento do indicador \textit{(text/html)} nas mensagens criptografadas.
+
+Para uma análise mais detalhada, foi utilizado o recurso \textit{Follow → TCP Stream} no Wireshark,
+permitindo visualizar o conteúdo das mensagens de forma linear. Os resultados obtidos encontram-se nas
+figuras \ref{fig:wireguard_normal} e \ref{fig:wireguard_encriptado}.
+
+Na figura \ref{fig:wireguard_normal}, o tráfego sem criptografia exibe a estrutura da base de dados no inicio da mensagem,
+permitindo visualizar informações sensíveis, como utilizadores e mensagens.
+
 \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.7\textwidth]{Recursos/WiresharkNormal.png}
-        \caption{Wireshark Sem Criptografia}
-        \label{fig:wireguard_normal}
-\end{figure}
-\newpage
-Agora, ao analisar o conteúdo da figura \ref{fig:wireguard_encriptado}, podemos ver que a estrutura da base de dados está ilegível para um
-ser humano devido à criptografia AES256/Serpent, sendo impossível saber o conteúdo se não for feita a decriptação, e para isto ocorrer 
-é necessário ter acesso à chave, seja para "desenvolopar", seja para desencriptar. Isto garante a segurança 
-das comunicações caso o acesso à VPN seja comprometido, e uma pessoa não autorizada consiga aceder ao tráfego que passa pela VPN.
-\begin{figure}[h]
-    \centering
-        \includegraphics[width=0.7\textwidth]{Recursos/WiresharkEncriptada.png}
-        \caption{Wireshark Com Criptografia}
-        \label{fig:wireguard_encriptado}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Recursos/WiresharkNormal.png}
+	\caption{Conteúdo da base de dados sem criptografia}
+	\label{fig:wireguard_normal}
 \end{figure}
 
+Por outro lado, a figura \ref{fig:wireguard_encriptado} mostra o tráfego com criptografia AES256/Serpent.
+O conteúdo da base de dados torna-se ilegível para um observador externo, garantindo que apenas os sistemas com a chave correta podem aceder às informações.
+Esta abordagem assegura a confidencialidade das comunicações, mesmo que o tráfego seja interceptado por terceiros ou caso a VPN seja comprometida.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Recursos/WiresharkEncriptada.png}
+	\caption{Conteúdo da base de dados com criptografia}
+	\label{fig:wireguard_encriptado}
+\end{figure}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \section{Melhorias Futuras}
-Este projeto está sujeito a imensas melhorias, tais como:
+
+Embora o projeto tenha alcançado os objetivos definidos, existem diversas oportunidades para expansão e refinamento da solução. Entre as melhorias possíveis, destacam-se:
+
 \begin{itemize}
-    \item Implementação de novas funcionalidades, como mensagens de voz/chamadas criptografadas;
-    \item Melhoria da interface do utilizador;
-    \item Aumento da segurança das comunicações, adicionando HTTPS em vez de HTTP.
+	\item \textbf{Novas funcionalidades de comunicação:} implementação de mensagens de voz, imagens e chamadas criptografadas, de forma a expandir o leque de opções de comunicação segura entre os utilizadores, mantendo a confidencialidade e integridade dos dados.
+	\item \textbf{Aperfeiçoamento da interface de utilizador:} melhoria da experiência do utilizador (UX) e da estética da interface, incluindo suporte a temas personalizáveis, notificações avançadas e layouts responsivos para diferentes dispositivos.
+	\item \textbf{Fortalecimento da segurança das comunicações:} utilização de protocolos seguros de transporte, como HTTPS/TLS para a API e troca de ficheiros, proteção adicional contra ataques de rede, validação reforçada de certificados e rotinas de rotação de chaves.
+	\item \textbf{Escalabilidade e gestão de utilizadores:} otimização da infraestrutura da VPN e do servidor, para suportar um maior número de utilizadores simultâneos, incluindo mecanismos de balanceamento de carga e monitorização centralizada.
+	\item \textbf{Automatização e manutenção:} implementação de scripts automáticos de backup e atualização da base de dados, monitorização de logs e alertas de segurança, visando reduzir a intervenção manual e aumentar a fiabilidade do sistema.
+	\item \textbf{Otimização da sincronização de dados:} de forma a enviar apenas as alterações recentes ou mensagens individuais, reduzindo o volume de tráfego e melhorando a eficiência da comunicação, sem comprometer a integridade da base de dados.
 \end{itemize}
+
+Estas melhorias futuras podem não só reforçar a segurança e a robustez do sistema, como também proporcionar uma experiência de utilização mais completa e profissional, servindo de base para a evolução do projeto em contextos reais.
+
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Conclusão}\label{con}
-Concluimos assim que o projeto foi um sucesso, pois conseguimos desenvolver um sistema de comunicações seguras
-que permite a troca de mensagens de texto entre os seus utilizadores, sem que haja a possibilidade de terceiros acederem às mensagens trocadas.
-Em geral, foi um projeto que nos permitiu aprender bastante sobre a área de cibersegurança e comunicações seguras, 
-sendo que a implementação de uma VPN com o WireGuard foi um desafio interessante e que nos permitiu aprender bastante sobre o funcionamento das VPNs.
-Além do enorme desafio que foi implementar a camada da criptografia, e fazê-la funcionar corretamente entre dois sistemas operativos diferentes (Android e Windows), e 
-ainda com linguagens de programação diferentes (C\# e Kotlin).
+Conclui-se, assim, que o projeto atingiu os objetivos definidos, tendo sido desenvolvido um sistema de comunicações seguras
+que possibilita a troca de mensagens de texto entre utilizadores, assegurando a proteção contra acessos indevidos por terceiros.
+De forma geral, o projeto proporcionou uma aprendizagem significativa no domínio da cibersegurança e das comunicações seguras.
+A implementação de uma VPN com recurso ao WireGuard revelou-se um desafio relevante, permitindo aprofundar o conhecimento sobre
+o funcionamento destas tecnologias. Acresce ainda o processo de implementação da camada de criptografia, que exigiu garantir a
+sua correta integração entre dois sistemas operativos distintos (Android e Windows), recorrendo a linguagens de programação diferentes (C\# e Kotlin).
 
-Foi necessário aprender bastante sobre criptografia, servidores, redes e protocolos de comunicação, 
-e foi importante também para aprender a trabalhar em equipa, e separar as tarefas de maneira eficiente, para que tudo fosse feito dentro do prazo estipulado e sem 
-sobrecarregar nenhum dos elementos da equipa. Este projeto não só reforçou as nossas competências técnicas e de colaboração, como também contribuiu para uma 
-solução que pode servir de base a futuras melhorias e aplicações em ambientes reais.
+Foi igualmente necessário adquirir conhecimentos sobre criptografia, servidores, redes e protocolos de comunicação.
+O trabalho desenvolvido reforçou também competências relacionadas com a colaboração em equipa, nomeadamente na gestão e distribuição
+equilibrada de tarefas, de forma a cumprir os prazos estabelecidos. Neste sentido, o projeto não só contribuiu para a consolidação
+de competências técnicas e de cooperação, como também resultou numa solução que poderá servir de base a futuros desenvolvimentos e aplicações em contextos práticos.
 
 \section{Agradecimentos}\label{agradecimentos}
-Gostaríamos de agradecer ao professor Rui Miguel Soares Silva pela sua disponibilidade para dar opiniões e ajudar durante o projeto, assim como aos nossos colegas de turma pelo apoio e 
-colaboração.
+Os autores agradecem ao professor Rui Miguel Soares Silva pela disponibilidade demonstrada para fornecer orientação e sugestões ao longo do projeto,
+bem como aos colegas de turma pelo apoio e colaboração prestados.
 %---------------------------------------------------------------------------------------------------------------------------
 
 \newpage
