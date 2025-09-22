@@ -266,15 +266,101 @@ Entre os casos de uso representados, destacam-se:
 	\item Envio e receção de mensagens de texto, garantindo a confidencialidade através de encriptação;
 	\item Gestão de chats, incluindo a criação de novas conversas e a adição de participantes;
 	\item Configuração do serviço WireGuard, incluindo o download do ficheiro de configuração necessário para o estabelecimento da VPN;
-	\item Sincronização e armazenamento seguro da base de dados SQLite entre cliente e servidor.
 \end{itemize}
 
-Este diagrama serve como um ponto de referência para compreender o comportamento esperado do sistema e a forma como os utilizadores interagem com as diferentes funcionalidades, complementando as descrições apresentadas na secção de requisitos funcionais e não funcionais.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
+	\includegraphics[width=0.6\textwidth]{Recursos/CasosDeUso.png}
 	\caption{Diagrama de Casos de Uso}
 	\label{fig:use_case_diagram}
+\end{figure}
+Este diagrama serve como um ponto de referência para compreender o comportamento esperado do sistema e a forma como os utilizadores 
+interagem com as diferentes funcionalidades, complementando as descrições apresentadas na secção de requisitos funcionais e não funcionais.
+
+\section{Diagramas de Sequência}\label{diagramas_sequencia}
+Nesta secção serão mostrados os diagramas de sequência que ilustram o fluxo de interações para os principais casos de uso do sistema.
+\subsection{Criação de Conta}
+O diagrama de sequência da Figura \ref{fig:sequence_create_account} descreve o processo de criação de uma nova conta de utilizador, onde o utilizador 
+fornece as suas credenciais e solicita a criação da conta. O servidor valida as informações e, em caso de sucesso, confirma a criação da conta.
+É importante notar que a autenticação só é possível quando a ligação ao WireGuard está ativa.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/CriarConta.png}
+	\caption{Diagrama de Sequência - Criação de Conta}
+	\label{fig:sequence_create_account}
+\end{figure}
+\newpage
+\subsection{Autenticação de Utilizador}
+O diagrama de sequência da Figura \ref{fig:sequence_authenticate_user} ilustra o processo de autenticação de um utilizador existente, onde 
+o utilizador fornece as suas credenciais e solicita a autenticação. O servidor valida as informações e, em caso de sucesso, confirma a 
+autenticação do utilizador. É importante notar que a autenticação só é possível quando a ligação ao WireGuard está ativa.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Recursos/IniciarSessão.png}
+	\caption{Diagrama de Sequência - Autenticação de Utilizador}
+	\label{fig:sequence_authenticate_user}
+\end{figure}
+
+\newpage
+\subsection{Pedido do ficheiro de Configuração do WireGuard}
+O diagrama de sequência da Figura \ref{fig:sequence_request_wg_config} descreve o processo de pedido do ficheiro de configuração 
+do WireGuard, onde o utilizador solicita o ficheiro e o servidor responde com o conteúdo do mesmo.
+É importante notar que o pedido do ficheiro de configuração só é possível quando a ligação ao WireGuard está ativa e a sessão foi iniciada.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Recursos/Pedirficheiroconf.png}
+	\caption{Diagrama de Sequência - Pedido do ficheiro de Configuração do WireGuard}
+	\label{fig:sequence_request_wg_config}
+\end{figure}
+\newpage
+\subsection{Criação do Chat}
+O diagrama de sequência da Figura \ref{fig:sequence_create_chat} descreve o processo de criação de um novo chat, onde o utilizador
+fornece o nome do chat e os participantes, e solicita a criação do chat. O servidor valida as informações e, em caso de sucesso, confirma a criação do chat.
+É importante notar que a criação do chat só é possível quando a ligação ao WireGuard está ativa e a sessão foi iniciada.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Recursos/CriarGrupoSequencia.png}
+	\caption{Diagrama de Sequência - Criação do Chat}
+	\label{fig:sequence_create_chat}
+\end{figure}
+
+\newpage
+\subsection{Envio de Mensagem}
+O diagrama de sequência da Figura \ref{fig:sequence_send_message} ilustra o processo de envio de uma mensagem, onde o utilizador
+fornece o conteúdo da mensagem e solicita o envio. A mensagem é encriptada e enviada ao servidor, que a encaminha para o destinatário.
+É importante notar que o envio de mensagens só é possível quando a ligação ao WireGuard está ativa e a sessão foi iniciada.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Recursos/EnviarMensagem.png}
+	\caption{Diagrama de Sequência - Envio de Mensagem}
+	\label{fig:sequence_send_message}
+\end{figure}
+
+\newpage
+\subsection{Criação do Ficheiro de Configuração do WireGuard} 
+O diagrama de sequência da Figura \ref{fig:sequence_create_wg_config} descreve o processo de criação do ficheiro de configuração do WireGuard,
+onde o administrador do sistema, com acesso ao servidor, executa um script em Bash que gera o ficheiro de configuração. Este é bastante simples,
+porém é importante para facilitar a configuração do WireGuard para novos utilizadores. Esta ação é realizada diretamente no servidor, sem o auxílio
+da aplicação desenvolvida, mas através do \textit{PuTTy}, que permite a ligação remota ao servidor.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Recursos/Criarficheiroconf.png}
+	\caption{Diagrama de Sequência - Criação do Ficheiro de Configuração do WireGuard}
+	\label{fig:sequence_create_wg_config}
+\end{figure}
+
+\newpage
+\subsection{Gerir os Scripts de Trocas de Ficheiros}
+O diagrama de sequência da Figura \ref{fig:sequence_manage_file_scripts} descreve o processo de gestão dos scripts de trocas de ficheiros,
+onde o administrador do sistema, com acesso ao servidor, executa dois scripts feitos em \textit{Python} que permite o download e upload de ficheiros, no caso da 
+troca de mensagens, enquanto que o outro e relacionado com a figura \ref{fig:sequence_create_wg_config}, onde é este que permite o download do ficheiro de configuração 
+pelo utilizador. Esta ação é realizada também diretamente no servidor, sem o auxílio da aplicação desenvolvida, mas através do \textit{PuTTy}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Recursos/GerirScriptsSequencia.png}
+	\caption{Diagrama de Sequência - Gerir os Scripts de Trocas de Ficheiros}
+	\label{fig:sequence_manage_file_scripts}
 \end{figure}
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
@@ -282,10 +368,12 @@ Este diagrama serve como um ponto de referência para compreender o comportament
 Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 
 \begin{itemize}
-	\item \textbf{Linguagens de Programação:} C\#, Kotlin
+	\item \textbf{Linguagens de Programação:} C\#, Kotlin, Python, Bash
 	      \begin{itemize}
 		      \item \textbf{C\#:} Utilizada para o desenvolvimento da aplicação de desktop (Windows). Embora tivesse sido considerada a possibilidade de recorrer a Java, optou-se por C\# por já ter sido utilizada recentemente noutra unidade curricular.
 		      \item \textbf{Kotlin:} Utilizada para o desenvolvimento da aplicação Android. Apesar de também ter sido ponderado o uso de Java, escolheu-se Kotlin por se tratar de uma linguagem mais moderna e concisa, além de ter sido igualmente abordada noutra unidade curricular.
+		      \item \textbf{Python:} Utilizada para a implementação de scripts de apoio, como a criação automática de ficheiros de configuração do WireGuard, sendo uma linguagem que já tem um vasto histórico de utilização pela comunidade para estes fins.
+		      \item \textbf{Bash:} Utilizada para a automação de tarefas no sistema operativo, como a configuração de ficheiros do WireGuard no servidor, sendo a melhor opção para isso.
 	      \end{itemize}
 	\item \textbf{Frameworks:} .NET, WireGuard
 	      \begin{itemize}
@@ -296,6 +384,7 @@ Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 	      \begin{itemize}
 		      \item Selecionada por ser um sistema de gestão de base de dados relacional leve, rápido e de fácil utilização.
 	      \end{itemize}
+\newpage 
 	\item \textbf{Criptografia:} Rijndael (vencedor do AES), Serpent (segundo classificado no AES)
 	      \begin{itemize}
 		      \item Optou-se por estes algoritmos de criptografia simétrica por serem considerados seguros e eficientes, além de serem amplamente utilizados em aplicações de segurança. A escolha foi ainda reforçada pela recomendação do professor orientador.
@@ -307,7 +396,7 @@ Para o desenvolvimento deste projeto, foram utilizadas as seguintes tecnologias:
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\newpage
+
 \section{Arquitetura do Sistema}\label{arquitetura}
 O sistema é composto por uma aplicação que funcionará como um chat, onde os utilizadores registados na VPN poderão comunicar entre si.
 É importante notar que cada mensagem enviada corresponde ao ficheiro completo da base de dados SQLite, encapsulado e encriptado,
@@ -316,17 +405,23 @@ Dentro da aplicação, é possível identificar quais os utilizadores associados
 Quando uma mensagem é enviada, a aplicação contacta o servidor da VPN para obter o caminho até ao destinatário e proceder à entrega.
 Antes da transmissão, a mensagem é encriptada, garantindo assim a sua confidencialidade e integridade.
 A encriptação utilizada varia de acordo com uma lógica pré-definida na aplicação, recorrendo-se aos algoritmos AES (Rijndael) e Serpent.
-
+\newpage
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Estrutura}
 A estrutura do sistema centra-se na troca de informação através da VPN,
 podendo ser representada pela figura \ref{fig:system_architecture}:
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/SistemaFisico.png}
+	\includegraphics[width=1\textwidth]{Recursos/SistemaFisico.png}
 	\caption{Arquitetura do Sistema}
 	\label{fig:system_architecture}
 \end{figure}
+
+
+Os utilizadores comunicam entre si através da ligação VPN estabelecida com o servidor \mbox{WireGuard}, o que garante uma camada adicional 
+de segurança, além da criptografia. No entanto, na primeira vez que o utilizador acede À aplicação, é necessário fazer o download do ficheiro 
+de configuração por fora da VPN, uma vez que a ligação ainda não está estabelecida. Após o download, o utilizador pode iniciar a ligação VPN 
+e, posteriormente, autenticar-se na aplicação.
 \newpage
 
 %---------------------------------------------------------------------------------------------------------------------------

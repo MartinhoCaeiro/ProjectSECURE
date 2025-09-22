@@ -1,19 +1,26 @@
 \babel@toc {portuguese}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Cronograma do Projeto}}{1}{}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Diagrama de Casos de Uso}}{3}{}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Arquitetura do Sistema}}{5}{}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Processo de Encriptação das Mensagens}}{6}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Processo de Decriptação das Mensagens}}{7}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Estrutura da Base de Dados}}{10}{}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Ecrã de Login — Computador}}{12}{}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Ecrã de Lista de Chats — Computador}}{13}{}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Ecrã de Chat - Computador}}{14}{}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Ecrã de Configuração WireGuard - Computador}}{15}{}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Ecrã de Login - Android}}{16}{}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Ecrã de Configuração do WireGuard - Android}}{17}{}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Lista de Chats - Android}}{18}{}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Ecrã de Chat - Android}}{19}{}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Visualização da Base de Dados no Servidor}}{30}{}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Monitorização do tráfego no servidor com Wireshark}}{31}{}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Conteúdo da base de dados sem criptografia}}{32}{}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Conteúdo da base de dados com criptografia}}{32}{}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Diagrama de Sequência - Criação de Conta}}{4}{}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Diagrama de Sequência - Autenticação de Utilizador}}{5}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Diagrama de Sequência - Pedido do ficheiro de Configuração do WireGuard}}{6}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Diagrama de Sequência - Criação do Chat}}{7}{}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama de Sequência - Envio de Mensagem}}{8}{}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama de Sequência - Criação do Ficheiro de Configuração do WireGuard}}{9}{}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Diagrama de Sequência - Gerir os Scripts de Trocas de Ficheiros}}{10}{}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Arquitetura do Sistema}}{13}{}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Processo de Encriptação das Mensagens}}{14}{}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Processo de Decriptação das Mensagens}}{15}{}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Estrutura da Base de Dados}}{18}{}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Ecrã de Login — Computador}}{20}{}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Ecrã de Lista de Chats — Computador}}{21}{}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Ecrã de Chat - Computador}}{22}{}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Ecrã de Configuração WireGuard - Computador}}{23}{}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Ecrã de Login - Android}}{24}{}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Ecrã de Configuração do WireGuard - Android}}{25}{}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Lista de Chats - Android}}{26}{}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Ecrã de Chat - Android}}{27}{}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Visualização da Base de Dados no Servidor}}{38}{}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Monitorização do tráfego no servidor com Wireshark}}{39}{}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Conteúdo da base de dados sem criptografia}}{40}{}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Conteúdo da base de dados com criptografia}}{40}{}%

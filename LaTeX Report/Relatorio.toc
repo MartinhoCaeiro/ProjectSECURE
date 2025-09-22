@@ -2,50 +2,58 @@
 \contentsline {section}{\numberline {1}Introdução}{1}{}%
 \contentsline {section}{\numberline {2}Análise de Requisitos}{2}{}%
 \contentsline {section}{\numberline {3}Diagrama de Casos de Uso}{3}{}%
-\contentsline {section}{\numberline {4}Tecnologias Utilizadas}{4}{}%
-\contentsline {section}{\numberline {5}Arquitetura do Sistema}{5}{}%
-\contentsline {subsection}{\numberline {5.1}Estrutura}{5}{}%
-\contentsline {subsection}{\numberline {5.2}Encriptação}{6}{}%
-\contentsline {subsection}{\numberline {5.3}Implementação da Criptografia}{7}{}%
-\contentsline {paragraph}{Resumo da lógica}{7}{}%
-\contentsline {paragraph}{Trecho de código}{8}{}%
-\contentsline {paragraph}{Exemplo de validação}{8}{}%
-\contentsline {section}{\numberline {6}Módulos do Sistema}{9}{}%
-\contentsline {subsection}{\numberline {6.1}Interface}{9}{}%
-\contentsline {subsection}{\numberline {6.2}Módulo da VPN}{10}{}%
-\contentsline {subsection}{\numberline {6.3}Base de Dados}{10}{}%
-\contentsline {section}{\numberline {7}Desenvolvimento}{12}{}%
-\contentsline {subsection}{\numberline {7.1}Interface para Computador}{12}{}%
-\contentsline {subsubsection}{\numberline {7.1.1}Ecrã de Login}{12}{}%
-\contentsline {subsubsection}{\numberline {7.1.2}Ecrã de Lista de Chats}{13}{}%
-\contentsline {subsubsection}{\numberline {7.1.3}Ecrã de Chat}{14}{}%
-\contentsline {subsubsection}{\numberline {7.1.4}Ecrã de Configuração WireGuard}{15}{}%
-\contentsline {subsection}{\numberline {7.2}Interface para Android}{16}{}%
-\contentsline {subsubsection}{\numberline {7.2.1}Ecrã de Login}{16}{}%
-\contentsline {subsubsection}{\numberline {7.2.2}Ecrã de configuração do WireGuard}{17}{}%
-\contentsline {subsubsection}{\numberline {7.2.3}Ecrã de Lista de Chats}{18}{}%
-\contentsline {subsubsection}{\numberline {7.2.4}Ecrã de Chat}{19}{}%
-\contentsline {subsection}{\numberline {7.3}AlmaOS - Serviço de VPN}{20}{}%
-\contentsline {section}{\numberline {8}Problemas Encontrados}{23}{}%
-\contentsline {subsection}{\numberline {8.1}Problemas de Conexão}{23}{}%
-\contentsline {subsection}{\numberline {8.2}Problemas na Aplicação Windows/Android}{23}{}%
-\contentsline {subsection}{\numberline {8.3}Depuração da Camada Criptográfica e Protocolo de \textit {Framing}}{26}{}%
-\contentsline {paragraph}{Contexto}{26}{}%
-\contentsline {paragraph}{Sintomas}{26}{}%
-\contentsline {paragraph}{Abordagem de Depuração}{26}{}%
-\contentsline {paragraph}{Soluções Implementadas}{26}{}%
-\contentsline {paragraph}{Normalização do Envelope e \textit {Framing}}{26}{}%
-\contentsline {paragraph}{Robustez na Receção e Persistência}{28}{}%
-\contentsline {paragraph}{Resultados}{28}{}%
-\contentsline {paragraph}{Diagnóstico e Medidas}{28}{}%
-\contentsline {paragraph}{Recomendações}{28}{}%
-\contentsline {paragraph}{Lições Aprendidas}{29}{}%
-\contentsline {paragraph}{Fundamentos Criptográficos e Práticas}{29}{}%
-\contentsline {paragraph}{Testes e Verificação}{29}{}%
-\contentsline {section}{\numberline {9}Testes Realizados}{30}{}%
-\contentsline {subsection}{\numberline {9.1}Servidor}{30}{}%
-\contentsline {subsection}{\numberline {9.2}Comunicações}{31}{}%
-\contentsline {section}{\numberline {10}Melhorias Futuras}{33}{}%
-\contentsline {section}{\numberline {11}Conclusão}{34}{}%
-\contentsline {section}{\numberline {12}Agradecimentos}{34}{}%
-\contentsline {section}{Bibliografia}{35}{}%
+\contentsline {section}{\numberline {4}Diagramas de Sequência}{4}{}%
+\contentsline {subsection}{\numberline {4.1}Criação de Conta}{4}{}%
+\contentsline {subsection}{\numberline {4.2}Autenticação de Utilizador}{5}{}%
+\contentsline {subsection}{\numberline {4.3}Pedido do ficheiro de Configuração do WireGuard}{6}{}%
+\contentsline {subsection}{\numberline {4.4}Criação do Chat}{7}{}%
+\contentsline {subsection}{\numberline {4.5}Envio de Mensagem}{8}{}%
+\contentsline {subsection}{\numberline {4.6}Criação do Ficheiro de Configuração do WireGuard}{9}{}%
+\contentsline {subsection}{\numberline {4.7}Gerir os Scripts de Trocas de Ficheiros}{10}{}%
+\contentsline {section}{\numberline {5}Tecnologias Utilizadas}{11}{}%
+\contentsline {section}{\numberline {6}Arquitetura do Sistema}{12}{}%
+\contentsline {subsection}{\numberline {6.1}Estrutura}{13}{}%
+\contentsline {subsection}{\numberline {6.2}Encriptação}{14}{}%
+\contentsline {subsection}{\numberline {6.3}Implementação da Criptografia}{15}{}%
+\contentsline {paragraph}{Resumo da lógica}{15}{}%
+\contentsline {paragraph}{Trecho de código}{16}{}%
+\contentsline {paragraph}{Exemplo de validação}{16}{}%
+\contentsline {section}{\numberline {7}Módulos do Sistema}{17}{}%
+\contentsline {subsection}{\numberline {7.1}Interface}{17}{}%
+\contentsline {subsection}{\numberline {7.2}Módulo da VPN}{18}{}%
+\contentsline {subsection}{\numberline {7.3}Base de Dados}{18}{}%
+\contentsline {section}{\numberline {8}Desenvolvimento}{20}{}%
+\contentsline {subsection}{\numberline {8.1}Interface para Computador}{20}{}%
+\contentsline {subsubsection}{\numberline {8.1.1}Ecrã de Login}{20}{}%
+\contentsline {subsubsection}{\numberline {8.1.2}Ecrã de Lista de Chats}{21}{}%
+\contentsline {subsubsection}{\numberline {8.1.3}Ecrã de Chat}{22}{}%
+\contentsline {subsubsection}{\numberline {8.1.4}Ecrã de Configuração WireGuard}{23}{}%
+\contentsline {subsection}{\numberline {8.2}Interface para Android}{24}{}%
+\contentsline {subsubsection}{\numberline {8.2.1}Ecrã de Login}{24}{}%
+\contentsline {subsubsection}{\numberline {8.2.2}Ecrã de configuração do WireGuard}{25}{}%
+\contentsline {subsubsection}{\numberline {8.2.3}Ecrã de Lista de Chats}{26}{}%
+\contentsline {subsubsection}{\numberline {8.2.4}Ecrã de Chat}{27}{}%
+\contentsline {subsection}{\numberline {8.3}AlmaOS - Serviço de VPN}{28}{}%
+\contentsline {section}{\numberline {9}Problemas Encontrados}{31}{}%
+\contentsline {subsection}{\numberline {9.1}Problemas de Conexão}{31}{}%
+\contentsline {subsection}{\numberline {9.2}Problemas na Aplicação Windows/Android}{31}{}%
+\contentsline {subsection}{\numberline {9.3}Depuração da Camada Criptográfica e Protocolo de \textit {Framing}}{34}{}%
+\contentsline {paragraph}{Contexto}{34}{}%
+\contentsline {paragraph}{Sintomas}{34}{}%
+\contentsline {paragraph}{Abordagem de Depuração}{34}{}%
+\contentsline {paragraph}{Soluções Implementadas}{34}{}%
+\contentsline {paragraph}{Normalização do Envelope e \textit {Framing}}{34}{}%
+\contentsline {paragraph}{Robustez na Receção e Persistência}{36}{}%
+\contentsline {paragraph}{Resultados}{36}{}%
+\contentsline {paragraph}{Diagnóstico e Medidas}{36}{}%
+\contentsline {paragraph}{Recomendações}{36}{}%
+\contentsline {paragraph}{Lições Aprendidas}{37}{}%
+\contentsline {paragraph}{Fundamentos Criptográficos e Práticas}{37}{}%
+\contentsline {paragraph}{Testes e Verificação}{37}{}%
+\contentsline {section}{\numberline {10}Testes Realizados}{38}{}%
+\contentsline {subsection}{\numberline {10.1}Servidor}{38}{}%
+\contentsline {subsection}{\numberline {10.2}Comunicações}{39}{}%
+\contentsline {section}{\numberline {11}Melhorias Futuras}{41}{}%
+\contentsline {section}{\numberline {12}Conclusão}{42}{}%
+\contentsline {section}{\numberline {13}Agradecimentos}{42}{}%
+\contentsline {section}{Bibliografia}{43}{}%
