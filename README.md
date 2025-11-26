@@ -133,4 +133,8 @@ Acknowledgements
 - Professor Rui Miguel Soares Silva — project advisor
 - WireGuard, SQLite, BouncyCastle and other open-source projects used in this work.
 
+License
+-------
+- This repository is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
 
